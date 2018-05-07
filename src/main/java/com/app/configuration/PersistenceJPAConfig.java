@@ -40,7 +40,7 @@ public class PersistenceJPAConfig{
     public LocalSessionFactoryBean getSessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan(new String[] { "app.model" });
+        sessionFactory.setPackagesToScan(new String[] { "com.app.model" });
         sessionFactory.setHibernateProperties(additionalProperties());
         return sessionFactory;
     }
