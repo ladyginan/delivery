@@ -30,7 +30,7 @@ public class PersistenceJPAConfig{
     public DataSource dataSource(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:/3306");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/delivery");
         dataSource.setUsername( "root" );
         dataSource.setPassword( "root" );
         return dataSource;

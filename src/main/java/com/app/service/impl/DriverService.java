@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class DriverService implements DriverServiceInterface {
     @Autowired
-    private DriversRepository driversRepository;
+    private DriverServiceInterface driversRepository;
 
     public List<Driver> getAllDrivers() {
         return driversRepository.getAllDrivers();

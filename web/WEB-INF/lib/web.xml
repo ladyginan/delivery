@@ -17,7 +17,7 @@
     </context-param>
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>app.configuration</param-value>
+        <param-value>com.app</param-value>
     </context-param>
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -36,7 +36,7 @@
         </init-param>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>org.baeldung.spring</param-value>
+            <param-value>com.app</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>

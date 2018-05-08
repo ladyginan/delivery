@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface DriversRepositoryInterface {
 
-    Driver addDriver(Driver account);
-    void removeDriver(Driver account);
-    void updateDriver(Driver account);
+    Driver addDriver(Driver driver);
+    void removeDriver(Driver driver);
+    void updateDriver(Driver driver);
 
 
 }

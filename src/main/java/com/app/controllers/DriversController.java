@@ -1,5 +1,6 @@
 package com.app.controllers;
 import com.app.model.Driver;
+import com.app.service.api.DriverServiceInterface;
 import com.app.service.impl.DriverService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -16,7 +17,7 @@ import java.util.List;
 @RequestMapping(path = "/drivers")
 public class DriversController {
     @Autowired
-    private DriverService driverService;
+    private DriverServiceInterface driverService;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public @ResponseBody
