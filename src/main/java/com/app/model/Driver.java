@@ -2,15 +2,17 @@ package com.app.model;
 
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Setter
+@Setter @Getter
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -24,7 +26,8 @@ public class Driver {
     private String secondName;
 
     @Id
-    @Column(name = "ID_DRIVER", unique = true)
+    @GeneratedValue
+//    @Column(name = "ID_DRIVER", unique = true)
     private int idDriver;
 
     @Column(name = "HOURS_WORKED")
