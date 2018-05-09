@@ -10,6 +10,7 @@ public interface DriversRepositoryInterface {
     void addDriver(Driver driver);
     void removeDriver(int id);
     void updateDriver(Driver driver);
+    Driver getDriver(int id);
 
 
 

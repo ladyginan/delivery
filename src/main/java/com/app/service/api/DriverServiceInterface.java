@@ -8,7 +8,8 @@ public interface DriverServiceInterface {
     public List<Driver> getAllDrivers();
     void addDriver(Driver driver);
     void removeDriver(int id);
-    void updateDriver(int id);
+    void updateDriver(Driver driver);
+    Driver getDriver(int id);
 
 
 }

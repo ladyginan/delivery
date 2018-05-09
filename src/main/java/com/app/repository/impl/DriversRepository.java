@@ -36,18 +36,22 @@ public class DriversRepository implements DriversRepositoryInterface {
 
 //updating driver fields
     public void updateDriver(Driver driver) {
-        int id = driver.getIdDriver();
-        Driver driverToUpdate = (Driver) factory.getCurrentSession().get(Driver.class, id);
+        Driver driverToUpdate = getDriver(driver.getIdDriver());
         driverToUpdate.setName(driver.getSecondName());
         driverToUpdate.setSecondName(driver.getSecondName());
-        driverToUpdate.setIdDriver(id);
+        driverToUpdate.setIdDriver(driver.getIdDriver());
         driverToUpdate.setStatus(driver.getStatus());
         driverToUpdate.setHoursWorked(driver.getHoursWorked());
         driverToUpdate.setCurrentWaggon(driver.getCurrentWaggon());
         driverToUpdate.setCurrentCity(driver.getCurrentCity());
     }
 
-// remove driver
+    public Driver getDriver(int id) {
+        Driver driver = (Driver) factory.getCurrentSession().get(Driver.class, id);
+        return driver;
+    }
+
+    // remove driver
     public void removeDriver(int id) {
         factory.getCurrentSession().delete(id);
     }

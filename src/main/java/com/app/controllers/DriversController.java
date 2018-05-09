@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -44,6 +41,35 @@ public class DriversController {
         String message = "Driver was successfully added";
         modelAndView.addObject("message", message);
 
+        return modelAndView;
+    }
+    @RequestMapping(value="/edit/{id}", method=RequestMethod.GET)
+    public ModelAndView editTeamPage(@PathVariable Integer id) {
+        ModelAndView modelAndView = new ModelAndView("edit-team-form");
+        Driver team = driverService.getDriver(id);
+        modelAndView.addObject("team",team);
+        return modelAndView;
+    }
+
+    @RequestMapping(value="/edit/{id}", method=RequestMethod.POST)
+    public ModelAndView editDriver(@ModelAttribute Driver driver, @PathVariable Integer id) {
+
+        ModelAndView modelAndView = new ModelAndView("home");
+
+        driverService.updateDriver(driver);
+
+        String message = "Driver was successfully edited.";
+        modelAndView.addObject("message", message);
+
+        return modelAndView;
+    }
+
+    @RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
+    public ModelAndView deleteTeam(@PathVariable Integer id) {
+        ModelAndView modelAndView = new ModelAndView("home");
+        driverService.removeDriver(id);
+        String message = "Driver was successfully deleted.";
+        modelAndView.addObject("message", message);
         return modelAndView;
     }
 

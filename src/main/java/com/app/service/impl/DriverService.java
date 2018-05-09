@@ -21,10 +21,13 @@ public class DriverService implements DriverServiceInterface {
         driversRepository.addDriver(driver);
     }
 
-    public void updateDriver(int id){
-        driversRepository.updateDriver(id);
+    public void updateDriver(Driver driver){
+        driversRepository.updateDriver(driver);
     }
 
+    public Driver getDriver(int id) {
+        return driversRepository.getDriver(id);
+    }
 
 
     public void removeDriver(int id){
