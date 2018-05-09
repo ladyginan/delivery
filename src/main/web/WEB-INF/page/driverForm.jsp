@@ -9,9 +9,9 @@
 </head>
 <body>
 <div align="center">
-    <h1>New/Edit User</h1>
+    <h1>New/Edit Driver</h1>
     <table>
-        <form:form action="save" method="post" modelAttribute="driver">
+        <form:form action="${pageContext.request.contextPath}/team/add.html" method="post" modelAttribute="driver">
             <form:hidden path="id"/>
             <tr>
                 <td>Username:</td>
@@ -49,6 +49,7 @@
         </form:form>
     </table>
 </div>
+<p><a href="${pageContext.request.contextPath}/index.html">Home page</a></p>
 
 </body>
 </html>

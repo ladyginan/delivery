@@ -29,10 +29,11 @@ public class DriversController {
                 .body(driverService.getAllDrivers());
     }
 
-    @RequestMapping(value = "/new", method = RequestMethod.GET)
-    public String newDriver(Map<String, Object> model) {
-        model.put("driver", new Driver());
-        return "driverForm.";
+    @RequestMapping(value="/add", method=RequestMethod.GET)
+    public ModelAndView addDriverPage() {
+        ModelAndView modelAndView = new ModelAndView("driverForm");
+        modelAndView.addObject("driver", new Driver());
+        return modelAndView;
     }
 
     @RequestMapping(value="/add", method=RequestMethod.POST)

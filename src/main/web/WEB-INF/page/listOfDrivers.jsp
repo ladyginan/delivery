@@ -8,11 +8,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-    <title>List of teams</title>
+    <title>List of drivers</title>
 </head>
 <body>
-<h1>List of teams</h1>
-<p>Here you can see the list of the teams, edit them, remove or update.</p>
+<h1>List of drivers</h1>
+<p>Here you can see the list of the drivers, edit them, remove or update.</p>
 <table border="1px" cellpadding="0" cellspacing="0" >
     <thead>
     <tr>
