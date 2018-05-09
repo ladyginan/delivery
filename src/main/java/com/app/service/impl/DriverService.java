@@ -17,5 +17,19 @@ public class DriverService implements DriverServiceInterface {
         return driversRepository.getAllDrivers();
     }
 
+    public void addDriver(Driver driver){
+        driversRepository.addDriver(driver);
+    }
+
+    public void updateDriver(int id){
+        driversRepository.updateDriver(id);
+    }
+
+
+
+    public void removeDriver(int id){
+        driversRepository.removeDriver(id);
+    }
+
 
 }

@@ -5,5 +5,10 @@ import com.app.model.Driver;
 import java.util.List;
 
 public interface DriverServiceInterface {
-    List<Driver> getAllDrivers();
+    public List<Driver> getAllDrivers();
+    void addDriver(Driver driver);
+    void removeDriver(int id);
+    void updateDriver(int id);
+
+
 }
