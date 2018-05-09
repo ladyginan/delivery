@@ -45,7 +45,7 @@ public class DriversRepository implements DriversRepositoryInterface {
         driverToUpdate.setCurrentWaggon(driver.getCurrentWaggon());
         driverToUpdate.setCurrentCity(driver.getCurrentCity());
     }
-
+//get driver by id
     public Driver getDriver(int id) {
         Driver driver = (Driver) factory.getCurrentSession().get(Driver.class, id);
         return driver;
