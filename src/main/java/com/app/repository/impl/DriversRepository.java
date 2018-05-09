@@ -26,7 +26,7 @@ public class DriversRepository implements DriversRepositoryInterface {
         this.factory = factory;
     }
 //don't work
-    public List<?> getAllDrivers() {
+    public List<Driver> getAllDrivers() {
         return factory.getCurrentSession().createQuery("from Driver").list();
     }
 //add new driver

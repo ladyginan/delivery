@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface DriversRepositoryInterface {
 
-    List<?> getAllDrivers();
+    List<Driver> getAllDrivers();
     void addDriver(Driver driver);
     void removeDriver(int id);
     void updateDriver(Driver driver);
