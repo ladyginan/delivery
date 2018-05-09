@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>New or Edit User</title>
+    <title>New or Edit Driver</title>
 </head>
 <body>
 <div align="center">

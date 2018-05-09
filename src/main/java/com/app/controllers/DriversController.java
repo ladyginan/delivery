@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping(path = "/drivers")
@@ -27,11 +28,10 @@ public class DriversController {
                 .body(driverService.getAllDrivers());
     }
 
-    @RequestMapping(value = "/new",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ModelAndView newDriver(){
-        ModelAndView model = new ModelAndView("driverForm");
-        model.addObject("driver", new Driver());
-        return model;
+    @RequestMapping(value = "/new", method = RequestMethod.GET)
+    public String newDriver(Map<String, Object> model) {
+        model.put("driver", new Driver());
+        return "driverForm.";
     }
 
 }
