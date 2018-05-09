@@ -55,12 +55,9 @@ public class DriversController {
     public ModelAndView editDriver(@ModelAttribute Driver driver, @PathVariable Integer id) {
 
         ModelAndView modelAndView = new ModelAndView("home");
-
         driverService.updateDriver(driver);
-
         String message = "Driver was successfully edited.";
         modelAndView.addObject("message", message);
-
         return modelAndView;
     }
 
