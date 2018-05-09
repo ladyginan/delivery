@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -22,7 +23,7 @@ public class DriversController {
 
     @RequestMapping(value = "/list", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public @ResponseBody
-    ResponseEntity<List<Driver>> getAllUsers() {
+    ResponseEntity<List<Driver>> getAllDrivers() {
         return ResponseEntity.ok()
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .body(driverService.getAllDrivers());
@@ -32,6 +33,17 @@ public class DriversController {
     public String newDriver(Map<String, Object> model) {
         model.put("driver", new Driver());
         return "driverForm.";
+    }
+
+    @RequestMapping(value="/add", method=RequestMethod.POST)
+    public ModelAndView addingDriver(@ModelAttribute Driver driver){
+        ModelAndView modelAndView = new ModelAndView("welcome");
+        driverService.addDriver(driver);
+
+        String message = "Driver was successfully added";
+        modelAndView.addObject("message", message);
+
+        return modelAndView;
     }
 
 }

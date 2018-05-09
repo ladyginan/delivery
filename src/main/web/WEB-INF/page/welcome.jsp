@@ -1,21 +1,17 @@
-    <html>
-    <head>
-        <title>Spring MVC Tutorial by Crunchify - Hello World Spring MVC
-            Example</title>
-        <style type="text/css">
-            body {
-                background-image: url('https://crunchify.com/bg.png');
-            }
-        </style>
-    </head>
-<body>${message}
-
-<br>
-<br>
-<div style="font-family: verdana; padding: 10px; border-radius: 10px; font-size: 12px; text-align:center;">
-
-    Spring MCV.
-
-</div>
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+         pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <title>Home page</title>
+</head>
+<body>
+<h1>Home page</h1>
+<p>
+    ${message}<br/>
+    <a href="${pageContext.request.contextPath}/.html">Add new team</a><br/>
+    <a href="${pageContext.request.contextPath}/team/list.html">Team list</a><br/>
+</p>
 </body>
-</html>
