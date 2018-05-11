@@ -11,9 +11,4 @@ public class LinkController {
     public ModelAndView mainPage() {
         return new ModelAndView("welcome");
     }
-
-    @RequestMapping(value="/index")
-    public ModelAndView indexPage() {
-        return new ModelAndView("welcome");
-    }
 }

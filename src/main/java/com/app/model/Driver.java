@@ -15,17 +15,16 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Table(name = "DRIVERS")
 public class Driver {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "ID_DRIVER", unique = true)
+    private int idDriver;
 
     @Column(name = "NAME")
     private String name;
 
     @Column(name = "SECOND_NAME")
     private String secondName;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "ID_DRIVER", unique = true)
-    private int idDriver;
 
     @Column(name = "HOURS_WORKED")
     private int hoursWorked;
@@ -38,6 +37,5 @@ public class Driver {
 
     @Column(name = "CURRENT_WAGGON")
     private String currentWaggon;
-
 
 }

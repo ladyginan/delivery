@@ -14,8 +14,8 @@ import java.util.List;
 @Repository
 public class DriversRepository implements DriversRepositoryInterface {
     private List<Driver> drivers = Arrays.asList(
-            new Driver("Антон", "Петров", 44455, 8, "free", "Москва", "Фура№5"),
-            new Driver("Антон", "Петров", 44455, 8, "free", "Москва", "Фура№5"));
+            new Driver(1, "Антон", "Петров", 8, "free", "Москва", "Фура№5"),
+            new Driver(2, "Федор", "Иванов", 8, "free", "Москва", "Фура№5"));
 
 
 
@@ -27,7 +27,7 @@ public class DriversRepository implements DriversRepositoryInterface {
     }
 //don't work
     public List<Driver> getAllDrivers() {
-        return factory.getCurrentSession().createQuery("from Driver").list();
+        return drivers;
     }
 //add new driver
     public void addDriver(Driver driver) {
