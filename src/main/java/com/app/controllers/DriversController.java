@@ -20,9 +20,7 @@ public class DriversController {
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public ModelAndView getAllDrivers() {
-
         List<Driver> drivers = driverService.getAllDrivers();
-
         ModelAndView modelAndView = new ModelAndView("listOfDrivers");
         modelAndView.addObject("drivers", drivers);
         return modelAndView;
@@ -40,7 +38,6 @@ public class DriversController {
     public ModelAndView addingDriver(@ModelAttribute("driver") Driver driver, Map<String, Object> map, HttpServletRequest request) {
         ModelAndView modelAndView = new ModelAndView("welcome");
         driverService.addDriver(driver);
-
         String message = "Driver was successfully added";
         modelAndView.addObject("message", message);
 
@@ -49,16 +46,15 @@ public class DriversController {
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     public ModelAndView editTeamPage(@PathVariable Integer id) {
-        ModelAndView modelAndView = new ModelAndView("edit-team-form");
-        Driver team = driverService.getDriver(id);
-        modelAndView.addObject("team", team);
+        ModelAndView modelAndView = new ModelAndView("editDriverFrom");
+        Driver driver = driverService.getDriver(id);
+        modelAndView.addObject("driver", driver);
         return modelAndView;
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
     public ModelAndView editDriver(@ModelAttribute Driver driver, @PathVariable Integer id) {
-
-        ModelAndView modelAndView = new ModelAndView("home");
+        ModelAndView modelAndView = new ModelAndView("welcome");
         driverService.updateDriver(driver);
         String message = "Driver was successfully edited.";
         modelAndView.addObject("message", message);
@@ -67,7 +63,7 @@ public class DriversController {
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     public ModelAndView deleteTeam(@PathVariable Integer id) {
-        ModelAndView modelAndView = new ModelAndView("home");
+        ModelAndView modelAndView = new ModelAndView("welcome");
         driverService.removeDriver(id);
         String message = "Driver was successfully deleted.";
         modelAndView.addObject("message", message);
