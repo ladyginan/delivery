@@ -39,7 +39,6 @@ public class DriversController {
         driverService.addDriver(driver);
         String message = "Driver was successfully added";
         modelAndView.addObject("message", message);
-
         return modelAndView;
     }
 
