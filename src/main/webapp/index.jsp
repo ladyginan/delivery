@@ -2,8 +2,7 @@
 <html>
 <head>
     <title>Spring MVC+ Hibernate</title>
-
-
+    <link rel="stylesheet" href="/resources/css/example.css"/>
 </head>
 <body>
 <br>

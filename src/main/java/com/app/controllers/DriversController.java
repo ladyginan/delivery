@@ -46,7 +46,7 @@ public class DriversController {
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
-    public ModelAndView editTeamPage(@PathVariable Integer id) {
+    public ModelAndView editDriverPage(@PathVariable Integer id) {
         ModelAndView modelAndView = new ModelAndView("editDriverFrom");
         Driver driver = driverService.getDriver(id);
         modelAndView.addObject("driver", driver);

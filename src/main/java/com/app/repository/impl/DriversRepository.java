@@ -18,9 +18,7 @@ public class DriversRepository implements DriversRepositoryInterface {
     @Autowired
     private final SessionFactory factory;
 
-    private List<Driver> drivers = Arrays.asList(
-            new Driver("Антон", "Петров", 8, "free", "Москва", "Фура№5"),
-            new Driver("Антон", "Петров", 8, "free", "Москва", "Фура№5"));
+
 
     public DriversRepository(SessionFactory factory) {
         this.factory = factory;
