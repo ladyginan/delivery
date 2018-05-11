@@ -11,7 +11,7 @@
 <h1>Home page</h1>
 <p>
     ${message}<br/>
-    <a href="${pageContext.request.contextPath}/drivers/add">Add new team</a><br/>
-    <a href="${pageContext.request.contextPath}/drivers/list">Team list</a><br/>
+    <a href="${pageContext.request.contextPath}/drivers/add.html">Add new team</a><br/>
+    <a href="${pageContext.request.contextPath}/drivers/list.html">Team list</a><br/>
 </p>
 </body>

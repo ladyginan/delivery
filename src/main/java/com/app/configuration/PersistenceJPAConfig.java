@@ -16,7 +16,7 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan({"com.app.model"})
+@ComponentScan("com.app.model")
 public class PersistenceJPAConfig {
 
 
@@ -34,7 +34,7 @@ public class PersistenceJPAConfig {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan(new String[]{"com.app.model"});
+        sessionFactory.setPackagesToScan("com.app.model");
         sessionFactory.setHibernateProperties(additionalProperties());
         return sessionFactory;
     }
@@ -65,7 +65,6 @@ public class PersistenceJPAConfig {
         Properties properties = new Properties();
         properties.setProperty("hibernate.hbm2ddl.auto", "update");
         properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
-
         return properties;
     }
 

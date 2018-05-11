@@ -3,15 +3,6 @@
 <head>
     <title>Spring MVC+ Hibernate</title>
 
-    <script src="/resources/bootstrap/js/bootstrap.js"></script>
-    <script src="/resources/jquery/jquery-3.3.1.min.js"></script>
-    <script src="/resources/js/index.js"></script>
-
-    <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css"></link>
-    <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap-grid.min.css"></link>
-    <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap-reboot.min.css"></link>
-
-    <link rel="stylesheet" href="/resources/css/main.css"></link>
 
 </head>
 <body>
