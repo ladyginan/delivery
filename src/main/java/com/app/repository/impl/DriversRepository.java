@@ -1,4 +1,5 @@
 package com.app.repository.impl;
+
 import com.app.model.Driver;
 import com.app.repository.api.DriversRepositoryInterface;
 import org.hibernate.SessionFactory;
@@ -12,37 +13,49 @@ import java.util.List;
 // imitation JPA
 @Repository
 public class DriversRepository implements DriversRepositoryInterface {
-    private List<Driver> drivers = Arrays.asList(
-            new Driver("Антон", "Петров", 44455, 8, "free", "Москва", "Фура№5"),
-            new Driver("Антон", "Петров", 44455, 8, "free", "Москва", "Фура№5"));
-
-
-
-    public List<Driver> getAllDrivers() {
-        return drivers;
-    }
-
     //Hibernate+Spring
-
-    private final SessionFactory factory;
     @Autowired
+    private final SessionFactory factory;
+
+    private List<Driver> drivers = Arrays.asList(
+            new Driver("Антон", "Петров", 8, "free", "Москва", "Фура№5"),
+            new Driver("Антон", "Петров", 8, "free", "Москва", "Фура№5"));
+
     public DriversRepository(SessionFactory factory) {
         this.factory = factory;
     }
 
+    //don't work
+    public List<Driver> getAllDrivers() {
+        return factory.getCurrentSession().createQuery("from Driver").list();
+    }
 
-
-    public Driver addDriver(Driver driver) {
+    //add new driver
+    public void addDriver(Driver driver) {
         factory.getCurrentSession().save(driver);
+    }
+
+    //updating driver fields
+    public void updateDriver(Driver driver) {
+        Driver driverToUpdate = getDriver(driver.getIdDriver());
+        driverToUpdate.setName(driver.getSecondName());
+        driverToUpdate.setSecondName(driver.getSecondName());
+        driverToUpdate.setIdDriver(driver.getIdDriver());
+        driverToUpdate.setStatus(driver.getStatus());
+        driverToUpdate.setHoursWorked(driver.getHoursWorked());
+        driverToUpdate.setCurrentWaggon(driver.getCurrentWaggon());
+        driverToUpdate.setCurrentCity(driver.getCurrentCity());
+    }
+
+    //get driver by id
+    public Driver getDriver(int id) {
+        Driver driver = (Driver) factory.getCurrentSession().get(Driver.class, id);
         return driver;
     }
 
-    public void removeDriver(Driver driver) {
-        factory.getCurrentSession().delete(driver);
-    }
-
-    public void updateDriver(Driver driver) {
-        factory.getCurrentSession().update(driver);
+    // remove driver
+    public void removeDriver(int id) {
+        factory.getCurrentSession().delete(id);
     }
 
 

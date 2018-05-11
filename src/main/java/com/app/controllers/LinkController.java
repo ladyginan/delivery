@@ -5,10 +5,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class ControllerHello {
-    @RequestMapping("/welcome.jsp")public ModelAndView helloWorld() {
+public class LinkController {
 
-        String message = "Hello!";
-        return new ModelAndView("welcome", "message", message);
+    @RequestMapping(value = "/welcome")
+    public ModelAndView mainPage() {
+        return new ModelAndView("welcome");
     }
+
 }

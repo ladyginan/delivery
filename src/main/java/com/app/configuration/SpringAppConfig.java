@@ -2,6 +2,7 @@ package com.app.configuration;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -10,6 +11,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
 
 import java.util.List;
 
@@ -18,11 +20,14 @@ import java.util.List;
 @ComponentScan(basePackages = {"com.app"})
 public class SpringAppConfig implements WebMvcConfigurer {
 
-    public InternalResourceViewResolver internalResourceView() {
-        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setSuffix(".jsp");
-        viewResolver.setPrefix("/WEB-INF/page/");
-        return viewResolver;
+    @Bean
+    public InternalResourceViewResolver setupViewResolver() {
+        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+        resolver.setPrefix("/WEB-INF/page/");
+        resolver.setSuffix(".jsp");
+        resolver.setViewClass(JstlView.class);
+
+        return resolver;
     }
 
     public void addResourceHandlers(final ResourceHandlerRegistry registry) {
