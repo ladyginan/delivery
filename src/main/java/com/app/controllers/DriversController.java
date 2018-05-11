@@ -19,9 +19,7 @@ public class DriversController {
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public ModelAndView getAllDrivers() {
-
         List<Driver> drivers = driverService.getAllDrivers();
-
         ModelAndView modelAndView = new ModelAndView("listOfDrivers");
         modelAndView.addObject("drivers", drivers);
         return modelAndView;
@@ -46,8 +44,8 @@ public class DriversController {
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
-    public ModelAndView editTeamPage(@PathVariable Integer id) {
-        ModelAndView modelAndView = new ModelAndView("edit-team-form");
+    public ModelAndView editDriverPage(@PathVariable Integer id) {
+        ModelAndView modelAndView = new ModelAndView("editDriverForm");
         Driver driver = driverService.getDriver(id);
         modelAndView.addObject("driver", driver);
         return modelAndView;
@@ -63,7 +61,7 @@ public class DriversController {
     }
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
-    public ModelAndView deleteTeam(@PathVariable Integer id) {
+    public ModelAndView deleteDriver(@PathVariable Integer id) {
         ModelAndView modelAndView = new ModelAndView("welcome");
         driverService.removeDriver(id);
         String message = "Driver was successfully deleted.";
