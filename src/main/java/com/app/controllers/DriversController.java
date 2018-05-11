@@ -2,7 +2,9 @@ package com.app.controllers;
 
 import com.app.model.Driver;
 import com.app.service.api.DriverServiceInterface;
+import com.app.service.impl.DriverService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -17,6 +19,7 @@ import java.util.Map;
 public class DriversController {
     @Autowired
     private DriverServiceInterface driverService;
+
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public ModelAndView getAllDrivers() {
@@ -33,14 +36,12 @@ public class DriversController {
         return modelAndView;
     }
 
-    @Transactional
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public ModelAndView addingDriver(@ModelAttribute("driver") Driver driver, Map<String, Object> map, HttpServletRequest request) {
+    public ModelAndView addingDriver(@ModelAttribute("driver") Driver driver) {
         ModelAndView modelAndView = new ModelAndView("welcome");
         driverService.addDriver(driver);
         String message = "Driver was successfully added";
         modelAndView.addObject("message", message);
-
         return modelAndView;
     }
 
@@ -54,7 +55,7 @@ public class DriversController {
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
     public ModelAndView editDriver(@ModelAttribute Driver driver, @PathVariable Integer id) {
-        ModelAndView modelAndView = new ModelAndView("welcome");
+        ModelAndView modelAndView = new ModelAndView("editDriverFrom");
         driverService.updateDriver(driver);
         String message = "Driver was successfully edited.";
         modelAndView.addObject("message", message);
@@ -62,7 +63,7 @@ public class DriversController {
     }
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
-    public ModelAndView deleteTeam(@PathVariable Integer id) {
+    public ModelAndView deleteDriver(@PathVariable Integer id) {
         ModelAndView modelAndView = new ModelAndView("welcome");
         driverService.removeDriver(id);
         String message = "Driver was successfully deleted.";

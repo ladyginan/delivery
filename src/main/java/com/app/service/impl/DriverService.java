@@ -3,6 +3,8 @@ package com.app.service.impl;
 import com.app.model.Driver;
 import com.app.repository.api.DriversRepositoryInterface;
 import com.app.service.api.DriverServiceInterface;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +13,7 @@ import java.util.List;
 
 @Transactional
 @Service
+@Getter @Setter
 public class DriverService implements DriverServiceInterface {
     @Autowired
     private DriversRepositoryInterface driversRepository;
