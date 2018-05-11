@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 
@@ -27,7 +28,8 @@ public class DriversRepository implements DriversRepositoryInterface {
 
     //don't work
     public List<Driver> getAllDrivers() {
-        return factory.getCurrentSession().createQuery("from Driver").list();
+        List<Driver> drivers = factory.getCurrentSession().createQuery("from Driver").list();
+        return drivers;
     }
 
     //add new driver
