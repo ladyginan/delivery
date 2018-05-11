@@ -5,6 +5,7 @@ import com.app.repository.api.DriversRepositoryInterface;
 import com.app.service.api.DriverServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -18,11 +19,11 @@ public class DriverService implements DriverServiceInterface {
         return driversRepository.getAllDrivers();
     }
 
-    public void addDriver(Driver driver){
+    public void addDriver(Driver driver) {
         driversRepository.addDriver(driver);
     }
 
-    public void updateDriver(Driver driver){
+    public void updateDriver(Driver driver) {
         driversRepository.updateDriver(driver);
     }
 
@@ -31,7 +32,7 @@ public class DriverService implements DriverServiceInterface {
     }
 
 
-    public void removeDriver(int id){
+    public void removeDriver(int id) {
         driversRepository.removeDriver(id);
     }
 

@@ -12,9 +12,9 @@ import javax.persistence.*;
 @Getter
 @Entity
 @NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "DRIVERS")
 public class Driver {
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "ID_DRIVER", unique = true)
@@ -38,4 +38,12 @@ public class Driver {
     @Column(name = "CURRENT_WAGGON")
     private String currentWaggon;
 
+    public Driver(String name, String secondName, int hoursWorked, String status, String currentCity, String currentWaggon) {
+        this.name = name;
+        this.secondName = secondName;
+        this.hoursWorked = hoursWorked;
+        this.status = status;
+        this.currentCity = currentCity;
+        this.currentWaggon = currentWaggon;
+    }
 }
