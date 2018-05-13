@@ -1,6 +1,7 @@
 package com.app.model;
 
 
+import com.app.model.Enums.DriverStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,9 +9,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+@Entity
 @Setter
 @Getter
-@Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "DRIVERS")
@@ -31,13 +32,12 @@ public class Driver {
     private int hoursWorked;
 
     @Column(name = "STATUS")
-    private String status;
+    private DriverStatus status;
 
     @Column(name = "CURRENT_CITY")
     private String currentCity;
 
     @Column(name = "CURRENT_WAGGON")
     private String currentWaggon;
-
 
 }

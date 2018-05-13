@@ -30,7 +30,7 @@
             </tr>
             <tr>
                 <td>status:</td>
-                <td><form:input path="status"/></td>
+                <td><form:select path="status" items="${status}"/></td>
             </tr>
             <tr>
                 <td>current city:</td>

@@ -34,7 +34,6 @@ public class DriverService implements DriverServiceInterface {
         return driversRepository.getDriver(id);
     }
 
-
     public void removeDriver(int id) {
         driversRepository.removeDriver(id);
     }

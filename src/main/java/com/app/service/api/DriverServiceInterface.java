@@ -14,13 +14,22 @@ public interface DriverServiceInterface {
     void addDriver(Driver driver);
 
     /**
-     * method for remove id
+     * remove Driver by id
      * @param id
      */
     void removeDriver(int id);
 
+    /**
+     * edit Driver
+     * @param driver
+     */
     void updateDriver(Driver driver);
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     Driver getDriver(int id);
 
 
