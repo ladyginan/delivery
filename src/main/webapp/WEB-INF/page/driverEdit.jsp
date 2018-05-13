@@ -19,31 +19,31 @@
 <table>
     <tbody>
     <tr>
-        <td>ID:</td>
+        <td>Id:</td>
         <td><form:input path="idDriver"/></td>
     </tr>
     <tr>
-        <td>Name:</td>
+        <td>name:</td>
         <td><form:input path="name"/></td>
     </tr>
     <tr>
-        <td>Second Name:</td>
+        <td>second Name:</td>
         <td><form:input path="secondName"/></td>
     </tr>
     <tr>
-        <td>Hours Worked:</td>
+        <td>hours Worked:</td>
         <td><form:input path="hoursWorked"/></td>
     </tr>
     <tr>
-        <td>Status:</td>
+        <td>status:</td>
         <td><form:input path="status"/></td>
     </tr>
     <tr>
-        <td>Current City:</td>
+        <td>current City:</td>
         <td><form:input path="currentCity"/></td>
     </tr>
     <tr>
-        <td>Current Waggon:</td>
+        <td>current Waggon:</td>
         <td><form:input path="currentWaggon"/></td>
     </tr>
 

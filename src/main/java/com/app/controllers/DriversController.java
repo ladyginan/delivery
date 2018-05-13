@@ -55,7 +55,7 @@ public class DriversController {
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
     public ModelAndView editDriver(@ModelAttribute Driver driver, @PathVariable Integer id) {
-        ModelAndView modelAndView = new ModelAndView("editDriverFrom");
+        ModelAndView modelAndView = new ModelAndView("driverEdit");
         driverService.updateDriver(driver);
         String message = "Driver was successfully edited.";
         modelAndView.addObject("message", message);
