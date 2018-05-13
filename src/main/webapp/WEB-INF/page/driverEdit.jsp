@@ -9,7 +9,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-    <title>Edit team page</title>
+    <title>Edit driver page</title>
 </head>
 <body>
 <h1>Edit driver page</h1>
@@ -31,19 +31,19 @@
         <td><form:input path="secondName"/></td>
     </tr>
     <tr>
-        <td>Hours Worked</td>
+        <td>Hours Worked:</td>
         <td><form:input path="hoursWorked"/></td>
     </tr>
     <tr>
-        <td>Status</td>
+        <td>Status:</td>
         <td><form:input path="status"/></td>
     </tr>
     <tr>
-        <td>Current City</td>
+        <td>Current City:</td>
         <td><form:input path="currentCity"/></td>
     </tr>
     <tr>
-        <td>Current Waggon</td>
+        <td>Current Waggon:</td>
         <td><form:input path="currentWaggon"/></td>
     </tr>
 

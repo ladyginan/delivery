@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class LinkController {
 
-    @RequestMapping(path = "/")
+    @RequestMapping(path = "/welcome")
     public ModelAndView mainPage() {
         return new ModelAndView("welcome");
     }

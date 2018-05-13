@@ -47,7 +47,7 @@ public class DriversController {
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     public ModelAndView editDriverPage(@PathVariable Integer id) {
-        ModelAndView modelAndView = new ModelAndView("editDriverFrom");
+        ModelAndView modelAndView = new ModelAndView("driverEdit");
         Driver driver = driverService.getDriver(id);
         modelAndView.addObject("driver", driver);
         return modelAndView;
@@ -61,6 +61,7 @@ public class DriversController {
         modelAndView.addObject("message", message);
         return modelAndView;
     }
+
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     public ModelAndView deleteDriver(@PathVariable Integer id) {

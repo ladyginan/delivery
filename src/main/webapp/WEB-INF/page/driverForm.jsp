@@ -13,27 +13,31 @@
     <table>
         <form:form action="${pageContext.request.contextPath}/drivers/add" method="post" modelAttribute="driver">
             <tr>
-                <td>Username:</td>
+                <td>driver id:</td>
+                <td><form:input path="idDriver"/></td>
+            </tr>
+            <tr>
+                <td>name:</td>
                 <td><form:input path="name"/></td>
             </tr>
             <tr>
-                <td>Email:</td>
+                <td>second name:</td>
                 <td><form:input path="secondName"/></td>
             </tr>
             <tr>
-                <td>Username:</td>
+                <td>hours worked:</td>
                 <td><form:input path="hoursWorked"/></td>
             </tr>
             <tr>
-                <td>Username:</td>
+                <td>status:</td>
                 <td><form:input path="status"/></td>
             </tr>
             <tr>
-                <td>Username:</td>
+                <td>current city:</td>
                 <td><form:input path="currentCity"/></td>
             </tr>
             <tr>
-                <td>Username:</td>
+                <td>current waggon:</td>
                 <td><form:input path="currentWaggon"/></td>
             </tr>
             <tr>

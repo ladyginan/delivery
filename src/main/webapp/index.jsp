@@ -8,11 +8,10 @@
 <br>
 <div style="text-align:center">
     <h2>
-        Hey You..!! This is your 1st Spring MCV..<br> <br>
+        Hello!<br> <br>
     </h2>
     <h3>
-        <a href="/welcome">Click here to See Welcome Message... </a>(to
-        check Spring MVC Controller... @RequestMapping("/welcome"))
+        This application for cargos delivery company.  <a href="/welcome.html">Click here to start working.</a>
     </h3>
 
     <button type="button" id="click-button" class="btn btn-primary">
