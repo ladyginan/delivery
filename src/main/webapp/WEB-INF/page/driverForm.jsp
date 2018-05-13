@@ -30,7 +30,12 @@
             </tr>
             <tr>
                 <td>status:</td>
-                <td><form:select path="status" items="${status}"/></td>
+                <td><form:select path="status">
+                    <form:option value="" label=" Please select"/>
+                    <form:options items="${statusDriver}" />
+                </form:select>
+                </td>
+
             </tr>
             <tr>
                 <td>current city:</td>
