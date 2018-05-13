@@ -12,13 +12,13 @@
 </head>
 <body>
 <h1>List of drivers</h1>
-<p>Here you can see the list of drivers, edit them, remove or update.</p>
+<p>Here you can see the list of drivers,remove or update them.</p>
 
 <table border="1px" cellpadding="0" cellspacing="0">
     <thead>
     <tr>
         <th width="10%">driver id</th>
-        <th width="15%">name</th>
+        <th width="10%">name</th>
         <th width="10%">second name</th>
         <th width="10%">hours worked</th>
         <th width="10%">status</th>

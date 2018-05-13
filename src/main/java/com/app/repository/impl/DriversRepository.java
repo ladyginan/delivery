@@ -32,7 +32,7 @@ public class DriversRepository implements DriversRepositoryInterface {
 
     //add new driver
     public void addDriver(Driver driver) {
-        factory.getCurrentSession().save(driver);
+        factory.getCurrentSession().persist(driver);
     }
 
     //updating driver fields
