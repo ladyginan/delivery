@@ -1,13 +1,11 @@
 package com.app.repository.impl;
 
 import com.app.model.Driver;
-import com.app.repository.api.DriversRepositoryInterface;
+import com.app.repository.DriversRepositoryInterface;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 
 

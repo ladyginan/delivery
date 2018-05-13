@@ -1,5 +1,6 @@
 package com.app.model;
 
+import com.app.model.Enums.WaggonStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,7 +26,7 @@ public class Waggon {
     private int capacity;
 
     @Column(name = "STATUS")
-    private String status;
+    private WaggonStatus status;
 
     @Column(name = "CURRENT_CITY")
     private String currentCity;

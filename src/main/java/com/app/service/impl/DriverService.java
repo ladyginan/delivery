@@ -1,8 +1,8 @@
 package com.app.service.impl;
 
 import com.app.model.Driver;
-import com.app.repository.api.DriversRepositoryInterface;
-import com.app.service.api.DriverServiceInterface;
+import com.app.repository.DriversRepositoryInterface;
+import com.app.service.DriverServiceInterface;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;

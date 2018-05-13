@@ -1,11 +1,11 @@
-package com.app.service.api;
+package com.app.service;
 
 import com.app.model.Driver;
 
 import java.util.List;
 
 public interface DriverServiceInterface {
-    public List<Driver> getAllDrivers();
+    List<Driver> getAllDrivers();
 
     /**
      *
