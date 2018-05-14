@@ -15,7 +15,7 @@
 <h1>Edit driver page</h1>
 <p>Here you can edit existing driver.</p>
 
-<form:form method = "POST" comandName = "driver" action="${pageContext.request.contextPath}/drivers/edit/${driver.id}.html">
+<form:form method = "POST" modelAttribute="driver" action="${pageContext.request.contextPath}/drivers/edit/${driver.idDriver}.html">
 <table>
     <tbody>
     <tr>
