@@ -10,14 +10,14 @@ import javax.persistence.*;
 
 @Entity
 @Table(name ="WAGGONS")
-@Getter @Setter
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Waggon {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @OneToOne
-    @JoinColumn(name = "idWaggon")
+    @Column
     private String IdWaggon;
 
     @Column(name = "SHIFT_SIZE")
@@ -31,5 +31,9 @@ public class Waggon {
 
     @Column(name = "CURRENT_CITY")
     private String currentCity;
+
+    @OneToOne
+    @JoinColumn(name = "idDriver")
+    private Driver driver;
 
 }

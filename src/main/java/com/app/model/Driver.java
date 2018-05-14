@@ -37,7 +37,7 @@ public class Driver {
     @Column(name = "CURRENT_CITY")
     private String currentCity;
 
-    @OneToOne(mappedBy = "idWaggon", fetch = FetchType.EAGER)
+    @OneToOne(mappedBy = "driver", fetch = FetchType.EAGER)
     private Waggon currentWaggon;
 
 }
