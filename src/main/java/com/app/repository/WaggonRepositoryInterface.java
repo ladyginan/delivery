@@ -10,9 +10,9 @@ public interface WaggonRepositoryInterface {
 
     void addWaggon(Waggon waggon);
 
-    void removeWaggon(int id);
+    void removeWaggon(String id);
 
     void updateWaggon(Waggon waggon);
 
-    Waggon getWaggon(int id);
+    Waggon getWaggon(String id);
 }

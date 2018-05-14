@@ -16,7 +16,7 @@ import javax.persistence.*;
 public class Waggon {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "ID_DRIVER", unique = true)
+    @Column(name = "ID_WAGGON", unique = true)
     private String IdWaggon;
 
     @Column(name = "SHIFT_SIZE")

@@ -17,7 +17,6 @@ public class DriversRepository implements DriversRepositoryInterface {
     private final SessionFactory factory;
 
 
-
     public DriversRepository(SessionFactory factory) {
         this.factory = factory;
     }
@@ -43,6 +42,7 @@ public class DriversRepository implements DriversRepositoryInterface {
         driverToUpdate.setHoursWorked(driver.getHoursWorked());
         driverToUpdate.setCurrentWaggon(driver.getCurrentWaggon());
         driverToUpdate.setCurrentCity(driver.getCurrentCity());
+        factory.getCurrentSession().update(driverToUpdate);
     }
 
     //get driver by id
