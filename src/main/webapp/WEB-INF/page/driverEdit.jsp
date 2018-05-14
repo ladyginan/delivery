@@ -19,10 +19,6 @@
 <table>
     <tbody>
     <tr>
-        <td>Id:</td>
-        <td><form:input path="idDriver"/></td>
-    </tr>
-    <tr>
         <td>name:</td>
         <td><form:input path="name"/></td>
     </tr>

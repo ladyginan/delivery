@@ -12,11 +12,7 @@
     <h1>New/Edit Driver</h1>
     <table>
         <form:form action="${pageContext.request.contextPath}/drivers/add" method="post" modelAttribute="driver">
-            <tr>
-                <td>driver id:</td>
-                <td><form:input path="idDriver"/></td>
-            </tr>
-            <tr>
+           <tr>
                 <td>name:</td>
                 <td><form:input path="name"/></td>
             </tr>
