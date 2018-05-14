@@ -16,7 +16,8 @@ import javax.persistence.*;
 public class Waggon {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "ID_WAGGON", unique = true)
+    @OneToOne
+    @JoinColumn(name = "idWaggon")
     private String IdWaggon;
 
     @Column(name = "SHIFT_SIZE")
@@ -30,4 +31,5 @@ public class Waggon {
 
     @Column(name = "CURRENT_CITY")
     private String currentCity;
+
 }
