@@ -22,7 +22,7 @@ public class WaggonRepository implements WaggonRepositoryInterface {
 
     @Override
     public void addWaggon(Waggon waggon) {
-        factory.getCurrentSession().persist(waggon);
+        factory.getCurrentSession().save(waggon);
     }
 
     @Override
