@@ -1,19 +1,14 @@
 package com.app.model;
 
 import com.app.model.Enums.WaggonStatus;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.sun.xml.internal.ws.developer.UsesJAXBContext;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name ="WAGGONS")
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@Data
 public class Waggon {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -35,5 +30,9 @@ public class Waggon {
     @OneToOne
     @JoinColumn(name = "idDriver")
     private Driver driver;
+
+    @OneToOne
+    @JoinColumn(name = "idOrder")
+    private Order order;
 
 }

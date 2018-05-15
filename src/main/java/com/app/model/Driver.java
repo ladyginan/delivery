@@ -2,21 +2,14 @@ package com.app.model;
 
 
 import com.app.model.Enums.DriverStatus;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
-@Setter
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 @Table(name = "DRIVERS")
 public class Driver {
-
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "ID_DRIVER", unique = true)
