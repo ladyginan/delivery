@@ -17,7 +17,6 @@
 <table border="1px" cellpadding="0" cellspacing="0">
     <thead>
     <tr>
-        <th width="10%">driver id</th>
         <th width="10%">name</th>
         <th width="10%">second name</th>
         <th width="10%">hours worked</th>
@@ -28,7 +27,6 @@
     </tr>
     </thead>
     <tbody>
-
         <c:forEach var="driver" items="${drivers}">
             <tr>
                 <td>${driver.idDriver}</td>
