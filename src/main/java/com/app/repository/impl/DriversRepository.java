@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 
-// imitation JPA
 @Repository
 public class DriversRepository implements DriversRepositoryInterface {
     //Hibernate+Spring
@@ -21,7 +20,7 @@ public class DriversRepository implements DriversRepositoryInterface {
         this.factory = factory;
     }
 
-    //don't work
+    //show driver list
     public List<Driver> getAllDrivers() {
         List<Driver> drivers = factory.getCurrentSession().createQuery("from Driver").list();
         return drivers;

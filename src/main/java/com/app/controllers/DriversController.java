@@ -15,7 +15,6 @@ public class DriversController {
     @Autowired
     private DriverServiceInterface driverService;
 
-
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public ModelAndView getAllDrivers() {
         List<Driver> drivers = driverService.getAllDrivers();
