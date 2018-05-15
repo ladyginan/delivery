@@ -39,7 +39,10 @@
             </tr>
             <tr>
                 <td>current waggon:</td>
-                <td><form:input path="currentWaggon"/></td>
+                <td><form:select path="currentWaggon">
+                        <form:option value="" label=" Please select"/>
+                        <form:options items="${wagons}" itemValue="IdWaggon" itemLabel="IdWaggon" />
+                    </form:select></td>
             </tr>
             <tr>
                 <td colspan="2" align="center">
