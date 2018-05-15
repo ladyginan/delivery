@@ -5,11 +5,11 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>New or Edit Driver</title>
+    <title>New or Edit driver</title>
 </head>
 <body>
 <div align="center">
-    <h1>New/Edit Driver</h1>
+    <h1>New/Edit driver</h1>
     <table>
         <form:form action="${pageContext.request.contextPath}/drivers/add" method="post" modelAttribute="driver">
            <tr>
@@ -27,11 +27,10 @@
             <tr>
                 <td>status:</td>
                 <td><form:select path="status">
-                    <form:option value="" label=" Please select"/>
-                    <form:options items="${statusDriver}" />
-                </form:select>
+                        <form:option value="" label=" Please select"/>
+                        <form:options items="${statusDriver}" />
+                    </form:select>
                 </td>
-
             </tr>
             <tr>
                 <td>current city:</td>
