@@ -57,6 +57,7 @@ public class WaggonController {
         modelAndView.addObject("message", message);
         return modelAndView;
     }
+
     @RequestMapping(path = "/delete/{id}", method = RequestMethod.GET)
     public ModelAndView removeWaggon(@PathVariable String id){
         ModelAndView modelAndView = new ModelAndView("welcome");

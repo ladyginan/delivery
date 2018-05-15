@@ -34,7 +34,7 @@ public class DriversRepository implements DriversRepositoryInterface {
     //updating driver fields
     public void updateDriver(Driver driver) {
         Driver driverToUpdate = getDriver(driver.getIdDriver());
-        driverToUpdate.setName(driver.getSecondName());
+        driverToUpdate.setName(driver.getName());
         driverToUpdate.setSecondName(driver.getSecondName());
         driverToUpdate.setIdDriver(driver.getIdDriver());
         driverToUpdate.setStatus(driver.getStatus());
