@@ -32,6 +32,7 @@ public class WaggonController {
         modelAndView.addObject("waggon",new Waggon());
         return modelAndView;
     }
+    
     @RequestMapping(path = "/add", method = RequestMethod.POST)
     public ModelAndView addingWaggon(@ModelAttribute("waggon") Waggon waggon){
         ModelAndView modelAndView = new ModelAndView("welcome");

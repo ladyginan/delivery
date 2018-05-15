@@ -14,5 +14,8 @@
     ${message}<br/>
     <a href="${pageContext.request.contextPath}/drivers/add.html">Add new driver</a><br/>
     <a href="${pageContext.request.contextPath}/drivers/list.html">Driver list</a><br/>
+        <a href="${pageContext.request.contextPath}/waggons/add.html">Add new waggon</a><br/>
+        <a href="${pageContext.request.contextPath}/waggons/list.html">Waggon list</a><br/>
+
 </p>
 </body>

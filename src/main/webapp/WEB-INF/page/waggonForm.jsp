@@ -33,10 +33,15 @@
                 <td>Current city:</td>
                 <td><form:input path="currentCity"/></td>
             </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="Save">
+                </td>
+            </tr>
 
         </form:form>
     </table>
-
 </div>
+<p><a href="${pageContext.request.contextPath}/">Home page</a></p>
 </body>
 </html>
