@@ -2,6 +2,7 @@ package com.app.service.impl;
 
 import com.app.model.Driver;
 import com.app.repository.DriversRepositoryInterface;
+import com.app.repository.WaggonRepositoryInterface;
 import com.app.service.DriverServiceInterface;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,6 +18,8 @@ import java.util.List;
 public class DriverService implements DriverServiceInterface {
     @Autowired
     private DriversRepositoryInterface driversRepository;
+    @Autowired
+    private WaggonRepositoryInterface waggonRepository;
 
     public List<Driver> getAllDrivers() {
         return driversRepository.getAllDrivers();

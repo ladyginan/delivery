@@ -2,11 +2,13 @@ package com.app.controllers;
 
 import com.app.model.Driver;
 import com.app.service.DriverServiceInterface;
+import com.app.service.WaggonServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Controller
@@ -14,6 +16,8 @@ import java.util.List;
 public class DriversController {
     @Autowired
     private DriverServiceInterface driverService;
+    @Autowired
+    private WaggonServiceInterface waggonService;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public ModelAndView getAllDrivers() {
@@ -23,10 +27,12 @@ public class DriversController {
         return modelAndView;
     }
 
+    @Transactional
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public ModelAndView addDriverPage() {
         ModelAndView modelAndView = new ModelAndView("driverForm");
         modelAndView.addObject("driver", new Driver());
+        modelAndView.addObject("wagons", waggonService.getAllWaggons());
         return modelAndView;
     }
 
