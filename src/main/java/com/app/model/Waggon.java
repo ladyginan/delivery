@@ -1,19 +1,18 @@
 package com.app.model;
 
 import com.app.model.Enums.WaggonStatus;
-import com.sun.xml.internal.ws.developer.UsesJAXBContext;
 import lombok.*;
-
 import javax.persistence.*;
 
 @Entity
 @Table(name ="WAGGONS")
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
 public class Waggon {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column
-    private String IdWaggon;
+    private String idWaggon ;
 
     @Column(name = "SHIFT_SIZE")
     private int shiftSize;
@@ -34,5 +33,16 @@ public class Waggon {
     @OneToOne
     @JoinColumn(name = "idOrder")
     private Order order;
+
+    public Waggon(int shiftSize, int capacity, WaggonStatus status, String currentCity, Driver driver, Order order){
+        int id = (int)(Math.random()*100000);
+        this.idWaggon = "UU" + id;
+        this.shiftSize = shiftSize;
+        this.capacity = capacity;
+        this.status = status;
+        this.currentCity = currentCity;
+        this.driver = driver;
+        this.order = order;
+    }
 
 }

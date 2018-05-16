@@ -2,7 +2,6 @@ package com.app.model;
 
 import com.app.model.Enums.OrderStatus;
 import lombok.Data;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -18,14 +17,12 @@ public class Order {
     @Column(name ="ORDER_STATUS")
     private OrderStatus status;
 
-    @Column(name = "WAY_POINTS_LIST")
-    @ElementCollection(targetClass=WayPoint.class)
-    private List<WayPoint> PointList;
+    @Embedded
+    private WayPoint pointList;
 
     @OneToOne(mappedBy = "order", fetch = FetchType.EAGER)
     private Waggon currentWaggon;
 
-    @Column(name = "DRIVERS_LIST")
-    @ElementCollection(targetClass=Driver.class)
+    @OneToMany(mappedBy = "order", fetch = FetchType.EAGER)
     private List<Driver> DriverList;
 }
