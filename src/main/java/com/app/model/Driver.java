@@ -24,6 +24,7 @@ public class Driver {
     @Column(name = "HOURS_WORKED")
     private int hoursWorked;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "STATUS")
     private DriverStatus status;
 
@@ -34,7 +35,7 @@ public class Driver {
     private Waggon currentWaggon;
 
     @ManyToOne
-    @JoinColumn(name="ORDER", nullable=false)
+    @JoinColumn(name="ID_ORDER", nullable=false)
     private Order order;
 
 

@@ -14,7 +14,6 @@ import java.util.List;
 
 @Transactional
 @Service
-@Getter @Setter
 public class DriverService implements DriverServiceInterface {
     @Autowired
     private DriversRepositoryInterface driversRepository;

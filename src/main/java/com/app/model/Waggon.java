@@ -20,6 +20,7 @@ public class Waggon {
     @Column(name = "CAPACITY")
     private int capacity;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "STATUS")
     private WaggonStatus status;
 
@@ -31,7 +32,7 @@ public class Waggon {
     private Driver driver;
 
     @OneToOne
-    @JoinColumn(name = "ID_ORDER", nullable=false)
+    @JoinColumn(name = "ID_ORDER")
     private Order order;
 
     public Waggon(int shiftSize, int capacity, WaggonStatus status, String currentCity, Driver driver, Order order){

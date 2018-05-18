@@ -1,6 +1,7 @@
 package com.app.repository.impl;
 
 import com.app.model.Cargo;
+import com.app.repository.CargoRepositoryInterface;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class CargoRepository {
+public class CargoRepository implements CargoRepositoryInterface {
     @Autowired
     private final SessionFactory factory;
 
@@ -18,13 +19,16 @@ public class CargoRepository {
 
 
     //show cargoes list
+    @Override
     public List<Cargo> getAllCargos() {
         List<Cargo> cargoes = factory.getCurrentSession().createQuery("from Cargo").list();
         return cargoes;
     }
-    //add new cargo
-    public void addCargo(Cargo cargo) {
-        factory.getCurrentSession().save(cargo);
+    //get cargo by id
+    @Override
+    public Cargo getCargo(int id) {
+        Cargo cargo = factory.getCurrentSession().get(Cargo.class, id);
+        return cargo;
     }
 
 

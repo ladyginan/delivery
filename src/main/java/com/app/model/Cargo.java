@@ -2,7 +2,6 @@ package com.app.model;
 
 import com.app.model.Enums.OrderStatus;
 import lombok.Data;
-
 import javax.persistence.*;
 
 @Entity
@@ -22,4 +21,8 @@ public class Cargo {
 
     @Column(name = "STATUS")
     private OrderStatus status;
+
+    @OneToOne(mappedBy = "cargo", fetch = FetchType.EAGER)
+    private WayPoint wayPoint;
+
 }
