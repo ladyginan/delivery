@@ -5,7 +5,9 @@ import com.app.model.Cargo;
 import java.util.List;
 
 public interface CargoRepositoryInterface {
-    List<Cargo> getAllCargos();
+    List<Cargo> getAllCargoes();
 
     Cargo getCargo(int id);
+
+    void addCargo(Cargo cargo);
 }

@@ -18,14 +18,18 @@ public class Map {
     private String city;
 
     @Column(name = "LATITUDE")
-    private int latitude;
+    private double latitude;
 
     @Column(name = "LONGITUDE")
-    private int longitude;
+    private double longitude;
 
     @OneToOne(mappedBy = "map", fetch = FetchType.EAGER)
     private WayPoint wayPoint;
 
-
+    public Map(String city, double latitude, double longitude){
+        this.city = city;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
 
 }

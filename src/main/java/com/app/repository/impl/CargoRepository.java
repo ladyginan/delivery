@@ -17,10 +17,9 @@ public class CargoRepository implements CargoRepositoryInterface {
         this.factory = factory;
     }
 
-
     //show cargoes list
     @Override
-    public List<Cargo> getAllCargos() {
+    public List<Cargo> getAllCargoes() {
         List<Cargo> cargoes = factory.getCurrentSession().createQuery("from Cargo").list();
         return cargoes;
     }
@@ -29,6 +28,12 @@ public class CargoRepository implements CargoRepositoryInterface {
     public Cargo getCargo(int id) {
         Cargo cargo = factory.getCurrentSession().get(Cargo.class, id);
         return cargo;
+    }
+
+    //add new cargo
+    @Override
+    public void addCargo(Cargo cargo) {
+        factory.getCurrentSession().save(cargo);
     }
 
 

@@ -2,6 +2,9 @@ package com.app.model;
 
 import com.app.model.Enums.OrderStatus;
 import lombok.Data;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -25,5 +28,6 @@ public class Order {
     private Waggon currentWaggon;
 
     @OneToMany(mappedBy = "order", fetch = FetchType.EAGER)
+    @Fetch(value = FetchMode.SUBSELECT)
     private List<Driver> DriverList;
 }

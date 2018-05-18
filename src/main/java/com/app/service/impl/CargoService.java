@@ -17,12 +17,17 @@ public class CargoService implements CargoServiceInterface {
 
 
     @Override
-    public List<Cargo> getAllCargos() {
-        return cargoRepository.getAllCargos();
+    public List<Cargo> getAllCargoes() {
+        return cargoRepository.getAllCargoes();
     }
 
     @Override
     public Cargo getCargo(int id) {
         return cargoRepository.getCargo(id);
+    }
+
+    @Override
+    public void addCargo(Cargo cargo) {
+       cargoRepository.addCargo(cargo);
     }
 }
