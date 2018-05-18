@@ -18,11 +18,11 @@ public class Order {
     private OrderStatus status;
 
     @Embedded
-    private WayPoint pointList;
+    private List<WayPoint> pointList;
 
-    @OneToOne(mappedBy = "order", fetch = FetchType.EAGER)
+    @OneToOne(mappedBy = "ORDER", fetch = FetchType.EAGER)
     private Waggon currentWaggon;
 
-    @OneToMany(mappedBy = "order", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "ORDER", fetch = FetchType.EAGER)
     private List<Driver> DriverList;
 }

@@ -11,6 +11,9 @@ public class WayPoint {
     @Column(name = "CITY")
     private String city;
 
-    @Column(name = "distance")
-    private int distance;
+    @Column(name = "LATITUDE")
+    private int latitude;
+
+    @Column(name = "LONGITUDE")
+    private int longitude;
 }

@@ -27,11 +27,11 @@ public class Waggon {
     private String currentCity;
 
     @OneToOne
-    @JoinColumn(name = "idDriver")
+    @JoinColumn(name = "ID_DRIVER")
     private Driver driver;
 
     @OneToOne
-    @JoinColumn(name = "idOrder", nullable=false)
+    @JoinColumn(name = "ID_ORDER", nullable=false)
     private Order order;
 
     public Waggon(int shiftSize, int capacity, WaggonStatus status, String currentCity, Driver driver, Order order){

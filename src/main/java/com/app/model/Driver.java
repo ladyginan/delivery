@@ -34,12 +34,8 @@ public class Driver {
     private Waggon currentWaggon;
 
     @ManyToOne
-    @JoinColumn(name="order", nullable=false)
+    @JoinColumn(name="ORDER", nullable=false)
     private Order order;
 
-    public Driver(){
-        int id = (int)(Math.random()*100000);
-        this.idDriver =  id;
-    }
 
 }
