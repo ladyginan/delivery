@@ -17,7 +17,7 @@
         <a href="${pageContext.request.contextPath}/drivers/list.html">Driver list</a><br/>
         <a href="${pageContext.request.contextPath}/waggons/add.html">Add new waggon</a><br/>
         <a href="${pageContext.request.contextPath}/waggons/list.html">Waggon list</a><br/>
-        <a href="${pageContext.request.contextPath}/cargoes/add.html"></a><br/>
+        <a href="${pageContext.request.contextPath}/cargoes/add.html">Add new cargo</a><br/>
 
 </p>
 </body>

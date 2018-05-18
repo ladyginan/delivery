@@ -11,12 +11,9 @@
         Hello!<br> <br>
     </h2>
     <h3>
-        This application for cargos delivery company.  <a href="/welcome.html">Click here to start working.</a>
+        This application for cargoes delivery company.  <a href="/welcome.html">Click here to start working.</a>
     </h3>
 
-    <button type="button" id="click-button" class="btn btn-primary">
-        Notifications <span class="badge badge-light">4</span>
-    </button>
 
 </div>
 </body>

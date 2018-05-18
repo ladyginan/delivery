@@ -1,5 +1,6 @@
 package com.app.model;
 
+import com.app.model.Enums.CargoStatus;
 import com.app.model.Enums.OrderStatus;
 import lombok.Data;
 import javax.persistence.*;
@@ -19,8 +20,9 @@ public class Cargo {
     @Column(name ="WEIGHT")
     private int weight;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "STATUS")
-    private OrderStatus status;
+    private CargoStatus status;
 
     @OneToOne(mappedBy = "cargo", fetch = FetchType.EAGER)
     private WayPoint wayPoint;

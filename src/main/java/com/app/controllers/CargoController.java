@@ -15,14 +15,12 @@ import org.springframework.web.servlet.ModelAndView;
 public class CargoController {
     @Autowired
     private CargoServiceInterface cargoService;
-    @Autowired
-    private MapServiceInterface mapService;
+
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public ModelAndView addCargoPage(){
         ModelAndView modelAndView = new ModelAndView("cargoForm");
         modelAndView.addObject("cargo", new Cargo());
-        modelAndView.addObject("cities", mapService.getAllMap());
         return modelAndView;
     }
 
