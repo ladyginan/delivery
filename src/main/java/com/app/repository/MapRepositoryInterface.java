@@ -7,5 +7,4 @@ import java.util.List;
 public interface MapRepositoryInterface {
     List<Map> getAllMap();
 
-    void addMap();
 }

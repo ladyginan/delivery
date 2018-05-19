@@ -39,7 +39,7 @@
                 <td>
                 <form:select path="map">
                     <form:option value="" label=" Please select"/>
-                    <form:options items="${maps}" itemValue="idCity" itemLabel="idCity" />
+                    <form:options items="${maps}" itemValue="city" itemLabel="city" />
                 </form:select>
             </tr>
             <tr>

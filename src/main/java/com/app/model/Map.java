@@ -1,12 +1,16 @@
 package com.app.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
 @Data
 @Table(name = "MAPS")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Map {
     @Id
     @GeneratedValue
@@ -31,10 +35,5 @@ public class Map {
     @OneToOne(mappedBy = "map")
     private Waggon waggon;
 
-    public Map(String city, double latitude, double longitude) {
-        this.city = city;
-        this.latitude = latitude;
-        this.longitude = longitude;
-    }
 
 }
