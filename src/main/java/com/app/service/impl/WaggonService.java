@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class WaggonService implements WaggonServiceInterface {
     @Autowired
@@ -33,7 +34,7 @@ public class WaggonService implements WaggonServiceInterface {
     }
 
     @Override
-    public Waggon getWaggon(String id) {
-        return null;
+    public Waggon getWaggon(int id) {
+        return waggonRepository.getWaggon(id);
     }
 }

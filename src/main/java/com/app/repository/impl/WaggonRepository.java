@@ -42,16 +42,17 @@ public class WaggonRepository implements WaggonRepositoryInterface {
     public void updateWaggon(Waggon waggon) {
         Waggon WaggonToUpdate = getWaggon(waggon.getIdWaggon());
         WaggonToUpdate.setIdWaggon(waggon.getIdWaggon());
+        WaggonToUpdate.setRegNumber(waggon.getRegNumber());
         WaggonToUpdate.setShiftSize(waggon.getShiftSize());
         WaggonToUpdate.setCapacity(waggon.getCapacity());
         WaggonToUpdate.setStatus(waggon.getStatus());
-        WaggonToUpdate.setCurrentCity(waggon.getCurrentCity());
+        WaggonToUpdate.setMap(waggon.getMap());
         factory.getCurrentSession().update(WaggonToUpdate);
     }
 
     @Transactional
     @Override
-    public Waggon getWaggon(String id) {
+    public Waggon getWaggon(int id) {
         Waggon waggon = (Waggon) factory.getCurrentSession().get(Waggon.class, id);
         return waggon;
     }

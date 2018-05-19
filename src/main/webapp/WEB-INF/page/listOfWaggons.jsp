@@ -27,6 +27,7 @@
         <c:forEach var = "waggons" items="${waggons}">
             <tr>
                 <td>${waggon.idWaggon}</td>
+                <td>${waggon.regNumber}</td>
                 <td>${waggon.shiftSize}</td>
                 <td>${waggon.capacity}</td>
                 <td>${waggon.status}</td>

@@ -23,6 +23,7 @@ public class CargoRepository implements CargoRepositoryInterface {
         List<Cargo> cargoes = factory.getCurrentSession().createQuery("from Cargo").list();
         return cargoes;
     }
+
     //get cargo by id
     @Override
     public Cargo getCargo(int id) {

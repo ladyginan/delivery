@@ -2,7 +2,6 @@ package com.app.controllers;
 
 import com.app.model.Order;
 import com.app.service.CargoServiceInterface;
-import com.app.service.MapServiceInterface;
 import com.app.service.OrderServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,15 +21,15 @@ public class OrderController {
 
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public ModelAndView getAllOrders(){
+    public ModelAndView getAllOrders() {
         List<Order> orders = orderService.getAllOrders();
         ModelAndView modelAndView = new ModelAndView("listOfOrders");
-        modelAndView.addObject("orders",orders);
-        return  modelAndView;
+        modelAndView.addObject("orders", orders);
+        return modelAndView;
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public ModelAndView addOrderPage(){
+    public ModelAndView addOrderPage() {
         ModelAndView modelAndView = new ModelAndView("orderForm");
         modelAndView.addObject("order", new Order());
         modelAndView.addObject("cargo", cargoService.getAllCargoes());

@@ -3,11 +3,10 @@ package com.app.model;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Data
-@Table(name = "MAP")
+@Table(name = "MAPS")
 public class Map {
     @Id
     @GeneratedValue
@@ -26,7 +25,13 @@ public class Map {
     @OneToOne(mappedBy = "map", fetch = FetchType.EAGER)
     private WayPoint wayPoint;
 
-    public Map(String city, double latitude, double longitude){
+    @OneToOne(mappedBy = "map")
+    private Driver driver;
+
+    @OneToOne(mappedBy = "map")
+    private Waggon waggon;
+
+    public Map(String city, double latitude, double longitude) {
         this.city = city;
         this.latitude = latitude;
         this.longitude = longitude;

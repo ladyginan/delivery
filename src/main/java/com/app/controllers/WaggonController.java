@@ -13,13 +13,13 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @Controller
-@RequestMapping(path ="/waggons")
+@RequestMapping(path = "/waggons")
 public class WaggonController {
     @Autowired
     private WaggonServiceInterface waggonService;
 
     @RequestMapping(path = "/list", method = RequestMethod.GET)
-        public ModelAndView getAllWaggon(){
+    public ModelAndView getAllWaggon() {
         List<Waggon> waggons = waggonService.getAllWaggons();
         ModelAndView modelAndView = new ModelAndView("listOfWaggons");
         modelAndView.addObject("waggon", waggons);
@@ -27,14 +27,14 @@ public class WaggonController {
     }
 
     @RequestMapping(path = "/add", method = RequestMethod.GET)
-    public ModelAndView addWaggonPage(){
+    public ModelAndView addWaggonPage() {
         ModelAndView modelAndView = new ModelAndView("waggonForm");
-        modelAndView.addObject("waggon",new Waggon());
+        modelAndView.addObject("waggon", new Waggon());
         return modelAndView;
     }
-    
+
     @RequestMapping(path = "/add", method = RequestMethod.POST)
-    public ModelAndView addingWaggon(@ModelAttribute("waggon") Waggon waggon){
+    public ModelAndView addingWaggon(@ModelAttribute("waggon") Waggon waggon) {
         ModelAndView modelAndView = new ModelAndView("welcome");
         waggonService.addWaggon(waggon);
         String message = "Driver was successfully added";
@@ -43,7 +43,7 @@ public class WaggonController {
     }
 
     @RequestMapping(path = "/edit/{id}", method = RequestMethod.GET)
-    public ModelAndView editWaggonPage(@PathVariable String id){
+    public ModelAndView editWaggonPage(@PathVariable int id) {
         ModelAndView modelAndView = new ModelAndView("waggonEdit");
         Waggon waggon = waggonService.getWaggon(id);
         modelAndView.addObject("waggon", waggon);
@@ -51,7 +51,7 @@ public class WaggonController {
     }
 
     @RequestMapping(path = "/edit/{id}", method = RequestMethod.POST)
-    public ModelAndView editWaggon(@ModelAttribute Waggon waggon, @PathVariable String id){
+    public ModelAndView editWaggon(@ModelAttribute Waggon waggon, @PathVariable String id) {
         ModelAndView modelAndView = new ModelAndView("waggonEdit");
         waggonService.updateWaggon(waggon);
         String message = "Waggon was successfully edited.";
@@ -60,7 +60,7 @@ public class WaggonController {
     }
 
     @RequestMapping(path = "/delete/{id}", method = RequestMethod.GET)
-    public ModelAndView removeWaggon(@PathVariable String id){
+    public ModelAndView removeWaggon(@PathVariable String id) {
         ModelAndView modelAndView = new ModelAndView("welcome");
         waggonService.removeWaggon(id);
         String message = "Waggon was successfully deleted.";

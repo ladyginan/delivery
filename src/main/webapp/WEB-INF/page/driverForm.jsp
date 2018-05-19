@@ -7,11 +7,11 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>New or Edit driver</title>
+    <title>New driver</title>
 </head>
 <body>
 <div align="center">
-    <h1>New/Edit driver</h1>
+    <h1>New driver</h1>
     <table>
         <form:form action="${pageContext.request.contextPath}/drivers/add" method="post" modelAttribute="driver">
            <tr>
@@ -36,7 +36,11 @@
             </tr>
             <tr>
                 <td>current city:</td>
-                <td><form:input path="currentCity"/></td>
+                <td>
+                <form:select path="map">
+                    <form:option value="" label=" Please select"/>
+                    <form:options items="${maps}" itemValue="idCity" itemLabel="idCity" />
+                </form:select>
             </tr>
             <tr>
                 <td>current waggon:</td>

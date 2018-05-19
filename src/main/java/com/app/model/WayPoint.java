@@ -6,13 +6,18 @@ import lombok.Data;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "WAYPOINTS")
 @Data
 public class WayPoint {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name ="ID_WAY_POINT", unique = true)
+    @Column(name = "ID_WAY_POINT", unique = true)
     private int idWayPoint;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "ORDER_TYPE")
+    private OrderType orderType;
 
     @OneToOne
     @JoinColumn(name = "ID_CITY")
@@ -21,10 +26,6 @@ public class WayPoint {
     @OneToOne
     @JoinColumn(name = "ID_CARGO")
     private Cargo cargo;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "ORDER_TYPE")
-    private OrderType orderType;
 
     @ManyToOne
     @JoinColumn(name = "ID_ORDER")

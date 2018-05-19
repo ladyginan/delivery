@@ -1,18 +1,25 @@
 package com.app.model;
 
 import com.app.model.Enums.WaggonStatus;
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name ="WAGGONS")
+@Table(name = "WAGGONS")
 @Getter
 @Setter
 @NoArgsConstructor
 public class Waggon {
     @Id
-    @Column
-    private String idWaggon ;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "ID_WAGGON", unique = true)
+    private int idWaggon;
+
+    @Column(name = "REGISTRASION_NUMBER")
+    private String regNumber;
 
     @Column(name = "SHIFT_SIZE")
     private int shiftSize;
@@ -24,8 +31,9 @@ public class Waggon {
     @Column(name = "STATUS")
     private WaggonStatus status;
 
-    @Column(name = "CURRENT_CITY")
-    private String currentCity;
+    @OneToOne
+    @JoinColumn(name = "ID_CITY")
+    private Map map;
 
     @OneToOne
     @JoinColumn(name = "ID_DRIVER")
@@ -34,16 +42,5 @@ public class Waggon {
     @OneToOne
     @JoinColumn(name = "ID_ORDER")
     private Order order;
-
-    public Waggon(int shiftSize, int capacity, WaggonStatus status, String currentCity, Driver driver, Order order){
-        int id = (int)(Math.random()*100000);
-        this.idWaggon = "UU" + id;
-        this.shiftSize = shiftSize;
-        this.capacity = capacity;
-        this.status = status;
-        this.currentCity = currentCity;
-        this.driver = driver;
-        this.order = order;
-    }
 
 }

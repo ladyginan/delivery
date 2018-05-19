@@ -37,7 +37,7 @@
     </tr>
     <tr>
         <td>current City:</td>
-        <td><form:input path="currentCity"/></td>
+        <td><form:input path="map"/></td>
     </tr>
     <tr>
         <td>current Waggon:</td>

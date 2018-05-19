@@ -35,7 +35,7 @@
                 <td>${driver.secondName}</td>
                 <td>${driver.hoursWorked}</td>
                 <td>${driver.status}</td>
-                <td>${driver.currentCity}</td>
+                <td>${driver.map}</td>
                 <td>${driver.currentWaggon}</td>
                 <td>
                     <a href="${pageContext.request.contextPath}/drivers/edit/${driver.idDriver}.html">Edit</a><br/>

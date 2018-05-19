@@ -1,8 +1,8 @@
 package com.app.model;
 
 import com.app.model.Enums.CargoStatus;
-import com.app.model.Enums.OrderStatus;
 import lombok.Data;
+
 import javax.persistence.*;
 
 @Entity
@@ -17,7 +17,7 @@ public class Cargo {
     @Column(name = "NAME")
     private String name;
 
-    @Column(name ="WEIGHT")
+    @Column(name = "WEIGHT")
     private int weight;
 
     @Enumerated(EnumType.STRING)

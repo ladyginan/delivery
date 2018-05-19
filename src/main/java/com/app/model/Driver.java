@@ -2,9 +2,10 @@ package com.app.model;
 
 
 import com.app.model.Enums.DriverStatus;
-import lombok.*;
+import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -28,14 +29,15 @@ public class Driver {
     @Column(name = "STATUS")
     private DriverStatus status;
 
-    @Column(name = "CURRENT_CITY")
-    private String currentCity;
+    @OneToOne
+    @JoinColumn(name = "ID_CITY")
+    private Map map;
 
     @OneToOne(mappedBy = "driver", fetch = FetchType.EAGER)
     private Waggon currentWaggon;
 
     @ManyToOne
-    @JoinColumn(name="ID_ORDER", nullable=false)
+    @JoinColumn(name = "ID_ORDER")
     private Order order;
 
 

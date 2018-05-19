@@ -4,8 +4,6 @@ import com.app.model.Driver;
 import com.app.repository.DriversRepositoryInterface;
 import com.app.repository.WaggonRepositoryInterface;
 import com.app.service.DriverServiceInterface;
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

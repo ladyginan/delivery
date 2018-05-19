@@ -8,12 +8,12 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+
 @Transactional
 @Service
 public class CargoService implements CargoServiceInterface {
     @Autowired
     private CargoRepositoryInterface cargoRepository;
-
 
 
     @Override
@@ -28,6 +28,6 @@ public class CargoService implements CargoServiceInterface {
 
     @Override
     public void addCargo(Cargo cargo) {
-       cargoRepository.addCargo(cargo);
+        cargoRepository.addCargo(cargo);
     }
 }

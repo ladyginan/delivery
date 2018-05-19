@@ -6,13 +6,17 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>New or Edit waggon</title>
+    <title>New waggon</title>
 </head>
 <body>
 <div align="center">
-    <h1>New/Edit waggon</h1>
+    <h1>New waggon</h1>
     <table>
         <form:form action="${pageContext.request.contextPath}/waggons/add" method ="post" modelAttribute="waggon">
+            <tr>
+                <td>Capacity:</td>
+                <td><form:input path="regNumber"/></td>
+            </tr>
             <tr>
                 <td>Shift size:</td>
                 <td><form:input path="shiftSize"/></td>
@@ -31,8 +35,13 @@
                 </td>
             </tr>
             <tr>
-                <td>Current city:</td>
-                <td><form:input path="currentCity"/></td>
+                <td>City:</td>
+                <td>
+                <form:select path="map">
+                    <form:option value="" label ="Please select"/>
+                    <form:options itmes="${map}"/>
+                </form:select>
+                </td>
             </tr>
             <tr>
                 <td colspan="2" align="center">
