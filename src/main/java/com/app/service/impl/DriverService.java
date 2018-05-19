@@ -1,8 +1,9 @@
 package com.app.service.impl;
 
 import com.app.model.Driver;
-import com.app.repository.api.DriversRepositoryInterface;
-import com.app.service.api.DriverServiceInterface;
+import com.app.repository.DriversRepositoryInterface;
+import com.app.repository.WaggonRepositoryInterface;
+import com.app.service.DriverServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,8 @@ import java.util.List;
 public class DriverService implements DriverServiceInterface {
     @Autowired
     private DriversRepositoryInterface driversRepository;
+    @Autowired
+    private WaggonRepositoryInterface waggonRepository;
 
     public List<Driver> getAllDrivers() {
         return driversRepository.getAllDrivers();
@@ -30,7 +33,6 @@ public class DriverService implements DriverServiceInterface {
     public Driver getDriver(int id) {
         return driversRepository.getDriver(id);
     }
-
 
     public void removeDriver(int id) {
         driversRepository.removeDriver(id);

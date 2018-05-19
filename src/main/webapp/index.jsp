@@ -1,24 +1,28 @@
 <!doctype html>
 <html>
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
     <title>Spring MVC+ Hibernate</title>
-
-
+    <link rel="stylesheet" href="/resources/css/example.css"/>
+    <script>
+        $(document).ready(function(){
+            $("h2").click(function(){
+                $("h3").toggle();
+            });
+        });
+    </script>
 </head>
 <body>
 <br>
 <div style="text-align:center">
     <h2>
-        Hey You..!! This is your 1st Spring MCV..<br> <br>
+        Hello!<br> <br>
     </h2>
-    <h3>
-        <a href="/welcome">Click here to See Welcome Message... </a>(to
-        check Spring MVC Controller... @RequestMapping("/welcome"))
-    </h3>
 
-    <button type="button" id="click-button" class="btn btn-primary">
-        Notifications <span class="badge badge-light">4</span>
-    </button>
+    <h3>
+        This application for cargoes delivery company.  <a href="/welcome.html">Click here to start working.</a>
+    </h3>
 
 </div>
 </body>

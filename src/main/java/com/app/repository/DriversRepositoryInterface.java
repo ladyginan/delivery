@@ -1,4 +1,4 @@
-package com.app.repository.api;
+package com.app.repository;
 
 import com.app.model.Driver;
 

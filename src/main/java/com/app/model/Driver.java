@@ -1,20 +1,16 @@
 package com.app.model;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.app.model.Enums.DriverStatus;
+import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
-@Setter
-@Getter
 @Entity
-@NoArgsConstructor
+@Data
 @Table(name = "DRIVERS")
 public class Driver {
-
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "ID_DRIVER", unique = true)
@@ -29,21 +25,20 @@ public class Driver {
     @Column(name = "HOURS_WORKED")
     private int hoursWorked;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "STATUS")
-    private String status;
+    private DriverStatus status;
 
-    @Column(name = "CURRENT_CITY")
-    private String currentCity;
+    @OneToOne
+    @JoinColumn(name = "ID_CITY")
+    private Map map;
 
-    @Column(name = "CURRENT_WAGGON")
-    private String currentWaggon;
+    @OneToOne(mappedBy = "driver", fetch = FetchType.EAGER)
+    private Waggon currentWaggon;
 
-    public Driver(String name, String secondName, int hoursWorked, String status, String currentCity, String currentWaggon) {
-        this.name = name;
-        this.secondName = secondName;
-        this.hoursWorked = hoursWorked;
-        this.status = status;
-        this.currentCity = currentCity;
-        this.currentWaggon = currentWaggon;
-    }
+    @ManyToOne
+    @JoinColumn(name = "ID_ORDER")
+    private Order order;
+
+
 }
