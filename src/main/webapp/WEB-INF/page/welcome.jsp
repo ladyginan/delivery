@@ -18,6 +18,8 @@
         <a href="${pageContext.request.contextPath}/waggons/add.html">Add new waggon</a><br/>
         <a href="${pageContext.request.contextPath}/waggons/list.html">Waggon list</a><br/>
         <a href="${pageContext.request.contextPath}/cargoes/add.html">Add new cargo</a><br/>
-
+<h2>Options for drivers</h2>
+        <a href="${pageContext.request.contextPath}/drivers/info.html">Info driver</a><br/>
+        <a href="${pageContext.request.contextPath}/drivers/statusEdit.html">Edit driver's status</a><br/>
 </p>
 </body>
