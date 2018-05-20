@@ -24,5 +24,10 @@ public class MapRepository implements MapRepositoryInterface {
         return map;
     }
 
+    @Override
+    public Map findCityById(int id) {
+        return factory.getCurrentSession().get(Map.class, id);
+    }
+
 
 }

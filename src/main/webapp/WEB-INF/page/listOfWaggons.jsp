@@ -17,6 +17,8 @@
 <table border="1px" cellpadding="0" cellspacing="0">
     <thread>
         <tr>
+            <th width="10%">id Waggon</th>
+            <th width="15%">registration Number</th>
             <th width="10%">shift size</th>
             <th width="10%">capacity</th>
             <th width="10%">status</th>
@@ -24,17 +26,17 @@
         </tr>
     </thread>
     <tbody>
-        <c:forEach var = "waggons" items="${waggons}">
+        <c:forEach var = "waggon" items="${waggons}">
             <tr>
                 <td>${waggon.idWaggon}</td>
                 <td>${waggon.regNumber}</td>
                 <td>${waggon.shiftSize}</td>
                 <td>${waggon.capacity}</td>
                 <td>${waggon.status}</td>
-                <td>${waggon.currentCity}</td>
+                <td>${waggon.city.city}</td>
                 <td>
                     <a href="${pageContext.request.contextPath}/waggons/edit/${waggon.idWaggon}.html">Edit</a><br/>
-                    <a href="${pageContext.request.contextPath}/waggons/delete/${waggon.idWaggon}.html">Edit</a><br/>
+                    <a href="${pageContext.request.contextPath}/waggons/delete/${waggon.idWaggon}.html">delete</a><br/>
                 </td>
             </tr>
         </c:forEach>

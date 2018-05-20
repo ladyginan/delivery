@@ -20,4 +20,9 @@ public class MapService implements MapServiceInterface {
         return mapRepository.getAllMap();
     }
 
+    @Override
+    public Map findCityById(int id) {
+        return mapRepository.findCityById(id);
+    }
+
 }

@@ -9,8 +9,6 @@ import javax.persistence.*;
 @Entity
 @Data
 @Table(name = "MAPS")
-@AllArgsConstructor
-@NoArgsConstructor
 public class Map {
     @Id
     @GeneratedValue

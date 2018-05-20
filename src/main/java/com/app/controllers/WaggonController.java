@@ -25,7 +25,7 @@ public class WaggonController {
     public ModelAndView getAllWaggon() {
         List<Waggon> waggons = waggonService.getAllWaggons();
         ModelAndView modelAndView = new ModelAndView("listOfWaggons");
-        modelAndView.addObject("waggon", waggons);
+        modelAndView.addObject("waggons", waggons);
         return modelAndView;
     }
 
@@ -38,6 +38,7 @@ public class WaggonController {
 
     @PostMapping("/add")
     public String greetingSubmit(@ModelAttribute Waggon waggon, Model model) {
+
         waggonService.addWaggon(waggon);
         String message = "Waggon was successfully added";
         model.addAttribute("message", message);

@@ -14,7 +14,7 @@
     <table>
         <form:form action="${pageContext.request.contextPath}/waggons/add" method ="post" modelAttribute="waggon">
             <tr>
-                <td>Capacity:</td>
+                <td>Registration Number:</td>
                 <td><form:input path="regNumber"/></td>
             </tr>
             <tr>
