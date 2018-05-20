@@ -21,12 +21,12 @@ public class Map {
     private String city;
 
     @Column(name = "LATITUDE")
-    private double latitude;
+    private Double latitude;
 
     @Column(name = "LONGITUDE")
-    private double longitude;
+    private Double longitude;
 
-    @OneToOne(mappedBy = "map", fetch = FetchType.EAGER)
+    @OneToOne(mappedBy = "map")
     private WayPoint wayPoint;
 
     @OneToOne(mappedBy = "map")

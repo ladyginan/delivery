@@ -38,8 +38,8 @@ public class DriversController {
     public ModelAndView addDriverPage() {
         ModelAndView modelAndView = new ModelAndView("driverForm");
         modelAndView.addObject("driver", new Driver());
-        modelAndView.addObject("wagons", waggonService.getAllWaggons());
-        modelAndView.addObject("maps",mapService.getAllMap());
+        modelAndView.addObject("waggons", waggonService.getAllWaggons());
+        modelAndView.addObject("maps", mapService.getAllMap());
         return modelAndView;
     }
 

@@ -1,9 +1,12 @@
 package com.app.controllers;
 
 import com.app.model.Waggon;
+import com.app.service.MapServiceInterface;
 import com.app.service.WaggonServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +20,8 @@ import java.util.List;
 public class WaggonController {
     @Autowired
     private WaggonServiceInterface waggonService;
+    @Autowired
+    private MapServiceInterface mapService;
 
     @RequestMapping(path = "/list", method = RequestMethod.GET)
     public ModelAndView getAllWaggon() {
@@ -30,6 +35,7 @@ public class WaggonController {
     public ModelAndView addWaggonPage() {
         ModelAndView modelAndView = new ModelAndView("waggonForm");
         modelAndView.addObject("waggon", new Waggon());
+        modelAndView.addObject("maps", mapService.getAllMap());
         return modelAndView;
     }
 

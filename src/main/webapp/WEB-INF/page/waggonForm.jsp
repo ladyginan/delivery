@@ -14,7 +14,7 @@
     <table>
         <form:form action="${pageContext.request.contextPath}/waggons/add" method ="post" modelAttribute="waggon">
             <tr>
-                <td>Capacity:</td>
+                <td>Registration Number:</td>
                 <td><form:input path="regNumber"/></td>
             </tr>
             <tr>
@@ -35,13 +35,14 @@
                 </td>
             </tr>
             <tr>
-                <td>City:</td>
+            <tr>
+                <td>Current city:</td>
                 <td>
-                <form:select path="map">
-                    <form:option value="" label ="Please select"/>
-                    <form:options itmes="${map}"/>
-                </form:select>
-                </td>
+                    <form:select path="map">
+                        <form:option value="" label=" Please select"/>
+                        <form:options items="${maps}" itemValue="city" itemLabel="city" />
+                    </form:select>
+            </tr>
             </tr>
             <tr>
                 <td colspan="2" align="center">
