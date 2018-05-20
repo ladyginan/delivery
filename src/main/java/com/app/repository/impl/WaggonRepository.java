@@ -46,7 +46,7 @@ public class WaggonRepository implements WaggonRepositoryInterface {
         WaggonToUpdate.setShiftSize(waggon.getShiftSize());
         WaggonToUpdate.setCapacity(waggon.getCapacity());
         WaggonToUpdate.setStatus(waggon.getStatus());
-        WaggonToUpdate.setMap(waggon.getMap());
+        WaggonToUpdate.setCity(waggon.getCity());
         factory.getCurrentSession().update(WaggonToUpdate);
     }
 

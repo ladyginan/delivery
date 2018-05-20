@@ -42,7 +42,7 @@
         </tr>
         <tr>
             <td>Current city:</td>
-            <td><form:input path="map"/></td>
+            <td><form:input path="city"/></td>
         </tr>
         </tbody>
     </table>

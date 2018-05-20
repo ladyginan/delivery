@@ -31,7 +31,7 @@ public class Driver {
 
     @OneToOne
     @JoinColumn(name = "ID_CITY")
-    private Map map;
+    private Map city;
 
     @OneToOne(mappedBy = "driver", fetch = FetchType.EAGER)
     private Waggon currentWaggon;

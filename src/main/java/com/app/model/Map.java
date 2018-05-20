@@ -26,14 +26,13 @@ public class Map {
     @Column(name = "LONGITUDE")
     private Double longitude;
 
-    @OneToOne(mappedBy = "map")
+    @OneToOne(mappedBy = "city")
     private WayPoint wayPoint;
 
-    @OneToOne(mappedBy = "map")
+    @OneToOne(mappedBy = "city")
     private Driver driver;
 
-    @OneToOne(mappedBy = "map")
+    @OneToOne(mappedBy = "city")
     private Waggon waggon;
-
 
 }

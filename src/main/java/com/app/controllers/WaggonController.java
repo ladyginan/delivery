@@ -7,10 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -39,7 +36,8 @@ public class WaggonController {
         return modelAndView;
     }
 
-    @RequestMapping(path = "/add", method = RequestMethod.POST)
+    @RequestMapping(path = "/add", method = RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_VALUE,
+            MediaType.APPLICATION_XML_VALUE})
     public ModelAndView addingWaggon(@ModelAttribute("waggon") Waggon waggon) {
         ModelAndView modelAndView = new ModelAndView("welcome");
         waggonService.addWaggon(waggon);
@@ -64,6 +62,7 @@ public class WaggonController {
         modelAndView.addObject("message", message);
         return modelAndView;
     }
+
 
     @RequestMapping(path = "/delete/{id}", method = RequestMethod.GET)
     public ModelAndView removeWaggon(@PathVariable int id) {

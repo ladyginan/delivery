@@ -37,7 +37,7 @@
             <tr>
                 <td>Current city:</td>
                 <td>
-                    <form:select path="map">
+                    <form:select path="city">
                         <form:option value="" label=" Please select"/>
                         <form:options items="${maps}" itemValue="idCity" itemLabel="city" />
                     </form:select>

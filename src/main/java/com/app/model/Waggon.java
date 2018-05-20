@@ -33,7 +33,7 @@ public class Waggon {
 
     @OneToOne
     @JoinColumn(name = "ID_CITY")
-    private Map map;
+    private Map city;
 
     @OneToOne
     @JoinColumn(name = "ID_DRIVER")

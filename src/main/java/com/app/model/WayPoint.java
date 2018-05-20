@@ -6,7 +6,7 @@ import lombok.Data;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "WAYPOINTS")
+@Table(name = "WAY_POINTS")
 @Data
 public class WayPoint {
 
@@ -21,7 +21,7 @@ public class WayPoint {
 
     @OneToOne
     @JoinColumn(name = "ID_CITY")
-    private Map map;
+    private Map city;
 
     @OneToOne
     @JoinColumn(name = "ID_CARGO")
