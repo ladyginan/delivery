@@ -14,6 +14,10 @@
     <table>
         <form:form action="${pageContext.request.contextPath}/cargoes/add" method="post" modelAttribute="cargo">
             <tr>
+                <td>Number of cargo:</td>
+                <td><form:input path="cargoNumber"/></td>
+            </tr>
+            <tr>
                 <td>name:</td>
                 <td><form:input path="name"/></td>
             </tr>
@@ -27,6 +31,11 @@
                     <form:option value="" label=" Please select"/>
                     <form:options items="${CargoStatus}" />
                 </form:select></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="Save">
+                </td>
             </tr>
         </form:form>
     </table>

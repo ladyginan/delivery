@@ -14,6 +14,9 @@ public class Cargo {
     @Column(name = "ID_CARGO")
     private int idCargo;
 
+    @Column(name = "CARGO_NUMBER")
+    private int cargoNumber;
+
     @Column(name = "NAME")
     private String name;
 
