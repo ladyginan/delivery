@@ -36,7 +36,7 @@
             <td>
                 <form:select path="status">
                     <form:option value="" label ="Please select"/>
-                    <form:options itmes="${statusWaggon}"/>
+                    <form:options items="${statusWaggon}"/>
                 </form:select>
             </td>
         </tr>
