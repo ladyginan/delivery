@@ -14,7 +14,7 @@
     <table>
         <form:form action="${pageContext.request.contextPath}/waggons/add" method ="post" modelAttribute="waggon">
             <tr>
-                <td>Registration Number:</td>
+                <td>Capacity:</td>
                 <td><form:input path="regNumber"/></td>
             </tr>
             <tr>
@@ -30,7 +30,7 @@
                 <td>
                     <form:select path="status">
                         <form:option value="" label ="Please select"/>
-                        <form:options itmes="${statusWaggon}"/>
+                        <form:options items="${statusWaggon}"/>
                     </form:select>
                 </td>
             </tr>

@@ -6,6 +6,7 @@ import com.app.service.WaggonServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -28,22 +29,19 @@ public class WaggonController {
         return modelAndView;
     }
 
-    @RequestMapping(path = "/add", method = RequestMethod.GET)
-    public ModelAndView addWaggonPage() {
-        ModelAndView modelAndView = new ModelAndView("waggonForm");
-        modelAndView.addObject("waggon", new Waggon());
-        modelAndView.addObject("maps", mapService.getAllMap());
-        return modelAndView;
+    @GetMapping("/add")
+    public String waggonForm(Model model) {
+        model.addAttribute("waggon", new Waggon());
+        model.addAttribute("maps", mapService.getAllMap());
+        return "waggonForm";
     }
 
-    @RequestMapping(path = "/add", method = RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_VALUE,
-            MediaType.APPLICATION_XML_VALUE})
-    public ModelAndView addingWaggon(@ModelAttribute("waggon") Waggon waggon) {
-        ModelAndView modelAndView = new ModelAndView("welcome");
+    @PostMapping("/add")
+    public String greetingSubmit(@ModelAttribute Waggon waggon, Model model) {
         waggonService.addWaggon(waggon);
         String message = "Waggon was successfully added";
-        modelAndView.addObject("message", message);
-        return modelAndView;
+        model.addAttribute("message", message);
+        return "welcome";
     }
 
     @RequestMapping(path = "/edit/{id}", method = RequestMethod.GET)
