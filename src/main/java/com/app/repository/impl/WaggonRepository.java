@@ -33,7 +33,7 @@ public class WaggonRepository implements WaggonRepositoryInterface {
 
     @Transactional
     @Override
-    public void removeWaggon(String id) {
+    public void removeWaggon(int id) {
         factory.getCurrentSession().createQuery("Delete Waggon from WAGGONS where ID_WAGGON = 'id'");
     }
 

@@ -35,14 +35,12 @@
                 </td>
             </tr>
             <tr>
-            <tr>
                 <td>Current city:</td>
                 <td>
                     <form:select path="map">
                         <form:option value="" label=" Please select"/>
-                        <form:options items="${maps}" itemValue="city" itemLabel="city" />
+                        <form:options items="${maps}" itemValue="idCity" itemLabel="city" />
                     </form:select>
-            </tr>
             </tr>
             <tr>
                 <td colspan="2" align="center">

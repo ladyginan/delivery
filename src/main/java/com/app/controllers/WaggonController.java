@@ -43,7 +43,7 @@ public class WaggonController {
     public ModelAndView addingWaggon(@ModelAttribute("waggon") Waggon waggon) {
         ModelAndView modelAndView = new ModelAndView("welcome");
         waggonService.addWaggon(waggon);
-        String message = "Driver was successfully added";
+        String message = "Waggon was successfully added";
         modelAndView.addObject("message", message);
         return modelAndView;
     }
@@ -57,7 +57,7 @@ public class WaggonController {
     }
 
     @RequestMapping(path = "/edit/{id}", method = RequestMethod.POST)
-    public ModelAndView editWaggon(@ModelAttribute Waggon waggon, @PathVariable String id) {
+    public ModelAndView editWaggon(@ModelAttribute Waggon waggon, @PathVariable int id) {
         ModelAndView modelAndView = new ModelAndView("waggonEdit");
         waggonService.updateWaggon(waggon);
         String message = "Waggon was successfully edited.";
@@ -66,7 +66,7 @@ public class WaggonController {
     }
 
     @RequestMapping(path = "/delete/{id}", method = RequestMethod.GET)
-    public ModelAndView removeWaggon(@PathVariable String id) {
+    public ModelAndView removeWaggon(@PathVariable int id) {
         ModelAndView modelAndView = new ModelAndView("welcome");
         waggonService.removeWaggon(id);
         String message = "Waggon was successfully deleted.";
