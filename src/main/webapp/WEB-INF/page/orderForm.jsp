@@ -14,7 +14,7 @@
     <table>
         <form:form action="${pageContext.request.contextPath}/orders/add" method="post" modelAttribute="order">
             <tr>
-                <td>Order status:</td>
+                <td>Done:</td>
                 <td><form:select path="status">
                     <form:option value="" label=" Please select"/>
                     <form:options items="${status}" />
@@ -22,31 +22,46 @@
                 </td>
             </tr>
             <tr>
-                <td>second name:</td>
-                <td><form:input path="secondName"/></td>
+                <td>Start Point:</td>
+                <td><form:select path= "pointList">
+                    <form:option value="" label=" Please select"/>
+                    <form:options items="${pointList}" />
+                </form:select>
+                </td>
             </tr>
             <tr>
-                <td>hours worked:</td>
-                <td><form:input path="hoursWorked"/></td>
+                <td>End Point:</td>
+                <td><form:select path="pointList">
+                    <form:option value="" label=" Please select"/>
+                    <form:options items="${pointList}" />
+                </form:select>
+                </td>
             </tr>
             <tr>
-
-            </tr>
-            <tr>
-                <td>current city:</td>
-                <td>
-                    <form:select id ="idCity" path="city">
-                        <form:option value="" label=" Please select"/>
-                        <form:options items="${maps}" itemValue="idCity" itemLabel="city" />
-                    </form:select>
-            </tr>
-            <tr>
-                <td>current waggon:</td>
+                <td>Waggon:</td>
                 <td><form:select path="currentWaggon">
                     <form:option value="" label=" Please select"/>
-                    <form:options items="${waggons}" itemValue="IdWaggon" itemLabel="IdWaggon" />
-                </form:select></td>
+                    <form:options items="${waggons}" />
+                </form:select>
+                </td>
             </tr>
+            <tr>
+                <td>Driver 1:</td>
+                <td><form:select path="driverFirst">
+                    <form:option value="" label=" Please select"/>
+                    <form:options items="${drivers}" />
+                </form:select>
+                </td>
+            </tr>
+            <tr>
+                <td>Driver 2:</td>
+                <td><form:select path="driverSecond">
+                    <form:option value="" label=" Please select"/>
+                    <form:options items="${drivers}" />
+                </form:select>
+                </td>
+            </tr>
+
             <tr>
                 <td colspan="2" align="center">
                     <input type="submit" value="Save">

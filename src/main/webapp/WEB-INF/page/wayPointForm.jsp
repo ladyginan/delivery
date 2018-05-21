@@ -11,7 +11,7 @@
 </head>
 <body>
 <div align="center">
-    <h1>New driver</h1>
+    <h1>New way point</h1>
     <table>
         <form:form action="${pageContext.request.contextPath}/points/add" method="post" modelAttribute="wayPoint">
             <tr>
@@ -48,6 +48,7 @@
         </form:form>
     </table>
 </div>
+
 <p><a href="${pageContext.request.contextPath}/">Home page</a></p>
 </body>
 </html>
