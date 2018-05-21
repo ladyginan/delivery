@@ -3,25 +3,22 @@ package com.app.controllers;
 import com.app.model.Cargo;
 import com.app.model.Order;
 import com.app.model.Waggon;
-import com.app.service.CargoServiceInterface;
-import com.app.service.DriverServiceInterface;
-import com.app.service.OrderServiceInterface;
-import com.app.service.WaggonServiceInterface;
+import com.app.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
-@Controller
+
+@RestController
 @RequestMapping(path = "/orders")
 public class OrderController {
     @Autowired
     private OrderServiceInterface orderService;
-    @Autowired
-    private CargoServiceInterface cargoService;
+   @Autowired
+   private WayPointServiceInterface wayPointService;
     @Autowired
     private WaggonServiceInterface waggonService;
     @Autowired
@@ -40,14 +37,13 @@ public class OrderController {
     @GetMapping("/add")
     public String waggonForm(Model model) {
         model.addAttribute("order", new Order());
-        model.addAttribute("cargo", cargoService.getAllCargoes());
-        model.addAttribute("driver", driverService.getAllDrivers());
-        model.addAttribute("waggon", waggonService.getAllWaggons());
+        model.addAttribute("wayPoints", wayPointService.getAllWayPoints());
+        model.addAttribute("waggons", waggonService.getAllWaggons());
         return "orderForm";
     }
     @PostMapping("/add")
-    public String waggonSubmit(@ModelAttribute Cargo cargo, Model model) {
-        cargoService.addCargo(cargo);
+    public String waggonSubmit(@ModelAttribute Order order, Model model) {
+        model.addAttribute("order", order);
         String message = "Cargo was successfully added";
         model.addAttribute("message", message);
         return "welcome";

@@ -23,20 +23,20 @@
             </tr>
             <tr>
                 <td>Start Point:</td>
-                <td><form:select path= "pointList">
+                <td><form:select path= "wayPoint">
                     <form:option value="" label=" Please select"/>
-                    <form:options items="${pointList}" />
+                    <form:options items="${wayPoints}" itemValue="idWayPoint" itemLabel="city.city" />
                 </form:select>
                 </td>
             </tr>
-            <tr>
-                <td>End Point:</td>
-                <td><form:select path="pointList">
-                    <form:option value="" label=" Please select"/>
-                    <form:options items="${pointList}" />
-                </form:select>
-                </td>
-            </tr>
+            <%--<tr>--%>
+                <%--<td>End Point:</td>--%>
+                <%--<td><form:select path="wayPointEnd">--%>
+                    <%--<form:option value="" label=" Please select"/>--%>
+                    <%--<form:options items="${wayPointEnd}" />--%>
+                <%--</form:select>--%>
+                <%--</td>--%>
+            <%--</tr>--%>
             <tr>
                 <td>Waggon:</td>
                 <td><form:select path="currentWaggon">
@@ -45,22 +45,22 @@
                 </form:select>
                 </td>
             </tr>
-            <tr>
-                <td>Driver 1:</td>
-                <td><form:select path="driverFirst">
-                    <form:option value="" label=" Please select"/>
-                    <form:options items="${drivers}" />
-                </form:select>
-                </td>
-            </tr>
-            <tr>
-                <td>Driver 2:</td>
-                <td><form:select path="driverSecond">
-                    <form:option value="" label=" Please select"/>
-                    <form:options items="${drivers}" />
-                </form:select>
-                </td>
-            </tr>
+            <%--<tr>--%>
+                <%--<td>Driver 1:</td>--%>
+                <%--<td><form:select path="driverFirst">--%>
+                    <%--<form:option value="" label=" Please select"/>--%>
+                    <%--<form:options items="${driverFirst"}" />--%>
+                <%--</form:select>--%>
+                <%--</td>--%>
+            <%--</tr>--%>
+            <%--<tr>--%>
+                <%--<td>Driver 2:</td>--%>
+                <%--<td><form:select path="driverSecond">--%>
+                    <%--<form:option value="" label=" Please select"/>--%>
+                    <%--<form:options items="${driverSecond}" />--%>
+                <%--</form:select>--%>
+                <%--</td>--%>
+            <%--</tr>--%>
 
             <tr>
                 <td colspan="2" align="center">

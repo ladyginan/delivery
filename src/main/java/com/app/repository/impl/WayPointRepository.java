@@ -26,7 +26,7 @@ public class WayPointRepository implements WayPointRepositoryInterface {
     @Transactional
     @Override
     public List<WayPoint> getAllWayPoints() {
-        List<WayPoint> wayPoints = factory.getCurrentSession().createQuery("from WAY_POINTS").list();
+        List<WayPoint> wayPoints = factory.getCurrentSession().createQuery("from WayPoint").list();
         return wayPoints;
     }
 }
