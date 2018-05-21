@@ -30,13 +30,12 @@
     <tbody>
         <c:forEach var="driver" items="${drivers}">
             <tr>
-                <td>${driver.idDriver}</td>
                 <td>${driver.name}</td>
                 <td>${driver.secondName}</td>
                 <td>${driver.hoursWorked}</td>
                 <td>${driver.status}</td>
-                <td>${driver.map}</td>
-                <td>${driver.currentWaggon}</td>
+                <td>${driver.city.city}</td>
+                <td>${driver.waggon.regNumber}</td>
                 <td>
                     <a href="${pageContext.request.contextPath}/drivers/edit/${driver.idDriver}.html">Edit</a><br/>
                     <a href="${pageContext.request.contextPath}/drivers/delete/${driver.idDriver}.html">Delete</a><br/>

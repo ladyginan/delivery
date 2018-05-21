@@ -3,6 +3,7 @@ package com.app.configuration;
 
 import com.app.coverters.CargoConverter;
 import com.app.coverters.CityConverter;
+import com.app.coverters.WaggonConverter;
 import com.app.model.Cargo;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,8 @@ public class SpringAppConfig implements WebMvcConfigurer {
     CityConverter cityConverter;
     @Autowired
     CargoConverter cargoConverter;
+    @Autowired
+    WaggonConverter waggonConverter;
 
     @Bean
     public InternalResourceViewResolver setupViewResolver() {
@@ -53,5 +56,6 @@ public class SpringAppConfig implements WebMvcConfigurer {
     {
         registry.addConverter(cityConverter);
         registry.addConverter(cargoConverter);
+        registry.addConverter(waggonConverter);
     }
 }
