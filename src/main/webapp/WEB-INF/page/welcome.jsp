@@ -23,7 +23,7 @@
         <a href="${pageContext.request.contextPath}/cargoes/add.html">Add new cargo</a><br/>
 <h2>Options for drivers</h2>
         <a href="${pageContext.request.contextPath}/drivers/info.html">Info driver</a><br/>
-        <a href="${pageContext.request.contextPath}/drivers/statusEdit.html">Edit driver's status</a><br/>
+        <a href="${pageContext.request.contextPath}/drivers/statusEdit.html">Edit driver's status</a><br/><br/><br/>
 
 <p>${message}<br/>
 </p>

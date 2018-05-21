@@ -22,7 +22,8 @@ public class Order {
     @OneToMany(mappedBy = "order", fetch = FetchType.EAGER)
     private List<WayPoint> pointList;
 
-    @OneToOne(mappedBy = "order", fetch = FetchType.EAGER)
+    @OneToOne
+    @JoinColumn(name = "WAGGONS")
     private Waggon currentWaggon;
 
     @OneToMany(mappedBy = "order")

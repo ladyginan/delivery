@@ -39,7 +39,6 @@ public class DriversRepository implements DriversRepositoryInterface {
         driverToUpdate.setIdDriver(driver.getIdDriver());
         driverToUpdate.setStatus(driver.getStatus());
         driverToUpdate.setHoursWorked(driver.getHoursWorked());
-        driverToUpdate.setCurrentWaggon(driver.getCurrentWaggon());
         driverToUpdate.setCity(driver.getCity());
         factory.getCurrentSession().update(driverToUpdate);
     }

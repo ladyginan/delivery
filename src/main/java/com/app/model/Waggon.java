@@ -35,12 +35,10 @@ public class Waggon {
     @JoinColumn(name = "ID_CITY")
     private Map city;
 
-    @OneToOne
-    @JoinColumn(name = "ID_DRIVER")
+    @OneToOne(mappedBy = "waggon")
     private Driver driver;
 
-    @OneToOne
-    @JoinColumn(name = "ID_ORDER")
+    @OneToOne(mappedBy = "currentWaggon")
     private Order order;
 
 }

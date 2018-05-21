@@ -27,7 +27,7 @@ public class Cargo {
     @Column(name = "STATUS")
     private CargoStatus status;
 
-    @OneToOne(mappedBy = "cargo", fetch = FetchType.EAGER)
+    @OneToOne(mappedBy = "cargo")
     private WayPoint wayPoint;
 
 }
