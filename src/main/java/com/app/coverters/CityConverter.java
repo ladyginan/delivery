@@ -3,7 +3,6 @@ package com.app.coverters;
 import com.app.service.MapServiceInterface;
 import org.springframework.stereotype.Component;
 import com.app.model.Map;
-import com.app.service.impl.MapService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 

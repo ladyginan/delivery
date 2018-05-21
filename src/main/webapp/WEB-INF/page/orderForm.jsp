@@ -11,6 +11,52 @@
 <body>
 <div align="center">
     <h1>New order</h1>
+    <table>
+        <form:form action="${pageContext.request.contextPath}/orders/add" method="post" modelAttribute="order">
+            <tr>
+                <td>Order status:</td>
+                <td><form:select path="status">
+                    <form:option value="" label=" Please select"/>
+                    <form:options items="${status}" />
+                    </form:select>
+                </td>
+            </tr>
+            <tr>
+                <td>second name:</td>
+                <td><form:input path="secondName"/></td>
+            </tr>
+            <tr>
+                <td>hours worked:</td>
+                <td><form:input path="hoursWorked"/></td>
+            </tr>
+            <tr>
 
+            </tr>
+            <tr>
+                <td>current city:</td>
+                <td>
+                    <form:select id ="idCity" path="city">
+                        <form:option value="" label=" Please select"/>
+                        <form:options items="${maps}" itemValue="idCity" itemLabel="city" />
+                    </form:select>
+            </tr>
+            <tr>
+                <td>current waggon:</td>
+                <td><form:select path="currentWaggon">
+                    <form:option value="" label=" Please select"/>
+                    <form:options items="${waggons}" itemValue="IdWaggon" itemLabel="IdWaggon" />
+                </form:select></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="Save">
+                </td>
+            </tr>
+        </form:form>
+    </table>
+</div>
+<p><a href="${pageContext.request.contextPath}/">Home page</a></p>
+</body>
+</html>
 
 </div>

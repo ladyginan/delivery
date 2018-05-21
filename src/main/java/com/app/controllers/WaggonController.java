@@ -37,8 +37,7 @@ public class WaggonController {
     }
 
     @PostMapping("/add")
-    public String greetingSubmit(@ModelAttribute Waggon waggon, Model model) {
-
+    public String waggonSubmit(@ModelAttribute Waggon waggon, Model model) {
         waggonService.addWaggon(waggon);
         String message = "Waggon was successfully added";
         model.addAttribute("message", message);

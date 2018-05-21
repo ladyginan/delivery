@@ -24,6 +24,7 @@
 <h3>Orders</h3>
         <a href="${pageContext.request.contextPath}/orders/add.html">Add new order</a><br/>
         <a href="${pageContext.request.contextPath}/orders/list.html">Orders list</a><br/>
+        <a href="${pageContext.request.contextPath}/points/add.html">points add</a><br/>
 <h2>Options for drivers</h2>
         <a href="${pageContext.request.contextPath}/drivers/info.html">Info driver</a><br/>
         <a href="${pageContext.request.contextPath}/drivers/statusEdit.html">Edit driver's status</a><br/><br/><br/>

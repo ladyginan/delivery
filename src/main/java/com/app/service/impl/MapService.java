@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.List;
 
-@Transactional
 @Service
 public class MapService implements MapServiceInterface {
     @Autowired

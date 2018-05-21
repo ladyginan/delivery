@@ -30,6 +30,4 @@ public class WayPoint {
     @ManyToOne
     @JoinColumn(name = "ID_ORDER")
     private Order order;
-
-
 }
