@@ -23,6 +23,10 @@
                 <td><form:input path="secondName"/></td>
             </tr>
             <tr>
+                <td>personal number:</td>
+                <td><form:input path="personalNumber"/></td>
+            </tr>
+            <tr>
                 <td>hours worked:</td>
                 <td><form:input path="hoursWorked"/></td>
             </tr>

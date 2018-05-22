@@ -14,7 +14,7 @@
     <table>
         <form:form action="${pageContext.request.contextPath}/cargoes/add" method="post" modelAttribute="cargo">
             <tr>
-                <td>Number of cargo:</td>
+                <td>cargo's Number:</td>
                 <td><form:input path="cargoNumber"/></td>
             </tr>
             <tr>

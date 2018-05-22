@@ -28,6 +28,10 @@
         <td><form:input path="secondName"/></td>
     </tr>
     <tr>
+        <td>personal number:</td>
+        <td><form:input path="personalNumber"/></td>
+    </tr>
+    <tr>
         <td>hours Worked:</td>
         <td><form:input path="hoursWorked"/></td>
     </tr>
@@ -41,7 +45,7 @@
     </tr>
     <tr>
         <td>current Waggon:</td>
-        <td><form:input path="currentWaggon"/></td>
+        <td><form:input path="waggon"/></td>
     </tr>
 
     </tbody>

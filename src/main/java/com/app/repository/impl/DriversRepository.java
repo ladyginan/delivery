@@ -38,9 +38,10 @@ public class DriversRepository implements DriversRepositoryInterface {
     @Transactional
     public void updateDriver(Driver driver) {
         Driver driverToUpdate = getDriver(driver.getIdDriver());
+
         driverToUpdate.setName(driver.getName());
         driverToUpdate.setSecondName(driver.getSecondName());
-        driverToUpdate.setIdDriver(driver.getIdDriver());
+        driverToUpdate.setPersonalNumber(driver.getPersonalNumber());
         driverToUpdate.setStatus(driver.getStatus());
         driverToUpdate.setHoursWorked(driver.getHoursWorked());
         driverToUpdate.setCity(driver.getCity());

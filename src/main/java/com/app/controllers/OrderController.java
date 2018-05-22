@@ -2,8 +2,6 @@ package com.app.controllers;
 
 import com.app.model.Cargo;
 import com.app.model.Map;
-import com.app.model.Order;
-import com.app.model.Waggon;
 import com.app.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +15,8 @@ import java.util.List;
 public class OrderController {
     @Autowired
     private MapServiceInterface mapService;
+    @Autowired
+    private CargoServiceInterface cargoService;
 
     @RequestMapping(path = "/ajax")
     public ModelAndView mainPage() {
@@ -29,6 +29,13 @@ public class OrderController {
         List<Map> cities = mapService.getAllMap();
         return cities;
     }
+    @RequestMapping(method = RequestMethod.GET, path = "/ajax/jsonCargo")
+    public @ResponseBody
+    List<Cargo> ajaxCargo(){
+        List<Cargo> cargoes = cargoService.getAllCargoes();
+        return cargoes;
+    }
+
 
 
 //

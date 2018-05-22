@@ -16,6 +16,9 @@ public class Driver {
     @Column(name = "ID_DRIVER", unique = true)
     private int idDriver;
 
+    @Column(name = "PERSONAL_NUMBER")
+    private int personalNumber;
+
     @Column(name = "NAME")
     private String name;
 
