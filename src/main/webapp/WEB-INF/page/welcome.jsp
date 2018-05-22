@@ -22,7 +22,7 @@
         <a href="${pageContext.request.contextPath}/waggons/list.html">Waggon list</a><br/>
         <a href="${pageContext.request.contextPath}/cargoes/add.html">Add new cargo</a><br/>
 <h3>Orders</h3>
-        <a href="${pageContext.request.contextPath}/orders/add.html">Add new order</a><br/>
+        <a href="${pageContext.request.contextPath}/ajax.html">Add new order</a><br/>
         <a href="${pageContext.request.contextPath}/orders/list.html">Orders list</a><br/>
         <a href="${pageContext.request.contextPath}/points/add.html">points add</a><br/>
 <h2>Options for drivers</h2>
