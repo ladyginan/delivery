@@ -15,11 +15,14 @@ public class Order {
     @Column(name = "ID_ORDER", unique = true)
     private int idOrder;
 
+    @Column(name = "REGISTRATION_NUMBER_ORDER")
+    private int regNumberOrder;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "ORDER_STATUS")
     private OrderStatus status;
 
-    @OneToMany(mappedBy = "order", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "order")
     private List<WayPoint> pointList;
 
     @OneToOne

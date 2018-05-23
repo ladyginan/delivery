@@ -18,12 +18,15 @@ public class OrderRepository implements OrderRepositoryInterface {
         this.factory = factory;
     }
 
+    //show list of orders
     @Transactional
     @Override
     public List<Order> getAllOrders() {
         List<Order> orders = factory.getCurrentSession().createQuery("from Order").list();
         return orders;
     }
+
+    //add new order
     @Transactional
     @Override
     public void addOrder(Order order) {

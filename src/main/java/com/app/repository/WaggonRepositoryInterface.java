@@ -15,4 +15,6 @@ public interface WaggonRepositoryInterface {
     void updateWaggon(Waggon waggon);
 
     Waggon getWaggon(int id);
+
+    Waggon getWaggonByRegNumber(String id);
 }

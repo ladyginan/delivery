@@ -10,7 +10,7 @@ import java.util.List;
 public class OrderDTO {
     private int regNumberOrderDTO;
     private OrderStatus statusDTO;
-    private List<WayPointDTO> wayPointListDTO;
+    private List<Integer> wayPointListDTO;
     private String regNumberWaggonDTO;
     private List<Integer> driversDTO;
 

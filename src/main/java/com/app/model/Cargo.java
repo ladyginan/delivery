@@ -4,6 +4,7 @@ import com.app.model.Enums.CargoStatus;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -27,7 +28,7 @@ public class Cargo {
     @Column(name = "STATUS")
     private CargoStatus status;
 
-    @OneToOne(mappedBy = "cargo")
-    private WayPoint wayPoint;
+    @OneToMany(mappedBy = "cargo")
+    private List<WayPoint> wayPoints;
 
 }

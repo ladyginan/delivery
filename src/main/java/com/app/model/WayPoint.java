@@ -23,7 +23,7 @@ public class WayPoint {
     @JoinColumn(name = "ID_CITY")
     private Map city;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "ID_CARGO")
     private Cargo cargo;
 

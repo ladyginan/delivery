@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -18,7 +19,7 @@ public class Waggon {
     @Column(name = "ID_WAGGON", unique = true)
     private int idWaggon;
 
-    @Column(name = "REGISTRASION_NUMBER")
+    @Column(name = "REGISTRATION_NUMBER")
     private String regNumber;
 
     @Column(name = "SHIFT_SIZE")
@@ -35,8 +36,8 @@ public class Waggon {
     @JoinColumn(name = "ID_CITY")
     private Map city;
 
-    @OneToOne(mappedBy = "waggon")
-    private Driver driver;
+    @OneToMany
+    private List<Driver> drivers;
 
     @OneToOne(mappedBy = "currentWaggon")
     private Order order;

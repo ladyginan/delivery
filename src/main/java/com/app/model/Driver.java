@@ -36,7 +36,7 @@ public class Driver {
     @JoinColumn(name = "ID_CITY")
     private Map city;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "ID_WAGGON")
     private Waggon waggon;
 

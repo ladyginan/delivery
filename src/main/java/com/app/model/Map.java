@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Table(name = "MAPS")
 public class Map {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "ID_CITY", nullable = false)
     private int idCity;
 

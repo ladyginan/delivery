@@ -15,4 +15,5 @@ public interface WaggonServiceInterface {
     void updateWaggon(Waggon waggon);
 
     Waggon getWaggon(int id);
+
 }
