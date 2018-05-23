@@ -27,9 +27,9 @@
         <a href="${pageContext.request.contextPath}/points/add">Add way point</a><br/>
         <a href="${pageContext.request.contextPath}/status/cargoes">Cargoes status</a><br/>
         <a href="${pageContext.request.contextPath}/status/orders">Order status</a><br/>
-<h2>Options for drivers (SOON)</h2>
-        <a href="${pageContext.request.contextPath}/drivers/info">Info driver</a><br/>
-        <a href="${pageContext.request.contextPath}/drivers/statusEdit">Edit driver's status</a><br/><br/><br/>
+<%--<h2>Options for drivers (SOON)</h2>--%>
+        <%--<a href="${pageContext.request.contextPath}/drivers/info">Info driver</a><br/>--%>
+        <%--<a href="${pageContext.request.contextPath}/drivers/statusEdit">Edit driver's status</a><br/><br/><br/>--%>
 
 <p>${message}<br/>
 </p>
