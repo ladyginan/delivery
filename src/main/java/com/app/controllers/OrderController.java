@@ -1,16 +1,20 @@
 package com.app.controllers;
 
+import com.app.DTO.CreateOrderDTO;
 import com.app.DTO.OrderDTO;
 import com.app.model.Cargo;
 import com.app.model.Map;
 import com.app.model.Order;
 import com.app.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -44,18 +48,25 @@ public class OrderController {
 //        return cargoes;
 //    }
 
+    @RequestMapping(method = RequestMethod.POST)
+    public @ResponseBody Order createOrder(@RequestBody CreateOrderDTO createOrderDTO) {
+        System.out.println(createOrderDTO);
+        orderService.createOrder(createOrderDTO);
+        return new Order();
+    }
+
     @GetMapping("/add")
     public String waggonForm(Model model) {
-        model.addAttribute("order", new Order());
-        model.addAttribute("wayPoints", wayPointService.getAllWayPoints());
-        model.addAttribute("drivers", driverService.getAllDrivers());
-        model.addAttribute("waggons", waggonService.getAllWaggons());
+//        model.addAttribute("order", new Order());
+//        model.addAttribute("wayPoints", wayPointService.getAllWayPoints());
+//        model.addAttribute("drivers", driverService.getAllDrivers());
+//        model.addAttribute("waggons", waggonService.getAllWaggons());
         return "orderForm";
     }
 
     @PostMapping("/add")
     public String waggonSubmit(@ModelAttribute OrderDTO orderDTO, Model model) {
-        orderService.addOrder(orderDTO);
+//        orderService.addOrder(orderDTO);
         String message = "Order was successfully added";
         model.addAttribute("message", message);
         return "welcome";

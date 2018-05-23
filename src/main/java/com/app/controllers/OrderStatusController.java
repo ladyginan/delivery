@@ -11,12 +11,12 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @Controller
-@RequestMapping(path = "/status/orders")
+@RequestMapping(path = "/status")
 public class OrderStatusController {
     @Autowired
     private OrderServiceInterface orderService;
 
-    @RequestMapping(value = "/cargoes", method = RequestMethod.GET)
+    @RequestMapping(value = "/orders", method = RequestMethod.GET)
     public ModelAndView getAllDrivers() {
         List<Order> orders = orderService.getAllOrders();
         ModelAndView modelAndView = new ModelAndView("orderStatus");

@@ -1,7 +1,6 @@
 package com.app.DTO;
 
 import com.app.model.Enums.OrderStatus;
-import com.app.model.Enums.OrderType;
 import lombok.Data;
 
 import java.util.List;

@@ -1,6 +1,7 @@
 package com.app.model;
 
 import com.app.model.Enums.WaggonStatus;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,7 +16,7 @@ import java.util.List;
 @Table(name = "WAGGONS")
 public class Waggon {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "ID_WAGGON", unique = true)
     private int idWaggon;
 
@@ -32,14 +33,17 @@ public class Waggon {
     @Column(name = "STATUS")
     private WaggonStatus status;
 
+    @JsonIgnore
     @OneToOne
     @JoinColumn(name = "ID_CITY")
     private Map city;
 
+    @JsonIgnore
     @OneToMany
     private List<Driver> drivers;
 
-    @OneToOne(mappedBy = "currentWaggon")
+    @JsonIgnore
+    @OneToOne(mappedBy = "currentWaggon", cascade = {CascadeType.ALL})
     private Order order;
 
 }

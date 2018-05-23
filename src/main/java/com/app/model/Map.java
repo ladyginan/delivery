@@ -1,5 +1,6 @@
 package com.app.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,7 +12,7 @@ import javax.persistence.*;
 @Table(name = "MAPS")
 public class Map {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "ID_CITY", nullable = false)
     private int idCity;
 
@@ -24,12 +25,15 @@ public class Map {
     @Column(name = "LONGITUDE")
     private Double longitude;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "city")
     private WayPoint wayPoint;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "city")
     private Driver driver;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "city")
     private Waggon waggon;
 

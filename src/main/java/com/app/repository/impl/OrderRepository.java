@@ -29,7 +29,9 @@ public class OrderRepository implements OrderRepositoryInterface {
     //add new order
     @Transactional
     @Override
-    public void addOrder(Order order) {
-        factory.getCurrentSession().save(order);
+    public Order addOrder(Order order) {
+        Integer savedOrderId = (Integer) factory.getCurrentSession().save(order);
+        Order savedOrder = (Order) factory.getCurrentSession().get(Order.class, savedOrderId);
+        return savedOrder;
     }
 }

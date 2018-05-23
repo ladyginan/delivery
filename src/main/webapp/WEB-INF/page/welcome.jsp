@@ -16,18 +16,20 @@
 
 <h2>Options for company workers</h2>
 
-        <a href="${pageContext.request.contextPath}/drivers/add.html">Add new driver</a><br/>
-        <a href="${pageContext.request.contextPath}/drivers/list.html">Driver list</a><br/>
-        <a href="${pageContext.request.contextPath}/waggons/add.html">Add new waggon</a><br/>
-        <a href="${pageContext.request.contextPath}/waggons/list.html">Waggon list</a><br/>
-        <a href="${pageContext.request.contextPath}/cargoes/add.html">Add new cargo</a><br/>
+        <a href="${pageContext.request.contextPath}/drivers/add">Add new driver</a><br/>
+        <a href="${pageContext.request.contextPath}/drivers/list">Driver list</a><br/>
+        <a href="${pageContext.request.contextPath}/waggons/add">Add new waggon</a><br/>
+        <a href="${pageContext.request.contextPath}/waggons/list">Waggon list</a><br/>
+        <a href="${pageContext.request.contextPath}/cargoes/add">Add new cargo</a><br/>
 <h5>Orders</h5>
         <a href="${pageContext.request.contextPath}/orders/add">Add new order</a><br/>
-        <a href="${pageContext.request.contextPath}/orders/list.html">Orders list</a><br/>
-        <a href="${pageContext.request.contextPath}/points/add.html">points add</a><br/>
-<h2>Options for drivers</h2>
-        <a href="${pageContext.request.contextPath}/drivers/info.html">Info driver</a><br/>
-        <a href="${pageContext.request.contextPath}/drivers/statusEdit.html">Edit driver's status</a><br/><br/><br/>
+        <a href="${pageContext.request.contextPath}/orders/list">Orders list</a><br/>
+        <a href="${pageContext.request.contextPath}/points/add">Add way point</a><br/>
+        <a href="${pageContext.request.contextPath}/status/cargoes">Cargoes status</a><br/>
+        <a href="${pageContext.request.contextPath}/status/orders">Order status</a><br/>
+<h2>Options for drivers (SOON)</h2>
+        <a href="${pageContext.request.contextPath}/drivers/info">Info driver</a><br/>
+        <a href="${pageContext.request.contextPath}/drivers/statusEdit">Edit driver's status</a><br/><br/><br/>
 
 <p>${message}<br/>
 </p>

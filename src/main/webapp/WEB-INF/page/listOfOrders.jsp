@@ -28,11 +28,11 @@
     <tbody>
     <c:forEach var = "order" items="${orders}">
         <tr>
-            <td>${order.regNumber}</td>
+            <td>${order.regNumberOrder}</td>
             <td>${order.status}</td>
-            <td>${order.currentWaggon}</td>
-            <td>${order.pointList}</td>
-            <td>${order.drivers}</td>
+            <%--<td>${order.currentWaggon}</td>--%>
+            <%--<td>${order.pointList}</td>--%>
+            <%--<td>${order.drivers}</td>--%>
         </tr>
     </c:forEach>
     </tbody>

@@ -8,10 +8,7 @@ import com.app.service.WayPointServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,6 +20,13 @@ public class WayPointController {
     private CargoServiceInterface cargoService;
     @Autowired
     private MapServiceInterface mapService;
+
+    @RequestMapping(method = RequestMethod.GET)
+    public @ResponseBody
+    List<WayPoint> getAllWaypoints() {
+        List<WayPoint> wayPoints = wayPointService.getAllWayPoints();
+        return wayPoints;
+    }
 
     @GetMapping("/add")
     public String wayPointForm(Model model) {

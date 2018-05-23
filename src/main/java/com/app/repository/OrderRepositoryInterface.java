@@ -7,5 +7,5 @@ import java.util.List;
 public interface OrderRepositoryInterface {
     List<Order> getAllOrders();
 
-    void addOrder(Order order);
+    Order addOrder(Order order);
 }

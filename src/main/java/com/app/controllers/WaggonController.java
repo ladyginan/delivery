@@ -1,6 +1,7 @@
 package com.app.controllers;
 
 import com.app.model.Waggon;
+import com.app.model.WayPoint;
 import com.app.service.MapServiceInterface;
 import com.app.service.WaggonServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,13 @@ public class WaggonController {
     private WaggonServiceInterface waggonService;
     @Autowired
     private MapServiceInterface mapService;
+
+    @RequestMapping(method = RequestMethod.GET)
+    public @ResponseBody
+    List<Waggon> getAllWaggonsJson() {
+        List<Waggon> waggons = waggonService.getAllWaggons();
+        return waggons;
+    }
 
     @RequestMapping(path = "/list", method = RequestMethod.GET)
     public ModelAndView getAllWaggon() {

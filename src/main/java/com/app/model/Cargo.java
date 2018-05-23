@@ -1,7 +1,10 @@
 package com.app.model;
 
 import com.app.model.Enums.CargoStatus;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.util.List;
@@ -11,7 +14,7 @@ import java.util.List;
 @Table(name = "CARGO")
 public class Cargo {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "ID_CARGO")
     private int idCargo;
 
@@ -28,7 +31,9 @@ public class Cargo {
     @Column(name = "STATUS")
     private CargoStatus status;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "cargo")
+    @Fetch(value = FetchMode.SUBSELECT)
     private List<WayPoint> wayPoints;
 
 }
