@@ -22,7 +22,7 @@ public class OrderController {
     @Autowired
     private WaggonServiceInterface waggonService;
     @Autowired
-    private DriverServiceInterface driverServiceInterface;
+    private DriverServiceInterface driverService;
     @Autowired
     private OrderServiceInterface orderService;
 
@@ -48,7 +48,8 @@ public class OrderController {
     public String waggonForm(Model model) {
         model.addAttribute("order", new Order());
         model.addAttribute("wayPoints", wayPointService.getAllWayPoints());
-        model.addAttribute("drivers", driverServiceInterface.getAllDrivers());
+        model.addAttribute("drivers", driverService.getAllDrivers());
+        model.addAttribute("waggons", waggonService.getAllWaggons());
         return "orderForm";
     }
 
@@ -59,15 +60,15 @@ public class OrderController {
         model.addAttribute("message", message);
         return "welcome";
     }
-//
-//
-//    @RequestMapping(value = "/list", method = RequestMethod.GET)
-//    public ModelAndView getAllOrders() {
-//        List<Order> orders = orderService.getAllOrders();
-//        ModelAndView modelAndView = new ModelAndView("listOfOrders");
-//        modelAndView.addObject("orders", orders);
-//        return modelAndView;
-//    }
+
+
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    public ModelAndView getAllOrders() {
+        List<Order> orders = orderService.getAllOrders();
+        ModelAndView modelAndView = new ModelAndView("listOfOrders");
+        modelAndView.addObject("orders", orders);
+        return modelAndView;
+    }
 
 
 

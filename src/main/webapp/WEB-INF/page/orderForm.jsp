@@ -32,6 +32,13 @@
                 </form:select>
                 </td>
             </tr>
+            <tr>
+                <td>Waggons:</td>
+                <td><form:select class="form-control" id="order_waggons" path="waggons">
+                    <form:options items="${waggons}" itemValue="idWaggon" itemLabel="regNumber" />
+                </form:select>
+                </td>
+            </tr>
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             <tr><td>Way Point:</td>
