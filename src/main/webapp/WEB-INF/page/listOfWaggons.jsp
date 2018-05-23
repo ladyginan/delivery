@@ -18,7 +18,6 @@
 <table border="1px" cellpadding="0" cellspacing="0">
     <thread>
         <tr>
-            <th width="10%">id Waggon</th>
             <th width="15%">registration Number</th>
             <th width="10%">shift size</th>
             <th width="10%">capacity</th>
@@ -29,7 +28,6 @@
     <tbody>
         <c:forEach var = "waggon" items="${waggons}">
             <tr>
-                <td>${waggon.idWaggon}</td>
                 <td>${waggon.regNumber}</td>
                 <td>${waggon.shiftSize}</td>
                 <td>${waggon.capacity}</td>

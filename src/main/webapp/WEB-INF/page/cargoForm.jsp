@@ -27,7 +27,7 @@
             </tr>
             <tr>
                 <td>status:</td>
-                <td><form:select path="status">
+                <td><form:select class="form-control" path="status">
                     <form:option value="" label=" Please select"/>
                     <form:options items="${CargoStatus}" />
                 </form:select></td>

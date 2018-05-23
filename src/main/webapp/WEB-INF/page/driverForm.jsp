@@ -12,19 +12,19 @@
 <body>
 <div align="center">
     <h1>New driver</h1>
-    <table>
+    <table >
         <form:form action="${pageContext.request.contextPath}/drivers/add" method="post" modelAttribute="driver">
            <tr>
                 <td>name:</td>
-                <td><form:input path="name"/></td>
+                <td><form:input  path="name"/></td>
             </tr>
             <tr>
                 <td>second name:</td>
-                <td><form:input path="secondName"/></td>
+                <td><form:input  path="secondName"/></td>
             </tr>
             <tr>
-                <td>personal number:</td>
-                <td><form:input path="personalNumber"/></td>
+                <td>personal number:  </td>
+                <td><form:input  path="personalNumber"/></td>
             </tr>
             <tr>
                 <td>hours worked:</td>
@@ -32,7 +32,7 @@
             </tr>
             <tr>
                 <td>status:</td>
-                <td><form:select path="status">
+                <td><form:select class="form-control" path="status">
                         <form:option value="" label=" Please select"/>
                         <form:options items="${statusDriver}" />
                     </form:select>
@@ -41,14 +41,14 @@
             <tr>
                 <td>current city:</td>
                 <td>
-                <form:select id ="idCity" path="city">
+                <form:select class="form-control" id ="idCity" path="city">
                     <form:option value="" label=" Please select"/>
                     <form:options items="${maps}" itemValue="idCity" itemLabel="city" />
                 </form:select>
             </tr>
             <tr>
                 <td>current waggon:</td>
-                <td><form:select path="waggon">
+                <td><form:select class="form-control" path="waggon">
                         <form:option value="" label=" Please select"/>
                         <form:options items="${waggons}" itemValue="IdWaggon" itemLabel="IdWaggon" />
                     </form:select></td>

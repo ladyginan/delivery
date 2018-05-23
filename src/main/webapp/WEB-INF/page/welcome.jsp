@@ -21,7 +21,7 @@
         <a href="${pageContext.request.contextPath}/waggons/add.html">Add new waggon</a><br/>
         <a href="${pageContext.request.contextPath}/waggons/list.html">Waggon list</a><br/>
         <a href="${pageContext.request.contextPath}/cargoes/add.html">Add new cargo</a><br/>
-<h3>Orders</h3>
+<h5>Orders</h5>
         <a href="${pageContext.request.contextPath}/orders/add">Add new order</a><br/>
         <a href="${pageContext.request.contextPath}/orders/list.html">Orders list</a><br/>
         <a href="${pageContext.request.contextPath}/points/add.html">points add</a><br/>

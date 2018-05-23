@@ -18,7 +18,7 @@
         <form:form action="${pageContext.request.contextPath}/orders/add" method="post" modelAttribute="order">
             <tr>
                 <td>Done:</td>
-                <td><form:select id="order_status" path="status">
+                <td><form:select class="form-control" id="order_status" path="status">
                     <form:option value="" label=" Please select"/>
                     <form:options items="${status}" />
                 </form:select>
@@ -26,16 +26,14 @@
             </tr>
             <tr>
                 <td>Points:</td>
-                <td><form:select id="order_waypoints" path= "pointList">
-                    <form:option value="" label=" Please select"/>
+                <td><form:select class="form-control" id="order_waypoints" path= "pointList">
                     <form:options items="${wayPoints}" itemValue="idWayPoint" itemLabel="city.city" />
                 </form:select>
                 </td>
             </tr>
             <tr>
                 <td>Drivers:</td>
-                <td><form:select id="order_drivers" path="drivers">
-                    <form:option value="" label=" Please select"/>
+                <td><form:select class="form-control" id="order_drivers" path="drivers">
                     <form:options items="${drivers}" itemValue="idDriver" itemLabel="personalNumber" />
                 </form:select>
                 </td>

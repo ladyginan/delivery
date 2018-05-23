@@ -30,7 +30,7 @@
             <tr>
                 <td>Status:</td>
                 <td>
-                    <form:select path="status">
+                    <form:select class="form-control" path="status">
                         <form:option value="" label ="Please select"/>
                         <form:options items="${statusWaggon}"/>
                     </form:select>
@@ -39,7 +39,7 @@
             <tr>
                 <td>Current city:</td>
                 <td>
-                    <form:select path="city">
+                    <form:select class="form-control" path="city">
                         <form:option value="" label=" Please select"/>
                         <form:options items="${maps}" itemValue="idCity" itemLabel="city" />
                     </form:select>

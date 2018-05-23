@@ -17,7 +17,7 @@
             <tr>
                 <td>city:</td>
                 <td>
-                    <form:select id ="idCity" path="city">
+                    <form:select class="form-control" id ="idCity" path="city">
                         <form:option value="" label=" Please select"/>
                         <form:options items="${cities}" itemValue="idCity" itemLabel="city" />
                     </form:select>
@@ -25,7 +25,7 @@
             </tr>
             <tr><td>cargo ID:</td>
                 <td>
-                    <form:select id ="idCargo" path="cargo">
+                    <form:select class="form-control" id ="idCargo" path="cargo">
                         <form:option value="" label=" Please select"/>
                         <form:options items="${cargoes}" itemValue="idCargo" itemLabel="cargoNumber" />
                     </form:select>
@@ -33,7 +33,7 @@
             </tr>
             <tr>
                 <td>type:</td>
-                <td><form:select path="orderType">
+                <td><form:select class="form-control" path="orderType">
                     <form:option value="" label=" Please select"/>
                     <form:options items="${OrderType}"/>
                 </form:select>
