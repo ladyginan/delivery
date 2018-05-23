@@ -24,13 +24,7 @@
                 </form:select>
                 </td>
             </tr>
-            <tr>
-                <td>Points:</td>
-                <td><form:select class="form-control" id="order_waypoints" path= "pointList">
-                    <form:options items="${wayPoints}" itemValue="idWayPoint" itemLabel="city.city" />
-                </form:select>
-                </td>
-            </tr>
+
             <tr>
                 <td>Drivers:</td>
                 <td><form:select class="form-control" id="order_drivers" path="drivers">
@@ -38,6 +32,43 @@
                 </form:select>
                 </td>
             </tr>
+
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            <tr><td>Way Point:</td>
+                <td><form:select class="form-control" id="order_waypoints" path= "pointList">
+                <form:options items="${wayPoints}" itemValue="idWayPoint" itemLabel="city.city" />
+            </form:select> </td>
+                <td><form:select class="form-control" id="order_waypoints" path= "pointList">
+                    <form:options items="${wayPoints}" itemValue="idWayPoint" itemLabel="city.city" />
+                </form:select> </td>
+                <td><form:select class="form-control" id="order_waypoints" path= "pointList">
+                    <form:options items="${wayPoints}" itemValue="idWayPoint" itemLabel="city.city" />
+                </form:select> </td>
+            </tr>
+            <table border="1px" cellpadding="0" cellspacing="0">
+                <thead>
+                <tr>
+                    <th width="15%">City:</th>
+                    <th width="15%">Cargo: </th>
+                    <th width="15%">Type:</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach var="wayPoint" items="${wayPoints}">
+                    <tr>
+                        <td>${wayPoint.city}</td>
+                        <td>${wayPoint.cargo}</td>
+                        <td>${wayPoint.orderType}</td>
+
+                        <td>
+                            <input type = "checkbox" id="way Point" value ="idCity">
+                            <label for="way Point">add</label>
+                        </td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+
             <%--<tr>--%>
             <%--<td>Driver 1:</td>--%>
             <%--<td><form:select path="driverFirst">--%>
