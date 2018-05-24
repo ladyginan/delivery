@@ -10,9 +10,10 @@ public interface WaggonServiceInterface {
 
     void addWaggon(Waggon waggon);
 
-    void removeWaggon(String id);
+    void removeWaggon(int id);
 
     void updateWaggon(Waggon waggon);
 
     Waggon getWaggon(int id);
+
 }

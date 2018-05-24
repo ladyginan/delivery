@@ -1,16 +1,58 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>New Order</title>
+    <script src="<c:url value="/resources/js/jQuery.js"/>"></script>
+    <script src="<c:url value="/resources/js/ajax.js"/>"></script>
+    <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap-reboot.min.css">
+    <title>Title</title>
 </head>
 <body>
+
 <div align="center">
     <h1>New order</h1>
+    <table>
+            <tr>
+                <td>Registration number of order:</td>
+                <td><input id="regNumberOrder" type="number"></td>
+            </tr>
+
+            <tr>
+                <td>Order status number:</td>
+                <td><select id="orderStatus">
+                    <option value="COMPLETED">COMPLETED</option>
+                    <option value="NOTCOMPLETED">NOTCOMPLETED</option>
+                </select></td>
+            </tr>
+
+            <tr>
+                <td>Waypoints:</td>
+                <td><select id="waypoints" multiple="multiple">
+                </select></td>
+            </tr>
+
+            <tr>
+                <td>Drivers:</td>
+                <td><select id="drivers" multiple="multiple">
+                </select></td>
+            </tr>
+
+            <tr>
+                <td>Waggons:</td>
+                <td><select id="waggons">
+                </select></td>
+            </tr>
+
+            <tr>
+                <td><button id="order" onclick="createOrder()">Create order</button></td>
+            </tr>
 
 
+    </table>
 </div>
+
+</body>
+</html>

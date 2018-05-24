@@ -2,6 +2,7 @@ package com.app.model;
 
 
 import com.app.model.Enums.DriverStatus;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -12,9 +13,12 @@ import java.util.List;
 @Table(name = "DRIVERS")
 public class Driver {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "ID_DRIVER", unique = true)
     private int idDriver;
+
+    @Column(name = "PERSONAL_NUMBER")
+    private int personalNumber;
 
     @Column(name = "NAME")
     private String name;
@@ -29,16 +33,30 @@ public class Driver {
     @Column(name = "STATUS")
     private DriverStatus status;
 
+    @JsonIgnore
     @OneToOne
     @JoinColumn(name = "ID_CITY")
-    private Map map;
+    private Map city;
 
-    @OneToOne(mappedBy = "driver", fetch = FetchType.EAGER)
-    private Waggon currentWaggon;
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "ID_WAGGON")
+    private Waggon waggon;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "ID_ORDER")
     private Order order;
 
-
+    @Override
+    public String toString() {
+        return "Driver{" +
+                "idDriver=" + idDriver +
+                ", personalNumber=" + personalNumber +
+                ", name='" + name + '\'' +
+                ", secondName='" + secondName + '\'' +
+                ", hoursWorked=" + hoursWorked +
+                ", status=" + status +
+                '}';
+    }
 }

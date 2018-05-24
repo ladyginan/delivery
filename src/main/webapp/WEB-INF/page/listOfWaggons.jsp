@@ -6,8 +6,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <link rel="stylesheet" href="/resources/css/form.css"/>
+    <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap-reboot.min.css">
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
     <title>List of waggons</title>
 </head>
@@ -17,6 +18,7 @@
 <table border="1px" cellpadding="0" cellspacing="0">
     <thread>
         <tr>
+            <th width="15%">registration Number</th>
             <th width="10%">shift size</th>
             <th width="10%">capacity</th>
             <th width="10%">status</th>
@@ -24,17 +26,16 @@
         </tr>
     </thread>
     <tbody>
-        <c:forEach var = "waggons" items="${waggons}">
+        <c:forEach var = "waggon" items="${waggons}">
             <tr>
-                <td>${waggon.idWaggon}</td>
                 <td>${waggon.regNumber}</td>
                 <td>${waggon.shiftSize}</td>
                 <td>${waggon.capacity}</td>
                 <td>${waggon.status}</td>
-                <td>${waggon.currentCity}</td>
+                <td>${waggon.city.city}</td>
                 <td>
                     <a href="${pageContext.request.contextPath}/waggons/edit/${waggon.idWaggon}.html">Edit</a><br/>
-                    <a href="${pageContext.request.contextPath}/waggons/delete/${waggon.idWaggon}.html">Edit</a><br/>
+                    <a href="${pageContext.request.contextPath}/waggons/delete/${waggon.idWaggon}.html">delete</a><br/>
                 </td>
             </tr>
         </c:forEach>

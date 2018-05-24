@@ -1,13 +1,15 @@
 package com.app.controllers;
 
 import com.app.model.Waggon;
+import com.app.model.WayPoint;
+import com.app.service.MapServiceInterface;
 import com.app.service.WaggonServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -17,29 +19,37 @@ import java.util.List;
 public class WaggonController {
     @Autowired
     private WaggonServiceInterface waggonService;
+    @Autowired
+    private MapServiceInterface mapService;
+
+    @RequestMapping(method = RequestMethod.GET)
+    public @ResponseBody
+    List<Waggon> getAllWaggonsJson() {
+        List<Waggon> waggons = waggonService.getAllWaggons();
+        return waggons;
+    }
 
     @RequestMapping(path = "/list", method = RequestMethod.GET)
     public ModelAndView getAllWaggon() {
         List<Waggon> waggons = waggonService.getAllWaggons();
         ModelAndView modelAndView = new ModelAndView("listOfWaggons");
-        modelAndView.addObject("waggon", waggons);
+        modelAndView.addObject("waggons", waggons);
         return modelAndView;
     }
 
-    @RequestMapping(path = "/add", method = RequestMethod.GET)
-    public ModelAndView addWaggonPage() {
-        ModelAndView modelAndView = new ModelAndView("waggonForm");
-        modelAndView.addObject("waggon", new Waggon());
-        return modelAndView;
+    @GetMapping("/add")
+    public String waggonForm(Model model) {
+        model.addAttribute("waggon", new Waggon());
+        model.addAttribute("maps", mapService.getAllMap());
+        return "waggonForm";
     }
 
-    @RequestMapping(path = "/add", method = RequestMethod.POST)
-    public ModelAndView addingWaggon(@ModelAttribute("waggon") Waggon waggon) {
-        ModelAndView modelAndView = new ModelAndView("welcome");
+    @PostMapping("/add")
+    public String waggonSubmit(@ModelAttribute Waggon waggon, Model model) {
         waggonService.addWaggon(waggon);
-        String message = "Driver was successfully added";
-        modelAndView.addObject("message", message);
-        return modelAndView;
+        String message = "Waggon was successfully added";
+        model.addAttribute("message", message);
+        return "welcome";
     }
 
     @RequestMapping(path = "/edit/{id}", method = RequestMethod.GET)
@@ -51,7 +61,7 @@ public class WaggonController {
     }
 
     @RequestMapping(path = "/edit/{id}", method = RequestMethod.POST)
-    public ModelAndView editWaggon(@ModelAttribute Waggon waggon, @PathVariable String id) {
+    public ModelAndView editWaggon(@ModelAttribute Waggon waggon, @PathVariable int id) {
         ModelAndView modelAndView = new ModelAndView("waggonEdit");
         waggonService.updateWaggon(waggon);
         String message = "Waggon was successfully edited.";
@@ -59,8 +69,9 @@ public class WaggonController {
         return modelAndView;
     }
 
+
     @RequestMapping(path = "/delete/{id}", method = RequestMethod.GET)
-    public ModelAndView removeWaggon(@PathVariable String id) {
+    public ModelAndView removeWaggon(@PathVariable int id) {
         ModelAndView modelAndView = new ModelAndView("welcome");
         waggonService.removeWaggon(id);
         String message = "Waggon was successfully deleted.";

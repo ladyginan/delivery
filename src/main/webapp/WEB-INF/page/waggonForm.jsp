@@ -4,7 +4,9 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap-reboot.min.css">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>New waggon</title>
 </head>
@@ -14,7 +16,7 @@
     <table>
         <form:form action="${pageContext.request.contextPath}/waggons/add" method ="post" modelAttribute="waggon">
             <tr>
-                <td>Capacity:</td>
+                <td>Registration Number:</td>
                 <td><form:input path="regNumber"/></td>
             </tr>
             <tr>
@@ -28,19 +30,19 @@
             <tr>
                 <td>Status:</td>
                 <td>
-                    <form:select path="status">
+                    <form:select class="form-control" path="status">
                         <form:option value="" label ="Please select"/>
-                        <form:options itmes="${statusWaggon}"/>
+                        <form:options items="${statusWaggon}"/>
                     </form:select>
                 </td>
             </tr>
             <tr>
-                <td>City:</td>
+                <td>Current city:</td>
                 <td>
-                <form:select path="map">
-                    <form:option value="" label ="Please select"/>
-                    <form:options itmes="${map}"/>
-                </form:select>
+                    <form:select class="form-control" path="city">
+                        <form:option value="" label=" Please select"/>
+                        <form:options items="${maps}" itemValue="idCity" itemLabel="city" />
+                    </form:select>
                 </td>
             </tr>
             <tr>

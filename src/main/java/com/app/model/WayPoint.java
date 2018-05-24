@@ -1,17 +1,20 @@
 package com.app.model;
 
 import com.app.model.Enums.OrderType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "WAYPOINTS")
+@Table(name = "WAY_POINTS")
 @Data
 public class WayPoint {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "ID_WAY_POINT", unique = true)
     private int idWayPoint;
 
@@ -21,15 +24,14 @@ public class WayPoint {
 
     @OneToOne
     @JoinColumn(name = "ID_CITY")
-    private Map map;
+    private Map city;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "ID_CARGO")
     private Cargo cargo;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "ID_ORDER")
     private Order order;
-
-
 }

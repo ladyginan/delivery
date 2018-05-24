@@ -24,7 +24,7 @@ public class WaggonService implements WaggonServiceInterface {
     }
 
     @Override
-    public void removeWaggon(String id) {
+    public void removeWaggon(int id) {
         waggonRepository.removeWaggon(id);
     }
 

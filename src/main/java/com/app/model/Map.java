@@ -1,6 +1,9 @@
 package com.app.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
@@ -9,7 +12,7 @@ import javax.persistence.*;
 @Table(name = "MAPS")
 public class Map {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "ID_CITY", nullable = false)
     private int idCity;
 
@@ -17,24 +20,21 @@ public class Map {
     private String city;
 
     @Column(name = "LATITUDE")
-    private double latitude;
+    private Double latitude;
 
     @Column(name = "LONGITUDE")
-    private double longitude;
+    private Double longitude;
 
-    @OneToOne(mappedBy = "map", fetch = FetchType.EAGER)
+    @JsonIgnore
+    @OneToOne(mappedBy = "city")
     private WayPoint wayPoint;
 
-    @OneToOne(mappedBy = "map")
+    @JsonIgnore
+    @OneToOne(mappedBy = "city")
     private Driver driver;
 
-    @OneToOne(mappedBy = "map")
+    @JsonIgnore
+    @OneToOne(mappedBy = "city")
     private Waggon waggon;
-
-    public Map(String city, double latitude, double longitude) {
-        this.city = city;
-        this.latitude = latitude;
-        this.longitude = longitude;
-    }
 
 }

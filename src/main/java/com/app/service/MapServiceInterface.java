@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface MapServiceInterface {
     List<Map> getAllMap();
+
+    Map findCityById(int id);
 }

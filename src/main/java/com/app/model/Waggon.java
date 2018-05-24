@@ -1,24 +1,26 @@
 package com.app.model;
 
 import com.app.model.Enums.WaggonStatus;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name = "WAGGONS")
 @Getter
 @Setter
 @NoArgsConstructor
+@Table(name = "WAGGONS")
 public class Waggon {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "ID_WAGGON", unique = true)
     private int idWaggon;
 
-    @Column(name = "REGISTRASION_NUMBER")
+    @Column(name = "REGISTRATION_NUMBER")
     private String regNumber;
 
     @Column(name = "SHIFT_SIZE")
@@ -31,16 +33,17 @@ public class Waggon {
     @Column(name = "STATUS")
     private WaggonStatus status;
 
+    @JsonIgnore
     @OneToOne
     @JoinColumn(name = "ID_CITY")
-    private Map map;
+    private Map city;
 
-    @OneToOne
-    @JoinColumn(name = "ID_DRIVER")
-    private Driver driver;
+    @JsonIgnore
+    @OneToMany
+    private List<Driver> drivers;
 
-    @OneToOne
-    @JoinColumn(name = "ID_ORDER")
+    @JsonIgnore
+    @OneToOne(mappedBy = "currentWaggon", cascade = {CascadeType.ALL})
     private Order order;
 
 }

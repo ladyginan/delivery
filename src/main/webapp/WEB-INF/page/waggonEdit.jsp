@@ -36,13 +36,13 @@
             <td>
                 <form:select path="status">
                     <form:option value="" label ="Please select"/>
-                    <form:options itmes="${statusWaggon}"/>
+                    <form:options items="${statusWaggon}"/>
                 </form:select>
             </td>
         </tr>
         <tr>
             <td>Current city:</td>
-            <td><form:input path="currentCity"/></td>
+            <td><form:input path="city"/></td>
         </tr>
         </tbody>
     </table>
