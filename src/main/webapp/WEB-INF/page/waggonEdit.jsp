@@ -16,7 +16,7 @@
 <h1>Edit waggon page</h1>
 <p>Here you can edit existing waggon.</p>
 
-<form:form method = "POST" modelAttribute="waggon" action="${pageContext.request.contextPath}/waggons/edit/${waggon.idDriver}.html">
+<form:form method = "POST" modelAttribute="waggon" action="${pageContext.request.contextPath}/waggons/edit/${waggon.idWaggon}.html">
     <table>
         <tbody>
         <tr>
@@ -42,12 +42,17 @@
         </tr>
         <tr>
             <td>Current city:</td>
-            <td><form:input path="city"/></td>
+            <td><form:input path="city.city"/></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="submit" value="Save">
+            </td>
         </tr>
         </tbody>
     </table>
 </form:form>
 
-<p><a href="${pageContext.request.contextPath}/welcome.html">Home page</a></p>
+<p><a href="${pageContext.request.contextPath}/welcome">Home page</a></p>
 </body>
 </html>

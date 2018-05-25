@@ -16,23 +16,23 @@ public class DriverService implements DriverServiceInterface {
     private DriversRepositoryInterface driversRepository;
     @Autowired
     private WaggonRepositoryInterface waggonRepository;
-
+    @Transactional
     public List<Driver> getAllDrivers() {
         return driversRepository.getAllDrivers();
     }
-
+    @Transactional
     public void addDriver(Driver driver) {
         driversRepository.addDriver(driver);
     }
-
+    @Transactional
     public void updateDriver(Driver driver) {
         driversRepository.updateDriver(driver);
     }
-
+    @Transactional
     public Driver getDriver(int id) {
         return driversRepository.getDriver(id);
     }
-
+    @Transactional
     public void removeDriver(int id) {
         driversRepository.removeDriver(id);
     }

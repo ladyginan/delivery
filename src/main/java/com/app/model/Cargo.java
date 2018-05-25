@@ -36,4 +36,15 @@ public class Cargo {
     @Fetch(value = FetchMode.SUBSELECT)
     private List<WayPoint> wayPoints;
 
+    @Override
+    public String toString() {
+        return "Cargo{" +
+                "idCargo=" + idCargo +
+                ", cargoNumber=" + cargoNumber +
+                ", name='" + name + '\'' +
+                ", weight=" + weight +
+                ", status=" + status +
+                ", wayPoints=" + wayPoints +
+                '}';
+    }
 }

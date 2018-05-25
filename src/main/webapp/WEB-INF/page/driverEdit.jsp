@@ -41,17 +41,22 @@
     </tr>
     <tr>
         <td>current City:</td>
-        <td><form:input path="city"/></td>
+        <td><form:input path="city.city"/></td>
     </tr>
     <tr>
         <td>current Waggon:</td>
-        <td><form:input path="waggon"/></td>
+        <td><form:input path="waggon.regNumber"/></td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center">
+            <input type="submit" value="Save">
+        </td>
     </tr>
 
     </tbody>
 </table>
 </form:form>
 
-<p><a href="${pageContext.request.contextPath}/welcome.html">Home page</a></p>
+<p><a href="${pageContext.request.contextPath}/welcome">Home page</a></p>
 </body>
 </html>

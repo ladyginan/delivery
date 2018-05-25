@@ -6,6 +6,8 @@ import com.app.model.Cargo;
 import com.app.model.Map;
 import com.app.model.Order;
 import com.app.service.*;
+import com.app.service.impl.DriverService;
+import com.app.service.impl.WayPointService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
@@ -77,6 +79,9 @@ public class OrderController {
     public ModelAndView getAllOrders() {
         List<Order> orders = orderService.getAllOrders();
         ModelAndView modelAndView = new ModelAndView("listOfOrders");
+        modelAndView.addObject("waggons", waggonService.getAllWaggons());
+        modelAndView.addObject("pointList",wayPointService.getAllWayPoints());
+        modelAndView.addObject("drivers",driverService.getAllDrivers());
         modelAndView.addObject("orders", orders);
         return modelAndView;
     }

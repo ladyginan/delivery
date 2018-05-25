@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -26,15 +27,27 @@ public class Map {
     private Double longitude;
 
     @JsonIgnore
-    @OneToOne(mappedBy = "city")
-    private WayPoint wayPoint;
+    @OneToMany(mappedBy = "city")
+    private List<WayPoint> wayPoints;
 
     @JsonIgnore
-    @OneToOne(mappedBy = "city")
-    private Driver driver;
+    @OneToMany(mappedBy = "city")
+    private List<Driver> drivers;
 
     @JsonIgnore
-    @OneToOne(mappedBy = "city")
-    private Waggon waggon;
+    @OneToMany(mappedBy = "city")
+    private List<Waggon> waggons;
 
+    @Override
+    public String toString() {
+        return "Map{" +
+                "idCity=" + idCity +
+                ", city='" + city + '\'' +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
+                ", wayPoints=" + wayPoints +
+                ", drivers=" + drivers +
+                ", waggons=" + waggons +
+                '}';
+    }
 }
