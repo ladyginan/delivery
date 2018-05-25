@@ -2,6 +2,7 @@ package com.app.repository.impl;
 
 import com.app.model.Waggon;
 import com.app.repository.WaggonRepositoryInterface;
+import com.app.service.impl.WaggonService;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -34,7 +35,8 @@ public class WaggonRepository implements WaggonRepositoryInterface {
     @Transactional
     @Override
     public void removeWaggon(int id) {
-        factory.getCurrentSession().createQuery("Delete Waggon from WAGGONS where ID_WAGGON = 'id'");
+        Waggon waggon = getWaggon(id);
+        factory.getCurrentSession().delete(waggon);
     }
 //update waggon
     @Transactional
