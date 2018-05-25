@@ -19,7 +19,7 @@ public class CargoRepository implements CargoRepositoryInterface {
     }
 
     //show cargoes list
-    @Transactional
+
     @Override
     public List<Cargo> getAllCargoes() {
         List<Cargo> cargoes = factory.getCurrentSession().createQuery("from Cargo").list();
@@ -27,7 +27,6 @@ public class CargoRepository implements CargoRepositoryInterface {
     }
 
     //get cargo by id
-    @Transactional
     @Override
     public Cargo getCargo(int id) {
         Cargo cargo = factory.getCurrentSession().get(Cargo.class, id);
@@ -35,7 +34,6 @@ public class CargoRepository implements CargoRepositoryInterface {
     }
 
     //add new cargo
-    @Transactional
     @Override
     public void addCargo(Cargo cargo) {
         factory.getCurrentSession().save(cargo);

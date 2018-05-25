@@ -38,4 +38,16 @@ public class Map {
     @OneToMany(mappedBy = "city")
     private List<Waggon> waggons;
 
+    @Override
+    public String toString() {
+        return "Map{" +
+                "idCity=" + idCity +
+                ", city='" + city + '\'' +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
+                ", wayPoints=" + wayPoints +
+                ", drivers=" + drivers +
+                ", waggons=" + waggons +
+                '}';
+    }
 }

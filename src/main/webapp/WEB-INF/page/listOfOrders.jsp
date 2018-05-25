@@ -30,7 +30,9 @@
         <tr>
             <td>${order.regNumberOrder}</td>
             <td>${order.status}</td>
-
+            <td>${order.currentWaggon.regNumber}</td>
+            <td>${order.pointList}</td>
+            <td>${order.drivers}</td>
         </tr>
     </c:forEach>
     </tbody>

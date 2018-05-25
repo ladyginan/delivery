@@ -26,6 +26,7 @@ public class WayPoint {
     @JoinColumn(name = "ID_CITY")
     private Map city;
 
+
     @ManyToOne
     @JoinColumn(name = "ID_CARGO")
     private Cargo cargo;
@@ -34,4 +35,16 @@ public class WayPoint {
     @ManyToOne
     @JoinColumn(name = "ID_ORDER")
     private Order order;
+
+    @Override
+    public String toString() {
+        return "WayPoint{" +
+                "idWayPoint=" + idWayPoint +
+                ", orderType=" + orderType +
+                ", city=" + city +
+                ", cargo=" + cargo +
+                ", order=" + order +
+                '}';
+    }
+
 }

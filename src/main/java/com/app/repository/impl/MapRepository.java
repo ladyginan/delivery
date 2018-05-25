@@ -19,14 +19,14 @@ public class MapRepository implements MapRepositoryInterface {
     }
 
     //show lis of cities
-    @Transactional
+
     @Override
     public List<Map> getAllMap() {
         List<Map> map = factory.getCurrentSession().createQuery("from Map").list();
         return map;
     }
     // find city by id
-    @Transactional
+
     @Override
     public Map findCityById(int id) {
         return factory.getCurrentSession().get(Map.class, id);

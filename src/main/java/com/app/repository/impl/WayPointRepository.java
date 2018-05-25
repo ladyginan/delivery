@@ -18,20 +18,17 @@ public class WayPointRepository implements WayPointRepositoryInterface {
         this.factory = factory;
     }
 //add new way point
-    @Transactional
     @Override
     public void addWayPoint(WayPoint wayPoint) {
         factory.getCurrentSession().save(wayPoint);
     }
 //return list of way points
-    @Transactional
     @Override
     public List<WayPoint> getAllWayPoints() {
         List<WayPoint> wayPoints = factory.getCurrentSession().createQuery("from WayPoint").list();
         return wayPoints;
     }
 //find way point by id
-    @Transactional
     @Override
     public WayPoint findWayPointById(int id) {
         WayPoint wayPoint = (WayPoint) factory.getCurrentSession().get(WayPoint.class, id);

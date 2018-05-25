@@ -19,27 +19,25 @@ public class WaggonRepository implements WaggonRepositoryInterface {
         this.factory = factory;
     }
 //show list of waggons
-    @Transactional
+
     @Override
     public List<Waggon> getAllWaggons() {
         List<Waggon> waggons = factory.getCurrentSession().createQuery("from Waggon").list();
         return waggons;
     }
 // add new waggon
-    @Transactional
+
     @Override
     public void addWaggon(Waggon waggon) {
         factory.getCurrentSession().save(waggon);
     }
 //remove waggon
-    @Transactional
     @Override
     public void removeWaggon(int id) {
         Waggon waggon = getWaggon(id);
         factory.getCurrentSession().delete(waggon);
     }
 //update waggon
-    @Transactional
     @Override
     public void updateWaggon(Waggon waggon) {
         Waggon WaggonToUpdate = getWaggon(waggon.getIdWaggon());
@@ -52,14 +50,12 @@ public class WaggonRepository implements WaggonRepositoryInterface {
         factory.getCurrentSession().update(WaggonToUpdate);
     }
 //get waggon
-    @Transactional
     @Override
     public Waggon getWaggon(int id) {
         Waggon waggon = (Waggon) factory.getCurrentSession().get(Waggon.class, id);
         return waggon;
     }
 //get waggon by registration number
-    @Transactional
     @Override
     public Waggon getWaggonByRegNumber(String regNumber) {
         Waggon waggon = (Waggon) factory.getCurrentSession().get(Waggon.class, regNumber);

@@ -46,4 +46,17 @@ public class Waggon {
     @OneToOne(mappedBy = "currentWaggon", cascade = {CascadeType.ALL})
     private Order order;
 
+    @Override
+    public String toString() {
+        return "Waggon{" +
+                "idWaggon=" + idWaggon +
+                ", regNumber='" + regNumber + '\'' +
+                ", shiftSize=" + shiftSize +
+                ", capacity=" + capacity +
+                ", status=" + status +
+                ", city=" + city +
+                ", drivers=" + drivers +
+                ", order=" + order +
+                '}';
+    }
 }

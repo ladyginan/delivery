@@ -22,20 +22,20 @@ public class DriversRepository implements DriversRepositoryInterface {
     }
 
     //show driver list
-    @Transactional
+
     public List<Driver> getAllDrivers() {
         List<Driver> drivers = factory.getCurrentSession().createQuery("from Driver").list();
         return drivers;
     }
 
     //add new driver
-    @Transactional
+
     public void addDriver(Driver driver) {
         factory.getCurrentSession().save(driver);
     }
 
     //updating driver fields
-    @Transactional
+
     public void updateDriver(Driver driver) {
         Driver driverToUpdate = getDriver(driver.getIdDriver());
 
@@ -49,14 +49,14 @@ public class DriversRepository implements DriversRepositoryInterface {
     }
 
     //get driver by id
-    @Transactional
+
     public Driver getDriver(int id) {
         Driver driver = (Driver) factory.getCurrentSession().get(Driver.class, id);
         return driver;
     }
 
     // remove driver
-    @Transactional
+
     public void removeDriver(int id) {
         Driver driver = getDriver(id);
         factory.getCurrentSession().delete(driver);
