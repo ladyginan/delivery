@@ -34,7 +34,7 @@ public class Waggon {
     private WaggonStatus status;
 
     @JsonIgnore
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "ID_CITY")
     private Map city;
 
