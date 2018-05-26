@@ -19,7 +19,7 @@ public class OrderRepository implements OrderRepositoryInterface {
     }
 
     //show list of orders
-    @Transactional
+
     @Override
     public List<Order> getAllOrders() {
         List<Order> orders = factory.getCurrentSession().createQuery("from Order").list();
@@ -27,7 +27,7 @@ public class OrderRepository implements OrderRepositoryInterface {
     }
 
     //add new order
-    @Transactional
+
     @Override
     public Order addOrder(Order order) {
         Integer savedOrderId = (Integer) factory.getCurrentSession().save(order);

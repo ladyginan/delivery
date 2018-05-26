@@ -1,5 +1,6 @@
 package com.app.repository.impl;
 
+import com.app.DTO.DriverDTO;
 import com.app.model.Driver;
 import com.app.repository.DriversRepositoryInterface;
 import org.hibernate.SessionFactory;
@@ -22,41 +23,41 @@ public class DriversRepository implements DriversRepositoryInterface {
     }
 
     //show driver list
-    @Transactional
+
     public List<Driver> getAllDrivers() {
         List<Driver> drivers = factory.getCurrentSession().createQuery("from Driver").list();
         return drivers;
     }
 
     //add new driver
-    @Transactional
+
     public void addDriver(Driver driver) {
-        factory.getCurrentSession().save(driver);
+        factory.getCurrentSession().persist(driver);
     }
 
     //updating driver fields
-    @Transactional
-    public void updateDriver(Driver driver) {
-        Driver driverToUpdate = getDriver(driver.getIdDriver());
 
-        driverToUpdate.setName(driver.getName());
-        driverToUpdate.setSecondName(driver.getSecondName());
-        driverToUpdate.setPersonalNumber(driver.getPersonalNumber());
-        driverToUpdate.setStatus(driver.getStatus());
-        driverToUpdate.setHoursWorked(driver.getHoursWorked());
-        driverToUpdate.setCity(driver.getCity());
-        factory.getCurrentSession().update(driverToUpdate);
+    public void updateDriver(Driver driver) {
+//        Driver driverToUpdate = getDriver(driver.getIdDriver());
+//        driverToUpdate.setName(driver.getName());
+//        driverToUpdate.setSecondName(driver.getSecondName());
+//        driverToUpdate.setPersonalNumber(driver.getPersonalNumber());
+//        driverToUpdate.setStatus(driver.getStatus());
+//        driverToUpdate.setHoursWorked(driver.getHoursWorked());
+//        driverToUpdate.setCity(driver.getCity());
+//        driverToUpdate.setWaggon(driver.getWaggon());
+        factory.getCurrentSession().update(driver);
     }
 
     //get driver by id
-    @Transactional
+
     public Driver getDriver(int id) {
         Driver driver = (Driver) factory.getCurrentSession().get(Driver.class, id);
         return driver;
     }
 
     // remove driver
-    @Transactional
+
     public void removeDriver(int id) {
         Driver driver = getDriver(id);
         factory.getCurrentSession().delete(driver);

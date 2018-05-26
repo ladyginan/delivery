@@ -21,8 +21,8 @@
             <th width="15%">Registration number</th>
             <th width="10%">Done</th>
             <th width="10%">Current waggon</th>
-            <th width="10%">Point list</th>
-            <th width="10%">Drivers</th>
+            <%--<th width="10%">Point list</th>--%>
+            <%--<th width="10%">Drivers</th>--%>
         </tr>
     </thread>
     <tbody>
@@ -30,13 +30,13 @@
         <tr>
             <td>${order.regNumberOrder}</td>
             <td>${order.status}</td>
-            <%--<td>${order.currentWaggon}</td>--%>
+            <td>${order.currentWaggon.regNumber}</td>
             <%--<td>${order.pointList}</td>--%>
             <%--<td>${order.drivers}</td>--%>
         </tr>
     </c:forEach>
     </tbody>
 </table>
-<p><a href="${pageContext.request.contextPath}/"></a>Home page</p>
+<p><a href="${pageContext.request.contextPath}/welcome">Home page</a></p>
 </body>
 </html>

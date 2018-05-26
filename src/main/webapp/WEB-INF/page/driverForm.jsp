@@ -44,7 +44,7 @@
                 <form:select class="form-control" id ="idCity" path="city">
                     <form:option value="" label=" Please select"/>
                     <form:options items="${maps}" itemValue="idCity" itemLabel="city" />
-                </form:select>
+                </form:select></td>
             </tr>
             <tr>
                 <td>current waggon:</td>
@@ -61,6 +61,6 @@
         </form:form>
     </table>
 </div>
-<p><a href="${pageContext.request.contextPath}/">Home page</a></p>
+<p><a href="${pageContext.request.contextPath}/welcome">Home page</a></p>
 </body>
 </html>

@@ -1,10 +1,9 @@
 package com.app.configuration;
 
 
-import com.app.coverters.CargoConverter;
-import com.app.coverters.CityConverter;
-import com.app.coverters.WaggonConverter;
+import com.app.coverters.*;
 import com.app.model.Cargo;
+import com.app.service.DriverServiceInterface;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -31,6 +30,10 @@ public class SpringAppConfig implements WebMvcConfigurer {
     CargoConverter cargoConverter;
     @Autowired
     WaggonConverter waggonConverter;
+    @Autowired
+    WayPointConverter wayPointConverter;
+    @Autowired
+    DriverConverter driverConverter;
 
     @Bean
     public InternalResourceViewResolver setupViewResolver() {
@@ -57,5 +60,7 @@ public class SpringAppConfig implements WebMvcConfigurer {
         registry.addConverter(cityConverter);
         registry.addConverter(cargoConverter);
         registry.addConverter(waggonConverter);
+        registry.addConverter(wayPointConverter);
+        registry.addConverter(driverConverter);
     }
 }

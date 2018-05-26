@@ -17,7 +17,7 @@
     <table>
             <tr>
                 <td>Registration number of order:</td>
-                <td><input id="regNumberOrder" type="number"></td>
+                <td><input id="regNumberOrder"></td>
             </tr>
 
             <tr>
@@ -53,6 +53,6 @@
 
     </table>
 </div>
-
+<p><a href="${pageContext.request.contextPath}/welcome">Home page</a></p>
 </body>
 </html>

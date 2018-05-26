@@ -1,10 +1,13 @@
 package com.app.controllers;
 
+import com.app.DTO.DriverDTO;
 import com.app.model.Driver;
 import com.app.model.WayPoint;
 import com.app.service.DriverServiceInterface;
 import com.app.service.MapServiceInterface;
 import com.app.service.WaggonServiceInterface;
+import com.app.service.WayPointServiceInterface;
+import com.app.service.impl.WayPointService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +25,9 @@ public class DriversController {
     private WaggonServiceInterface waggonService;
     @Autowired
     private MapServiceInterface mapService;
+    @Autowired
+    private WayPointServiceInterface wayPointService;
+
 
     @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody
@@ -56,21 +62,24 @@ public class DriversController {
         modelAndView.addObject("message", message);
         return modelAndView;
     }
-
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     public ModelAndView editDriverPage(@PathVariable Integer id) {
         ModelAndView modelAndView = new ModelAndView("driverEdit");
+//        DriverDTO driverDTO = new DriverDTO();
         Driver driver = driverService.getDriver(id);
         modelAndView.addObject("driver", driver);
+        modelAndView.addObject("maps", mapService.getAllMap());
+        modelAndView.addObject("waggons", waggonService.getAllWaggons());
         return modelAndView;
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
-    public ModelAndView editDriver(@ModelAttribute Driver driver, @PathVariable Integer id) {
-        ModelAndView modelAndView = new ModelAndView("driverEdit");
+    public ModelAndView editDriver(@ModelAttribute Driver driver) {
+        ModelAndView modelAndView = new ModelAndView("welcome");
         driverService.updateDriver(driver);
         String message = "Driver was successfully edited.";
         modelAndView.addObject("message", message);
+
         return modelAndView;
     }
 
