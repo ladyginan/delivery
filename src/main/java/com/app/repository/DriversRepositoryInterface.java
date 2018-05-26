@@ -1,6 +1,5 @@
 package com.app.repository;
 
-import com.app.DTO.DriverDTO;
 import com.app.model.Driver;
 
 import java.util.List;

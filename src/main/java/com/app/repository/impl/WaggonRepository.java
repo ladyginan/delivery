@@ -62,5 +62,4 @@ public class WaggonRepository implements WaggonRepositoryInterface {
         return waggon;
     }
 
-
 }

@@ -23,9 +23,4 @@ public class WayPointService implements WayPointServiceInterface {
     public List<WayPoint> getAllWayPoints() {
         return wayPointRepository.getAllWayPoints();
     }
-
-    @Override
-    public WayPoint findWayPointById(int id) {
-        return wayPointRepository.findWayPointById(id);
-    }
 }

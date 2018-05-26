@@ -8,6 +8,4 @@ public interface WayPointServiceInterface {
     void addWayPoint(WayPoint wayPoint);
 
     List<WayPoint> getAllWayPoints();
-
-    WayPoint findWayPointById(int id);
 }

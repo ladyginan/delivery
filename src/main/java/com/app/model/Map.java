@@ -4,8 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.util.List;
@@ -29,18 +27,27 @@ public class Map {
     private Double longitude;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "city", fetch=FetchType.EAGER)
-    @Fetch(value = FetchMode.SUBSELECT)
+    @OneToMany(mappedBy = "city")
     private List<WayPoint> wayPoints;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "city", fetch=FetchType.EAGER)
-    @Fetch(value = FetchMode.SUBSELECT)
+    @OneToMany(mappedBy = "city")
     private List<Driver> drivers;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "city", fetch=FetchType.EAGER)
-    @Fetch(value = FetchMode.SUBSELECT)
+    @OneToMany(mappedBy = "city")
     private List<Waggon> waggons;
 
+    @Override
+    public String toString() {
+        return "Map{" +
+                "idCity=" + idCity +
+                ", city='" + city + '\'' +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
+                ", wayPoints=" + wayPoints +
+                ", drivers=" + drivers +
+                ", waggons=" + waggons +
+                '}';
+    }
 }

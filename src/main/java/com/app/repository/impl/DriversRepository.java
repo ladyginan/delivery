@@ -1,6 +1,5 @@
 package com.app.repository.impl;
 
-import com.app.DTO.DriverDTO;
 import com.app.model.Driver;
 import com.app.repository.DriversRepositoryInterface;
 import org.hibernate.SessionFactory;
@@ -32,20 +31,12 @@ public class DriversRepository implements DriversRepositoryInterface {
     //add new driver
 
     public void addDriver(Driver driver) {
-        factory.getCurrentSession().persist(driver);
+        factory.getCurrentSession().save(driver);
     }
 
     //updating driver fields
 
     public void updateDriver(Driver driver) {
-//        Driver driverToUpdate = getDriver(driver.getIdDriver());
-//        driverToUpdate.setName(driver.getName());
-//        driverToUpdate.setSecondName(driver.getSecondName());
-//        driverToUpdate.setPersonalNumber(driver.getPersonalNumber());
-//        driverToUpdate.setStatus(driver.getStatus());
-//        driverToUpdate.setHoursWorked(driver.getHoursWorked());
-//        driverToUpdate.setCity(driver.getCity());
-//        driverToUpdate.setWaggon(driver.getWaggon());
         factory.getCurrentSession().update(driver);
     }
 

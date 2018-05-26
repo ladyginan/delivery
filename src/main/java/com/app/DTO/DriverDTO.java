@@ -3,11 +3,11 @@ package com.app.DTO;
 import com.app.model.Enums.DriverStatus;
 import com.app.model.Map;
 import com.app.model.Waggon;
-import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
+@NoArgsConstructor
 public class DriverDTO {
     private int idDriver;
     private int personalNumber;
@@ -18,7 +18,9 @@ public class DriverDTO {
     private Map city;
     private Waggon waggon;
 
-    public DriverDTO(){
+
+
+    public DriverDTO(int idDriver,int personalNumber,String name,String secondName,int hoursWorked,DriverStatus status,Map city,Waggon waggon){
 
     }
 }

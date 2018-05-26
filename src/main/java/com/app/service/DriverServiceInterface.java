@@ -23,15 +23,15 @@ public interface DriverServiceInterface {
     /**
      * edit Driver
      *
-     * @param driver
+     * @param driverDTO
      */
-    void updateDriver(Driver driver);
+    void updateDriver(DriverDTO driverDTO);
 
     /**
      * @param id
-     * @return driverDTO
+     * @return
      */
-    Driver getDriver(int id);
+    DriverDTO getDriver(int id);
 
 
 }

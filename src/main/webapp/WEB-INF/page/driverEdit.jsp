@@ -16,7 +16,7 @@
 <h1>Edit driver page</h1>
 <p>Here you can edit existing driver.</p>
 
-<form:form action="${pageContext.request.contextPath}/drivers/edit/${driver.idDriver}" method = "POST" modelAttribute="driver">
+<form:form method = "POST" modelAttribute="driverDTO" action="${pageContext.request.contextPath}/drivers/edit/${driver.idDriver}.html">
 <table>
     <tbody>
     <tr>
@@ -38,22 +38,24 @@
     <tr>
         <td>status:</td>
         <td><form:select class="form-control" path="status">
-                <form:option value="" label=" Please select"/>
-                <form:options items="${statusDriver}" />
-        </form:select></td>
+            <form:option value="" label="${driverDTO.status}"/>
+            <form:options items="${DriverStatus}" />
+        </form:select>
+        </td>
     </tr>
     <tr>
         <td>current City:</td>
-        <td> <form:select class="form-control" id ="idCity" path="city">
-                <form:option value="" label=" Please select"/>
+        <td>
+            <form:select class="form-control" id ="idCity" path="city">
+                <form:option value="" label="${driverDTO.city.city}"/>
                 <form:options items="${maps}" itemValue="idCity" itemLabel="city" />
-        </form:select></td>
+            </form:select></td>
     </tr>
     <tr>
         <td>current Waggon:</td>
         <td><form:select class="form-control" path="waggon">
-            <form:option value="" label=" Please select"/>
-            <form:options items="${waggons}" itemValue="IdWaggon" itemLabel="IdWaggon" />
+            <form:option value="" label="${driverDTO.waggon.regNumber}"/>
+            <form:options items="${waggons}" itemValue="IdWaggon" itemLabel="regNumber" />
         </form:select></td>
     </tr>
     <tr>

@@ -80,8 +80,8 @@ public class OrderController {
         List<Order> orders = orderService.getAllOrders();
         ModelAndView modelAndView = new ModelAndView("listOfOrders");
         modelAndView.addObject("waggons", waggonService.getAllWaggons());
-//        modelAndView.addObject("pointList",wayPointService.getAllWayPoints());
-//        modelAndView.addObject("drivers",driverService.getAllDrivers());
+        modelAndView.addObject("pointList",wayPointService.getAllWayPoints());
+        modelAndView.addObject("drivers",driverService.getAllDrivers());
         modelAndView.addObject("orders", orders);
         return modelAndView;
     }
