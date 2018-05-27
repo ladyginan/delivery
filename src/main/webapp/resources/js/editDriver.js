@@ -10,11 +10,10 @@ $(document).ready(function() {
 function loadDriver(driverId) {
 
     $.get("/drivers/" + driverId, function (driver) {
-        var name = $('#name');
-        driver.append($("<option/>")
-            .val(driver.name)
-            .text(driver.name)
-        )
+          var name = $("#name")
+        name.append(
+            $('<input />').val(driver.name)
+                .text(driver.name))
     })
 }
 
