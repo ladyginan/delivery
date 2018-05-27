@@ -25,7 +25,7 @@ public interface DriverServiceInterface {
      *
      * @param driverDTO
      */
-    void updateDriver(DriverDTO driverDTO);
+    DriverDTO updateDriver(DriverDTO driverDTO);
 
     /**
      * @param id

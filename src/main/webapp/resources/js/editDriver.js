@@ -1,5 +1,6 @@
 $(document).ready(function() {
-    var pathArray = window.location.pathname.split('/');
+    var pathArray = window.location.pathname;
+    pathArray = pathArray.replace('.html','').split('/');
     var driverId = pathArray[pathArray.length - 1];
     loadDriver(driverId);
     loadCities();
@@ -8,15 +9,10 @@ $(document).ready(function() {
 
 
 function loadDriver(driverId) {
-
     $.get("/drivers/" + driverId, function (driver) {
-          var name = $("#name")
-        name.append(
-            $('<input />').val(driver.name)
-                .text(driver.name))
+        $("#firstName").val(driver.name);
     })
 }
-
 
 function  loadCities() {
     $.get("/cities", function(cities){
@@ -49,7 +45,7 @@ function loadAllWaggons() {
 
 function editDriver() {
     var personalNumber = $('#personalNumber').val();
-    var name = $('#name').val();
+    var name = $('#firstName').val();
     var secondName = $('#secondName').val();
     var hoursWorked = $('#hoursWorked').val();
     var driverStatus = $('#driverStatus').val();

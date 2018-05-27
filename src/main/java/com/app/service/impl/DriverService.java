@@ -32,7 +32,7 @@ public class DriverService implements DriverServiceInterface {
         driversRepository.addDriver(driver);
     }
     @Transactional
-    public void updateDriver(DriverDTO driverDTO) {
+    public DriverDTO updateDriver(DriverDTO driverDTO) {
         Map city = mapRepository.findCityById(driverDTO.getMapId());
         Waggon waggon = waggonRepository.getWaggon(driverDTO.getWaggon());
         Driver driver = new Driver(
@@ -45,6 +45,7 @@ public class DriverService implements DriverServiceInterface {
               waggon);
         driver.setIdDriver(driverDTO.getIdDriver());
         driversRepository.updateDriver(driver);
+        return driverDTO;
     }
 
     @Transactional

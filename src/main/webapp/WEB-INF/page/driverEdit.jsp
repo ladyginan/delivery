@@ -23,11 +23,11 @@
     <table>
         <tr>
         <td>Personal number:</td>
-        <td><input id="personalNumber"></td>
+        <td><input  id="personalNumber"></td>
         </tr>
         <tr>
             <td>Name:</td>
-            <td><input id="name"></td>
+            <td><input type = "text" id="firstName"></td>
         </tr>
         <tr>
             <td>Second name:</td>
