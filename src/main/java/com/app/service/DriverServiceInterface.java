@@ -1,5 +1,6 @@
 package com.app.service;
 
+import com.app.DTO.DriverDTO;
 import com.app.model.Driver;
 
 import java.util.List;
@@ -22,14 +23,16 @@ public interface DriverServiceInterface {
     /**
      * edit Driver
      *
-     * @param driver
+     * @param driverDTO
      */
-    void updateDriver(Driver driver);
+    DriverDTO updateDriver(DriverDTO driverDTO);
 
     /**
      * @param id
      * @return
      */
+    DriverDTO getDriverDTO(int id);
+
     Driver getDriver(int id);
 
 

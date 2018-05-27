@@ -1,5 +1,6 @@
 package com.app.controllers;
 
+import com.app.DTO.DriverDTO;
 import com.app.model.Driver;
 import com.app.model.WayPoint;
 import com.app.service.DriverServiceInterface;
@@ -29,7 +30,12 @@ public class DriversController {
         List<Driver> drivers = driverService.getAllDrivers();
         return drivers;
     }
-
+    @RequestMapping(method = RequestMethod.POST)
+    public @ResponseBody DriverDTO editDriver(@RequestBody DriverDTO driverDTO) {
+        System.out.println(driverDTO);
+        driverService.updateDriver(driverDTO);
+        return new DriverDTO();
+    }
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public ModelAndView getAllDrivers() {
         List<Driver> drivers = driverService.getAllDrivers();
@@ -58,22 +64,30 @@ public class DriversController {
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
-    public ModelAndView editDriverPage(@PathVariable Integer id) {
+    public ModelAndView editDriverPage(@PathVariable int id) {
         ModelAndView modelAndView = new ModelAndView("driverEdit");
-        Driver driver = driverService.getDriver(id);
-        modelAndView.addObject("driver", driver);
         return modelAndView;
     }
 
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public @ResponseBody DriverDTO getDriverById(@PathVariable int id) {
+        DriverDTO driverDTO = driverService.getDriverDTO(id);
+        return driverDTO;
+    }
+
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
-    public ModelAndView editDriver(@ModelAttribute Driver driver, @PathVariable Integer id) {
-        ModelAndView modelAndView = new ModelAndView("driverEdit");
-        driverService.updateDriver(driver);
+    public @ResponseBody DriverDTO editDriver(@RequestBody DriverDTO driverDTO, @PathVariable int id) {
+        DriverDTO savedDriver = driverService.updateDriver(driverDTO);
+        return savedDriver;
+    }
+
+    @RequestMapping(value = "/edit/success", method = RequestMethod.GET)
+    public ModelAndView editDriverSuccessMessage() {
+        ModelAndView modelAndView = new ModelAndView("welcome");
         String message = "Driver was successfully edited.";
         modelAndView.addObject("message", message);
         return modelAndView;
     }
-
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     public ModelAndView deleteDriver(@PathVariable Integer id) {

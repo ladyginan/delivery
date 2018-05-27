@@ -26,7 +26,7 @@ public class Order {
     @Column(name = "ORDER_STATUS")
     private OrderStatus status;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order", fetch=FetchType.EAGER)
     @Fetch(value = FetchMode.SUBSELECT)
     private List<WayPoint> pointList;
 
@@ -34,7 +34,7 @@ public class Order {
     @JoinColumn(name = "WAGGONS", referencedColumnName = "ID_WAGGON")
     private Waggon currentWaggon;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order", fetch=FetchType.EAGER)
     private List<Driver> drivers;
 
     public Order(int regNumberOrder, OrderStatus status, List<WayPoint> pointList, Waggon currentWaggon, List<Driver> drivers) {
@@ -43,5 +43,17 @@ public class Order {
         this.pointList = pointList;
         this.currentWaggon = currentWaggon;
         this.drivers = drivers;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "idOrder=" + idOrder +
+                ", regNumberOrder=" + regNumberOrder +
+                ", status=" + status +
+                ", pointList=" + pointList +
+                ", currentWaggon=" + currentWaggon +
+                ", drivers=" + drivers +
+                '}';
     }
 }

@@ -6,6 +6,8 @@ import com.app.model.Cargo;
 import com.app.model.Map;
 import com.app.model.Order;
 import com.app.service.*;
+import com.app.service.impl.DriverService;
+import com.app.service.impl.WayPointService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
@@ -57,26 +59,32 @@ public class OrderController {
 
     @GetMapping("/add")
     public String waggonForm(Model model) {
-//        model.addAttribute("order", new Order());
-//        model.addAttribute("wayPoints", wayPointService.getAllWayPoints());
-//        model.addAttribute("drivers", driverService.getAllDrivers());
-//        model.addAttribute("waggons", waggonService.getAllWaggons());
         return "orderForm";
     }
 
     @PostMapping("/add")
-    public String waggonSubmit(@ModelAttribute OrderDTO orderDTO, Model model) {
-//        orderService.addOrder(orderDTO);
+    public String orderSubmit(@ModelAttribute OrderDTO orderDTO, Model model) {
         String message = "Order was successfully added";
         model.addAttribute("message", message);
         return "welcome";
     }
+//
+//    @RequestMapping(value = "/add/success", method = RequestMethod.GET)
+//    public ModelAndView editOrderSuccessMessage() {
+//        ModelAndView modelAndView = new ModelAndView("welcome");
+//        String message = "Order was successfully edited.";
+//        modelAndView.addObject("message", message);
+//        return modelAndView;
+//    }
 
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public ModelAndView getAllOrders() {
         List<Order> orders = orderService.getAllOrders();
         ModelAndView modelAndView = new ModelAndView("listOfOrders");
+        modelAndView.addObject("waggons", waggonService.getAllWaggons());
+        modelAndView.addObject("pointList",wayPointService.getAllWayPoints());
+        modelAndView.addObject("drivers",driverService.getAllDrivers());
         modelAndView.addObject("orders", orders);
         return modelAndView;
     }

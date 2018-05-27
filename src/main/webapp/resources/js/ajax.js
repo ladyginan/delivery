@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
     loadWaypoints();
     loadAllWaggons();
     loadDrivers();
@@ -12,7 +11,9 @@ function loadAllWaggons() {
 
         for (waggon in waggons) {
             waggonSelect
-                .append($("<option />").val(waggons[waggon].idWaggon).text(waggons[waggon].regNumber))
+                .append($("<option />")
+                    .val(waggons[waggon].idWaggon)
+                    .text(waggons[waggon].regNumber))
         }
     })
 }
@@ -79,7 +80,7 @@ function createOrder() {
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
         success: function (order) {
-            window.location.href = "/";
+            window.location.href = "/welcome";
         }
     });
 

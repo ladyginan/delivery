@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -18,23 +19,11 @@ public class Map {
 
     @Column(name = "CITY")
     private String city;
-
+    @JsonIgnore
     @Column(name = "LATITUDE")
     private Double latitude;
-
+    @JsonIgnore
     @Column(name = "LONGITUDE")
     private Double longitude;
-
-    @JsonIgnore
-    @OneToOne(mappedBy = "city")
-    private WayPoint wayPoint;
-
-    @JsonIgnore
-    @OneToOne(mappedBy = "city")
-    private Driver driver;
-
-    @JsonIgnore
-    @OneToOne(mappedBy = "city")
-    private Waggon waggon;
 
 }

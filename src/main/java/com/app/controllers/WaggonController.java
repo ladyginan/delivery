@@ -78,5 +78,4 @@ public class WaggonController {
         modelAndView.addObject("message", message);
         return modelAndView;
     }
-
 }

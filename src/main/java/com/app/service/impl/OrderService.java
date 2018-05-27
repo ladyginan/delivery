@@ -16,6 +16,7 @@ import com.app.service.OrderServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class OrderService implements OrderServiceInterface {
     private WaggonRepositoryInterface waggonRepository;
     @Autowired
     private WayPointRepositoryInterface wayPointRepository;
-
+    @Transactional
     @Override
     public List<Order> getAllOrders() {
         return orderRepository.getAllOrders();
@@ -53,6 +54,7 @@ public class OrderService implements OrderServiceInterface {
 //        orderRepository.addOrder(order);
 //    }
 
+    @Transactional
     @Override
     public Order createOrder(CreateOrderDTO createOrderDTO) {
 

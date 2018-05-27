@@ -17,19 +17,19 @@
     <table>
             <tr>
                 <td>Registration number of order:</td>
-                <td><input id="regNumberOrder" type="number"></td>
+                <td><input id="regNumberOrder"></td>
             </tr>
 
             <tr>
                 <td>Order status number:</td>
                 <td><select id="orderStatus">
                     <option value="COMPLETED">COMPLETED</option>
-                    <option value="NOTCOMPLETED">NOTCOMPLETED</option>
+                    <option value="NOTCOMPLETED">NOT COMPLETED</option>
                 </select></td>
             </tr>
 
             <tr>
-                <td>Waypoints:</td>
+                <td>Way points:</td>
                 <td><select id="waypoints" multiple="multiple">
                 </select></td>
             </tr>
@@ -53,6 +53,6 @@
 
     </table>
 </div>
-
+<p><a href="${pageContext.request.contextPath}/welcome">Home page</a></p>
 </body>
 </html>

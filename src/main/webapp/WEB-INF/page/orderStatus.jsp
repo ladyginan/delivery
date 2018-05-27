@@ -18,7 +18,7 @@
 <table border="1px" cellpadding="0" cellspacing="0">
     <thread>
         <tr>
-            <th width="20%">Registration number</th>
+            <th width="10%">Registration number</th>
             <th width="10%">Status</th>
         </tr>
     </thread>
@@ -31,6 +31,6 @@
     </c:forEach>
     </tbody>
 </table>
-p><a href="${pageContext.request.contextPath}/welcome.html">Home page</a></p>
+<p><a href="${pageContext.request.contextPath}/welcome">Home page</a></p>
 </body>
 </html>
