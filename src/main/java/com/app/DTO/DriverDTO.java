@@ -1,5 +1,6 @@
 package com.app.DTO;
 
+import com.app.model.Driver;
 import com.app.model.Enums.DriverStatus;
 import com.app.model.Map;
 import com.app.model.Waggon;
@@ -15,12 +16,19 @@ public class DriverDTO {
     private String secondName;
     private int hoursWorked;
     private DriverStatus status;
-    private Map city;
-    private Waggon waggon;
+    private int mapId;
+    private int waggon;
 
 
 
-    public DriverDTO(int idDriver,int personalNumber,String name,String secondName,int hoursWorked,DriverStatus status,Map city,Waggon waggon){
-
+    public DriverDTO(Driver driver){
+        this.idDriver = driver.getIdDriver();
+        this.personalNumber = driver.getPersonalNumber();
+        this.name = driver.getName();
+        this.secondName = driver.getSecondName();
+        this.hoursWorked = driver.getHoursWorked();
+        this.status = driver.getStatus();
+        this.mapId = driver.getCity().getIdCity();
+        this.waggon = driver.getWaggon().getIdWaggon();
     }
 }

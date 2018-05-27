@@ -61,11 +61,17 @@ public class DriversController {
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     public ModelAndView editDriverPage(@PathVariable int id) {
         ModelAndView modelAndView = new ModelAndView("driverEdit");
-        DriverDTO driverDTO = driverService.getDriver(id);
-        modelAndView.addObject("driverDTO", driverDTO);
-        modelAndView.addObject("waggons", waggonService.getAllWaggons());
-        modelAndView.addObject("maps", mapService.getAllMap());
+//        Driver driver = driverService.getDriver(id);
+//        modelAndView.addObject("driverDTO", driver);
+//        modelAndView.addObject("waggons", waggonService.getAllWaggons());
+//        modelAndView.addObject("maps", mapService.getAllMap());
         return modelAndView;
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public @ResponseBody DriverDTO getDriverById(@PathVariable int id) {
+        Driver driver = driverService.getDriver(id);
+        return new DriverDTO(driver);
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)

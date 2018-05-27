@@ -19,35 +19,11 @@ public class Map {
 
     @Column(name = "CITY")
     private String city;
-
+    @JsonIgnore
     @Column(name = "LATITUDE")
     private Double latitude;
-
+    @JsonIgnore
     @Column(name = "LONGITUDE")
     private Double longitude;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "city")
-    private List<WayPoint> wayPoints;
-
-    @JsonIgnore
-    @OneToMany(mappedBy = "city")
-    private List<Driver> drivers;
-
-    @JsonIgnore
-    @OneToMany(mappedBy = "city")
-    private List<Waggon> waggons;
-
-    @Override
-    public String toString() {
-        return "Map{" +
-                "idCity=" + idCity +
-                ", city='" + city + '\'' +
-                ", latitude=" + latitude +
-                ", longitude=" + longitude +
-                ", wayPoints=" + wayPoints +
-                ", drivers=" + drivers +
-                ", waggons=" + waggons +
-                '}';
-    }
 }

@@ -22,10 +22,9 @@ public class WayPoint {
     @Column(name = "ORDER_TYPE")
     private OrderType orderType;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ID_CITY")
     private Map city;
-
 
     @ManyToOne
     @JoinColumn(name = "ID_CARGO")

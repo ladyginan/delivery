@@ -7,7 +7,6 @@ import com.app.model.Waggon;
 import com.app.repository.DriversRepositoryInterface;
 import com.app.repository.MapRepositoryInterface;
 import com.app.repository.WaggonRepositoryInterface;
-import com.app.repository.impl.MapRepository;
 import com.app.service.DriverServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,23 +32,23 @@ public class DriverService implements DriverServiceInterface {
     }
     @Transactional
     public void updateDriver(DriverDTO driverDTO) {
-        Driver driver = driversRepository.getDriver(driverDTO.getIdDriver());
-        driver.setName(driverDTO.getName());
-        driver.setSecondName(driverDTO.getSecondName());
-        driver.setPersonalNumber(driverDTO.getPersonalNumber());
-        driver.setHoursWorked(driverDTO.getHoursWorked());
-        driver.setStatus(driverDTO.getStatus());
-        driver.setCity(driverDTO.getCity());
-        driver.setWaggon(driverDTO.getWaggon());
-        driversRepository.updateDriver(driver);
+//        Driver driver = driversRepository.getDriver(driverDTO.getIdDriver());
+//        driver.setName(driverDTO.getName());
+//        driver.setSecondName(driverDTO.getSecondName());
+//        driver.setPersonalNumber(driverDTO.getPersonalNumber());
+//        driver.setHoursWorked(driverDTO.getHoursWorked());
+//        driver.setStatus(driverDTO.getStatus());
+//        driver.setCity(driverDTO.getCity());
+//        driver.setWaggon(driverDTO.getWaggon());
+//        driversRepository.updateDriver(driver);
     }
     @Transactional
-    public DriverDTO getDriver(int id) {
+    public Driver getDriver(int id) {
         Driver driver = driversRepository.getDriver(id);
         Map city = mapRepository.findCityById(driver.getIdDriver());
         Waggon waggon = waggonRepository.getWaggon(driver.getIdDriver());
-        DriverDTO driverDTO = new DriverDTO(driver.getIdDriver(),driver.getPersonalNumber(), driver.getName(), driver.getSecondName(), driver.getHoursWorked(), driver.getStatus(), city, waggon);
-        return driverDTO;
+//        DriverDTO driverDTO = new DriverDTO(driver.getIdDriver(),driver.getPersonalNumber(), driver.getName(), driver.getSecondName(), driver.getHoursWorked(), driver.getStatus(), city, waggon);
+        return driver;
     }
     @Transactional
     public void removeDriver(int id) {

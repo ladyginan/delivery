@@ -34,7 +34,7 @@ public class Driver {
     private DriverStatus status;
 
     @JsonIgnore
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ID_CITY")
     private Map city;
 
