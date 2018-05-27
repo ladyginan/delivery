@@ -24,12 +24,12 @@
                 <td>Order status number:</td>
                 <td><select id="orderStatus">
                     <option value="COMPLETED">COMPLETED</option>
-                    <option value="NOTCOMPLETED">NOTCOMPLETED</option>
+                    <option value="NOTCOMPLETED">NOT COMPLETED</option>
                 </select></td>
             </tr>
 
             <tr>
-                <td>Waypoints:</td>
+                <td>Way points:</td>
                 <td><select id="waypoints" multiple="multiple">
                 </select></td>
             </tr>

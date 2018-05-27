@@ -59,7 +59,7 @@
             </select></td>
         </tr>
         <tr>
-            <td><button id="order" onclick="createOrder()">Create order</button></td>
+            <td><button id="order" onclick="editDriver()">Edit driver</button></td>
         </tr>
     </table>
 </div>

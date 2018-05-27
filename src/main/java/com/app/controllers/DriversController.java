@@ -30,7 +30,12 @@ public class DriversController {
         List<Driver> drivers = driverService.getAllDrivers();
         return drivers;
     }
-
+    @RequestMapping(method = RequestMethod.POST)
+    public @ResponseBody DriverDTO editDriver(@RequestBody DriverDTO driverDTO) {
+        System.out.println(driverDTO);
+        driverService.updateDriver(driverDTO);
+        return new DriverDTO();
+    }
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public ModelAndView getAllDrivers() {
         List<Driver> drivers = driverService.getAllDrivers();
@@ -70,8 +75,8 @@ public class DriversController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public @ResponseBody DriverDTO getDriverById(@PathVariable int id) {
-        Driver driver = driverService.getDriver(id);
-        return new DriverDTO(driver);
+        DriverDTO driverDTO = driverService.getDriverDTO(id);
+        return driverDTO;
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)

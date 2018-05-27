@@ -3,13 +3,17 @@ package com.app.model;
 
 import com.app.model.Enums.DriverStatus;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "DRIVERS")
 public class Driver {
     @Id
@@ -33,17 +37,16 @@ public class Driver {
     @Column(name = "STATUS")
     private DriverStatus status;
 
-    @JsonIgnore
+
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ID_CITY")
     private Map city;
 
-    @JsonIgnore
+
     @ManyToOne
     @JoinColumn(name = "ID_WAGGON")
     private Waggon waggon;
 
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "ID_ORDER")
     private Order order;
@@ -59,4 +62,15 @@ public class Driver {
                 ", status=" + status +
                 '}';
     }
+
+    public Driver(int personalNumber, String name, String secondName, int hoursWorked, DriverStatus status, Map city, Waggon waggon) {
+        this.personalNumber = personalNumber;
+        this.name = name;
+        this.secondName = secondName;
+        this.hoursWorked = hoursWorked;
+        this.status = status;
+        this.city = city;
+        this.waggon = waggon;
+    }
 }
+

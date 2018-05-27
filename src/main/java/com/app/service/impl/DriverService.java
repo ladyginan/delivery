@@ -2,6 +2,7 @@ package com.app.service.impl;
 
 import com.app.DTO.DriverDTO;
 import com.app.model.Driver;
+import com.app.model.Enums.DriverStatus;
 import com.app.model.Map;
 import com.app.model.Waggon;
 import com.app.repository.DriversRepositoryInterface;
@@ -32,15 +33,18 @@ public class DriverService implements DriverServiceInterface {
     }
     @Transactional
     public void updateDriver(DriverDTO driverDTO) {
-//        Driver driver = driversRepository.getDriver(driverDTO.getIdDriver());
-//        driver.setName(driverDTO.getName());
-//        driver.setSecondName(driverDTO.getSecondName());
-//        driver.setPersonalNumber(driverDTO.getPersonalNumber());
-//        driver.setHoursWorked(driverDTO.getHoursWorked());
-//        driver.setStatus(driverDTO.getStatus());
-//        driver.setCity(driverDTO.getCity());
-//        driver.setWaggon(driverDTO.getWaggon());
-//        driversRepository.updateDriver(driver);
+        Map city = mapRepository.findCityById(driverDTO.getMapId());
+        Waggon waggon = waggonRepository.getWaggon(driverDTO.getWaggon());
+        Driver driver = new Driver(
+              driverDTO.getPersonalNumber(),
+              driverDTO.getName(),
+              driverDTO.getSecondName(),
+              driverDTO.getHoursWorked(),
+              driverDTO.getStatus(),
+              city,
+              waggon);
+        driver.setIdDriver(driverDTO.getIdDriver());
+        driversRepository.updateDriver(driver);
     }
 
     @Transactional
