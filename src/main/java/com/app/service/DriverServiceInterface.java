@@ -31,6 +31,8 @@ public interface DriverServiceInterface {
      * @param id
      * @return
      */
+    DriverDTO getDriverDTO(int id);
+
     Driver getDriver(int id);
 
 

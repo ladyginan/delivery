@@ -42,12 +42,18 @@ public class DriverService implements DriverServiceInterface {
 //        driver.setWaggon(driverDTO.getWaggon());
 //        driversRepository.updateDriver(driver);
     }
+
+    @Transactional
+    @Override
+    public DriverDTO getDriverDTO(int id) {
+        Driver driver = driversRepository.getDriver(id);
+        DriverDTO driverDTO = new DriverDTO(driver);
+        return driverDTO;
+    }
+
     @Transactional
     public Driver getDriver(int id) {
         Driver driver = driversRepository.getDriver(id);
-        Map city = mapRepository.findCityById(driver.getIdDriver());
-        Waggon waggon = waggonRepository.getWaggon(driver.getIdDriver());
-//        DriverDTO driverDTO = new DriverDTO(driver.getIdDriver(),driver.getPersonalNumber(), driver.getName(), driver.getSecondName(), driver.getHoursWorked(), driver.getStatus(), city, waggon);
         return driver;
     }
     @Transactional
