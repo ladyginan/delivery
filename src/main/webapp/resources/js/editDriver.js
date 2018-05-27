@@ -11,6 +11,9 @@ $(document).ready(function() {
 function loadDriver(driverId) {
     $.get("/drivers/" + driverId, function (driver) {
         $("#firstName").val(driver.name);
+        $("#personalNumber").val(driver.personalNumber);
+        $("#secondName").val(driver.secondName);
+        $("#hoursWorked").val(driver.hoursWorked);
     })
 }
 
