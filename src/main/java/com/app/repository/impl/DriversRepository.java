@@ -6,7 +6,6 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 
@@ -36,8 +35,9 @@ public class DriversRepository implements DriversRepositoryInterface {
 
     //updating driver fields
 
-    public void updateDriver(Driver driver) {
+    public Driver updateDriver(Driver driver) {
         factory.getCurrentSession().update(driver);
+        return factory.getCurrentSession().get(Driver.class, driver.getIdDriver());
     }
 
     //get driver by id

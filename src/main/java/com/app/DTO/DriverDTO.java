@@ -17,8 +17,6 @@ public class DriverDTO {
     private int mapId;
     private int waggon;
 
-
-
     public DriverDTO(Driver driver){
         this.idDriver = driver.getIdDriver();
         this.personalNumber = driver.getPersonalNumber();

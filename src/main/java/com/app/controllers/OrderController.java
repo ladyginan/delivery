@@ -59,20 +59,23 @@ public class OrderController {
 
     @GetMapping("/add")
     public String waggonForm(Model model) {
-//        model.addAttribute("order", new Order());
-//        model.addAttribute("wayPoints", wayPointService.getAllWayPoints());
-//        model.addAttribute("drivers", driverService.getAllDrivers());
-//        model.addAttribute("waggons", waggonService.getAllWaggons());
         return "orderForm";
     }
 
     @PostMapping("/add")
-    public String waggonSubmit(@ModelAttribute OrderDTO orderDTO, Model model) {
-//        orderService.addOrder(orderDTO);
+    public String orderSubmit(@ModelAttribute OrderDTO orderDTO, Model model) {
         String message = "Order was successfully added";
         model.addAttribute("message", message);
         return "welcome";
     }
+//
+//    @RequestMapping(value = "/add/success", method = RequestMethod.GET)
+//    public ModelAndView editOrderSuccessMessage() {
+//        ModelAndView modelAndView = new ModelAndView("welcome");
+//        String message = "Order was successfully edited.";
+//        modelAndView.addObject("message", message);
+//        return modelAndView;
+//    }
 
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)

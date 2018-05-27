@@ -1,19 +1,31 @@
 $(document).ready(function() {
+    var  driverId = getDriverId();
+    loadDriver(driverId);
+});
+
+var loadedDriver;
+
+function getDriverId() {
     var pathArray = window.location.pathname;
     pathArray = pathArray.replace('.html','').split('/');
     var driverId = pathArray[pathArray.length - 1];
-    loadDriver(driverId);
-    loadCities();
-    loadAllWaggons();
-});
+    return driverId;
+}
 
 
 function loadDriver(driverId) {
     $.get("/drivers/" + driverId, function (driver) {
+
+        loadedDriver = driver;
+
         $("#firstName").val(driver.name);
         $("#personalNumber").val(driver.personalNumber);
         $("#secondName").val(driver.secondName);
         $("#hoursWorked").val(driver.hoursWorked);
+        $("#driverStatus").val(driver.status);
+
+        loadCities();
+        loadAllWaggons();
     })
 }
 
@@ -24,12 +36,17 @@ function  loadCities() {
             citySelect
                 .append(
                     $('<option />')
-                        .val(cities[cityIndex].idMap)
+                        .val(cities[cityIndex].idCity)
                         .text(
                             cities[cityIndex].city
                         )
                 )
         }
+
+        if (loadedDriver) {
+            citySelect.val(loadedDriver.mapId)
+        }
+
     })
 }
 
@@ -43,6 +60,10 @@ function loadAllWaggons() {
                     .val(waggons[waggon].idWaggon)
                     .text(waggons[waggon].regNumber))
         }
+
+        if (loadedDriver) {
+            waggonSelect.val(loadedDriver.waggon)
+        }
     })
 }
 
@@ -55,24 +76,27 @@ function editDriver() {
     var selectedCity = $('#cities').val();
     var selectedWaggon = $('#waggons').val();
 
+    var  driverId = getDriverId();
+
     var driver = {
+        idDriver: driverId,
         personalNumber: personalNumber,
         name: name,
         secondName: secondName,
         hoursWorked: hoursWorked,
-        driverStatus: driverStatus,
-        city: selectedCity,
+        status: driverStatus,
+        mapId: selectedCity,
         waggon: selectedWaggon
     };
 
     $.ajax ({
-        url: "/drivers",
+        url: "/drivers/edit/" + driverId,
         type: "POST",
         data: JSON.stringify(driver),
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
         success: function (driver) {
-            window.location.href = "/welcome";
+            window.location.href = "/drivers/edit/success";
         }
     });
 

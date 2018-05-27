@@ -66,10 +66,6 @@ public class DriversController {
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     public ModelAndView editDriverPage(@PathVariable int id) {
         ModelAndView modelAndView = new ModelAndView("driverEdit");
-//        Driver driver = driverService.getDriver(id);
-//        modelAndView.addObject("driverDTO", driver);
-//        modelAndView.addObject("waggons", waggonService.getAllWaggons());
-//        modelAndView.addObject("maps", mapService.getAllMap());
         return modelAndView;
     }
 
@@ -80,14 +76,18 @@ public class DriversController {
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
-    public ModelAndView editDriver(@ModelAttribute DriverDTO driverDTO, @PathVariable int id) {
+    public @ResponseBody DriverDTO editDriver(@RequestBody DriverDTO driverDTO, @PathVariable int id) {
+        DriverDTO savedDriver = driverService.updateDriver(driverDTO);
+        return savedDriver;
+    }
+
+    @RequestMapping(value = "/edit/success", method = RequestMethod.GET)
+    public ModelAndView editDriverSuccessMessage() {
         ModelAndView modelAndView = new ModelAndView("welcome");
-        driverService.updateDriver(driverDTO);
         String message = "Driver was successfully edited.";
         modelAndView.addObject("message", message);
         return modelAndView;
     }
-
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     public ModelAndView deleteDriver(@PathVariable Integer id) {
