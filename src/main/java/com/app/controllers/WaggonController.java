@@ -1,5 +1,6 @@
 package com.app.controllers;
 
+import com.app.DTO.WaggonDTO;
 import com.app.model.Waggon;
 import com.app.model.WayPoint;
 import com.app.service.MapServiceInterface;
@@ -28,6 +29,13 @@ public class WaggonController {
         List<Waggon> waggons = waggonService.getAllWaggons();
         return waggons;
     }
+    @RequestMapping(method = RequestMethod.POST)
+    public @ResponseBody WaggonDTO editWaggon(@RequestBody WaggonDTO waggonDTO) {
+        System.out.println(waggonDTO);
+        waggonService.updateWaggon(waggonDTO);
+        return new WaggonDTO();
+    }
+
 
     @RequestMapping(path = "/list", method = RequestMethod.GET)
     public ModelAndView getAllWaggon() {
@@ -55,15 +63,25 @@ public class WaggonController {
     @RequestMapping(path = "/edit/{id}", method = RequestMethod.GET)
     public ModelAndView editWaggonPage(@PathVariable int id) {
         ModelAndView modelAndView = new ModelAndView("waggonEdit");
-        Waggon waggon = waggonService.getWaggon(id);
-        modelAndView.addObject("waggon", waggon);
         return modelAndView;
     }
 
-    @RequestMapping(path = "/edit/{id}", method = RequestMethod.POST)
-    public ModelAndView editWaggon(@ModelAttribute Waggon waggon, @PathVariable int id) {
-        ModelAndView modelAndView = new ModelAndView("waggonEdit");
-        waggonService.updateWaggon(waggon);
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public @ResponseBody WaggonDTO getWaggonById(@PathVariable int id) {
+        WaggonDTO waggonDTO = waggonService.getWaggonDTO(id);
+        return waggonDTO;
+    }
+
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
+    public @ResponseBody WaggonDTO editWaggon(@RequestBody WaggonDTO waggonDTO, @PathVariable int id) {
+        WaggonDTO savedWaggon = waggonService.updateWaggon(waggonDTO);
+        return savedWaggon;
+    }
+
+
+    @RequestMapping(path = "/edit/success", method = RequestMethod.POST)
+    public ModelAndView editWaggonSuccessMessage() {
+        ModelAndView modelAndView = new ModelAndView("welcome");
         String message = "Waggon was successfully edited.";
         modelAndView.addObject("message", message);
         return modelAndView;

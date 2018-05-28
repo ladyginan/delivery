@@ -58,7 +58,7 @@ public class OrderController {
     }
 
     @GetMapping("/add")
-    public String waggonForm(Model model) {
+    public String orderForm(Model model) {
         return "orderForm";
     }
 
