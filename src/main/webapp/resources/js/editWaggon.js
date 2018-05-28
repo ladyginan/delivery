@@ -50,7 +50,7 @@ function editWaggon() {
     var regNumber = $('#regNumber').val();
     var shiftSize = $('#shiftSize').val();
     var capacity = $('#capacity').val();
-    var waggonStatus = $('#waggonStatus')
+    var waggonStatus = $('#waggonStatus').val();
     var selectedCity = $('#cities').val();
 
     var waggonId = getWaggonId();
@@ -65,10 +65,10 @@ function editWaggon() {
     };
 
 
-    $.ajax({
+    $.ajax ({
         url: "/waggons/edit/" + waggonId,
         type: "POST",
-        data:JSON.stringify(waggon),
+        data: JSON.stringify(waggon),
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
         success: function (waggon) {

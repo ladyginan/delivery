@@ -31,6 +31,6 @@
         <%--<a href="${pageContext.request.contextPath}/drivers/info">Info driver</a><br/>--%>
         <%--<a href="${pageContext.request.contextPath}/drivers/statusEdit">Edit driver's status</a><br/><br/><br/>--%>
 
-<p id = 'message'>${message}<br/>
+<p>${message}<br/>
 </p>
 </body>

@@ -22,7 +22,7 @@
     <table>
         <tr>
             <td>Registrasion number:</td>
-            <td><input  id="regNumber"></td>
+            <td><input id="regNumber"></td>
         </tr>
         <tr>
             <td>Shift size:</td>
