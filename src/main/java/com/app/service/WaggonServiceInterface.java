@@ -1,5 +1,6 @@
 package com.app.service;
 
+import com.app.DTO.WaggonDTO;
 import com.app.model.Waggon;
 
 import java.util.List;
@@ -12,8 +13,10 @@ public interface WaggonServiceInterface {
 
     void removeWaggon(int id);
 
-    void updateWaggon(Waggon waggon);
+    WaggonDTO updateWaggon(WaggonDTO waggonDTO);
 
     Waggon getWaggon(int id);
+
+    WaggonDTO getWaggonDTO(int id);
 
 }

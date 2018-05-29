@@ -12,7 +12,7 @@ public interface WaggonRepositoryInterface {
 
     void removeWaggon(int id);
 
-    void updateWaggon(Waggon waggon);
+    Waggon updateWaggon(Waggon waggon);
 
     Waggon getWaggon(int id);
 
