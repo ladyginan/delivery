@@ -1,15 +1,15 @@
 create database if not exists delivery;
 
 create table MAPS(
-  ID_CITY INT(15) NOT NULL AUTO_INCREMENT,
-  CITY VARCHAR(30) UNIQUE,
+  ID_CITY INT(20) NOT NULL AUTO_INCREMENT,
+  CITY VARCHAR(50) UNIQUE,
   LATITUDE DOUBLE,
   LONGITUDE DOUBLE,
   PRIMARY KEY(ID_CITY)
 );
 
 create table WAGGONS(
-  ID_WAGGON INT(15) NOT NULL AUTO_INCREMENT,
+  ID_WAGGON INT(20) NOT NULL AUTO_INCREMENT,
   REGISTRATION_NUMBER VARCHAR(7) NOT NULL UNIQUE,
   SHIFT_SIZE INT,
   ID_CITY INT NOT NULL,
@@ -21,18 +21,18 @@ create table WAGGONS(
   REFERENCES MAPS (ID_CITY)
 );
 create table CARGO(
-  ID_CARGO INT(15) NOT NULL AUTO_INCREMENT,
+  ID_CARGO INT(20) NOT NULL AUTO_INCREMENT,
   CARGO_NUMBER INT NOT NULL,
-  NAME VARCHAR(30) NOT NULL UNIQUE,
+  NAME VARCHAR(50) NOT NULL UNIQUE,
   WEIGHT INT NOT NULL,
   STATUS ENUM('PREPARED','SHIPPED','ADDED') NOT NULL,
   PRIMARY KEY(ID_CARGO)
 );
 create table DRIVERS(
-  ID_DRIVER INT(15) NOT NULL AUTO_INCREMENT,
-  PERSONAL_NUMBER INT(15) NOT NULL,
-  NAME VARCHAR(30) NOT NULL,
-  SECOND_NAME VARCHAR(30) NOT NULL,
+  ID_DRIVER INT(20) NOT NULL AUTO_INCREMENT,
+  PERSONAL_NUMBER INT(20) NOT NULL,
+  NAME VARCHAR(50) NOT NULL,
+  SECOND_NAME VARCHAR(50) NOT NULL,
   HOURS_WORKED INT NOT NULL,
   STATUS ENUM('REST','SHIFT','DRIVING'),
   ID_CITY INT NOT NULL,
@@ -42,7 +42,7 @@ create table DRIVERS(
   FOREIGN KEY(ID_WAGGON)   REFERENCES WAGGONS(ID_WAGGON)
   );
   create table WAY_POINTS(
-  ID_WAY_POINT INT(15) NOT NULL AUTO_INCREMENT,
+  ID_WAY_POINT INT(20) NOT NULL AUTO_INCREMENT,
   ORDER_TYPE ENUM('LOADING','LANDING'),
   ID_CITY INT NOT NULL,
   ID_CARGO INT NOT NULL,
@@ -52,7 +52,7 @@ create table DRIVERS(
 );
 
 create table ORDERS(
-  ID_ORDER INT(15) NOT NULL AUTO_INCREMENT,
+  ID_ORDER INT(20) NOT NULL AUTO_INCREMENT,
   ORDER_STATUS ENUM('YES','NO') NOT NULL,
   REGISTRATION_NUMBER_ORDER INT NOT NULL,
   ID_WAGGON INT NOT NULL,
@@ -66,6 +66,26 @@ create table ORDERS(
   REFERENCES WAY_POINTS(ID_WAY_POINT)
 
 );
+
+create table users(
+	username varchar(50) not null primary key,
+	password varchar(100) not null,
+	enabled boolean not null
+);
+
+create table roles (
+	username varchar(50) not null,
+	role varchar(50) not null,
+	constraint fk_roles_users
+  foreign key(username)
+  references users(username)
+);
+create unique index ix_auth_username on roles (username,role);
+
+insert into users(username,password,enabled)
+	values('admin','$2a$10$hbxecwitQQ.dDT4JOFzQAulNySFwEpaFLw38jda6Td.Y/cOiRzDFu',true);
+insert into roles(username,role)
+	values('admin','ROLE_ADMIN');
 
 INSERT INTO MAPS(CITY, LATITUDE, LONGITUDE) value ('Moscow', 55.755773, 37.617761);
 INSERT INTO MAPS(CITY, LATITUDE, LONGITUDE) value ('Voronezh', 51.661535, 39.200287);
