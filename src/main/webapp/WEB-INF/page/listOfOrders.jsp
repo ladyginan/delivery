@@ -18,11 +18,11 @@
 <table border="1px" cellpadding="0" cellspacing="0">
     <thread>
         <tr>
-            <th width="15%">Registration number</th>
-            <th width="10%">Done</th>
-            <th width="10%">Current waggon</th>
-            <th width="10%">Point list</th>
-            <th width="10%">Drivers</th>
+            <th>Registration number</th>
+            <th>Done</th>
+            <th>Current waggon</th>
+            <%--<th width="10%">Point list</th>--%>
+            <%--<th width="10%">Drivers</th>--%>
         </tr>
     </thread>
     <tbody>
@@ -31,8 +31,8 @@
             <td>${order.regNumberOrder}</td>
             <td>${order.status}</td>
             <td>${order.currentWaggon.regNumber}</td>
-            <td>${order.pointList}</td>
-            <td>${order.drivers}</td>
+            <%--<td>${order.pointList}</td>--%>
+            <%--<td>${order.drivers}</td>--%>
         </tr>
     </c:forEach>
     </tbody>

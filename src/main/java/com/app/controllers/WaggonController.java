@@ -79,7 +79,7 @@ public class WaggonController {
     }
 
 
-    @RequestMapping(path = "/edit/success", method = RequestMethod.POST)
+    @RequestMapping(path = "/edit/success", method = RequestMethod.GET)
     public ModelAndView editWaggonSuccessMessage() {
         ModelAndView modelAndView = new ModelAndView("welcome");
         String message = "Waggon was successfully edited.";

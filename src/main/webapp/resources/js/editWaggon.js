@@ -72,7 +72,7 @@ function editWaggon() {
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
         success: function (waggon) {
-            window.location.href = "/welcome";
+            window.location.href = "/waggons/edit/success";
         }
 
     });

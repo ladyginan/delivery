@@ -18,11 +18,12 @@
 <table border="1px" cellpadding="0" cellspacing="0">
     <thread>
         <tr>
-            <th width="15%">registration Number</th>
+            <th width="10%">registration Number</th>
             <th width="10%">shift size</th>
             <th width="10%">capacity</th>
             <th width="10%">status</th>
             <th width="10%">current city</th>
+            <th width="10%">action</th>
         </tr>
     </thread>
     <tbody>

@@ -18,8 +18,8 @@
 <table border="1px" cellpadding="0" cellspacing="0">
     <thread>
         <tr>
-            <th width="10%">Registration number of cargo</th>
-            <th width="10%">Status</th>
+            <th>Registration number of cargo</th>
+            <th>Status</th>
         </tr>
     </thread>
     <tbody>
