@@ -22,14 +22,17 @@ public class DriverService implements DriverServiceInterface {
     private WaggonRepositoryInterface waggonRepository;
     @Autowired
     private MapRepositoryInterface mapRepository;
+
     @Transactional
     public List<Driver> getAllDrivers() {
         return driversRepository.getAllDrivers();
     }
+
     @Transactional
     public void addDriver(Driver driver) {
         driversRepository.addDriver(driver);
     }
+
     @Transactional
     public DriverDTO updateDriver(DriverDTO driverDTO) {
         Map city = mapRepository.findCityById(driverDTO.getMapId());
@@ -61,6 +64,7 @@ public class DriverService implements DriverServiceInterface {
         Driver driver = driversRepository.getDriver(id);
         return driver;
     }
+
     @Transactional
     public void removeDriver(int id) {
         driversRepository.removeDriver(id);

@@ -1,6 +1,7 @@
 package com.app.repository;
 
-import org.springframework.security.core.userdetails.User;
+
+import com.app.model.User;
 
 public interface UserDetailsRepoInterface {
     User findUserByUsername(String username);

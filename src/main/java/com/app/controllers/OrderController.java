@@ -2,21 +2,17 @@ package com.app.controllers;
 
 import com.app.DTO.CreateOrderDTO;
 import com.app.DTO.OrderDTO;
-import com.app.model.Cargo;
-import com.app.model.Map;
 import com.app.model.Order;
-import com.app.service.*;
-import com.app.service.impl.DriverService;
-import com.app.service.impl.WayPointService;
+import com.app.service.DriverServiceInterface;
+import com.app.service.OrderServiceInterface;
+import com.app.service.WaggonServiceInterface;
+import com.app.service.WayPointServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
 import java.util.List;
 
 
@@ -51,7 +47,8 @@ public class OrderController {
 //    }
 
     @RequestMapping(method = RequestMethod.POST)
-    public @ResponseBody Order createOrder(@RequestBody CreateOrderDTO createOrderDTO) {
+    public @ResponseBody
+    Order createOrder(@RequestBody CreateOrderDTO createOrderDTO) {
         System.out.println(createOrderDTO);
         orderService.createOrder(createOrderDTO);
         return new Order();
@@ -83,12 +80,11 @@ public class OrderController {
         List<Order> orders = orderService.getAllOrders();
         ModelAndView modelAndView = new ModelAndView("listOfOrders");
         modelAndView.addObject("waggons", waggonService.getAllWaggons());
-        modelAndView.addObject("pointList",wayPointService.getAllWayPoints());
-        modelAndView.addObject("drivers",driverService.getAllDrivers());
+        modelAndView.addObject("pointList", wayPointService.getAllWayPoints());
+        modelAndView.addObject("drivers", driverService.getAllDrivers());
         modelAndView.addObject("orders", orders);
         return modelAndView;
     }
-
 
 
 }

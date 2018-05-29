@@ -1,4 +1,5 @@
 package com.app.controllers;
+
 import com.app.model.Cargo;
 import com.app.model.Map;
 import com.app.model.WayPoint;
@@ -12,7 +13,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller @RequestMapping(path = "/points")
+@Controller
+@RequestMapping(path = "/points")
 public class WayPointController {
     @Autowired
     private WayPointServiceInterface wayPointService;
@@ -32,7 +34,7 @@ public class WayPointController {
     public String wayPointForm(Model model) {
         List<Cargo> cargoes = cargoService.getAllCargoes();
         List<Map> cities = mapService.getAllMap();
-        model.addAttribute("cargoes",cargoes);
+        model.addAttribute("cargoes", cargoes);
         model.addAttribute("cities", cities);
         model.addAttribute("wayPoint", new WayPoint());
         return "wayPointForm";

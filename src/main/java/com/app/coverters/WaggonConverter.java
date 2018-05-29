@@ -10,10 +10,11 @@ import org.springframework.stereotype.Component;
 public class WaggonConverter implements Converter<Object, Waggon> {
     @Autowired
     WaggonServiceInterface waggonService;
+
     @Override
 
     public Waggon convert(Object source) {
-        Integer id = Integer.parseInt((String)source);
+        Integer id = Integer.parseInt((String) source);
         Waggon waggon = waggonService.getWaggon(id);
         return waggon;
     }

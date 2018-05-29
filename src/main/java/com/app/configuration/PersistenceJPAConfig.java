@@ -1,14 +1,11 @@
 package com.app.configuration;
 
 
-import com.app.model.Role;
+import com.app.model.Authorities;
 import com.app.model.User;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.env.Environment;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
@@ -42,7 +39,7 @@ public class PersistenceJPAConfig {
         sessionFactory.setDataSource(dataSource());
         sessionFactory.setPackagesToScan("com.app.model");
         sessionFactory.setHibernateProperties(additionalProperties());
-        sessionFactory.setAnnotatedClasses(User.class, Role.class);
+        sessionFactory.setAnnotatedClasses(User.class, Authorities.class);
 
         return sessionFactory;
     }

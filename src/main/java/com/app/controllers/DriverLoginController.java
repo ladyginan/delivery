@@ -9,8 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
-
 @Controller
 @RequestMapping(path = "/driverPanel")
 public class DriverLoginController {
@@ -21,7 +19,7 @@ public class DriverLoginController {
     @Autowired
     private MapServiceInterface mapService;
 
-@RequestMapping(path = "/userPage")
+    @RequestMapping(path = "/userPage")
     public ModelAndView driverLoginForm() {
         ModelAndView modelAndView = new ModelAndView("driverLogin");
         modelAndView.addObject("driver", new Driver());

@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Order {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_ORDER", unique = true)
     private int idOrder;
 
@@ -26,7 +26,7 @@ public class Order {
     @Column(name = "ORDER_STATUS")
     private OrderStatus status;
 
-    @OneToMany(mappedBy = "order", fetch=FetchType.EAGER)
+    @OneToMany(mappedBy = "order", fetch = FetchType.EAGER)
     @Fetch(value = FetchMode.SUBSELECT)
     private List<WayPoint> pointList;
 
@@ -34,7 +34,7 @@ public class Order {
     @JoinColumn(name = "WAGGONS", referencedColumnName = "ID_WAGGON")
     private Waggon currentWaggon;
 
-    @OneToMany(mappedBy = "order", fetch=FetchType.EAGER)
+    @OneToMany(mappedBy = "order", fetch = FetchType.EAGER)
     private List<Driver> drivers;
 
     public Order(int regNumberOrder, OrderStatus status, List<WayPoint> pointList, Waggon currentWaggon, List<Driver> drivers) {

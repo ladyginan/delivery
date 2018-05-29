@@ -18,21 +18,25 @@ public class WaggonService implements WaggonServiceInterface {
     WaggonRepositoryInterface waggonRepository;
     @Autowired
     MapRepositoryInterface mapRepository;
+
     @Transactional
     @Override
     public List<Waggon> getAllWaggons() {
         return waggonRepository.getAllWaggons();
     }
+
     @Transactional
     @Override
     public void addWaggon(Waggon waggon) {
         waggonRepository.addWaggon(waggon);
     }
+
     @Transactional
     @Override
     public void removeWaggon(int id) {
         waggonRepository.removeWaggon(id);
     }
+
     @Transactional
     @Override
     public WaggonDTO updateWaggon(WaggonDTO waggonDTO) {
@@ -50,11 +54,13 @@ public class WaggonService implements WaggonServiceInterface {
         return new WaggonDTO(waggon);
 
     }
+
     @Transactional
     @Override
     public Waggon getWaggon(int id) {
         return waggonRepository.getWaggon(id);
     }
+
     @Transactional
     @Override
     public WaggonDTO getWaggonDTO(int id) {

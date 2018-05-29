@@ -13,7 +13,7 @@ public class CargoConverter implements Converter<Object, Cargo> {
 
     @Override
     public Cargo convert(Object source) {
-        Integer id = Integer.parseInt((String)source);
+        Integer id = Integer.parseInt((String) source);
         Cargo cargo = cargoService.getCargo(id);
         return cargo;
     }

@@ -20,6 +20,17 @@ public class User {
     @Column(name = "ENABLED", nullable = false)
     private boolean enabled;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private Set<Role> roles = new HashSet<>();
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY, mappedBy = "user")
+    private Set<Authorities> authorities = new HashSet<>();
+
+    //Getter and Setter methods
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", enabled=" + enabled +
+                '}';
+    }
 }

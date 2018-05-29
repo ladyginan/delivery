@@ -13,11 +13,13 @@ import java.util.List;
 public class WayPointService implements WayPointServiceInterface {
     @Autowired
     private WayPointRepositoryInterface wayPointRepository;
+
     @Transactional
     @Override
     public void addWayPoint(WayPoint wayPoint) {
         wayPointRepository.addWayPoint(wayPoint);
     }
+
     @Transactional
     @Override
     public List<WayPoint> getAllWayPoints() {

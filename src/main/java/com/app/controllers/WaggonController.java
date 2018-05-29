@@ -2,14 +2,11 @@ package com.app.controllers;
 
 import com.app.DTO.WaggonDTO;
 import com.app.model.Waggon;
-import com.app.model.WayPoint;
 import com.app.service.MapServiceInterface;
 import com.app.service.WaggonServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -29,8 +26,10 @@ public class WaggonController {
         List<Waggon> waggons = waggonService.getAllWaggons();
         return waggons;
     }
+
     @RequestMapping(method = RequestMethod.POST)
-    public @ResponseBody WaggonDTO editWaggon(@RequestBody WaggonDTO waggonDTO) {
+    public @ResponseBody
+    WaggonDTO editWaggon(@RequestBody WaggonDTO waggonDTO) {
         System.out.println(waggonDTO);
         waggonService.updateWaggon(waggonDTO);
         return new WaggonDTO();
@@ -67,13 +66,15 @@ public class WaggonController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public @ResponseBody WaggonDTO getWaggonById(@PathVariable int id) {
+    public @ResponseBody
+    WaggonDTO getWaggonById(@PathVariable int id) {
         WaggonDTO waggonDTO = waggonService.getWaggonDTO(id);
         return waggonDTO;
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
-    public @ResponseBody WaggonDTO editWaggon(@RequestBody WaggonDTO waggonDTO, @PathVariable int id) {
+    public @ResponseBody
+    WaggonDTO editWaggon(@RequestBody WaggonDTO waggonDTO, @PathVariable int id) {
         WaggonDTO savedWaggon = waggonService.updateWaggon(waggonDTO);
         return savedWaggon;
     }
