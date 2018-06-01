@@ -2,6 +2,7 @@ package com.app.repository.impl;
 
 import com.app.model.Driver;
 import com.app.repository.DriversRepositoryInterface;
+import com.app.repository.UserDriverRepositoryInterface;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -14,7 +15,6 @@ public class DriversRepository implements DriversRepositoryInterface {
     //Hibernate+Spring
     @Autowired
     private final SessionFactory factory;
-
 
     public DriversRepository(SessionFactory factory) {
         this.factory = factory;

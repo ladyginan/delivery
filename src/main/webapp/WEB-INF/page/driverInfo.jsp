@@ -13,14 +13,15 @@
     <title>Driver Info</title>
 </head>
 <body>
+<div>
 <table border="1px" cellpadding="0" cellspacing="0">
     <thead>
     <tr>
-        <th width="10%">driver id</th>
-        <th width="10%">companions</th>
-        <th width="10%">waggon's registrasion number</th>
-        <th width="10%">order number</th>
-        <th width="10%">list of waypoints</th>
+        <th width="20%">driver id</th>
+        <th width="20%">companions</th>
+        <th width="18%">waggon's registrasion number</th>
+        <th width="20%">order number</th>
+        <th width="20%">list of waypoints</th>
     </tr>
     </thead>
     <tbody>
@@ -31,29 +32,39 @@
             <td id = "companions"></td>
             <td id = "wayPoints"></td>
         </tr>
-
-    <div>
-        <select id = driverShiftStatus>
-
-        </select>
-    </div>
-
-    <div>
-        <select id="driverStatus">
-            <option value="DRIVING">DRIVING</option>
-            <option value="SHIFT">SHIFT</option>
-            <option value="REST">REST</option>
-        </select>
-    </div>
-    <div>
-        <select id="orderCargo">
-            <option value="PREPARED">PREPARED</option>
-            <option value="SHIPPED">SHIPPED</option>
-            <option value="DONE">DONE</option>
-        </select>
-    </div>
-
     </tbody>
 </table>
+    <br/>
+    <br/>
+    <br/>
+
+    <table>
+        <tr>
+            <select id = driverShiftStatus>
+
+            </select>
+        </tr>
+
+        <tr>
+            <td>Driver status:</td>
+            <td>  <select id="driverStatus">
+                 <option value="DRIVING">DRIVING</option>
+                <option value="SHIFT">SHIFT</option>
+                <option value="REST">REST</option>
+            </select></td>
+        </tr>
+        <tr><td>Cargo status:</td>
+            <td>   <select id="orderCargo">
+                <option value="PREPARED">PREPARED</option>
+                 <option value="SHIPPED">SHIPPED</option>
+                <option value="DONE">DONE</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+    </table>
+
+</div>
 </body>
 </html>
