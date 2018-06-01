@@ -43,9 +43,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         return builder.build();
     }
 
-    private List<GrantedAuthority> buildUserAuthority(Set<Authorities> authoritiesSet) {
+    private List<GrantedAuthority> buildUserAuthority(List<Authorities> authoritiesSet) {
 
-        Set<GrantedAuthority> setAuths = new HashSet<GrantedAuthority>();
+        List<GrantedAuthority> setAuths = new ArrayList<>();
 
 //         Build user's authorities
         for (Authorities authority : authoritiesSet) {

@@ -3,7 +3,9 @@ package com.app.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -21,7 +23,7 @@ public class User {
     private boolean enabled;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-    private Set<Authorities> authorities = new HashSet<>();
+    private List<Authorities> authorities = new ArrayList<>();
 
     //Getter and Setter methods
 
