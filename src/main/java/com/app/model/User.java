@@ -25,8 +25,6 @@ public class User {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private List<Authorities> authorities = new ArrayList<>();
 
-    //Getter and Setter methods
-
     @Override
     public String toString() {
         return "User{" +

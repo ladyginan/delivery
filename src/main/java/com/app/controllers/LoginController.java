@@ -11,7 +11,10 @@ public class LoginController {
 
     @GetMapping("/")
     public String index(Model model, Principal principal) {
+        if(principal.getName().equals("driver")){
+            return "driverInfo";
+        }
         model.addAttribute("message", "You are logged in as " + principal.getName());
-        return "index";
+        return "welcome";
     }
 }
