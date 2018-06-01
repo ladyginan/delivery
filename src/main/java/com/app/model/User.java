@@ -20,7 +20,7 @@ public class User {
     @Column(name = "ENABLED", nullable = false)
     private boolean enabled;
 
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY, mappedBy = "user")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private Set<Authorities> authorities = new HashSet<>();
 
     //Getter and Setter methods

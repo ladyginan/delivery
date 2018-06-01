@@ -42,19 +42,19 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         }
         return builder.build();
     }
+
     private List<GrantedAuthority> buildUserAuthority(Set<Authorities> authoritiesSet) {
 
         Set<GrantedAuthority> setAuths = new HashSet<GrantedAuthority>();
 
-        // Build user's authorities
-//        for (Authorities authorities : authoritiesSet) {
-            setAuths.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
-//        }
+//         Build user's authorities
+        for (Authorities authority : authoritiesSet) {
+            setAuths.add(new SimpleGrantedAuthority(authority.getAuthority()));
+        }
 
         List<GrantedAuthority> Result = new ArrayList<GrantedAuthority>(setAuths);
 
         return Result;
     }
-
 
 }
