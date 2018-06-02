@@ -24,7 +24,7 @@
                 <td>Order status number:</td>
                 <td><select id="orderStatus">
                     <option value="COMPLETED">COMPLETED</option>
-                    <option value="NOTCOMPLETED">NOT COMPLETED</option>
+                    <option value="NOTCOMPLETED">NOTCOMPLETED</option>
                 </select></td>
             </tr>
 
@@ -53,6 +53,6 @@
 
     </table>
 </div>
-<p><a href="${pageContext.request.contextPath}/welcome">Home page</a></p>
+<p><a href="${pageContext.request.contextPath}/">Home page</a></p>
 </body>
 </html>

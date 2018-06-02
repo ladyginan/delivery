@@ -40,7 +40,6 @@ public class WayPoint {
                 ", orderType=" + orderType +
                 ", city=" + city +
                 ", cargo=" + cargo +
-                ", order=" + order +
                 '}';
     }
 

@@ -31,11 +31,6 @@ public class Cargo {
     @Column(name = "STATUS")
     private CargoStatus status;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "cargo")
-    @Fetch(value = FetchMode.SUBSELECT)
-    private List<WayPoint> wayPoints;
-
     @Override
     public String toString() {
         return "Cargo{" +
@@ -44,7 +39,6 @@ public class Cargo {
                 ", name='" + name + '\'' +
                 ", weight=" + weight +
                 ", status=" + status +
-                ", wayPoints=" + wayPoints +
                 '}';
     }
 }
