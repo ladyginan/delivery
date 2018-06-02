@@ -13,7 +13,7 @@ function getDriverId() {
 }
 
 function loadDriver(driverId) {
-    $.get("/driverLogin/" + driverId, function (driver) {
+    $.get("/driverInfo/" + driverId, function (driver) {
 
         loadedDriver = driver;
 
@@ -25,7 +25,7 @@ function loadDriver(driverId) {
 }
 
 function loadCompanions() {
-    $get("/driverLogin/companions",function(companions){
+    $get("/driverInfo/companions",function(companions){
         var companions = $('#companions');
         for(companion in companions){
             companions

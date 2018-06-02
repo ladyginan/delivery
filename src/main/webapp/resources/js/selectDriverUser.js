@@ -22,11 +22,12 @@ function loadDrivers() {
     })
 }
 
-function createOrder() {
-    var selectedDrivers = $('#drivers').val();
+function createDriverUser() {
+    var selectedDriver = $('#driver').val();
+    var idDriver = selectedDriver.getDriverId().val();
 
-    var order = {
-        driver: selectedDrivers,
+    var userDriver = {
+        driver: idDriver,
     };
 
     $.ajax ({
@@ -36,7 +37,7 @@ function createOrder() {
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
         success: function (order) {
-            window.location.href = "/welcome";
+            window.location.href = "/driverInfo";
         }
     });
 

@@ -8,4 +8,6 @@ import java.util.Map;
 public interface UserDriverRepositoryInterface {
 
     UserDriver createUserDriver(UserDriver userDriver);
+
+    int findDriverIdByUsername(String username);
 }

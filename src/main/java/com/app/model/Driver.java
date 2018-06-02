@@ -5,6 +5,7 @@ import com.app.model.Enums.DriverStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Controller;
 
 import javax.persistence.*;
 
@@ -48,6 +49,10 @@ public class Driver {
     @ManyToOne
     @JoinColumn(name = "ID_ORDER")
     private Order order;
+
+    // variable for calculating hours worked
+    @Column(name = "driverVariableTime")
+    private int driverVariableTime;
 
     public Driver(int personalNumber, String name, String secondName, int hoursWorked, DriverStatus status, Map city, Waggon waggon) {
         this.personalNumber = personalNumber;

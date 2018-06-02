@@ -53,4 +53,5 @@ public class DriversRepository implements DriversRepositoryInterface {
         Driver driver = getDriver(id);
         factory.getCurrentSession().delete(driver);
     }
+
 }

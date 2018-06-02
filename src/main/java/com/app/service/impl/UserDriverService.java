@@ -9,6 +9,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.Map;
 
 @Service
@@ -18,12 +19,17 @@ public class UserDriverService implements UserDriverServiceInterface {
 
 
 
-
+@Transactional
     @Override
     public UserDriver createUserDriver(UserDriverDTO userDriverDTO) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         UserDriver userDriver = new UserDriver(auth.getName(),userDriverDTO.getIdDriver());
         userDriver = userDriverRepository.createUserDriver(userDriver);
         return userDriver;
+    }
+@Transactional
+    @Override
+    public int findDriverIdByUsername(String username) {
+        return userDriverRepository.findDriverIdByUsername(username);
     }
 }

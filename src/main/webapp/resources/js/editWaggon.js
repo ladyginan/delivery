@@ -13,7 +13,6 @@ function getWaggonId() {
 }
 
 function loadWaggon(waggonId) {
-    $('')
     $.get("/waggons/" + waggonId, function (waggon) {
 
         loadedWaggon = waggon;
