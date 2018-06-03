@@ -16,8 +16,4 @@ public interface DriverLoginServiceInterface {
 
     int settingDriverTime(int idDriver);
 
-    void changeDriverStatus(int idDriver);
-
-    void changeCargoStatus(int idDriver);
-
 }

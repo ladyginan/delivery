@@ -48,13 +48,13 @@ public class UserDriverRepository implements UserDriverRepositoryInterface {
     }
 
     @Override
-    public int findDriverIdByUsername(String username) {
+    public Driver findDriverIdByUsername(String username) {
 ////       List<UserDriver> list = factory.getCurrentSession().createQuery("Select D from UserDriver D where D.idUser = :username").list();
 //        int id = list.get(0).getIdDriver();
 //        if(id == 0){
 //            id = -1;
 //        }
-        int id = 1;
-        return id;
+        Driver driver = driversRepository.getDriver(1);
+        return driver;
     }
 }

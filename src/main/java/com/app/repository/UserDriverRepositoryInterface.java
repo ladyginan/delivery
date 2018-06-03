@@ -1,6 +1,7 @@
 package com.app.repository;
 
 
+import com.app.model.Driver;
 import com.app.model.UserDriver;
 
 import java.util.Map;
@@ -9,5 +10,5 @@ public interface UserDriverRepositoryInterface {
 
     UserDriver createUserDriver(UserDriver userDriver);
 
-    int findDriverIdByUsername(String username);
+    Driver findDriverIdByUsername(String username);
 }

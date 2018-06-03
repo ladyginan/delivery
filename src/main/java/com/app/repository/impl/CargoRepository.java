@@ -7,11 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 @Repository
 public class CargoRepository implements CargoRepositoryInterface {
     @Autowired
     private final SessionFactory factory;
+    private static Logger log = Logger.getLogger(CargoRepository.class.getName());
 
     public CargoRepository(SessionFactory factory) {
         this.factory = factory;

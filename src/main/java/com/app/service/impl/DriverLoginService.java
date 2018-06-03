@@ -39,13 +39,4 @@ public class DriverLoginService implements DriverLoginServiceInterface {
         return 0;
     }
 
-    @Override
-    public void changeDriverStatus(int idDriver) {
-
-    }
-
-    @Override
-    public void changeCargoStatus(int idDriver) {
-
-    }
 }

@@ -24,6 +24,8 @@ function loadDriver(driverId) {
     })
 }
 
+
+
 function loadCompanions() {
     $get("/driverInfo/companions",function(companions){
         var companions = $('#companions');

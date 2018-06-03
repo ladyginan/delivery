@@ -58,4 +58,11 @@ public class WaggonRepository implements WaggonRepositoryInterface {
         return waggon;
     }
 
+    @Override
+    public List<Waggon> getAllWorkingWaggon() {
+        List<Waggon> waggons = factory.getCurrentSession().createQuery("from waggon where status = :WORKING").list();
+        return waggons;
+    }
+
+
 }
