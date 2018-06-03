@@ -28,7 +28,7 @@ public class UserDriverController {
         ModelAndView modelAndView = new ModelAndView("DriverInfo");
         return modelAndView;
     }
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(path = "personalPage/{id}", method = RequestMethod.GET)
     public @ResponseBody
     DriverDTO getDriverDTOByUser(@PathVariable int id) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();

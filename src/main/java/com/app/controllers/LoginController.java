@@ -1,5 +1,7 @@
 package com.app.controllers;
 
+import com.app.DTO.DriverDTO;
+import com.app.model.Driver;
 import com.app.service.UserDriverServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -21,7 +23,8 @@ public class LoginController {
     public String index(Model model, Principal principal) {
         if(principal.getName().equals("driver")){
             Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-            int id = userDriverService.findDriverIdByUsername(auth.getName());
+            DriverDTO driverDTO  = userDriverService.findDriverIdByUsername(auth.getName());
+            int id = driverDTO.getIdDriver();
             if (id == -1){
                 return "driverLogin";
             }else{
