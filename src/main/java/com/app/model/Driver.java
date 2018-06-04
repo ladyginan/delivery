@@ -4,6 +4,7 @@ package com.app.model;
 import com.app.model.Enums.DriverStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Controller;
 
@@ -13,6 +14,7 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode
 @Table(name = "DRIVERS")
 public class Driver {
     @Id

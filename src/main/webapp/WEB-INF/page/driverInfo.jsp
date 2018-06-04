@@ -63,7 +63,7 @@
             </select></td>
         </tr>
         <tr>
-            <td></td>
+            <td><button id="order" onclick="saveChangeDriver()">Edit driver</button></td>
         </tr>
     </table>
 

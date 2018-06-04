@@ -3,12 +3,14 @@ package com.app.model;
 import com.app.model.Enums.OrderType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "WAY_POINTS")
 @Data
+@EqualsAndHashCode
 public class WayPoint {
 
     @Id

@@ -1,12 +1,14 @@
 package com.app.model;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
 @Data
+@EqualsAndHashCode
 @NoArgsConstructor
 @Table(name = "User_Driver")
 public class UserDriver {

@@ -1,6 +1,8 @@
 $(document).ready(function() {
     var  driverId = getDriverId();
     loadDriver(driverId);
+    loadCompanions();
+    loadWaypoints();
 });
 
 var loadedDriver;
@@ -41,4 +43,55 @@ function loadCompanions() {
                 )
         }
     })
+}
+
+function loadWaypoints() {
+    $.get("/driverInfo/points", function (waypoints) {
+        var waypointSelect = $('#waypoints');
+
+        for (waypointIndex in waypoints) {
+            waypointSelect
+                .append(
+                    $("<tr />")
+                        .val(waypoints[waypointIndex].idWayPoint)
+                        .text(
+                            waypoints[waypointIndex].city.city + " - " +
+                            waypoints[waypointIndex].cargo.cargoNumber + " - " +
+                            waypoints[waypointIndex].orderType
+                        )
+                )
+        }
+    })
+}
+
+
+function saveChangeDriver(){
+    var driverStatus = $('#driverShiftStatus').val();
+    var secondName = $('#orderCargo').val();
+    var hoursWorked = $('#driverStatus').val();
+
+    var  driverId = getDriverId();
+
+    var driver = {
+        idDriver: driverId,
+        personalNumber: personalNumber,
+        name: name,
+        secondName: secondName,
+        hoursWorked: hoursWorked,
+        status: driverStatus,
+        mapId: selectedCity,
+        waggon: selectedWaggon
+    };
+
+    $.ajax ({
+        url: "/drivers/edit/" + driverId,
+        type: "POST",
+        data: JSON.stringify(driver),
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        success: function (driver) {
+            window.location.href = "/drivers/edit/success";
+        }
+    });
+
 }

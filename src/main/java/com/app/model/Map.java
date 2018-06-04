@@ -2,11 +2,13 @@ package com.app.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 
 @Entity
 @Data
+@EqualsAndHashCode
 @Table(name = "MAPS")
 public class Map {
     @Id

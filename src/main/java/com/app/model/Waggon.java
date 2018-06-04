@@ -2,6 +2,7 @@ package com.app.model;
 
 import com.app.model.Enums.WaggonStatus;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,6 +13,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@EqualsAndHashCode
 @NoArgsConstructor
 @Table(name = "WAGGONS")
 public class Waggon {
@@ -56,7 +58,6 @@ public class Waggon {
                 ", status=" + status +
                 ", city=" + city +
                 ", drivers=" + drivers +
-                ", order=" + order +
                 '}';
     }
 }

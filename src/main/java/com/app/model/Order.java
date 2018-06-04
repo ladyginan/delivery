@@ -2,6 +2,7 @@ package com.app.model;
 
 import com.app.model.Enums.OrderStatus;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @Entity
 @Data
+@EqualsAndHashCode
 @Table(name = "ORDERS")
 @NoArgsConstructor
 public class Order {

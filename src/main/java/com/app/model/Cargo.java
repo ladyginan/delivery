@@ -3,6 +3,7 @@ package com.app.model;
 import com.app.model.Enums.CargoStatus;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
@@ -11,6 +12,7 @@ import java.util.List;
 
 @Entity
 @Data
+@EqualsAndHashCode
 @Table(name = "CARGO")
 public class Cargo {
     @Id
@@ -30,6 +32,11 @@ public class Cargo {
     @Enumerated(EnumType.STRING)
     @Column(name = "STATUS")
     private CargoStatus status;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "cargo")
+    @Fetch(value = FetchMode.SUBSELECT)
+    private List<WayPoint> wayPoints;
 
     @Override
     public String toString() {

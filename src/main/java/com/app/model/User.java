@@ -1,6 +1,7 @@
 package com.app.model;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -9,6 +10,7 @@ import java.util.List;
 
 @Entity
 @Data
+@EqualsAndHashCode
 @Table(name = "USERS")
 public class User {
     @Id
