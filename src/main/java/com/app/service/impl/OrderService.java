@@ -56,24 +56,13 @@ public class OrderService implements OrderServiceInterface {
     @Override
     public Order createOrder(CreateOrderDTO createOrderDTO) {
 
-        List<WayPoint> wayPoints = new ArrayList<>();
-        for (Integer waypointId : createOrderDTO.getWaypoints()) {
-            WayPoint wayPoint = wayPointRepository.findWayPointById(waypointId);
-            wayPoints.add(wayPoint);
-        }
-
+        List<Integer> wayPoints = createOrderDTO.getWaypoints();
         Waggon waggon = waggonRepository.getWaggon(createOrderDTO.getWaggonId());
+        List<Integer> drivers = createOrderDTO.getDrivers();
 
-        List<Driver> drivers = new ArrayList<>();
-        for (Integer driverId : createOrderDTO.getDrivers()) {
-            Driver driver = driverRepository.getDriver(driverId);
-            drivers.add(driver);
-        }
-
-        Order order = new Order(createOrderDTO.getRegNumberOrder(), createOrderDTO.getOrderStatus(), wayPoints, waggon, drivers);
-
+        Order order = new Order(createOrderDTO.getRegNumberOrder(), createOrderDTO.getOrderStatus(), waggon);
         order = orderRepository.addOrder(order);
-
+        orderRepository.settingOrderIdInWayPointsAndDrivers(wayPoints,drivers,order);
         return order;
     }
 }

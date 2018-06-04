@@ -39,12 +39,10 @@ public class Order {
     @OneToMany(mappedBy = "order", fetch = FetchType.EAGER)
     private List<Driver> drivers;
 
-    public Order(int regNumberOrder, OrderStatus status, List<WayPoint> pointList, Waggon currentWaggon, List<Driver> drivers) {
+    public Order(int regNumberOrder, OrderStatus status, Waggon currentWaggon) {
         this.regNumberOrder = regNumberOrder;
         this.status = status;
-        this.pointList = pointList;
         this.currentWaggon = currentWaggon;
-        this.drivers = drivers;
     }
 
     @Override

@@ -1,71 +1,125 @@
 create database if not exists delivery;
 
-create table MAPS(
-  ID_CITY INT NOT NULL AUTO_INCREMENT,
-  CITY VARCHAR(30) UNIQUE,
-  LATITUDE DOUBLE,
-  LONGITUDE DOUBLE,
-  PRIMARY KEY(ID_CITY)
+create table cargo
+(
+ID_CARGO int auto_increment
+primary key,
+CARGO_NUMBER int null,
+NAME varchar(255) null,
+STATUS varchar(255) null,
+WEIGHT int null
 );
 
-create table WAGGONS(
-  ID_WAGGON INT NOT NULL AUTO_INCREMENT,
-  REGISTRATION_NUMBER VARCHAR(7) NOT NULL UNIQUE,
-  SHIFT_SIZE INT,
-  ID_CITY INT NOT NULL,
-  CAPACITY INT NOT NULL,
-  STATUS ENUM('BROKEN', 'WORKING') NOT NULL,
-  PRIMARY KEY(ID_WAGGON),
-  CONSTRAINT MAPS_ID_CITY_FK
-  FOREIGN KEY(ID_CITY)
-  REFERENCES MAPS (ID_CITY)
-);
-create table CARGO(
-  ID_CARGO INT NOT NULL AUTO_INCREMENT,
-  CARGO_NUMBER INT NOT NULL,
-  NAME VARCHAR(30) NOT NULL UNIQUE,
-  WEIGHT INT NOT NULL,
-  STATUS ENUM('PREPARED','SHIPPED','ADDED') NOT NULL,
-  PRIMARY KEY(ID_CARGO)
-);
-create table DRIVERS(
-  ID_DRIVER INT NOT NULL AUTO_INCREMENT,
-  PERSONAL_NUMBER INT(20) NOT NULL,
-  NAME VARCHAR(30) NOT NULL,
-  SECOND_NAME VARCHAR(50) NOT NULL,
-  HOURS_WORKED INT NOT NULL,
-  STATUS ENUM('REST','SHIFT','DRIVING'),
-  ID_CITY INT NOT NULL,
-  ID_WAGGON INT NOT NULL,
-  PRIMARY KEY(ID_DRIVER),
-  FOREIGN KEY (ID_CITY) REFERENCES MAPS(ID_CITY),
-  FOREIGN KEY(ID_WAGGON)   REFERENCES WAGGONS(ID_WAGGON)
-  );
-  create table WAY_POINTS(
-  ID_WAY_POINT INT NOT NULL AUTO_INCREMENT,
-  ORDER_TYPE ENUM('LOADING','LANDING'),
-  ID_CITY INT NOT NULL,
-  ID_CARGO INT NOT NULL,
-  PRIMARY KEY (ID_WAY_POINT),
-  FOREIGN KEY (ID_CARGO) REFERENCES CARGO(ID_CARGO),
-  FOREIGN KEY (ID_CITY) REFERENCES MAPS(ID_CITY)
+create table maps
+(
+ID_CITY int auto_increment
+primary key,
+CITY varchar(255) null,
+LATITUDE double null,
+LONGITUDE double null
 );
 
-create table ORDERS(
-  ID_ORDER INT NOT NULL AUTO_INCREMENT,
-  ORDER_STATUS ENUM('COMPLETED','NOTCOMPLETED') NOT NULL,
-  REGISTRATION_NUMBER_ORDER INT NOT NULL,
-  ID_WAGGON INT NOT NULL,
-  ID_DRIVER INT NOT NULL,
-  ID_WAY_POINT INT NOT NULL,
-  PRIMARY KEY(ID_ORDER),
-  CONSTRAINT WAGGONS_ID_WAGGON_FK
-  FOREIGN KEY(ID_WAGGON)
-  REFERENCES WAGGONS(ID_WAGGON),
-  FOREIGN KEY(ID_WAY_POINT)
-  REFERENCES WAY_POINTS(ID_WAY_POINT)
-
+create table waggons
+(
+ID_WAGGON int auto_increment
+primary key,
+CAPACITY int null,
+REGISTRATION_NUMBER varchar(255) null,
+SHIFT_SIZE int null,
+STATUS varchar(255) null,
+ID_CITY int null,
+constraint FKc0g1au441uhy3lotn1l45ph3a
+foreign key (ID_CITY) references maps (ID_CITY)
 );
+
+create table orders
+(
+ID_ORDER int auto_increment
+primary key,
+REGISTRATION_NUMBER_ORDER int null,
+ORDER_STATUS varchar(255) null,
+WAGGONS int null,
+constraint FKqf9r4ybht0feeut4akgtn92d8
+foreign key (WAGGONS) references waggons (ID_WAGGON)
+);
+
+create table drivers
+(
+ID_DRIVER int auto_increment
+primary key,
+HOURS_WORKED int null,
+NAME varchar(255) null,
+PERSONAL_NUMBER int null,
+SECOND_NAME varchar(255) null,
+STATUS varchar(255) null,
+ID_CITY int null,
+ID_ORDER int null,
+ID_WAGGON int null,
+constraint FK85791uqn3cvqh8k7wc4u2oovn
+foreign key (ID_CITY) references maps (ID_CITY),
+constraint FKh7133xn4rxdktgke9ouuow78y
+foreign key (ID_ORDER) references orders (ID_ORDER),
+constraint FK82a7vrvahfhxjduvocoxb5m82
+foreign key (ID_WAGGON) references waggons (ID_WAGGON)
+);
+
+create index FK82a7vrvahfhxjduvocoxb5m82
+on drivers (ID_WAGGON);
+
+create index FK85791uqn3cvqh8k7wc4u2oovn
+on drivers (ID_CITY);
+
+create index FKh7133xn4rxdktgke9ouuow78y
+on drivers (ID_ORDER);
+
+create index FKqf9r4ybht0feeut4akgtn92d8
+on orders (WAGGONS);
+
+create index FKc0g1au441uhy3lotn1l45ph3a
+on waggons (ID_CITY);
+
+create table waggons_drivers
+(
+Waggon_ID_WAGGON int not null,
+drivers_ID_DRIVER int not null,
+constraint UK_tp3k0nmi54wkx64neldyushf7
+unique (drivers_ID_DRIVER),
+constraint FKp3qbd9grben878oy105l2046q
+foreign key (Waggon_ID_WAGGON) references waggons (ID_WAGGON),
+constraint FKmemljwxdr5qmmti1pn13upc6d
+foreign key (drivers_ID_DRIVER) references drivers (ID_DRIVER)
+);
+
+create index FKp3qbd9grben878oy105l2046q
+on waggons_drivers (Waggon_ID_WAGGON);
+
+create table way_points
+(
+ID_WAY_POINT int auto_increment
+primary key,
+ORDER_TYPE varchar(255) null,
+ID_CARGO int null,
+ID_CITY int null,
+ID_ORDER int null,
+constraint FK4u8h983fwjqgpkmodis62w415
+foreign key (ID_CARGO) references cargo (ID_CARGO),
+constraint FKidw0fhu3c203ftrki0kegye65
+foreign key (ID_CITY) references maps (ID_CITY),
+constraint FKq3f0shesqq2p8mqjkojmorp1b
+foreign key (ID_ORDER) references orders (ID_ORDER)
+);
+
+create index FK4u8h983fwjqgpkmodis62w415
+on way_points (ID_CARGO);
+
+create index FKidw0fhu3c203ftrki0kegye65
+on way_points (ID_CITY);
+
+create index FKq3f0shesqq2p8mqjkojmorp1b
+on way_points (ID_ORDER);
+
+
+
 create table users(
 	username varchar(50) not null primary key,
 	password varchar(100) not null,
@@ -83,7 +137,6 @@ create table user_driver(
 	Id_user INT NOT NULL,
     Id_driver INT NOT NULL
 );
-
 create unique index ix_auth_username on authorities (username,authority);
 
 insert into users(username,password,enabled)
