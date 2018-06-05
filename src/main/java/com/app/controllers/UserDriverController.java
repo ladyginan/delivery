@@ -12,23 +12,31 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 
 @Controller
-@RequestMapping(path = "/driverInfo")
+@RequestMapping(path = "/driverPage")
 public class UserDriverController {
     @Autowired
     UserDriverServiceInterface userDriverService;
     @Autowired
     DriverServiceInterface driverService;
 
+    @RequestMapping(method = RequestMethod.GET)
+    public @ResponseBody
+    List<DriverDTO> getAllDriversJson() {
+        List<DriverDTO> drivers = driverService.getAllDriversJson();
+        return drivers;
+    }
 
 
     @RequestMapping(path = "/{id}", method = RequestMethod.GET)
     public ModelAndView driverInfoPage (@PathVariable int id) {
-        ModelAndView modelAndView = new ModelAndView("DriverInfo");
+        ModelAndView modelAndView = new ModelAndView("driverInfo");
         return modelAndView;
     }
-    @RequestMapping(path = "personalPage/{id}", method = RequestMethod.GET)
+    @RequestMapping(path = "driverInfo/{id}", method = RequestMethod.GET)
     public @ResponseBody
     DriverDTO getDriverDTOByUser(@PathVariable int id) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();

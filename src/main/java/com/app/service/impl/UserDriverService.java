@@ -42,6 +42,7 @@ public class UserDriverService implements UserDriverServiceInterface {
         int mapId = driver.getCity().getIdCity();
         int waggon = driver.getWaggon().getIdWaggon();
         DriverDTO driverDTO = new DriverDTO(driver);
+        driverDTO.setIdDriver(0);
         return driverDTO;
     }
 }

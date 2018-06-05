@@ -1,13 +1,13 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: irish
-  Date: 02.06.2018
-  Time: 19:40
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
+    <script src="<c:url value="/resources/js/jQuery.js"/>"></script>
+    <script src="<c:url value="/resources/js/selectDriverUser.js"/>"></script>
+    <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap-reboot.min.css">
     <title>Title</title>
 </head>
 <body>
@@ -24,7 +24,7 @@
         <tr>
             <td><button id="userDriver" onclick="createDriverUser()">Select driver</button></td>
         </tr>
-    </table>
+    </table><br/><br/><br/>
     <form action="/logout" method="post">
         <input value="Logout" type="submit">
     </form>

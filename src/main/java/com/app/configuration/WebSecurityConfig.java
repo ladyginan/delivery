@@ -34,6 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers("/welcome").permitAll()
                 .antMatchers("/driverInfo").hasRole("DRIVER")
+                .antMatchers("/driverLogin").hasRole("DRIVER")
                 .antMatchers("/selectProfile").hasRole("DRIVER")
                 .antMatchers("/drivers").hasRole("MANAGER")
                 .antMatchers("/waggons").hasRole("MANAGER")

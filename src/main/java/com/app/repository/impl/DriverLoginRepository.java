@@ -33,7 +33,7 @@ public class DriverLoginRepository implements DriverLoginRepositoryInterface {
 
     @Override
     public List<Driver> findAllCompanions(int idOrder) {
-        List<Driver> companions = factory.getCurrentSession().createQuery("select Driver from Order where idOrder = idOrder").list();
+        List<Driver> companions = factory.getCurrentSession().createQuery("from Driver where idOrder = :idOrder").list();
         return companions;
     }
 

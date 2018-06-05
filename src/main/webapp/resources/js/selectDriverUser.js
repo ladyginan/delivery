@@ -3,7 +3,7 @@ $(document).ready(function(){
 });
 
 function loadDrivers() {
-    $.get("/drivers", function (drivers) {
+    $.get("/driverPage", function (drivers) {
 
         var driverSelect = $('#drivers');
 

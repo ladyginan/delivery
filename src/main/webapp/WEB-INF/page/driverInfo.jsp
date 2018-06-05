@@ -1,13 +1,10 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<?xml version="1.0" encoding="ISO-8859-1" ?>
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
     <script src="<c:url value="/resources/js/jQuery.js"/>"></script>
-    <script src="<c:url value="/resources/js/ajax.js"/>"></script>
+    <script src="<c:url value="/resources/js/driverInfo.js"/>"></script>
     <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap-reboot.min.css">
@@ -63,7 +60,7 @@
             </select></td>
         </tr>
         <tr>
-            <td><button id="order" onclick="saveChangeDriver()">Edit driver</button></td>
+            <td><button id="order" onclick="saveChangeDriver()">Save</button></td>
         </tr>
     </table>
 

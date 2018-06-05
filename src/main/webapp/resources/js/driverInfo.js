@@ -10,12 +10,13 @@ var loadedDriver;
 function getDriverId() {
     var pathArray = window.location.pathname;
     pathArray = pathArray.replace('.html','').split('/');
-    var driverId = pathArray[pathArray.length - 1];
+    // var driverId = pathArray[pathArray.length - 1];
+    var driverId = 1;
     return driverId;
 }
 
 function loadDriver(driverId) {
-    $.get("/driverInfo/" + driverId, function (driver) {
+    $.get("/driverPage/" + driverId, function (driver) {
 
         loadedDriver = driver;
 
@@ -29,7 +30,7 @@ function loadDriver(driverId) {
 
 
 function loadCompanions() {
-    $get("/driverInfo/companions",function(companions){
+    $get("/driverPage/companions",function(companions){
         var companions = $('#companions');
         for(companion in companions){
             companions
@@ -46,7 +47,7 @@ function loadCompanions() {
 }
 
 function loadWaypoints() {
-    $.get("/driverInfo/points", function (waypoints) {
+    $.get("/driverPage/points", function (waypoints) {
         var waypointSelect = $('#waypoints');
 
         for (waypointIndex in waypoints) {
@@ -84,13 +85,13 @@ function saveChangeDriver(){
     };
 
     $.ajax ({
-        url: "/drivers/edit/" + driverId,
+        url: "/driverPage/driverInfo" + driverId,
         type: "POST",
         data: JSON.stringify(driver),
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
         success: function (driver) {
-            window.location.href = "/drivers/edit/success";
+            window.location.href = "/";
         }
     });
 

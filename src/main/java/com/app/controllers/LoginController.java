@@ -25,7 +25,7 @@ public class LoginController {
             Authentication auth = SecurityContextHolder.getContext().getAuthentication();
             DriverDTO driverDTO  = userDriverService.findDriverIdByUsername(auth.getName());
             int id = driverDTO.getIdDriver();
-            if (id == -1){
+            if (id == 0){
                 return "driverLogin";
             }else{
                 model.addAttribute("message", "You are logged in as " + principal.getName());
