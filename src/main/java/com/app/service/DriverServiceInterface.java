@@ -6,7 +6,7 @@ import com.app.model.Driver;
 import java.util.List;
 
 public interface DriverServiceInterface {
-    List<Driver> getAllDrivers();
+    List<DriverDTO> getAllDrivers();
 
     /**
      * @param driver

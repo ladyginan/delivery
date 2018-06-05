@@ -65,14 +65,15 @@ public class OrderController {
         model.addAttribute("message", message);
         return "welcome";
     }
-//
-//    @RequestMapping(value = "/add/success", method = RequestMethod.GET)
-//    public ModelAndView editOrderSuccessMessage() {
-//        ModelAndView modelAndView = new ModelAndView("welcome");
-//        String message = "Order was successfully edited.";
-//        modelAndView.addObject("message", message);
-//        return modelAndView;
-//    }
+
+
+    @RequestMapping(value = "/add/success", method = RequestMethod.GET)
+    public ModelAndView editOrderSuccessMessage() {
+        ModelAndView modelAndView = new ModelAndView("listOfOrders");
+        String message = "Order was successfully edited.";
+        modelAndView.addObject("message", message);
+        return modelAndView;
+    }
 
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)

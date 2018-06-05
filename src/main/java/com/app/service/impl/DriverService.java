@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -24,8 +25,14 @@ public class DriverService implements DriverServiceInterface {
     private MapRepositoryInterface mapRepository;
 
     @Transactional
-    public List<Driver> getAllDrivers() {
-        return driversRepository.getAllDrivers();
+    public List<DriverDTO> getAllDrivers() {
+        List<Driver> drivers = driversRepository.getAllDrivers();
+        List<DriverDTO> driversDTO = new ArrayList<>();
+        for(Driver driver : drivers){
+            driversDTO.add(new DriverDTO(driver));
+        }
+
+        return driversDTO;
     }
 
     @Transactional
