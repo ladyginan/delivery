@@ -21,11 +21,13 @@ public class LoginController {
 
     @GetMapping("/")
     public String index(Model model, Principal principal) {
-        if(principal.getName().equals("driver")){
-            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-            DriverDTO driverDTO  = userDriverService.findDriverIdByUsername(auth.getName());
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        boolean hasUserRole = auth.getAuthorities().stream()
+                .anyMatch(r -> r.getAuthority().equals("ROLE_DRIVER"));
+        if(hasUserRole){
+            DriverDTO driverDTO  = userDriverService.findDriverIdByUsername(principal.getName());
             int id = driverDTO.getIdDriver();
-            if (id == 0){
+            if (id == -1){
                 return "driverLogin";
             }else{
                 model.addAttribute("message", "You are logged in as " + principal.getName());

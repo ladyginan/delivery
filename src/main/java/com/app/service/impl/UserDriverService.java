@@ -38,11 +38,16 @@ public class UserDriverService implements UserDriverServiceInterface {
 @Transactional
     @Override
     public DriverDTO findDriverIdByUsername(String username) {
+    DriverDTO driverDTO = new DriverDTO();
+    if(userDriverRepository.isUserDriverExist(username)){
         Driver driver = userDriverRepository.findDriverIdByUsername(username);
         int mapId = driver.getCity().getIdCity();
         int waggon = driver.getWaggon().getIdWaggon();
-        DriverDTO driverDTO = new DriverDTO(driver);
-        driverDTO.setIdDriver(0);
+        driverDTO = new DriverDTO(driver);
+    } else{
+        driverDTO.setIdDriver(-1);
+    }
+
         return driverDTO;
     }
 }

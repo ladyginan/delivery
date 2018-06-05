@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 
+import javax.persistence.Query;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -47,14 +48,19 @@ public class UserDriverRepository implements UserDriverRepositoryInterface {
         return savedUserDriver;
     }
 
+    public boolean isUserDriverExist(String username){
+        Query query = factory.getCurrentSession().createQuery("Select D from UserDriver D where D.idUser = :username");
+        query.setParameter("username", username);
+        if(((org.hibernate.query.Query) query).list().isEmpty()){
+            return false;
+        }
+        return true;
+    }
+
     @Override
-    public Driver findDriverIdByUsername(String username) {
-////       List<UserDriver> list = factory.getCurrentSession().createQuery("Select D from UserDriver D where D.idUser = :username").list();
-//        int id = list.get(0).getIdDriver();
-//        if(id == 0){
-//            id = -1;
-//        }
-        Driver driver = driversRepository.getDriver(1);
+    public Driver findDriverIdByUsername(String username){
+        UserDriver userDriver = factory.getCurrentSession().get(UserDriver.class, username);
+        Driver driver = driversRepository.getDriver(userDriver.getIdDriver());
         return driver;
     }
 }

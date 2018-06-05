@@ -10,16 +10,17 @@ import javax.persistence.*;
 @Data
 @EqualsAndHashCode
 @NoArgsConstructor
-@Table(name = "User_Driver")
+@Table(name = "USER_DRIVER")
 public class UserDriver {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID_USER_DRIVER")
     private int idUserDriver;
 
-    @Column
+    @Column(name = "ID_USER")
     private String idUser;
 
-    @Column
+    @Column(name = "ID_DRIVER")
     private int idDriver;
 
     public UserDriver(String idUser, int idDriver) {

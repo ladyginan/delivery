@@ -11,4 +11,6 @@ public interface UserDriverRepositoryInterface {
     UserDriver createUserDriver(UserDriver userDriver);
 
     Driver findDriverIdByUsername(String username);
+
+    boolean isUserDriverExist(String username);
 }
