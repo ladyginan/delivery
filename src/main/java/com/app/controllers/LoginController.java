@@ -9,6 +9,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.security.Principal;
@@ -22,16 +23,18 @@ public class LoginController {
     @GetMapping("/")
     public String index(Model model, Principal principal) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        int id = 0;
         boolean hasUserRole = auth.getAuthorities().stream()
                 .anyMatch(r -> r.getAuthority().equals("ROLE_DRIVER"));
-        if(hasUserRole){
-            DriverDTO driverDTO  = userDriverService.findDriverIdByUsername(principal.getName());
-            int id = driverDTO.getIdDriver();
-            if (id == -1){
+        if (hasUserRole) {
+            DriverDTO driverDTO = userDriverService.findDriverIdByUsername(principal.getName());
+            id = driverDTO.getIdDriver();
+            if (id == -1) {
                 return "driverLogin";
-            }else{
+            } else {
                 model.addAttribute("message", "You are logged in as " + principal.getName());
-                return "driverInfo";
+                model.addAttribute("driverID", id);
+                return "welcomeDriverPage";
             }
         }
         model.addAttribute("message", "You are logged in as " + principal.getName());

@@ -39,9 +39,7 @@ public class UserDriverController {
     @RequestMapping(path = "driverInfo/{id}", method = RequestMethod.GET)
     public @ResponseBody
     DriverDTO getDriverDTOByUser(@PathVariable int id) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String username = auth.getName();
-        DriverDTO driverDTO = userDriverService.findDriverIdByUsername(username);
+        DriverDTO driverDTO = driverService.getDriverDTO(id);
         return driverDTO;
     }
 //

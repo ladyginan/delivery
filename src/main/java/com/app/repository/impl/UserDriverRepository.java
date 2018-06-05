@@ -59,8 +59,10 @@ public class UserDriverRepository implements UserDriverRepositoryInterface {
 
     @Override
     public Driver findDriverIdByUsername(String username){
-        UserDriver userDriver = factory.getCurrentSession().get(UserDriver.class, username);
-        Driver driver = driversRepository.getDriver(userDriver.getIdDriver());
+        Query query = factory.getCurrentSession().createQuery("Select D from UserDriver D where D.idUser = :username");
+        query.setParameter("username", username);
+        List<UserDriver> list = ((org.hibernate.query.Query) query).list();
+        Driver driver = driversRepository.getDriver(list.get(0).getIdDriver());
         return driver;
     }
 }

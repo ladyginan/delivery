@@ -8,10 +8,7 @@ $(document).ready(function() {
 var loadedDriver;
 
 function getDriverId() {
-    var pathArray = window.location.pathname;
-    pathArray = pathArray.replace('.html','').split('/');
-    // var driverId = pathArray[pathArray.length - 1];
-    var driverId = 1;
+    var driverId = id;
     return driverId;
 }
 
