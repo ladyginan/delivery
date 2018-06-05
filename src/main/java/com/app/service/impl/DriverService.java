@@ -25,7 +25,13 @@ public class DriverService implements DriverServiceInterface {
     private MapRepositoryInterface mapRepository;
 
     @Transactional
-    public List<DriverDTO> getAllDrivers() {
+    @Override
+    public List<Driver> getAllDrivers() {
+        return driversRepository.getAllDrivers();
+    }
+
+    @Transactional
+    public List<DriverDTO> getAllDriversJson(){
         List<Driver> drivers = driversRepository.getAllDrivers();
         List<DriverDTO> driversDTO = new ArrayList<>();
         for(Driver driver : drivers){

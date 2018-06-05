@@ -6,7 +6,10 @@ import com.app.model.Driver;
 import java.util.List;
 
 public interface DriverServiceInterface {
-    List<DriverDTO> getAllDrivers();
+
+
+
+    List<DriverDTO> getAllDriversJson();
 
     /**
      * @param driver
@@ -36,4 +39,5 @@ public interface DriverServiceInterface {
     Driver getDriver(int id);
 
 
+    List<Driver> getAllDrivers();
 }

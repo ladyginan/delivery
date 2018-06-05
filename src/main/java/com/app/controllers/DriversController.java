@@ -26,7 +26,7 @@ public class DriversController {
     @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody
     List<DriverDTO> getAllDriversJson() {
-        List<DriverDTO> drivers = driverService.getAllDrivers();
+        List<DriverDTO> drivers = driverService.getAllDriversJson();
         return drivers;
     }
 
@@ -40,7 +40,7 @@ public class DriversController {
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public ModelAndView getAllDrivers() {
-        List<DriverDTO> drivers = driverService.getAllDrivers();
+        List<Driver> drivers = driverService.getAllDrivers();
         ModelAndView modelAndView = new ModelAndView("listOfDrivers");
         modelAndView.addObject("drivers", drivers);
         return modelAndView;

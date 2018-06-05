@@ -22,12 +22,13 @@ public class DriversRepository implements DriversRepositoryInterface {
 
     //show driver list
 
-    public List<Driver> getAllDrivers() {
+    public List<Driver> getAllDrivers(){
         List<Driver> drivers = factory.getCurrentSession().createQuery("from Driver").list();
         return drivers;
     }
 
     //add new driver
+
 
     public void addDriver(Driver driver) {
         factory.getCurrentSession().save(driver);
