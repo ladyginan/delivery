@@ -15,7 +15,7 @@
 <table border="1px" cellpadding="0" cellspacing="0">
     <thead>
     <tr>
-        <th width="20%">driver</th>
+        <th width="20%">personal number</th>
         <th width="18%">waggon's registrasion number</th>
         <th width="20%">order number</th>
         <th width="20%">companions</th>
@@ -24,9 +24,9 @@
     </thead>
     <tbody>
         <tr>
-            <td id = "idDriver"></td>
-            <td id = "waggonRegNumber"></td>
-            <td id = "orderNumber"></td>
+            <td><p id = "personalNumber"></p></td>
+            <td><p id = "waggonRegNumber"></p></td>
+            <td><p id = "orderNumber"></p></td>
             <td id = "companions"></td>
             <td id = "wayPoints"></td>
         </tr>
@@ -59,7 +59,7 @@
             </select></td>
         </tr>
         <tr>
-            <td><button id="order" onclick="saveChangeDriver()">Save</button></td>
+            <td><button id="driverSave" onclick="saveChangeDriver()">Save</button></td>
         </tr>
     </table>
 

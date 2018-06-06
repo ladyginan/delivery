@@ -1,8 +1,7 @@
 $(document).ready(function() {
     var  driverId = getDriverId();
     loadDriver(driverId);
-    loadCompanions(driverId);
-    loadWaypoints(driverId);
+
 });
 
 var loadedDriver;
@@ -19,10 +18,14 @@ function loadDriver(driverId) {
 
         loadedDriver = driver;
 
-        $("#idDriver").val(driver.personalNumber);
-        $("#waggonRegNumber").val(driver.waggon.personalNumber);
-        $("#orderNumber").val(driver.order);
+        $("#personalNumber").val(driver.personalNumber);
+        var somethingToLook1 = $("#personalNumber");
+        $("#waggonRegNumber").val(driver.waggon);
+        var somethingToLook2 = $("#waggonRegNumber");
+        $("#orderNumber").val(driver.idOrder);
 
+        loadCompanions(driverId);
+        loadWaypoints(driverId);
     })
 }
 
@@ -37,7 +40,7 @@ function loadCompanions(driverId) {
                     $('<p />')
                         .val(companions[companion].idDriver)
                         .text(
-                            companions[companion].personalNumber + "   " +
+                            companions[companion].personalNumber + " - " +
                             companions[companion].name + "   " +
                             companions[companion].secondName
                         )
@@ -57,8 +60,8 @@ function loadWaypoints(driverId) {
                     $("<p />")
                         .val(waypoints[waypointIndex].wayPointId)
                         .text(
-                            waypoints[waypointIndex].cargoNumber + "   " +
-                            waypoints[waypointIndex].cityDTO + "   " +
+                            waypoints[waypointIndex].cargoNumber + " - " +
+                            waypoints[waypointIndex].cityDTO + " - " +
                             waypoints[waypointIndex].orderTypeDTO
                         )
                 )

@@ -24,7 +24,7 @@ public class DriverLoginService implements DriverLoginServiceInterface {
         List<Driver> listDriver = driverLoginRepository.findAllCompanions(idDriver);
         List<DriverDTO> listDriverDTO = new ArrayList<>();
         for (Driver driver : listDriver) {
-            DriverDTO driverDTO = new DriverDTO(driver);
+            DriverDTO driverDTO = new DriverDTO(driver,driver.getOrder().getIdOrder());
             listDriverDTO.add(driverDTO);
         }
         return listDriverDTO;
