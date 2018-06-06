@@ -2,13 +2,17 @@ package com.app.controllers;
 
 import com.app.DTO.DriverDTO;
 import com.app.DTO.UserDriverDTO;
+import com.app.DTO.WayPointDTO;
 import com.app.model.UserDriver;
+import com.app.model.WayPoint;
+import com.app.service.DriverLoginServiceInterface;
 import com.app.service.DriverServiceInterface;
 import com.app.service.UserDriverServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -19,9 +23,11 @@ import java.util.List;
 @RequestMapping(path = "/driverPage")
 public class UserDriverController {
     @Autowired
-    UserDriverServiceInterface userDriverService;
+    DriverLoginServiceInterface driverLoginService;
     @Autowired
     DriverServiceInterface driverService;
+    @Autowired
+    UserDriverServiceInterface userDriverService;
 
     @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody
@@ -42,6 +48,23 @@ public class UserDriverController {
         DriverDTO driverDTO = driverService.getDriverDTO(id);
         return driverDTO;
     }
+
+    @RequestMapping(path = "/companions", method = RequestMethod.GET)
+    public @ResponseBody
+    List<DriverDTO> loadCompanion(@PathVariable int id){
+        List<DriverDTO> list = driverLoginService.findAllCompanions(id);
+        return list;
+    }
+
+    @RequestMapping(path = "/points", method = RequestMethod.GET)
+    public @ResponseBody
+    List<WayPointDTO> loadWayPoints(@PathVariable int id){
+        List<WayPointDTO> points = driverLoginService.findAllOrderPoints(id);
+        return points;
+    }
+
+
+
 //
 //    @RequestMapping(value = "/{id}", method = RequestMethod.POST)
 //    public @ResponseBody

@@ -51,7 +51,8 @@ public class DriverLoginRepository implements DriverLoginRepositoryInterface {
 
     @Override
     public List<WayPoint> findAllOrderPoints(int idDriver) {
-        return null;
+        List<WayPoint>points = factory.getCurrentSession().createQuery("from Map where idOrder = :idOrder").list();
+        return points;
     }
 
     @Override
