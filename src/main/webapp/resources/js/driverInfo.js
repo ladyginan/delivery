@@ -8,7 +8,9 @@ $(document).ready(function() {
 var loadedDriver;
 
 function getDriverId() {
-    var driverId = id;
+    var pathArray = window.location.pathname;
+    pathArray = pathArray.replace('.html','').split('/');
+    var driverId = pathArray[pathArray.length - 1];
     return driverId;
 }
 
@@ -26,41 +28,41 @@ function loadDriver(driverId) {
 
 
 
-function loadCompanions() {
-    $get("/driverPage/companions",function(companions){
-        var companions = $('#companions');
-        for(companion in companions){
-            companions
-                .append(
-                    $('<tr />')
-                        .val(companions[companion].idCompanion)
-                        .text(
-                            companions[companion].fullname
-                        )
+// function loadCompanions() {
+//     $get("/driverPage/companions",function(companions){
+//         var companions = $('#companions');
+//         for(companion in companions){
+//             companions
+//                 .append(
+//                     $('<tr />')
+//                         .val(companions[companion].idCompanion)
+//                         .text(
+//                             companions[companion].fullname
+//                         )
+//
+//                 )
+//         }
+//     })
+// }
 
-                )
-        }
-    })
-}
-
-function loadWaypoints() {
-    $.get("/driverPage/points", function (waypoints) {
-        var waypointSelect = $('#waypoints');
-
-        for (waypointIndex in waypoints) {
-            waypointSelect
-                .append(
-                    $("<tr />")
-                        .val(waypoints[waypointIndex].idWayPoint)
-                        .text(
-                            waypoints[waypointIndex].city.city + " - " +
-                            waypoints[waypointIndex].cargo.cargoNumber + " - " +
-                            waypoints[waypointIndex].orderType
-                        )
-                )
-        }
-    })
-}
+// function loadWaypoints() {
+//     $.get("/driverPage/points", function (waypoints) {
+//         var waypointSelect = $('#waypoints');
+//
+//         for (waypointIndex in waypoints) {
+//             waypointSelect
+//                 .append(
+//                     $("<tr />")
+//                         .val(waypoints[waypointIndex].idWayPoint)
+//                         .text(
+//                             waypoints[waypointIndex].city.city + " - " +
+//                             waypoints[waypointIndex].cargo.cargoNumber + " - " +
+//                             waypoints[waypointIndex].orderType
+//                         )
+//                 )
+//         }
+//     })
+// }
 
 
 function saveChangeDriver(){
