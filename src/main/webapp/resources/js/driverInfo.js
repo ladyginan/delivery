@@ -49,7 +49,7 @@ function loadCompanions(driverId) {
 
 function loadWaypoints(driverId) {
     $.get("/driverPage/points/" + driverId, function (waypoints) {
-        var waypointSelect = $('#waypoints');
+        var waypointSelect = $('#wayPoints');
 
         for (waypointIndex in waypoints) {
             waypointSelect
