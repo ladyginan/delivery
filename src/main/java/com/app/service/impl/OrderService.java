@@ -1,10 +1,8 @@
 package com.app.service.impl;
 
 import com.app.DTO.CreateOrderDTO;
-import com.app.model.Driver;
 import com.app.model.Order;
 import com.app.model.Waggon;
-import com.app.model.WayPoint;
 import com.app.repository.DriversRepositoryInterface;
 import com.app.repository.OrderRepositoryInterface;
 import com.app.repository.WaggonRepositoryInterface;
@@ -14,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -62,7 +59,7 @@ public class OrderService implements OrderServiceInterface {
 
         Order order = new Order(createOrderDTO.getRegNumberOrder(), createOrderDTO.getOrderStatus(), waggon);
         order = orderRepository.addOrder(order);
-        orderRepository.settingOrderIdInWayPointsAndDrivers(wayPoints,drivers,order);
+        orderRepository.settingOrderIdInWayPointsAndDrivers(wayPoints, drivers, order);
         return order;
     }
 }

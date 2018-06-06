@@ -12,7 +12,7 @@ public class WayPointDTO {
     private int cargoNumber;
     private OrderType orderTypeDTO;
 
-    public WayPointDTO(WayPoint wayPoint){
+    public WayPointDTO(WayPoint wayPoint) {
         this.cityDTO = wayPoint.getCity().getCity();
         this.cargoNumber = wayPoint.getCargo().getIdCargo();
         this.orderTypeDTO = wayPoint.getOrderType();

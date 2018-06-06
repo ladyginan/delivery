@@ -1,7 +1,6 @@
 package com.app.repository.impl;
 
 import com.app.model.Driver;
-import com.app.model.User;
 import com.app.model.UserDriver;
 import com.app.repository.DriversRepositoryInterface;
 import com.app.repository.UserDriverRepositoryInterface;
@@ -9,12 +8,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-
 import javax.persistence.Query;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Repository
 public class UserDriverRepository implements UserDriverRepositoryInterface {
@@ -28,7 +23,7 @@ public class UserDriverRepository implements UserDriverRepositoryInterface {
         this.factory = factory;
     }
 
-    public List<Integer> getAllDriversId(){
+    public List<Integer> getAllDriversId() {
         List<Integer> list = factory.getCurrentSession().createQuery("Select idDriver from Driver").list();
         return list;
     }
@@ -39,8 +34,6 @@ public class UserDriverRepository implements UserDriverRepositoryInterface {
 //    }
 
 
-
-
     @Override
     public UserDriver createUserDriver(UserDriver userDriver) {
         Integer savedUserDriverId = (Integer) factory.getCurrentSession().save(userDriver);
@@ -48,17 +41,17 @@ public class UserDriverRepository implements UserDriverRepositoryInterface {
         return savedUserDriver;
     }
 
-    public boolean isUserDriverExist(String username){
+    public boolean isUserDriverExist(String username) {
         Query query = factory.getCurrentSession().createQuery("Select D from UserDriver D where D.idUser = :username");
         query.setParameter("username", username);
-        if(((org.hibernate.query.Query) query).list().isEmpty()){
+        if (((org.hibernate.query.Query) query).list().isEmpty()) {
             return false;
         }
         return true;
     }
 
     @Override
-    public Driver findDriverIdByUsername(String username){
+    public Driver findDriverIdByUsername(String username) {
         Query query = factory.getCurrentSession().createQuery("Select D from UserDriver D where D.idUser = :username");
         query.setParameter("username", username);
         List<UserDriver> list = ((org.hibernate.query.Query) query).list();

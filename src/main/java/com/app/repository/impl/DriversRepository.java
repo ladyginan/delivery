@@ -2,7 +2,6 @@ package com.app.repository.impl;
 
 import com.app.model.Driver;
 import com.app.repository.DriversRepositoryInterface;
-import com.app.repository.UserDriverRepositoryInterface;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -22,7 +21,7 @@ public class DriversRepository implements DriversRepositoryInterface {
 
     //show driver list
 
-    public List<Driver> getAllDrivers(){
+    public List<Driver> getAllDrivers() {
         List<Driver> drivers = factory.getCurrentSession().createQuery("from Driver").list();
         return drivers;
     }

@@ -15,7 +15,7 @@ function getDriverId() {
 }
 
 function loadDriver(driverId) {
-    $.get("/driverPage/" + driverId, function (driver) {
+    $.get("/driverPage/driverInfo" + driverId, function (driver) {
 
         loadedDriver = driver;
 
@@ -37,7 +37,9 @@ function loadCompanions() {
                     $('<tr />')
                         .val(companions[companion].idCompanion)
                         .text(
-                            companions[companion].fullname
+                            companions[companion].personalNumber + " - " +
+                            companions[companion].name + " - " +
+                            companions[companion].secondName
                         )
 
                 )

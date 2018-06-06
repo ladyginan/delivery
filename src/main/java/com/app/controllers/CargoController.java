@@ -3,7 +3,6 @@ package com.app.controllers;
 import com.app.model.Cargo;
 import com.app.service.CargoServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +15,7 @@ public class CargoController {
     @Autowired
     private CargoServiceInterface cargoService;
 
-//    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    //    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public ModelAndView addCargoPage() {
         ModelAndView modelAndView = new ModelAndView("cargoForm");

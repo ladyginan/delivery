@@ -31,10 +31,10 @@ public class DriverService implements DriverServiceInterface {
     }
 
     @Transactional
-    public List<DriverDTO> getAllDriversJson(){
+    public List<DriverDTO> getAllDriversJson() {
         List<Driver> drivers = driversRepository.getAllDrivers();
         List<DriverDTO> driversDTO = new ArrayList<>();
-        for(Driver driver : drivers){
+        for (Driver driver : drivers) {
             driversDTO.add(new DriverDTO(driver));
         }
 

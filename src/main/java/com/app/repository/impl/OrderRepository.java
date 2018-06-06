@@ -36,17 +36,17 @@ public class OrderRepository implements OrderRepositoryInterface {
         return savedOrder;
     }
 
-    public void settingOrderIdInWayPointsAndDrivers(List<Integer> points, List<Integer> drivers, Order order){
+    public void settingOrderIdInWayPointsAndDrivers(List<Integer> points, List<Integer> drivers, Order order) {
         for (Integer pointId : points) {
-        WayPoint point = factory.getCurrentSession().get(WayPoint.class, pointId);
-        point.setOrder(order);
-        factory.getCurrentSession().update(point);
+            WayPoint point = factory.getCurrentSession().get(WayPoint.class, pointId);
+            point.setOrder(order);
+            factory.getCurrentSession().update(point);
         }
 
         for (Integer driverId : drivers) {
-        Driver driver = factory.getCurrentSession().get(Driver.class,driverId);
-        driver.setOrder(order);
-        factory.getCurrentSession().update(driver);
+            Driver driver = factory.getCurrentSession().get(Driver.class, driverId);
+            driver.setOrder(order);
+            factory.getCurrentSession().update(driver);
         }
     }
 }

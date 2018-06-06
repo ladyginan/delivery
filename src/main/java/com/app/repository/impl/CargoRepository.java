@@ -11,9 +11,9 @@ import java.util.logging.Logger;
 
 @Repository
 public class CargoRepository implements CargoRepositoryInterface {
+    private static Logger log = Logger.getLogger(CargoRepository.class.getName());
     @Autowired
     private final SessionFactory factory;
-    private static Logger log = Logger.getLogger(CargoRepository.class.getName());
 
     public CargoRepository(SessionFactory factory) {
         this.factory = factory;

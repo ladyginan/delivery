@@ -3,9 +3,7 @@ package com.app.service.impl;
 import com.app.DTO.DriverDTO;
 import com.app.DTO.UserDriverDTO;
 import com.app.model.Driver;
-import com.app.model.Map;
 import com.app.model.UserDriver;
-import com.app.model.Waggon;
 import com.app.repository.MapRepositoryInterface;
 import com.app.repository.UserDriverRepositoryInterface;
 import com.app.repository.WaggonRepositoryInterface;
@@ -22,31 +20,26 @@ import javax.transaction.Transactional;
 public class UserDriverService implements UserDriverServiceInterface {
     @Autowired
     private UserDriverRepositoryInterface userDriverRepository;
-    @Autowired
-    private WaggonRepositoryInterface waggonRepository;
-    @Autowired
-    private MapRepositoryInterface mapRepository;
 
-@Transactional
+    @Transactional
     @Override
     public UserDriver createUserDriver(UserDriverDTO userDriverDTO) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        UserDriver userDriver = new UserDriver(auth.getName(),userDriverDTO.getIdDriver());
+        UserDriver userDriver = new UserDriver(auth.getName(), userDriverDTO.getIdDriver());
         userDriver = userDriverRepository.createUserDriver(userDriver);
         return userDriver;
     }
-@Transactional
+
+    @Transactional
     @Override
     public DriverDTO findDriverIdByUsername(String username) {
-    DriverDTO driverDTO = new DriverDTO();
-    if(userDriverRepository.isUserDriverExist(username)){
-        Driver driver = userDriverRepository.findDriverIdByUsername(username);
-        int mapId = driver.getCity().getIdCity();
-        int waggon = driver.getWaggon().getIdWaggon();
-        driverDTO = new DriverDTO(driver);
-    } else{
-        driverDTO.setIdDriver(-1);
-    }
+        DriverDTO driverDTO = new DriverDTO();
+        if (userDriverRepository.isUserDriverExist(username)) {
+            Driver driver = userDriverRepository.findDriverIdByUsername(username);
+            driverDTO = new DriverDTO(driver);
+        } else {
+            driverDTO.setIdDriver(-1);
+        }
 
         return driverDTO;
     }

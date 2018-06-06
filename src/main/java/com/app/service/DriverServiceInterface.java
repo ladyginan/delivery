@@ -8,7 +8,6 @@ import java.util.List;
 public interface DriverServiceInterface {
 
 
-
     List<DriverDTO> getAllDriversJson();
 
     /**

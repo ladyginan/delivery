@@ -1,7 +1,6 @@
 package com.app.repository.impl;
 
 import com.app.model.Driver;
-import com.app.model.Order;
 import com.app.model.Waggon;
 import com.app.model.WayPoint;
 import com.app.repository.DriverLoginRepositoryInterface;
@@ -12,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+
 @Repository
 public class DriverLoginRepository implements DriverLoginRepositoryInterface {
     @Autowired
@@ -51,7 +51,7 @@ public class DriverLoginRepository implements DriverLoginRepositoryInterface {
 
     @Override
     public List<WayPoint> findAllOrderPoints(int idDriver) {
-        List<WayPoint>points = factory.getCurrentSession().createQuery("from Map where idOrder = :idOrder").list();
+        List<WayPoint> points = factory.getCurrentSession().createQuery("from Map where idOrder = :idOrder").list();
         return points;
     }
 
