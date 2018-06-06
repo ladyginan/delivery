@@ -38,21 +38,21 @@ public class LoginController {
         return modelAndView;
     }
 
-    @RequestMapping(path = "driverInfo/{id}", method = RequestMethod.GET)
+    @RequestMapping(path = "/driverInfo/{id}", method = RequestMethod.GET)
     public @ResponseBody
     DriverDTO getDriverDTOByUser(@PathVariable int id) {
         DriverDTO driverDTO = driverService.getDriverDTO(id);
         return driverDTO;
     }
 
-    @RequestMapping(path = "/companions", method = RequestMethod.GET)
+    @RequestMapping(path = "/companions/{id}", method = RequestMethod.GET)
     public @ResponseBody
     List<DriverDTO> loadCompanion(@PathVariable int id) {
         List<DriverDTO> list = driverLoginService.findAllCompanions(id);
         return list;
     }
 
-    @RequestMapping(path = "/points", method = RequestMethod.GET)
+    @RequestMapping(path = "/points/{id}", method = RequestMethod.GET)
     public @ResponseBody
     List<WayPointDTO> loadWayPoints(@PathVariable int id) {
         List<WayPointDTO> points = driverLoginService.findAllOrderPoints(id);

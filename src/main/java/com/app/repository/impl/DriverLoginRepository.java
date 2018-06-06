@@ -10,6 +10,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.Query;
 import java.util.List;
 
 @Repository
@@ -32,8 +33,12 @@ public class DriverLoginRepository implements DriverLoginRepositoryInterface {
     }
 
     @Override
-    public List<Driver> findAllCompanions(int idOrder) {
-        List<Driver> companions = factory.getCurrentSession().createQuery("from Driver where idOrder = :idOrder").list();
+    public List<Driver> findAllCompanions(int idDriver) {
+        Driver driver = driversRepository.getDriver(idDriver);
+        int idOrder = driver.getOrder().getIdOrder();
+        Query query = factory.getCurrentSession().createQuery("select D from Driver D where D.idOrder = :idOrder");
+        query.setParameter("idOrder", idOrder);
+        List<Driver> companions = ((org.hibernate.query.Query) query).list();
         return companions;
     }
 
@@ -42,6 +47,7 @@ public class DriverLoginRepository implements DriverLoginRepositoryInterface {
         Driver driver = driversRepository.getDriver(idDriver);
         Waggon waggon = waggonRepository.getWaggon(driver.getWaggon().getIdWaggon());
         return waggon.getRegNumber();
+
     }
 
     @Override
@@ -51,7 +57,11 @@ public class DriverLoginRepository implements DriverLoginRepositoryInterface {
 
     @Override
     public List<WayPoint> findAllOrderPoints(int idDriver) {
-        List<WayPoint> points = factory.getCurrentSession().createQuery("from Map where idOrder = :idOrder").list();
+        Driver driver = driversRepository.getDriver(idDriver);
+        int idOrder = driver.getOrder().getIdOrder();
+        Query query = factory.getCurrentSession().createQuery("select W from WayPoint W where W.idOrder = :idOrder");
+        query.setParameter("idOrder", idOrder);
+        List<WayPoint> points = ((org.hibernate.query.Query) query).list();
         return points;
     }
 

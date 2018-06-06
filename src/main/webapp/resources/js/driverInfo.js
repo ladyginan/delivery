@@ -28,8 +28,8 @@ function loadDriver(driverId) {
 
 
 
-function loadCompanions() {
-    $get("/driverPage/companions",function(companions){
+function loadCompanions(driverId) {
+    $.get("/driverPage/companions/" + driverId,function(companions){
         var companions = $('#companions');
         for(companion in companions){
             companions
@@ -47,8 +47,8 @@ function loadCompanions() {
     })
 }
 
-function loadWaypoints() {
-    $.get("/driverPage/points", function (waypoints) {
+function loadWaypoints(driverId) {
+    $.get("/driverPage/points/" + driverId, function (waypoints) {
         var waypointSelect = $('#waypoints');
 
         for (waypointIndex in waypoints) {
