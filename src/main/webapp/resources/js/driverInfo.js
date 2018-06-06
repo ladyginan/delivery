@@ -18,11 +18,11 @@ function loadDriver(driverId) {
 
         loadedDriver = driver;
 
-        $("#personalNumber").val(driver.personalNumber);
+        $("#personalNumber").val(driver.personalNumber).text(driver.personalNumber);
         var somethingToLook1 = $("#personalNumber");
-        $("#waggonRegNumber").val(driver.waggon);
+        $("#waggonRegNumber").val(driver.waggon).text(driver.waggon);
         var somethingToLook2 = $("#waggonRegNumber");
-        $("#orderNumber").val(driver.idOrder);
+        $("#orderNumber").val(driver.idOrder).text(driver.idOrder);
 
         loadCompanions(driverId);
         loadWaypoints(driverId);

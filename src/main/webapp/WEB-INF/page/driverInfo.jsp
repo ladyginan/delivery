@@ -37,10 +37,12 @@
     <br/>
 
     <table>
-        <tr>
-            <select id = driverShiftStatus>
-
+        <tr><td>Start/End working:</td>
+            <td><select id = driverShiftStatus>
+                <option value="START">START</option>
+                <option value="END">END</option>
             </select>
+            </td>
         </tr>
 
         <tr>
@@ -51,7 +53,8 @@
                 <option value="REST">REST</option>
             </select></td>
         </tr>
-        <tr><td>Cargo status:</td>
+        <tr>
+            <td>Cargo status:</td>
             <td>   <select id="orderCargo">
                 <option value="PREPARED">PREPARED</option>
                  <option value="SHIPPED">SHIPPED</option>
