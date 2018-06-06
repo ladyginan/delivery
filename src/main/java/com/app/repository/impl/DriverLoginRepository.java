@@ -36,7 +36,7 @@ public class DriverLoginRepository implements DriverLoginRepositoryInterface {
     public List<Driver> findAllCompanions(int idDriver) {
         Driver driver = driversRepository.getDriver(idDriver);
         int idOrder = driver.getOrder().getIdOrder();
-        Query query = factory.getCurrentSession().createQuery("select D from Driver D where D.idOrder = :idOrder");
+        Query query = factory.getCurrentSession().createQuery("select D from Driver D where D.order.idOrder = :idOrder");
         query.setParameter("idOrder", idOrder);
         List<Driver> companions = ((org.hibernate.query.Query) query).list();
         return companions;
@@ -59,7 +59,7 @@ public class DriverLoginRepository implements DriverLoginRepositoryInterface {
     public List<WayPoint> findAllOrderPoints(int idDriver) {
         Driver driver = driversRepository.getDriver(idDriver);
         int idOrder = driver.getOrder().getIdOrder();
-        Query query = factory.getCurrentSession().createQuery("select W from WayPoint W where W.idOrder = :idOrder");
+        Query query = factory.getCurrentSession().createQuery("select W from WayPoint W where W.order.idOrder = :idOrder");
         query.setParameter("idOrder", idOrder);
         List<WayPoint> points = ((org.hibernate.query.Query) query).list();
         return points;

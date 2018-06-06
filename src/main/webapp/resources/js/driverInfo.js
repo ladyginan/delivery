@@ -1,8 +1,8 @@
 $(document).ready(function() {
     var  driverId = getDriverId();
     loadDriver(driverId);
-    loadCompanions();
-    loadWaypoints();
+    loadCompanions(driverId);
+    loadWaypoints(driverId);
 });
 
 var loadedDriver;
