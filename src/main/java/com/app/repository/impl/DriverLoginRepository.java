@@ -41,7 +41,7 @@ public class DriverLoginRepository implements DriverLoginRepositoryInterface {
     public List<Driver> findAllCompanions(int idDriver) {
         Driver driver = driversRepository.getDriver(idDriver);
         Order order = orderRepository.getOrderById(driver.getOrder().getIdOrder());
-        Query query = factory.getCurrentSession().createQuery("select D from Driver D WHERE D.order = :order");
+        Query query = factory.getCurrentSession().createQuery("select D from Driver D where D.order = :order");
         query.setParameter("order", order);
         List<Driver> companions = ((org.hibernate.query.Query) query).list();
         return companions;

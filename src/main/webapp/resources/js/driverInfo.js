@@ -34,8 +34,8 @@ function loadCompanions(driverId) {
         for(companion in companions){
             companions
                 .append(
-                    $('<tr />')
-                        .val(companions[companion].idCompanion)
+                    $('<p />')
+                        .val(companions[companion].idDriver)
                         .text(
                             companions[companion].personalNumber + " - " +
                             companions[companion].name + " - " +
