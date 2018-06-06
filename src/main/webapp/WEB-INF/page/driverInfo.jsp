@@ -3,7 +3,6 @@
          pageEncoding="ISO-8859-1" %>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
     <script src="<c:url value="/resources/js/jQuery.js"/>"></script>
     <script src="<c:url value="/resources/js/driverInfo.js"/>"></script>
     <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
