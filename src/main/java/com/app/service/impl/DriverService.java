@@ -78,6 +78,13 @@ public class DriverService implements DriverServiceInterface {
         return driver;
     }
 
+//    @Transactional
+//    public Driver getDriverWithOrder(int id) {
+//        Driver driver = driversRepository.getDriver(id);
+//
+//        return driver;
+//    }
+
     @Transactional
     public void removeDriver(int id) {
         driversRepository.removeDriver(id);

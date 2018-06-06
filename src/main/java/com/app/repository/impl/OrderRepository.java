@@ -49,5 +49,11 @@ public class OrderRepository implements OrderRepositoryInterface {
             factory.getCurrentSession().update(driver);
         }
     }
+
+    @Override
+    public Order getOrderById(int id) {
+        return (Order) factory.getCurrentSession().get(Order.class, id);
+    }
+
 }
 

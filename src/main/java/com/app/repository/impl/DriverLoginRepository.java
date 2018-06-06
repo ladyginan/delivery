@@ -1,11 +1,14 @@
 package com.app.repository.impl;
 
 import com.app.model.Driver;
+import com.app.model.Order;
 import com.app.model.Waggon;
 import com.app.model.WayPoint;
 import com.app.repository.DriverLoginRepositoryInterface;
 import com.app.repository.DriversRepositoryInterface;
+import com.app.repository.OrderRepositoryInterface;
 import com.app.repository.WaggonRepositoryInterface;
+import org.hibernate.Hibernate;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -21,6 +24,8 @@ public class DriverLoginRepository implements DriverLoginRepositoryInterface {
     private DriversRepositoryInterface driversRepository;
     @Autowired
     private WaggonRepositoryInterface waggonRepository;
+    @Autowired
+    private OrderRepositoryInterface orderRepository;
 
     public DriverLoginRepository(SessionFactory factory) {
         this.factory = factory;
@@ -35,9 +40,9 @@ public class DriverLoginRepository implements DriverLoginRepositoryInterface {
     @Override
     public List<Driver> findAllCompanions(int idDriver) {
         Driver driver = driversRepository.getDriver(idDriver);
-        int idOrder = driver.getOrder().getIdOrder();
-        Query query = factory.getCurrentSession().createQuery("select D from Driver D where D.order.idOrder = :idOrder");
-        query.setParameter("idOrder", idOrder);
+        Order order = orderRepository.getOrderById(driver.getOrder().getIdOrder());
+        Query query = factory.getCurrentSession().createQuery("select D from Driver D WHERE D.order = :order");
+        query.setParameter("order", order);
         List<Driver> companions = ((org.hibernate.query.Query) query).list();
         return companions;
     }
@@ -58,9 +63,9 @@ public class DriverLoginRepository implements DriverLoginRepositoryInterface {
     @Override
     public List<WayPoint> findAllOrderPoints(int idDriver) {
         Driver driver = driversRepository.getDriver(idDriver);
-        int idOrder = driver.getOrder().getIdOrder();
-        Query query = factory.getCurrentSession().createQuery("select W from WayPoint W where W.order.idOrder = :idOrder");
-        query.setParameter("idOrder", idOrder);
+        Order order = orderRepository.getOrderById(driver.getOrder().getIdOrder());
+        Query query = factory.getCurrentSession().createQuery("select W from WayPoint W where W.order = :order");
+        query.setParameter("order",order );
         List<WayPoint> points = ((org.hibernate.query.Query) query).list();
         return points;
     }

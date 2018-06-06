@@ -35,23 +35,23 @@ public class DriverLoginService implements DriverLoginServiceInterface {
     public String findCurrentWaggon(int idDriver) {
         return driverLoginRepository.findCurrentWaggon(idDriver);
     }
-
+    @Transactional
     @Override
     public int findOrderNumber(int idDriver) {
         return 0;
     }
-
+@Transactional
     @Override
     public List<WayPointDTO> findAllOrderPoints(int idDriver) {
         List<WayPoint> wayPoints = driverLoginRepository.findAllOrderPoints(idDriver);
         List<WayPointDTO> wayPointsDTO = new ArrayList<>();
         for (WayPoint wayPoint : wayPoints) {
-            WayPointDTO pointDTO = new WayPointDTO(wayPoint);
+            WayPointDTO pointDTO = new WayPointDTO(wayPoint,wayPoint.getIdWayPoint());
             wayPointsDTO.add(pointDTO);
         }
         return wayPointsDTO;
     }
-
+    @Transactional
     @Override
     public int settingDriverTime(int idDriver) {
         return 0;

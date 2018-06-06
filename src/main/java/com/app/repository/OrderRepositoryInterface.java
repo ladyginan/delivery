@@ -10,4 +10,6 @@ public interface OrderRepositoryInterface {
     Order addOrder(Order order);
 
     void settingOrderIdInWayPointsAndDrivers(List<Integer> points, List<Integer> drivers, Order order);
+
+    Order getOrderById(int id);
 }

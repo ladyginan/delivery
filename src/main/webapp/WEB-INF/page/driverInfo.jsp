@@ -15,10 +15,10 @@
 <table border="1px" cellpadding="0" cellspacing="0">
     <thead>
     <tr>
-        <th width="20%">driver id</th>
-        <th width="20%">companions</th>
+        <th width="20%">driver</th>
         <th width="18%">waggon's registrasion number</th>
         <th width="20%">order number</th>
+        <th width="20%">companions</th>
         <th width="20%">list of waypoints</th>
     </tr>
     </thead>

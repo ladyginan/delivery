@@ -19,9 +19,9 @@ function loadDriver(driverId) {
 
         loadedDriver = driver;
 
-        $("#idDriver").val(driverId);
-        $("#waggonRegNumber").val(driver.waggon);
-        $("#orderNumber").val(driver.orderNumber);
+        $("#idDriver").val(driver.personalNumber);
+        $("#waggonRegNumber").val(driver.waggon.personalNumber);
+        $("#orderNumber").val(driver.order);
 
     })
 }
@@ -55,11 +55,11 @@ function loadWaypoints(driverId) {
             waypointSelect
                 .append(
                     $("<tr />")
-                        .val(waypoints[waypointIndex].idWayPoint)
+                        .val(waypoints[waypointIndex].wayPointId)
                         .text(
-                            waypoints[waypointIndex].city.city + " - " +
-                            waypoints[waypointIndex].cargo.cargoNumber + " - " +
-                            waypoints[waypointIndex].orderType
+                            waypoints[waypointIndex].cityDTO + " - " +
+                            waypoints[waypointIndex].cargoNumber + " - " +
+                            waypoints[waypointIndex].orderTypeDTO
                         )
                 )
         }

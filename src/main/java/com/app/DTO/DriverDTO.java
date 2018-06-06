@@ -16,6 +16,7 @@ public class DriverDTO {
     private DriverStatus status;
     private int mapId;
     private int waggon;
+    private int idOrder;
 
     public DriverDTO(Driver driver) {
         this.idDriver = driver.getIdDriver();
@@ -26,5 +27,17 @@ public class DriverDTO {
         this.status = driver.getStatus();
         this.mapId = driver.getCity().getIdCity();
         this.waggon = driver.getWaggon().getIdWaggon();
+    }
+
+    public DriverDTO(Driver driver, int idOrder) {
+        this.idDriver = driver.getIdDriver();
+        this.personalNumber = driver.getPersonalNumber();
+        this.name = driver.getName();
+        this.secondName = driver.getSecondName();
+        this.hoursWorked = driver.getHoursWorked();
+        this.status = driver.getStatus();
+        this.mapId = driver.getCity().getIdCity();
+        this.waggon = driver.getWaggon().getIdWaggon();
+        this.idOrder = idOrder;
     }
 }
