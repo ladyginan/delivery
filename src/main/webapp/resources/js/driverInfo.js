@@ -30,15 +30,15 @@ function loadDriver(driverId) {
 
 function loadCompanions(driverId) {
     $.get("/driverPage/companions/" + driverId,function(companions){
-        var companions = $('#companions');
+        var companionsTarget = $('#companions');
         for(companion in companions){
-            companions
+            companionsTarget
                 .append(
                     $('<p />')
                         .val(companions[companion].idDriver)
                         .text(
-                            companions[companion].personalNumber + " - " +
-                            companions[companion].name + " - " +
+                            companions[companion].personalNumber + "   " +
+                            companions[companion].name + "   " +
                             companions[companion].secondName
                         )
 
@@ -54,11 +54,11 @@ function loadWaypoints(driverId) {
         for (waypointIndex in waypoints) {
             waypointSelect
                 .append(
-                    $("<tr />")
+                    $("<p />")
                         .val(waypoints[waypointIndex].wayPointId)
                         .text(
-                            waypoints[waypointIndex].cityDTO + " - " +
-                            waypoints[waypointIndex].cargoNumber + " - " +
+                            waypoints[waypointIndex].cargoNumber + "   " +
+                            waypoints[waypointIndex].cityDTO + "   " +
                             waypoints[waypointIndex].orderTypeDTO
                         )
                 )
