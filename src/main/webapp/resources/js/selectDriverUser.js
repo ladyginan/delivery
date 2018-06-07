@@ -24,19 +24,18 @@ function loadDrivers() {
 
 function createDriverUser() {
     var selectedDriver = $('#driver').val();
-    var idDriver = selectedDriver.getDriverId().val();
 
     var userDriver = {
-        driver: idDriver,
+        driver: selectedDriver,
     };
 
     $.ajax ({
         url: "/selectProfile",
         type: "POST",
-        data: JSON.stringify(order),
+        data: JSON.stringify(userDriver),
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
-        success: function (order) {
+        success: function (drivers) {
             window.location.href = "/driverInfo";
         }
     });
