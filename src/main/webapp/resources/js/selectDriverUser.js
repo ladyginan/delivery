@@ -30,13 +30,13 @@ function createDriverUser() {
     };
 
     $.ajax ({
-        url: "/selectProfile",
+        url: "/driverPage",
         type: "POST",
         data: JSON.stringify(userDriver),
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
         success: function (drivers) {
-            window.location.href = "/driverInfo";
+            window.location.href = "/driverInfo/success";
         }
     });
 

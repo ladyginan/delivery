@@ -24,6 +24,7 @@ public class DriverLoginService implements DriverLoginServiceInterface {
         List<Driver> listDriver = driverLoginRepository.findAllCompanions(idDriver);
         List<DriverDTO> listDriverDTO = new ArrayList<>();
         for (Driver driver : listDriver) {
+
             DriverDTO driverDTO = new DriverDTO(driver,driver.getOrder().getIdOrder());
             listDriverDTO.add(driverDTO);
         }
@@ -40,7 +41,7 @@ public class DriverLoginService implements DriverLoginServiceInterface {
     public int findOrderNumber(int idDriver) {
         return 0;
     }
-@Transactional
+    @Transactional
     @Override
     public List<WayPointDTO> findAllOrderPoints(int idDriver) {
         List<WayPoint> wayPoints = driverLoginRepository.findAllOrderPoints(idDriver);

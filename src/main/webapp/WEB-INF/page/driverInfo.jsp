@@ -37,13 +37,13 @@
     <br/>
 
     <table>
-        <tr><td>Start/End working:</td>
-            <td><select id = driverShiftStatus>
-                <option value="START">START</option>
-                <option value="END">END</option>
-            </select>
-            </td>
-        </tr>
+        <%--<tr><td>Start/End working:</td>--%>
+            <%--<td><select id = driverShiftStatus>--%>
+                <%--<option value="START">START</option>--%>
+                <%--<option value="END">END</option>--%>
+            <%--</select>--%>
+            <%--</td>--%>
+        <%--</tr>--%>
 
         <tr>
             <td>Driver status:</td>
@@ -66,6 +66,9 @@
         </tr>
     </table>
 
+</div>
+<div class="message">
+    ${message}
 </div>
 </body>
 </html>

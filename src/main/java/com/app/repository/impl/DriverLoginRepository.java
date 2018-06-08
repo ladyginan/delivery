@@ -55,10 +55,6 @@ public class DriverLoginRepository implements DriverLoginRepositoryInterface {
 
     }
 
-    @Override
-    public int findOrderNumber(int idDriver) {
-        return 0;
-    }
 
     @Override
     public List<WayPoint> findAllOrderPoints(int idDriver) {

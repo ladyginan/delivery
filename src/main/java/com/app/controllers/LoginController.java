@@ -59,6 +59,13 @@ public class LoginController {
         return points;
     }
 
+    @RequestMapping(value = "/driverInfo/success", method = RequestMethod.GET)
+    public ModelAndView driverInfoSuccessMessage() {
+        ModelAndView modelAndView = new ModelAndView("driverInfo");
+        String message = "You was successfully login in.";
+        modelAndView.addObject("message", message);
+        return modelAndView;
+    }
 
 //
 //    @RequestMapping(value = "/{id}", method = RequestMethod.POST)

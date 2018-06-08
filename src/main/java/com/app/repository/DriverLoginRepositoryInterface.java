@@ -12,8 +12,6 @@ public interface DriverLoginRepositoryInterface {
 
     String findCurrentWaggon(int idDriver);
 
-    int findOrderNumber(int idDriver);
-
     List<WayPoint> findAllOrderPoints(int idDriver);
 
     int settingDriverTime(int idDriver);

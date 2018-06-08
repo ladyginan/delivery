@@ -72,20 +72,16 @@ function loadWaypoints(driverId) {
 
 function saveChangeDriver(){
     var driverStatus = $('#driverShiftStatus').val();
-    var secondName = $('#orderCargo').val();
-    var hoursWorked = $('#driverStatus').val();
+    var orderCargo = $('#orderCargo').val();
+    // var hoursWorked = $('#driverStatus').val();
 
     var  driverId = getDriverId();
 
     var driver = {
         idDriver: driverId,
-        personalNumber: personalNumber,
-        name: name,
-        secondName: secondName,
-        hoursWorked: hoursWorked,
-        status: driverStatus,
-        mapId: selectedCity,
-        waggon: selectedWaggon
+        orderCargoStatus: orderCargo,
+        status: driverStatus
+
     };
 
     $.ajax ({
