@@ -10,4 +10,6 @@ public interface CargoRepositoryInterface {
     Cargo getCargo(int id);
 
     void addCargo(Cargo cargo);
+
+    Cargo updateCargo(Cargo cargo);
 }

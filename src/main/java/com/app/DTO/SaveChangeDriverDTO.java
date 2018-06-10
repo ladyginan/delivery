@@ -5,7 +5,7 @@ import com.app.model.Enums.DriverStatus;
 import lombok.Data;
 
 @Data
-public class saveChangeDriverDTO {
+public class SaveChangeDriverDTO {
     private int idDriver;
     private CargoStatus orderCargoStatus;
     private DriverStatus driverStatus;

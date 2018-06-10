@@ -47,7 +47,7 @@
 
         <tr>
             <td>Driver status:</td>
-            <td>  <select id="driverStatus">
+            <td>  <select id="driverShiftStatus">
                  <option value="DRIVING">DRIVING</option>
                 <option value="SHIFT">SHIFT</option>
                 <option value="REST">REST</option>
@@ -70,5 +70,10 @@
 <div class="message">
     ${message}
 </div>
+
+<br/><br/><br/>
+<form action="/logout" method="post">
+    <input value="Logout" type="submit">
+</form>
 </body>
 </html>

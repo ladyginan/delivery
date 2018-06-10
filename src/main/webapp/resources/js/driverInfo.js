@@ -80,12 +80,12 @@ function saveChangeDriver(){
     var driver = {
         idDriver: driverId,
         orderCargoStatus: orderCargo,
-        status: driverStatus
+        driverStatus: driverStatus
 
     };
 
     $.ajax ({
-        url: "/driverPage/driverInfo" + driverId,
+        url: "/driverPage/driverInfo/" + driverId,
         type: "POST",
         data: JSON.stringify(driver),
         contentType: 'application/json; charset=utf-8',

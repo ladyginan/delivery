@@ -1,6 +1,7 @@
 package com.app.controllers;
 
 import com.app.DTO.DriverDTO;
+import com.app.DTO.SaveChangeDriverDTO;
 import com.app.DTO.UserDriverDTO;
 import com.app.DTO.WayPointDTO;
 import com.app.model.UserDriver;
@@ -65,6 +66,14 @@ public class LoginController {
         String message = "You was successfully login in.";
         modelAndView.addObject("message", message);
         return modelAndView;
+    }
+
+    @RequestMapping(path = "/driverInfo/{id}", method = RequestMethod.POST)
+    public @ResponseBody
+    UserDriver createSaveChangeDriverDTO(@RequestBody SaveChangeDriverDTO saveChangeDriverDTO, @PathVariable int id) {
+        System.out.println(saveChangeDriverDTO);
+        userDriverService.saveChangeDriver(saveChangeDriverDTO);
+        return new UserDriver();
     }
 
 //

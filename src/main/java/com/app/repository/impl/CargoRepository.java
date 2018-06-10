@@ -27,6 +27,10 @@ public class CargoRepository implements CargoRepositoryInterface {
         return cargoes;
     }
 
+    public Cargo updateCargo(Cargo cargo) {
+        factory.getCurrentSession().update(cargo);
+        return factory.getCurrentSession().get(Cargo.class, cargo.getIdCargo());
+    }
     //get cargo by id
     @Override
     public Cargo getCargo(int id) {
