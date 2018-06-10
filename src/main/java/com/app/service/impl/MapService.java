@@ -13,11 +13,13 @@ import java.util.List;
 public class MapService implements MapServiceInterface {
     @Autowired
     private MapRepositoryInterface mapRepository;
+
     @Transactional
     @Override
     public List<Map> getAllMap() {
         return mapRepository.getAllMap();
     }
+
     @Transactional
     @Override
     public Map findCityById(int id) {

@@ -37,15 +37,15 @@
                 <td>${driver.city.city}</td>
                 <td>${driver.waggon.regNumber}</td>
                 <td>
-                    <a href="${pageContext.request.contextPath}/drivers/edit/${driver.idDriver}.html">Edit</a><br/>
-                    <a href="${pageContext.request.contextPath}/drivers/delete/${driver.idDriver}.html">Delete</a><br/>
+                    <a href="${pageContext.request.contextPath}/drivers/edit/${driver.idDriver}">Edit</a><br/>
+                    <a href="${pageContext.request.contextPath}/drivers/delete/${driver.idDriver}">Delete</a><br/>
                 </td>
             </tr>
         </c:forEach>
     </tbody>
 </table>
 
-<p><a href="${pageContext.request.contextPath}/welcome">Home page</a></p>
+<p><a href="${pageContext.request.contextPath}/">Home page</a></p>
 
 </body>
 </html>

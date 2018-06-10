@@ -4,7 +4,7 @@ package com.app.configuration;
 import com.app.coverters.CargoConverter;
 import com.app.coverters.CityConverter;
 import com.app.coverters.WaggonConverter;
-import com.app.model.Cargo;
+import com.app.service.impl.UserDetailsServiceImpl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -13,8 +13,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
@@ -41,9 +43,19 @@ public class SpringAppConfig implements WebMvcConfigurer {
         return resolver;
     }
 
+    @Bean
+    public UserDetailsService userDetailsService() {
+        return new UserDetailsServiceImpl();
+    }
+
 
     public void addResourceHandlers(final ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+    }
+
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/login").setViewName("login");
     }
 
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
@@ -52,8 +64,7 @@ public class SpringAppConfig implements WebMvcConfigurer {
     }
 
     @Override
-    public void addFormatters(FormatterRegistry registry)
-    {
+    public void addFormatters(FormatterRegistry registry) {
         registry.addConverter(cityConverter);
         registry.addConverter(cargoConverter);
         registry.addConverter(waggonConverter);

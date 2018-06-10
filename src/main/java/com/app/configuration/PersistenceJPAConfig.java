@@ -1,6 +1,8 @@
 package com.app.configuration;
 
 
+import com.app.model.Authorities;
+import com.app.model.User;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -37,6 +39,8 @@ public class PersistenceJPAConfig {
         sessionFactory.setDataSource(dataSource());
         sessionFactory.setPackagesToScan("com.app.model");
         sessionFactory.setHibernateProperties(additionalProperties());
+        sessionFactory.setAnnotatedClasses(User.class, Authorities.class);
+
         return sessionFactory;
     }
 

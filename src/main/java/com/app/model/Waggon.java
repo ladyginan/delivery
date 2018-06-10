@@ -2,6 +2,7 @@ package com.app.model;
 
 import com.app.model.Enums.WaggonStatus;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,11 +13,12 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@EqualsAndHashCode
 @NoArgsConstructor
 @Table(name = "WAGGONS")
 public class Waggon {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_WAGGON", unique = true)
     private int idWaggon;
 
@@ -56,7 +58,6 @@ public class Waggon {
                 ", status=" + status +
                 ", city=" + city +
                 ", drivers=" + drivers +
-                ", order=" + order +
                 '}';
     }
 }

@@ -1,18 +1,33 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<?xml version="1.0" encoding="ISO-8859-1" ?>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<html>
 <head>
+    <script src="<c:url value="/resources/js/jQuery.js"/>"></script>
+    <script src="<c:url value="/resources/js/selectDriverUser.js"/>"></script>
     <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap-reboot.min.css">
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
-    <title>Login Driver</title>
+    <title>Title</title>
 </head>
 <body>
-<h1>Select driver</h1>
-<p>Enter your ID</p>
-
+<h1 align="center">Select your profile</h1>
+<p align="center">Here you can select your profile</p>
+<div align="center">
+    <table>
+        <tr>
+            <td>
+                <select id="drivers">
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><button id="userDriver" onclick="createDriverUser()">Select driver</button></td>
+        </tr>
+    </table><br/><br/><br/>
+    <form action="/logout" method="post">
+        <input value="Logout" type="submit">
+    </form>
+</div>
 </body>
+</html>

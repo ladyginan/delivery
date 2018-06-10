@@ -2,7 +2,6 @@ package com.app.controllers;
 
 import com.app.DTO.DriverDTO;
 import com.app.model.Driver;
-import com.app.model.WayPoint;
 import com.app.service.DriverServiceInterface;
 import com.app.service.MapServiceInterface;
 import com.app.service.WaggonServiceInterface;
@@ -26,13 +25,14 @@ public class DriversController {
 
     @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody
-    List<Driver> getAllDriversJson() {
-        List<Driver> drivers = driverService.getAllDrivers();
+    List<DriverDTO> getAllDriversJson() {
+        List<DriverDTO> drivers = driverService.getAllDriversJson();
         return drivers;
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public @ResponseBody DriverDTO editDriver(@RequestBody DriverDTO driverDTO) {
+    public @ResponseBody
+    DriverDTO editDriver(@RequestBody DriverDTO driverDTO) {
         System.out.println(driverDTO);
         driverService.updateDriver(driverDTO);
         return new DriverDTO();
@@ -72,13 +72,15 @@ public class DriversController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public @ResponseBody DriverDTO getDriverById(@PathVariable int id) {
+    public @ResponseBody
+    DriverDTO getDriverById(@PathVariable int id) {
         DriverDTO driverDTO = driverService.getDriverDTO(id);
         return driverDTO;
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
-    public @ResponseBody DriverDTO editDriver(@RequestBody DriverDTO driverDTO, @PathVariable int id) {
+    public @ResponseBody
+    DriverDTO editDriver(@RequestBody DriverDTO driverDTO, @PathVariable int id) {
         DriverDTO savedDriver = driverService.updateDriver(driverDTO);
         return savedDriver;
     }

@@ -1,23 +1,17 @@
 package com.app.service.impl;
 
 import com.app.DTO.CreateOrderDTO;
-import com.app.DTO.OrderDTO;
-import com.app.model.Driver;
-import com.app.model.Enums.OrderStatus;
 import com.app.model.Order;
 import com.app.model.Waggon;
-import com.app.model.WayPoint;
 import com.app.repository.DriversRepositoryInterface;
 import com.app.repository.OrderRepositoryInterface;
 import com.app.repository.WaggonRepositoryInterface;
 import com.app.repository.WayPointRepositoryInterface;
-import com.app.repository.impl.WayPointRepository;
 import com.app.service.OrderServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -30,6 +24,7 @@ public class OrderService implements OrderServiceInterface {
     private WaggonRepositoryInterface waggonRepository;
     @Autowired
     private WayPointRepositoryInterface wayPointRepository;
+
     @Transactional
     @Override
     public List<Order> getAllOrders() {
@@ -58,24 +53,13 @@ public class OrderService implements OrderServiceInterface {
     @Override
     public Order createOrder(CreateOrderDTO createOrderDTO) {
 
-        List<WayPoint> wayPoints = new ArrayList<>();
-        for (Integer waypointId: createOrderDTO.getWaypoints()) {
-            WayPoint wayPoint = wayPointRepository.findWayPointById(waypointId);
-            wayPoints.add(wayPoint);
-        }
-
+        List<Integer> wayPoints = createOrderDTO.getWaypoints();
         Waggon waggon = waggonRepository.getWaggon(createOrderDTO.getWaggonId());
+        List<Integer> drivers = createOrderDTO.getDrivers();
 
-        List<Driver> drivers = new ArrayList<>();
-        for (Integer driverId: createOrderDTO.getDrivers()) {
-            Driver driver = driverRepository.getDriver(driverId);
-            drivers.add(driver);
-        }
-
-        Order order = new Order(createOrderDTO.getRegNumberOrder(), createOrderDTO.getOrderStatus(), wayPoints, waggon, drivers);
-
+        Order order = new Order(createOrderDTO.getRegNumberOrder(), createOrderDTO.getOrderStatus(), waggon);
         order = orderRepository.addOrder(order);
-
+        orderRepository.settingOrderIdInWayPointsAndDrivers(wayPoints, drivers, order);
         return order;
     }
 }

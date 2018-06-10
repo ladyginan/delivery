@@ -60,7 +60,7 @@
         </tr>
     </table>
 </div>
-<p><a href="${pageContext.request.contextPath}/welcome">Home page</a></p>
+<p><a href="${pageContext.request.contextPath}/">Home page</a></p>
 </body>
 </html>
 <%--<form:form method = "POST" modelAttribute="driverDTO" action="${pageContext.request.contextPath}/drivers/edit/${driver.idDriver}.html">--%>

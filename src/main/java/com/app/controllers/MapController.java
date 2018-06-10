@@ -15,6 +15,7 @@ import java.util.List;
 public class MapController {
     @Autowired
     private MapServiceInterface mapService;
+
     @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody
     List<Map> getAllMapsJson() {

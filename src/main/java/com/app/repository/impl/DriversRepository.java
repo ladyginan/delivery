@@ -15,7 +15,6 @@ public class DriversRepository implements DriversRepositoryInterface {
     @Autowired
     private final SessionFactory factory;
 
-
     public DriversRepository(SessionFactory factory) {
         this.factory = factory;
     }
@@ -28,6 +27,7 @@ public class DriversRepository implements DriversRepositoryInterface {
     }
 
     //add new driver
+
 
     public void addDriver(Driver driver) {
         factory.getCurrentSession().save(driver);
@@ -53,4 +53,5 @@ public class DriversRepository implements DriversRepositoryInterface {
         Driver driver = getDriver(id);
         factory.getCurrentSession().delete(driver);
     }
+
 }

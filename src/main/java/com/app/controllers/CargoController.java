@@ -15,7 +15,7 @@ public class CargoController {
     @Autowired
     private CargoServiceInterface cargoService;
 
-
+    //    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public ModelAndView addCargoPage() {
         ModelAndView modelAndView = new ModelAndView("cargoForm");

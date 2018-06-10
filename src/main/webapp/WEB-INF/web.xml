@@ -15,13 +15,11 @@
             org.springframework.web.context.support.AnnotationConfigWebApplicationContext
         </param-value>
     </context-param>
+
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>com.app.configuration.PersistenceJPAConfig</param-value>
     </context-param>
-    <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
 
     <servlet>
         <servlet-name>mvc</servlet-name>

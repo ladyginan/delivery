@@ -3,18 +3,18 @@ package com.app.model;
 import com.app.model.Enums.OrderType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "WAY_POINTS")
 @Data
+@EqualsAndHashCode
 public class WayPoint {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_WAY_POINT", unique = true)
     private int idWayPoint;
 
@@ -42,7 +42,6 @@ public class WayPoint {
                 ", orderType=" + orderType +
                 ", city=" + city +
                 ", cargo=" + cargo +
-                ", order=" + order +
                 '}';
     }
 

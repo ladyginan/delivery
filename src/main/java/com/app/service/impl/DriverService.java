@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -22,14 +23,29 @@ public class DriverService implements DriverServiceInterface {
     private WaggonRepositoryInterface waggonRepository;
     @Autowired
     private MapRepositoryInterface mapRepository;
+
     @Transactional
+    @Override
     public List<Driver> getAllDrivers() {
         return driversRepository.getAllDrivers();
     }
+
+    @Transactional
+    public List<DriverDTO> getAllDriversJson() {
+        List<Driver> drivers = driversRepository.getAllDrivers();
+        List<DriverDTO> driversDTO = new ArrayList<>();
+        for (Driver driver : drivers) {
+            driversDTO.add(new DriverDTO(driver));
+        }
+
+        return driversDTO;
+    }
+
     @Transactional
     public void addDriver(Driver driver) {
         driversRepository.addDriver(driver);
     }
+
     @Transactional
     public DriverDTO updateDriver(DriverDTO driverDTO) {
         Map city = mapRepository.findCityById(driverDTO.getMapId());
@@ -61,6 +77,14 @@ public class DriverService implements DriverServiceInterface {
         Driver driver = driversRepository.getDriver(id);
         return driver;
     }
+
+//    @Transactional
+//    public Driver getDriverWithOrder(int id) {
+//        Driver driver = driversRepository.getDriver(id);
+//
+//        return driver;
+//    }
+
     @Transactional
     public void removeDriver(int id) {
         driversRepository.removeDriver(id);

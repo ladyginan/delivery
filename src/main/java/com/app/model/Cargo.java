@@ -3,6 +3,7 @@ package com.app.model;
 import com.app.model.Enums.CargoStatus;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
@@ -11,10 +12,11 @@ import java.util.List;
 
 @Entity
 @Data
+@EqualsAndHashCode
 @Table(name = "CARGO")
 public class Cargo {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_CARGO")
     private int idCargo;
 
@@ -44,7 +46,6 @@ public class Cargo {
                 ", name='" + name + '\'' +
                 ", weight=" + weight +
                 ", status=" + status +
-                ", wayPoints=" + wayPoints +
                 '}';
     }
 }

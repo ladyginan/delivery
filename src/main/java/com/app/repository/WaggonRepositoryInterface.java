@@ -17,4 +17,6 @@ public interface WaggonRepositoryInterface {
     Waggon getWaggon(int id);
 
     Waggon getWaggonByRegNumber(String id);
+
+    List<Waggon> getAllWorkingWaggon();
 }

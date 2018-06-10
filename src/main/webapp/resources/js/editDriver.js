@@ -1,6 +1,6 @@
 $(document).ready(function() {
     var  driverId = getDriverId();
-    loadDriver(driverId);
+    loadDriverPage(driverId);
 });
 
 var loadedDriver;
@@ -13,7 +13,7 @@ function getDriverId() {
 }
 
 
-function loadDriver(driverId) {
+function loadDriverPage(driverId) {
     $.get("/drivers/" + driverId, function (driver) {
 
         loadedDriver = driver;
