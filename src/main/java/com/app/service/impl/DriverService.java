@@ -21,6 +21,10 @@ public class DriverService implements DriverServiceInterface {
     private DriversRepositoryInterface driversRepository;
     @Autowired
     private WaggonRepositoryInterface waggonRepository;
+
+    public DriverService(DriversRepositoryInterface driversRepository) {
+    }
+
     @Autowired
     private MapRepositoryInterface mapRepository;
 
