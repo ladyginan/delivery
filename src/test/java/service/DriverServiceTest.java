@@ -19,7 +19,7 @@ public class DriverServiceTest {
     @Mock
     Map city;
     @Mock
-    private Waggon waggon;
+    Waggon waggon;
 
     DriversRepository driversRepository;
     Driver driver;
