@@ -37,16 +37,14 @@ public class DriverServiceTest {
 //    Driver driver;
 
 
-    @Mock
-    private SessionFactory factory;
-    @Mock
-    private Session session;
+//    @Mock
+//    private SessionFactory factory;
+//    @Mock
+//    private Session session;
     @Mock
     DriversRepository driversRepositoryMock;
 
     DriverService driverService;
-
-
     Driver driverMock;
 
 
