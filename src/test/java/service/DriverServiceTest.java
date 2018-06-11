@@ -5,6 +5,8 @@ import com.app.model.Enums.DriverStatus;
 import com.app.model.Enums.WaggonStatus;
 import com.app.model.Waggon;
 import com.app.repository.impl.DriversRepository;
+import com.app.repository.impl.MapRepository;
+import com.app.repository.impl.WaggonRepository;
 import com.app.service.impl.DriverService;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -41,8 +43,14 @@ public class DriverServiceTest {
 //    private SessionFactory factory;
 //    @Mock
 //    private Session session;
+
+
     @Mock
     DriversRepository driversRepositoryMock;
+    @Mock
+    MapRepository mapRepositoryMock;
+    @Mock
+    WaggonRepository waggonRepositoryMock;
 
     DriverService driverService;
     Driver driverMock;
@@ -57,6 +65,8 @@ public class DriverServiceTest {
 //    when(factory.getCurrentSession()).thenReturn(session);
 //    this.driversRepository = new DriversRepository(factory);
     when(driversRepositoryMock.getDriver(1)).thenReturn(driverMock);
+//    when(mapRepositoryMock.findCityById(1)).thenReturn(city);
+//    when(waggonRepositoryMock.getWaggon(1)).thenReturn(waggon);
     this.driverService = new DriverService();
 }
 
