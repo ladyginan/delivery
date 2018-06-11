@@ -16,13 +16,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class DriverServiceTest {
     @Mock
     SessionFactory factory;
-
-    DriversRepository driversRepository;
-
     @Mock
     Map city;
     @Mock
     private Waggon waggon;
+
+    DriversRepository driversRepository;
     Driver driver;
 
     @Before
