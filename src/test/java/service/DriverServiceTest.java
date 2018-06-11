@@ -30,10 +30,10 @@ public class DriverServiceTest {
 //    private Transaction transaction;
 //    @Mock
 //    DriversRepository driversRepository;
-////    @Mock
-//////    Map city;
-//////    @Mock
-//////    Waggon waggon;
+//    @Mock
+//    Map city;
+//    @Mock
+//    Waggon waggon;
 //    Driver driver;
 
 
@@ -77,7 +77,7 @@ public class DriverServiceTest {
 //        MockitoAnnotations.initMocks(this);
 //        Map city = new Map(1,"3213",3.0,3.0);
 //        Waggon waggon = new Waggon(1,"4324",8,4,WaggonStatus.WORKING,city,null,null);
-////        Driver driver = new Driver(5858,"Vasya","Petrov",8, DriverStatus.DRIVING, city, waggon );
+//        Driver driver = new Driver(5858,"Vasya","Petrov",8, DriverStatus.DRIVING, city, waggon );
 //        Driver driver = (Matchers.any(Driver.class));
 //        when(factory.openSession()).thenReturn(session);
 //        when(session.beginTransaction()).thenReturn(transaction);
