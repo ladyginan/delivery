@@ -2,7 +2,7 @@ package com.app.configuration;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-public class MvcWebApplicationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+    public class MvcWebApplicationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
     // Load database and spring security configuration
     @Override
