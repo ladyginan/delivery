@@ -4,6 +4,7 @@ import com.app.model.Driver;
 import com.app.model.Enums.DriverStatus;
 import com.app.model.Enums.WaggonStatus;
 import com.app.model.Waggon;
+import com.app.repository.WaggonRepositoryInterface;
 import com.app.repository.impl.DriversRepository;
 import com.app.repository.impl.MapRepository;
 import com.app.repository.impl.WaggonRepository;
@@ -12,9 +13,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.junit.Before;
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
@@ -57,6 +58,8 @@ public class DriverServiceTest {
 
     @Mock
     DriversRepository driversRepositoryMock;
+    @Mock
+    WaggonRepository waggonRepositoryMock;
 //    @Mock
 //    MapRepository mapRepositoryMock;
 //    @Mock
@@ -68,11 +71,12 @@ public class DriverServiceTest {
 
   @BeforeEach
   void init(){
-      driverService = new DriverService(driversRepositoryMock);
-          Map city = new Map(1,"3213",3.0,3.0);
-    Waggon waggon = new Waggon(1,"4324",8,4,WaggonStatus.WORKING,city,null,null);
+      driverService = new DriverService(driversRepositoryMock, waggonRepositoryMock);
+      Map city = new Map(1,"3213",3.0,3.0);
+      Waggon waggon = new Waggon(1,"4324",8,4,WaggonStatus.WORKING,city,null,null);
       driverMock = new Driver(1,5858,"Vasya","Petrov",8, DriverStatus.DRIVING, city, waggon, null,0 );
       when(driversRepositoryMock.getDriver(1)).thenReturn(driverMock);
+      when(waggonRepositoryMock.getWaggon(1)).thenReturn(waggon);
   }
 
 
@@ -80,7 +84,6 @@ public class DriverServiceTest {
     void driverServiceGetTest(){
         Driver driver = driverService.getDriver(1);
         Assertions.assertEquals(driver.getIdDriver(),driverMock.getIdDriver());
-
     }
 //@Before
 //    public void before(){

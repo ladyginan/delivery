@@ -22,7 +22,9 @@ public class DriverService implements DriverServiceInterface {
     @Autowired
     private WaggonRepositoryInterface waggonRepository;
 
-    public DriverService(DriversRepositoryInterface driversRepository) {
+    public DriverService(DriversRepositoryInterface driversRepository,WaggonRepositoryInterface waggonRepository) {
+        this.driversRepository = driversRepository;
+        this.waggonRepository = waggonRepository;
     }
 
     @Autowired
