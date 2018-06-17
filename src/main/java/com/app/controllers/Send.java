@@ -30,7 +30,7 @@ public class Send {
 //    }
 //
 //        public static void main(String[] args) throws InterruptedException {
-//            AbstractApplicationContext ctx = new ClassPathXmlApplicationContext("com.app.configuration.RabbitMQConfig");
+//            AbstractApplicationContext ctx = new ClassPathXmlApplicationContext("com.app.configuration.rabbitMq.RabbitMQConfig");
 //            AmqpTemplate template = ctx.getBean(RabbitTemplate.class);
 //            template.convertAndSend("Hello, world!");
 //            Thread.sleep(1000);

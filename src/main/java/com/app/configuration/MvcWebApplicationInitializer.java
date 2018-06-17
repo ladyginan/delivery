@@ -1,5 +1,6 @@
 package com.app.configuration;
 
+import com.app.configuration.rabbitMq.RabbitMQConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
     public class MvcWebApplicationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
