@@ -1,6 +1,7 @@
 package com.app.controllers;
 
 import com.app.DTO.DriverDTO;
+import com.app.configuration.rabbitMq.Producer;
 import com.app.service.UserDriverServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -17,10 +18,14 @@ import java.security.Principal;
 public class UserDriverController {
 
     @Autowired
+    private Producer producer;
+
+    @Autowired
     private UserDriverServiceInterface userDriverService;
 //check Role for redirect
     @GetMapping("/")
     public String index(Model model, Principal principal) {
+        producer.sendMessage();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         int id;
         boolean hasUserRole = auth.getAuthorities().stream()
