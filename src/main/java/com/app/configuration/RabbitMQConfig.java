@@ -9,6 +9,7 @@ import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
 @Configuration
 @EnableRabbit
 public class RabbitMQConfig {
@@ -36,7 +37,6 @@ public class RabbitMQConfig {
     }
 
     @Bean
-    // Every queue is bound to the default direct exchange
     public Queue ordersNewQueue() {
         return new Queue(this.QueueName);
     }

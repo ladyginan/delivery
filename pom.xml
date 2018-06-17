@@ -198,11 +198,11 @@
             <artifactId>log4j</artifactId>
             <version>1.2.14</version>
         </dependency>
-        <dependency>
-            <groupId>com.rabbitmq</groupId>
-            <artifactId>amqp-client</artifactId>
-            <version>5.1.0</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.rabbitmq</groupId>-->
+            <!--<artifactId>amqp-client</artifactId>-->
+            <!--<version>5.2.0</version>-->
+        <!--</dependency>-->
         <!-- https://mvnrepository.com/artifact/org.springframework.amqp/spring-amqp -->
         <dependency>
             <groupId>org.springframework.amqp</groupId>
@@ -216,11 +216,11 @@
             <version>${spring.amqp.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.rabbitmq.jms/rabbitmq-jms -->
-        <dependency>
-            <groupId>com.rabbitmq.jms</groupId>
-            <artifactId>rabbitmq-jms</artifactId>
-            <version>1.9.0</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.rabbitmq.jms</groupId>-->
+            <!--<artifactId>rabbitmq-jms</artifactId>-->
+            <!--<version>1.9.0</version>-->
+        <!--</dependency>-->
         <!-- https://mvnrepository.com/artifact/com.rabbitmq/amqp-client -->
 
 

@@ -1,5 +1,7 @@
 package com.app.configuration;
 
+import org.springframework.amqp.core.Queue;
+
 import java.io.Serializable;
 
 public class CustomMessage implements Serializable {
@@ -11,6 +13,7 @@ public class CustomMessage implements Serializable {
 
     public CustomMessage(String text) {
         this.text = text;
+
     }
 
     public String getText() {

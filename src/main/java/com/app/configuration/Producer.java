@@ -1,6 +1,7 @@
 package com.app.configuration;
 
 import org.springframework.amqp.core.AmqpTemplate;
+import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -16,7 +17,7 @@ public class Producer {
         this.rabbitTemplate = rabbitTemplate;
     }
 
-    @Scheduled(fixedDelay = 3000L)
+    @Scheduled(fixedDelay = 1000, initialDelay = 500)
     public void sendMessage() {
         final CustomMessage message = new CustomMessage("Hello there!");
         rabbitTemplate.convertAndSend(message);

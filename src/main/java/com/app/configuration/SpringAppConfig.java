@@ -34,6 +34,7 @@ public class SpringAppConfig implements WebMvcConfigurer {
     @Autowired
     WaggonConverter waggonConverter;
 
+
     @Bean
     public InternalResourceViewResolver setupViewResolver() {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
