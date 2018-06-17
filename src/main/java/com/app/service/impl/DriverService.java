@@ -24,6 +24,15 @@ public class DriverService implements DriverServiceInterface {
     @Autowired
     private MapRepositoryInterface mapRepository;
 
+    public DriverService(DriversRepositoryInterface driversRepository,
+                         WaggonRepositoryInterface waggonRepository,
+                         MapRepositoryInterface mapRepository) {
+        this.driversRepository = driversRepository;
+        this.waggonRepository = waggonRepository;
+        this.mapRepository = mapRepository;
+    }
+
+
     @Transactional
     @Override
     public List<Driver> getAllDrivers() {
