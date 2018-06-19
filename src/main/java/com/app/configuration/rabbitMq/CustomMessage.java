@@ -13,7 +13,6 @@ public class CustomMessage implements Serializable {
 
     public CustomMessage(String text) {
         this.text = text;
-
     }
 
     public String getText() {

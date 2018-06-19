@@ -22,6 +22,7 @@ public class RabbitMQConfig {
         connectionFactory.setPort(5672);
         connectionFactory.setUsername("guest");
         connectionFactory.setPassword("guest");
+
         return connectionFactory;
     }
 
