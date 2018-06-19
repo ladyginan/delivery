@@ -21,7 +21,7 @@ public class Producer {
     public void sendMessage() {
 
         final OrderJson message = new OrderJson("Hello");
-        rabbitTemplate.convertAndSend("ordersQueue", message.toString());
+        rabbitTemplate.convertAndSend("ordersQueue", message);
     }
 }
 
