@@ -41,7 +41,7 @@ public class OrderJsonService implements OrderJsonServiceInterface {
                 OrderJson orderJson = new OrderJson();
                 orderJson.setRegNumberOrder(order.getRegNumberOrder());
                 orderJson.setOrderStatus(order.getStatus());
-                orderJson.setWaggonId(order.getCurrentWaggon().getIdWaggon());
+                orderJson.setRegNumber(order.getCurrentWaggon().getRegNumber());
 
                 List<String> drivers = getAllDriversOrder(driverOrderRepository.getAllDriversOfOrder(order));
                 orderJson.setDrivers(drivers);
@@ -76,7 +76,7 @@ public class OrderJsonService implements OrderJsonServiceInterface {
             WayPoint wayPointForRead = wayPointRepository.findWayPointById(point.getIdWayPoint());
             Cargo cargo = cargoRepository.getCargo(wayPointForRead.getCargo().getIdCargo());
 
-            String nameOfPoint = wayPointForRead.getCity() + " " +
+            String nameOfPoint = wayPointForRead.getCity().getCity() + " " +
                     wayPointForRead.getOrderType() + "-" +
                     cargo.getName() + " " +
                     cargo.getCargoNumber();

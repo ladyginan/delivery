@@ -21,15 +21,15 @@ public class WaggonController {
     private MapServiceInterface mapService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public @ResponseBody
-    List<Waggon> getAllWaggonsJson() {
-        List<Waggon> waggons = waggonService.getAllWaggons();
+    @ResponseBody
+    public List<WaggonDTO> getAllWaggonsJson() {
+        List<WaggonDTO> waggons = waggonService.getAllWaggons();
         return waggons;
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public @ResponseBody
-    WaggonDTO editWaggon(@RequestBody WaggonDTO waggonDTO) {
+    @ResponseBody
+    public WaggonDTO editWaggon(@RequestBody WaggonDTO waggonDTO) {
         System.out.println(waggonDTO);
         waggonService.updateWaggon(waggonDTO);
         return new WaggonDTO();
@@ -38,7 +38,7 @@ public class WaggonController {
 
     @RequestMapping(path = "/list", method = RequestMethod.GET)
     public ModelAndView getAllWaggon() {
-        List<Waggon> waggons = waggonService.getAllWaggons();
+        List<WaggonDTO> waggons = waggonService.getAllWaggons();
         ModelAndView modelAndView = new ModelAndView("listOfWaggons");
         modelAndView.addObject("waggons", waggons);
         return modelAndView;

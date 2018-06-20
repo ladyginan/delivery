@@ -16,7 +16,7 @@ public class OrderJson implements Serializable {
 
     private Integer regNumberOrder;
     private List<String> wayPoints;
-    private Integer waggonId;
+    private String regNumber;
     private List<String> drivers;
     private OrderStatus orderStatus;
 
@@ -24,10 +24,10 @@ public class OrderJson implements Serializable {
 
     }
 
-    public OrderJson(Integer regNumberOrder, List<String> wayPoints, Integer waggonId, List<String> drivers, OrderStatus orderStatus) {
+    public OrderJson(Integer regNumberOrder, List<String> wayPoints, String regNumber, List<String> drivers, OrderStatus orderStatus) {
         this.regNumberOrder = regNumberOrder;
         this.wayPoints = wayPoints;
-        this.waggonId = waggonId;
+        this.regNumber = regNumber;
         this.drivers = drivers;
         this.orderStatus = orderStatus;
     }
@@ -37,7 +37,7 @@ public class OrderJson implements Serializable {
         return "OrderJson{" +
                 "regNumberOrder=" + regNumberOrder +
                 ", wayPoints=" + wayPoints +
-                ", waggonId=" + waggonId +
+                ", regNumber=" + regNumber +
                 ", drivers=" + drivers +
                 ", orderStatus=" + orderStatus +
                 '}';
