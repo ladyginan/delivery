@@ -17,7 +17,7 @@ public class MapRepository implements MapRepositoryInterface {
         this.factory = factory;
     }
 
-    //show lis of cities
+    //show list of cities
 
     @Override
     public List<Map> getAllMap() {

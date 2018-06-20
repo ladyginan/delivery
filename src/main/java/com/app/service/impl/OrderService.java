@@ -1,6 +1,7 @@
 package com.app.service.impl;
 
 import com.app.DTO.CreateOrderDTO;
+import com.app.configuration.rabbitMq.OrderJson;
 import com.app.model.Order;
 import com.app.model.Waggon;
 import com.app.repository.DriversRepositoryInterface;
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -62,4 +64,6 @@ public class OrderService implements OrderServiceInterface {
         orderRepository.settingOrderIdInWayPointsAndDrivers(wayPoints, drivers, order);
         return order;
     }
+
+
 }
