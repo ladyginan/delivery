@@ -19,4 +19,6 @@ public interface WaggonServiceInterface {
 
     WaggonDTO getWaggonDTO(int id);
 
+    List<Waggon> getAllWaggonsList();
+
 }

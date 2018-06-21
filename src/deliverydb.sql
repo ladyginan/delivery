@@ -28,7 +28,6 @@ create table WAGGONS
   SHIFT_SIZE int null,
   STATUS varchar(255) null,
   ID_CITY int null,
-  constraint FKc0g1au441uhy3lotn1l45ph3a
   foreign key (ID_CITY) references maps (ID_CITY)
 );
 
@@ -39,7 +38,6 @@ create table ORDERS
   REGISTRATION_NUMBER_ORDER int null,
   ORDER_STATUS varchar(255) null,
   WAGGONS int null,
-  constraint FKqf9r4ybht0feeut4akgtn92d8
   foreign key (WAGGONS) references waggons (ID_WAGGON)
 );
 
@@ -55,11 +53,8 @@ create table DRIVERS
   ID_CITY int null,
   ID_ORDER int null,
   ID_WAGGON int null,
-  constraint FK85791uqn3cvqh8k7wc4u2oovn
   foreign key (ID_CITY) references maps (ID_CITY),
-  constraint FKh7133xn4rxdktgke9ouuow78y
   foreign key (ID_ORDER) references orders (ID_ORDER),
-  constraint FK82a7vrvahfhxjduvocoxb5m82
   foreign key (ID_WAGGON) references waggons (ID_WAGGON)
 );
 
@@ -84,9 +79,7 @@ create table WAGGONS_DRIVERS
   drivers_ID_DRIVER int not null,
   constraint UK_tp3k0nmi54wkx64neldyushf7
   unique (drivers_ID_DRIVER),
-  constraint FKp3qbd9grben878oy105l2046q
   foreign key (Waggon_ID_WAGGON) references waggons (ID_WAGGON),
-  constraint FKmemljwxdr5qmmti1pn13upc6d
   foreign key (drivers_ID_DRIVER) references drivers (ID_DRIVER)
 );
 

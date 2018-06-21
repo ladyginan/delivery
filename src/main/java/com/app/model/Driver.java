@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 
@@ -15,6 +16,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @EqualsAndHashCode
 @Table(name = "DRIVERS")
+
 public class Driver {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,7 +40,8 @@ public class Driver {
     private DriverStatus status;
 
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
+//            (cascade = CascadeType.ALL)
     @JoinColumn(name = "ID_CITY")
     private Map city;
 
