@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -21,8 +22,14 @@ public class WaggonService implements WaggonServiceInterface {
 
     @Transactional
     @Override
-    public List<Waggon> getAllWaggons() {
-        return waggonRepository.getAllWaggons();
+    public List<WaggonDTO> getAllWaggons() {
+        List<Waggon> waggons = waggonRepository.getAllWaggons();
+        List<WaggonDTO> waggonDTOList = new ArrayList<>();
+        for (Waggon waggon : waggons){
+            WaggonDTO waggonDto = new WaggonDTO(waggon);
+            waggonDTOList.add(waggonDto);
+        }
+        return waggonDTOList;
     }
 
     @Transactional

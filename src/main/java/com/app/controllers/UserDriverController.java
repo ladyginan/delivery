@@ -1,6 +1,7 @@
 package com.app.controllers;
 
 import com.app.DTO.DriverDTO;
+import com.app.service.SendJsonOrdersInterface;
 import com.app.service.UserDriverServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -8,7 +9,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.security.Principal;
 
@@ -17,10 +17,15 @@ import java.security.Principal;
 public class UserDriverController {
 
     @Autowired
+    private SendJsonOrdersInterface sendJsonOrders;
+
+    @Autowired
     private UserDriverServiceInterface userDriverService;
-//check Role for redirect
+    //check Role for redirect
     @GetMapping("/")
     public String index(Model model, Principal principal) {
+        sendJsonOrders.sendJson();
+
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         int id;
         boolean hasUserRole = auth.getAuthorities().stream()

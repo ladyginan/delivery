@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface WaggonServiceInterface {
 
-    List<Waggon> getAllWaggons();
+    List<WaggonDTO> getAllWaggons();
 
     void addWaggon(Waggon waggon);
 

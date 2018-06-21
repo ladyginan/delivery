@@ -11,9 +11,11 @@ function loadAllWaggons() {
 
         for (waggon in waggons) {
             waggonSelect
-                .append($("<option />")
+                .append(
+                    $("<option />")
                     .val(waggons[waggon].idWaggon)
-                    .text(waggons[waggon].regNumber))
+                    .text(waggons[waggon].regNumber)
+                )
         }
     })
 }

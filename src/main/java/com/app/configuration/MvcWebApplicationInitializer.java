@@ -1,5 +1,6 @@
 package com.app.configuration;
 
+import com.app.configuration.rabbitMq.RabbitMQConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
     public class MvcWebApplicationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
@@ -7,7 +8,7 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
     // Load database and spring security configuration
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[]{PersistenceJPAConfig.class, WebSecurityConfig.class};
+        return new Class[]{PersistenceJPAConfig.class, WebSecurityConfig.class, RabbitMQConfig.class};
     }
 
     // Load spring web configuration

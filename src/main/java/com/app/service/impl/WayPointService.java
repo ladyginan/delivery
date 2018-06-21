@@ -25,4 +25,6 @@ public class WayPointService implements WayPointServiceInterface {
     public List<WayPoint> getAllWayPoints() {
         return wayPointRepository.getAllWayPoints();
     }
+
+
 }
