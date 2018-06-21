@@ -22,9 +22,10 @@ public class DriverService implements DriverServiceInterface {
     @Autowired
     private WaggonRepositoryInterface waggonRepository;
 
-    public DriverService(DriversRepositoryInterface driversRepository,WaggonRepositoryInterface waggonRepository) {
+    public DriverService(DriversRepositoryInterface driversRepository,WaggonRepositoryInterface waggonRepository, MapRepositoryInterface mapRepository) {
         this.driversRepository = driversRepository;
         this.waggonRepository = waggonRepository;
+        this.mapRepository = mapRepository;
     }
 
     @Autowired
@@ -48,8 +49,8 @@ public class DriverService implements DriverServiceInterface {
     }
 
     @Transactional
-    public void addDriver(Driver driver) {
-        driversRepository.addDriver(driver);
+    public Driver addDriver(Driver driver) {
+        return driversRepository.addDriver(driver);
     }
 
     @Transactional
@@ -92,8 +93,8 @@ public class DriverService implements DriverServiceInterface {
 //    }
 
     @Transactional
-    public void removeDriver(int id) {
-        driversRepository.removeDriver(id);
+    public Driver removeDriver(int id) {
+        return driversRepository.removeDriver(id);
     }
 
 
