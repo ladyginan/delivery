@@ -1,5 +1,5 @@
 # delivery
-This application writen for study web development.
+This application is writen for study web development.
 <br/>Project includes such technologies:
  <br/>*spring mvc
  <br/>*hibernate
