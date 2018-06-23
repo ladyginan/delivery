@@ -32,7 +32,8 @@ public class Order {
     @Fetch(value = FetchMode.SUBSELECT)
     private List<WayPoint> pointList;
 
-    @OneToOne(cascade = {CascadeType.ALL})
+    @OneToOne
+//            (cascade = {CascadeType.ALL})
     @JoinColumn(name = "WAGGONS", referencedColumnName = "ID_WAGGON")
     private Waggon currentWaggon;
 

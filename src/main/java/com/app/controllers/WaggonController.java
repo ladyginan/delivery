@@ -38,7 +38,7 @@ public class WaggonController {
 
     @RequestMapping(path = "/list", method = RequestMethod.GET)
     public ModelAndView getAllWaggon() {
-        List<WaggonDTO> waggons = waggonService.getAllWaggons();
+        List<Waggon> waggons = waggonService.getAllWaggonsList();
         ModelAndView modelAndView = new ModelAndView("listOfWaggons");
         modelAndView.addObject("waggons", waggons);
         return modelAndView;

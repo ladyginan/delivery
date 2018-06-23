@@ -18,6 +18,7 @@
 <table border="1px" cellpadding="0" cellspacing="0">
     <thead>
     <tr>
+        <th width="10%">personal numb.</th>
         <th width="10%">name</th>
         <th width="10%">second name</th>
         <th width="10%">hours worked</th>
@@ -30,6 +31,7 @@
     <tbody>
         <c:forEach var="driver" items="${drivers}">
             <tr>
+                <td>${driver.personalNumber}</td>
                 <td>${driver.name}</td>
                 <td>${driver.secondName}</td>
                 <td>${driver.hoursWorked}</td>

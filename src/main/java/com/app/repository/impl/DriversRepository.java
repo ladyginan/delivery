@@ -29,8 +29,10 @@ public class DriversRepository implements DriversRepositoryInterface {
     //add new driver
 
 
-    public void addDriver(Driver driver) {
+    public Driver addDriver(Driver driver) {
         factory.getCurrentSession().save(driver);
+        Driver driverSave = getDriver(driver.getIdDriver());
+        return driverSave;
     }
 
     //updating driver fields
@@ -49,9 +51,10 @@ public class DriversRepository implements DriversRepositoryInterface {
 
     // remove driver
 
-    public void removeDriver(int id) {
+    public Driver removeDriver(int id) {
         Driver driver = getDriver(id);
         factory.getCurrentSession().delete(driver);
+        return driver;
     }
 
 }
