@@ -82,7 +82,7 @@ function createOrder() {
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
         success: function (order) {
-            window.location.href = "/orders/add/success";
+            window.location.href = "/";
         }
     });
 

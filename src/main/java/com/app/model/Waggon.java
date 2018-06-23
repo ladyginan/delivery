@@ -43,7 +43,8 @@ public class Waggon {
     private List<Driver> drivers;
 
     @JsonIgnore
-    @OneToOne(mappedBy = "currentWaggon", cascade = {CascadeType.ALL})
+    @OneToOne(mappedBy = "currentWaggon")
+//            , cascade = {CascadeType.ALL})
     private Order order;
 
     @Override

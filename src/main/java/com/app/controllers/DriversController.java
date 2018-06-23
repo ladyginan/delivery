@@ -7,10 +7,12 @@ import com.app.service.MapServiceInterface;
 import com.app.service.WaggonServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -57,7 +59,12 @@ public class DriversController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public ModelAndView addingDriver(@ModelAttribute("driver") Driver driver) {
+    public ModelAndView addingDriver(@Valid @ModelAttribute("driver") Driver driver, BindingResult bindingResult) {
+        ModelAndView model;
+        if (bindingResult.hasErrors()) {
+            model = new ModelAndView("driverForm",  bindingResult.getModel());
+            return model;
+        }
         ModelAndView modelAndView = new ModelAndView("welcome");
         driverService.addDriver(driver);
         String message = "Driver was successfully added";

@@ -8,9 +8,9 @@ public interface DriversRepositoryInterface {
 
     List<Driver> getAllDrivers();
 
-    void addDriver(Driver driver);
+    Driver addDriver(Driver driver);
 
-    void removeDriver(int id);
+    Driver removeDriver(int id);
 
     Driver updateDriver(Driver driver);
 
