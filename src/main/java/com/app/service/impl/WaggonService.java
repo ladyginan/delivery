@@ -75,4 +75,11 @@ public class WaggonService implements WaggonServiceInterface {
         WaggonDTO waggonDTO = new WaggonDTO(waggon);
         return waggonDTO;
     }
+
+    @Transactional
+    @Override
+    public List<Waggon> getAllWaggonsList(){
+        List<Waggon> waggons = waggonRepository.getAllWaggons();
+        return waggons;
+    }
 }

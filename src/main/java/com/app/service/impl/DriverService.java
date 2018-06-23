@@ -51,8 +51,8 @@ public class DriverService implements DriverServiceInterface {
     }
 
     @Transactional
-    public void addDriver(Driver driver) {
-        driversRepository.addDriver(driver);
+    public Driver addDriver(Driver driver) {
+        return driversRepository.addDriver(driver);
     }
 
     @Transactional
@@ -95,8 +95,8 @@ public class DriverService implements DriverServiceInterface {
 //    }
 
     @Transactional
-    public void removeDriver(int id) {
-        driversRepository.removeDriver(id);
+    public Driver removeDriver(int id) {
+        return driversRepository.removeDriver(id);
     }
 
 
