@@ -1,0 +1,23 @@
+
+header {
+    text-align: center;
+    color: #667292;
+}
+
+a{
+    font-size: 17px;
+    vertical-align: middle;
+    color: #667292;
+    margin:10px;
+}
+
+a:hover {
+    color:#77a8a8;
+}
+
+p{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 20px;
+    color: #667292;
+}

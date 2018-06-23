@@ -17,18 +17,22 @@
            <tr>
                 <td>name:</td>
                 <td><form:input  path="name"/></td>
+              <td><form:errors path="name" cssClass="error" /></td>
             </tr>
             <tr>
                 <td>second name:</td>
                 <td><form:input  path="secondName"/></td>
+                <td><form:errors path="secondName" cssClass="error" /></td>
             </tr>
             <tr>
                 <td>personal number:  </td>
                 <td><form:input  path="personalNumber"/></td>
+                <td><form:errors path="personalNumber" cssClass="error" /></td>
             </tr>
             <tr>
                 <td>hours worked:</td>
                 <td><form:input path="hoursWorked"/></td>
+                <td><form:errors path="hoursWorked" cssClass="error" /></td>
             </tr>
             <tr>
                 <td>status:</td>
@@ -37,6 +41,7 @@
                         <form:options items="${statusDriver}" />
                     </form:select>
                 </td>
+                <td><form:errors path="status" cssClass="error" /></td>
             </tr>
             <tr>
                 <td>current city:</td>
@@ -44,14 +49,18 @@
                 <form:select class="form-control" path="city">
                     <form:option value="" label=" Please select"/>
                     <form:options items="${maps}" itemValue="idCity" itemLabel="city" />
-                </form:select></td>
+                </form:select>
+                </td>
+                <td><form:errors path="city" cssClass="error" /></td>
             </tr>
             <tr>
                 <td>current waggon:</td>
                 <td><form:select class="form-control" path="waggon">
                         <form:option value="" label=" Please select"/>
                         <form:options items="${waggons}" itemValue="IdWaggon" itemLabel="IdWaggon" />
-                    </form:select></td>
+                    </form:select>
+                </td>
+                <td><form:errors path="waggon" cssClass="error" /></td>
             </tr>
             <tr>
                 <td colspan="2" align="center">
