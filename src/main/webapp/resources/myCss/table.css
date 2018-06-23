@@ -1,7 +1,10 @@
 
-header {
+h1 {
     text-align: center;
-    color: #667292;
+    background-color: #667292;
+    color: white;
+    padding-top:20px;
+    padding-bottom:20px;
 }
 
 a{

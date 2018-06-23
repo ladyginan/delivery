@@ -9,28 +9,29 @@
     <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="/resources/myCss/table.css">
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
     <title>List of orders</title>
 </head>
 <body>
 <h1>List of orders</h1>
 <p>Here you can see the list of orders.
-<table border="1px" cellpadding="0" cellspacing="0">
-    <thread>
+<table class="table table-striped">
+    <thead>
         <tr>
-            <th>Registration number</th>
-            <th>Done</th>
-            <th>Current waggon</th>
+            <th scope="col">Registration number</th>
+            <th scope="col">Done</th>
+            <th scope="col">Current waggon</th>
             <%--<th width="10%">Point list</th>--%>
             <%--<th width="10%">Drivers</th>--%>
         </tr>
-    </thread>
+    </thead>
     <tbody>
-    <c:forEach var = "order" items="${orders}">
-        <tr>
-            <td>${order.regNumberOrder}</td>
-            <td>${order.status}</td>
-            <td>${order.currentWaggon.regNumber}</td>
+        <c:forEach var = "order" items="${orders}">
+            <tr>
+                <td scope="row">${order.regNumberOrder}</td>
+                <td>${order.status}</td>
+                <td>${order.currentWaggon.regNumber}</td>
             <%--<td>${order.pointList}</td>--%>
             <%--<td>${order.drivers}</td>--%>
         </tr>

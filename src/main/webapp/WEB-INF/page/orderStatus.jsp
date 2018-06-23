@@ -9,23 +9,24 @@
     <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="/resources/myCss/table.css">
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
     <title>Orders status</title>
 </head>
 <body>
 <h1>Order status</h1>
 <p>Here you can see status of order.
-<table border="1px" cellpadding="0" cellspacing="0">
-    <thread>
+<table class="table table-striped">
+    <thead>
         <tr>
-            <th>Registration number</th>
-            <th>Status</th>
+            <th scope="col">Registration number</th>
+            <th scope="col">Status</th>
         </tr>
-    </thread>
+    </thead>
     <tbody>
     <c:forEach var = "order" items="${orders}">
         <tr>
-            <td>${order.regNumberOrder}</td>
+            <td scope="row">${order.regNumberOrder}</td>
             <td>${order.status}</td>
         </tr>
     </c:forEach>

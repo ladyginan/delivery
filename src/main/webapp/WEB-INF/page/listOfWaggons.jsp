@@ -9,27 +9,29 @@
     <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="/resources/myCss/table.css">
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
     <title>List of waggons</title>
 </head>
 <body>
 <h1>List of waggons</h1>
 <p>Here you can see the list of waggons,remove or update them.</p>
-<table border="1px" cellpadding="0" cellspacing="0">
-    <thread>
+
+<table class="table table-striped">
+    <thead>
         <tr>
-            <th width="10%">registration Number</th>
-            <th width="10%">shift size</th>
-            <th width="10%">capacity</th>
-            <th width="10%">status</th>
-            <th width="10%">current city</th>
-            <th width="10%">action</th>
+            <th scope="col">registration Number</th>
+            <th scope="col">shift size</th>
+            <th scope="col">capacity</th>
+            <th scope="col">status</th>
+            <th scope="col">current city</th>
+            <th scope="col">action</th>
         </tr>
-    </thread>
+    </thead>
     <tbody>
-        <c:forEach var = "waggon" items="${waggons}">
+        <c:forEach var = "waggon" items = "${waggons}">
             <tr>
-                <td>${waggon.regNumber}</td>
+                <td scope="row">${waggon.regNumber}</td>
                 <td>${waggon.shiftSize}</td>
                 <td>${waggon.capacity}</td>
                 <td>${waggon.status}</td>
@@ -42,6 +44,8 @@
         </c:forEach>
     </tbody>
 </table>
+
 <p><a href="${pageContext.request.contextPath}/">Home page</a></p>
+
 </body>
 </html>
