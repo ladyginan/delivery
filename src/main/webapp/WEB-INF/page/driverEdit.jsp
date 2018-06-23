@@ -10,7 +10,7 @@
     <script src="<c:url value="/resources/js/editDriver.js"/>"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-    <title>Edit driver page</title>
+    <title>Edit driver</title>
 </head>
 
 <body>
