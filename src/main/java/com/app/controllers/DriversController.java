@@ -1,37 +1,105 @@
 package com.app.controllers;
+
+import com.app.DTO.DriverDTO;
 import com.app.model.Driver;
-import com.app.service.api.DriverServiceInterface;
-import com.app.service.impl.DriverService;
+import com.app.service.DriverServiceInterface;
+import com.app.service.MapServiceInterface;
+import com.app.service.WaggonServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 @RequestMapping(path = "/drivers")
 public class DriversController {
     @Autowired
     private DriverServiceInterface driverService;
+    @Autowired
+    private WaggonServiceInterface waggonService;
+    @Autowired
+    private MapServiceInterface mapService;
 
-    @RequestMapping(value = "/list", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody
-    ResponseEntity<List<Driver>> getAllUsers() {
-        return ResponseEntity.ok()
-                .contentType(MediaType.APPLICATION_JSON_UTF8)
-                .body(driverService.getAllDrivers());
+    List<DriverDTO> getAllDriversJson() {
+        List<DriverDTO> drivers = driverService.getAllDriversJson();
+        return drivers;
     }
 
-    @RequestMapping(value = "/new", method = RequestMethod.GET)
-    public String newDriver(Map<String, Object> model) {
-        model.put("driver", new Driver());
-        return "driverForm.";
+    @RequestMapping(method = RequestMethod.POST)
+    public @ResponseBody
+    DriverDTO editDriver(@RequestBody DriverDTO driverDTO) {
+        System.out.println(driverDTO);
+        driverService.updateDriver(driverDTO);
+        return new DriverDTO();
+    }
+
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    public ModelAndView getAllDrivers() {
+        List<Driver> drivers = driverService.getAllDrivers();
+        ModelAndView modelAndView = new ModelAndView("listOfDrivers");
+        modelAndView.addObject("drivers", drivers);
+        return modelAndView;
+    }
+
+    @Transactional
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    public ModelAndView addDriverPage() {
+        ModelAndView modelAndView = new ModelAndView("driverForm");
+        modelAndView.addObject("driver", new Driver());
+        modelAndView.addObject("waggons", waggonService.getAllWaggons());
+        modelAndView.addObject("maps", mapService.getAllMap());
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public ModelAndView addingDriver(@ModelAttribute("driver") Driver driver) {
+        ModelAndView modelAndView = new ModelAndView("welcome");
+        driverService.addDriver(driver);
+        String message = "Driver was successfully added";
+        modelAndView.addObject("message", message);
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+    public ModelAndView editDriverPage(@PathVariable int id) {
+        ModelAndView modelAndView = new ModelAndView("driverEdit");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public @ResponseBody
+    DriverDTO getDriverById(@PathVariable int id) {
+        DriverDTO driverDTO = driverService.getDriverDTO(id);
+        return driverDTO;
+    }
+
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
+    public @ResponseBody
+    DriverDTO editDriver(@RequestBody DriverDTO driverDTO, @PathVariable int id) {
+        DriverDTO savedDriver = driverService.updateDriver(driverDTO);
+        return savedDriver;
+    }
+
+    @RequestMapping(value = "/edit/success", method = RequestMethod.GET)
+    public ModelAndView editDriverSuccessMessage() {
+        ModelAndView modelAndView = new ModelAndView("welcome");
+        String message = "Driver was successfully edited.";
+        modelAndView.addObject("message", message);
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+    public ModelAndView deleteDriver(@PathVariable Integer id) {
+        ModelAndView modelAndView = new ModelAndView("welcome");
+        driverService.removeDriver(id);
+        String message = "Driver was successfully deleted.";
+        modelAndView.addObject("message", message);
+        return modelAndView;
     }
 
 }

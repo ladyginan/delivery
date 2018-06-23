@@ -1,49 +1,57 @@
 package com.app.repository.impl;
+
 import com.app.model.Driver;
-import com.app.repository.api.DriversRepositoryInterface;
+import com.app.repository.DriversRepositoryInterface;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.util.Arrays;
 import java.util.List;
 
 
-// imitation JPA
 @Repository
 public class DriversRepository implements DriversRepositoryInterface {
-    private List<Driver> drivers = Arrays.asList(
-            new Driver("Антон", "Петров", 44455, 8, "free", "Москва", "Фура№5"),
-            new Driver("Антон", "Петров", 44455, 8, "free", "Москва", "Фура№5"));
-
-
-
-    public List<Driver> getAllDrivers() {
-        return drivers;
-    }
-
     //Hibernate+Spring
-
-    private final SessionFactory factory;
     @Autowired
+    private final SessionFactory factory;
+
     public DriversRepository(SessionFactory factory) {
         this.factory = factory;
     }
 
+    //show driver list
+
+    public List<Driver> getAllDrivers() {
+        List<Driver> drivers = factory.getCurrentSession().createQuery("from Driver").list();
+        return drivers;
+    }
+
+    //add new driver
 
 
-    public Driver addDriver(Driver driver) {
+    public void addDriver(Driver driver) {
         factory.getCurrentSession().save(driver);
+    }
+
+    //updating driver fields
+
+    public Driver updateDriver(Driver driver) {
+        factory.getCurrentSession().update(driver);
+        return factory.getCurrentSession().get(Driver.class, driver.getIdDriver());
+    }
+
+    //get driver by id
+
+    public Driver getDriver(int id) {
+        Driver driver = (Driver) factory.getCurrentSession().get(Driver.class, id);
         return driver;
     }
 
-    public void removeDriver(Driver driver) {
+    // remove driver
+
+    public void removeDriver(int id) {
+        Driver driver = getDriver(id);
         factory.getCurrentSession().delete(driver);
     }
-
-    public void updateDriver(Driver driver) {
-        factory.getCurrentSession().update(driver);
-    }
-
 
 }
