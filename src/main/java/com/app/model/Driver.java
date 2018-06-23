@@ -52,7 +52,7 @@ public class Driver {
 
 
     @ManyToOne
-            (cascade = CascadeType.ALL)
+//            (cascade = CascadeType.ALL)
     @JoinColumn(name = "ID_CITY")
     private Map city;
 
