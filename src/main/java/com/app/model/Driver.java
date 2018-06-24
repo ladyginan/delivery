@@ -8,6 +8,8 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 import javax.validation.constraints.PositiveOrZero;
 import javax.validation.constraints.Size;
 
@@ -24,24 +26,18 @@ public class Driver {
     @Column(name = "ID_DRIVER", unique = true)
     private int idDriver;
 
-    @Size(min = 1, max = 10, message
-            = "Name must be between 2 and 20 characters")
-    @PositiveOrZero
+    @Positive
     @Column(name = "PERSONAL_NUMBER")
     private int personalNumber;
 
-    @Size(min = 2, max = 15, message
-            = "Name must be between 2 and 20 characters")
+    @Size(min = 2, max = 15, message = "Name must be between 2 and 20 characters")
     @Column(name = "NAME")
     private String name;
 
-    @Size(min = 2, max = 15, message
-            = "Name must be between 2 and 20 characters")
+    @Size(min = 2, max = 15, message = "Second name must be between 2 and 20 characters")
     @Column(name = "SECOND_NAME")
     private String secondName;
 
-    @Size(min = 1, max = 3, message
-            = "Name must be between 2 and 20 characters")
     @PositiveOrZero
     @Column(name = "HOURS_WORKED")
     private int hoursWorked;
@@ -50,7 +46,7 @@ public class Driver {
     @Column(name = "STATUS")
     private DriverStatus status;
 
-
+    @NotNull
     @ManyToOne
 //            (cascade = CascadeType.ALL)
     @JoinColumn(name = "ID_CITY")

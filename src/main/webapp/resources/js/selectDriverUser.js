@@ -36,7 +36,7 @@ function createDriverUser() {
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
         success: function (drivers) {
-            window.location.href = "/driverInfo/success";
+            window.location.href = "/driverPage/driverInfo/success";
         }
     });
 
