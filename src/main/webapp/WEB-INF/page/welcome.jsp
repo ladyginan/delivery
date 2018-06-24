@@ -27,9 +27,9 @@
         <a class="list-group-item list-group-item-action list-group-item-light"
        href="${pageContext.request.contextPath}/drivers/add">Add new driver</a>
         <a class="list-group-item list-group-item-action list-group-item-light"
-       href="${pageContext.request.contextPath}/points/add">Add way point</a>
+           href="${pageContext.request.contextPath}/cargoes/add">Add new cargo</a>
         <a class="list-group-item list-group-item-action list-group-item-light"
-       href="${pageContext.request.contextPath}/cargoes/add">Add new cargo</a>
+       href="${pageContext.request.contextPath}/points/add">Add way point</a>
         <a class="list-group-item list-group-item-action list-group-item-light"
        href="${pageContext.request.contextPath}/orders/add">Add new order</a>
     </div>
@@ -47,7 +47,6 @@
            href="${pageContext.request.contextPath}/status/orders">Order status</a>
     </div>
 </div>
-
 <div class = "message" align="center" >
   ${message}
 </div>

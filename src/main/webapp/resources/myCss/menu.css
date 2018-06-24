@@ -2,6 +2,9 @@ header {
     text-align: center;
     color: #667292;
 }
+.rainbow{
+    background-color: #f0f0f0;
+}
 
 .rainbow h4{
     color:white;

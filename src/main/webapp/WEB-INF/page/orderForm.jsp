@@ -8,51 +8,53 @@
     <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="/resources/myCss/form.css">
     <title>Title</title>
 </head>
 <body>
+<h1>New order</h1>
+<div class = "d-flex flex-row justify-content-center">
+    <div>
+            <div>
+                <label>Registration number of order:</label>
+                <input id="regNumberOrder" class="form-control">
+            </div>
 
-<div align="center">
-    <h1>New order</h1>
-    <table>
-            <tr>
-                <td>Registration number of order:</td>
-                <td><input id="regNumberOrder"></td>
-            </tr>
-
-            <tr>
-                <td>Order status number:</td>
-                <td><select id="orderStatus">
+            <div>
+                <label>Order status:</label>
+                <select id="orderStatus" class="form-control">
                     <option value="COMPLETED">COMPLETED</option>
-                    <option value="NOTCOMPLETED">NOTCOMPLETED</option>
-                </select></td>
-            </tr>
+                    <option value="NOTCOMPLETED">NOT COMPLETED</option>
+                </select>
+            </div>
 
-            <tr>
-                <td>Way points:</td>
-                <td><select id="waypoints" multiple="multiple">
-                </select></td>
-            </tr>
+            <div>
+                <label>Way points:</label>
+                <select id="waypoints" multiple="multiple" class="form-control">
+                </select>
+            </div>
 
-            <tr>
-                <td>Drivers:</td>
-                <td><select id="drivers" multiple="multiple">
-                </select></td>
-            </tr>
+            <div>
+                <label>Drivers:</label>
+                <select id="drivers" multiple="multiple" class="form-control">
+                </select>
+            </div>
 
-            <tr>
-                <td>Waggons:</td>
-                <td><select id="waggons">
-                </select></td>
-            </tr>
+            <div>
+                <label>Waggons:</label>
+                <select id="waggons" class="form-control">
+                </select>
+            </div>
+            <div>
+                <div class="but"><button id="order" class="btn btn-outline-secondary btn-block" onclick="createOrder()">Create order</button></div>
+            </div>
 
-            <tr>
-                <td><button id="order" onclick="createOrder()">Create order</button></td>
-            </tr>
 
 
-    </table>
+    </div>
 </div>
-<p><a href="${pageContext.request.contextPath}/">Home page</a></p>
+<nav class="navbar fixed-bottom navbar-light bg-light">
+    <a class="navbar-b" href="${pageContext.request.contextPath}/">Home page</a>
+</nav>
 </body>
 </html>
