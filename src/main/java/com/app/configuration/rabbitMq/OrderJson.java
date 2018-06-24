@@ -12,7 +12,7 @@ import java.io.Serializable;
 import java.util.List;
 @Setter
 @Getter
-public class OrderJson implements Serializable {
+public class OrderJson extends JsonParse implements Serializable {
 
     private Integer regNumberOrder;
     private List<String> wayPoints;
@@ -43,15 +43,4 @@ public class OrderJson implements Serializable {
                 '}';
     }
 
-    public String toJson() {
-        String result = "";
-        try {
-            ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
-            result = objectMapper.writeValueAsString(this);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
-        return result;
-    }
 }

@@ -26,19 +26,19 @@ public class Driver {
     @Column(name = "ID_DRIVER", unique = true)
     private int idDriver;
 
-    @Positive
+    @Positive(message = "Personal number must have positive value.")
     @Column(name = "PERSONAL_NUMBER")
     private int personalNumber;
 
-    @Size(min = 2, max = 15, message = "Name must be between 2 and 20 characters")
+    @Size(min = 2, max = 15, message = "Name must be between 2 and 15 characters.")
     @Column(name = "NAME")
     private String name;
 
-    @Size(min = 2, max = 15, message = "Second name must be between 2 and 20 characters")
+    @Size(min = 2, max = 15, message = "Second name must be between 2 and 15 characters.")
     @Column(name = "SECOND_NAME")
     private String secondName;
 
-    @PositiveOrZero
+    @PositiveOrZero(message = "Hour's field must have positive value.")
     @Column(name = "HOURS_WORKED")
     private int hoursWorked;
 
@@ -46,7 +46,6 @@ public class Driver {
     @Column(name = "STATUS")
     private DriverStatus status;
 
-    @NotNull
     @ManyToOne
 //            (cascade = CascadeType.ALL)
     @JoinColumn(name = "ID_CITY")

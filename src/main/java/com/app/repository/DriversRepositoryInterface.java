@@ -15,4 +15,8 @@ public interface DriversRepositoryInterface {
     Driver updateDriver(Driver driver);
 
     Driver getDriver(int id);
+
+    int getAllFreeDriversCount();
+
+    int getAllBusyDriversCount();
 }

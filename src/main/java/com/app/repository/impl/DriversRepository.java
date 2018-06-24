@@ -2,13 +2,14 @@ package com.app.repository.impl;
 
 import com.app.model.Driver;
 import com.app.repository.DriversRepositoryInterface;
+import lombok.extern.slf4j.Slf4j;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-
+@Slf4j
 @Repository
 public class DriversRepository implements DriversRepositoryInterface {
     //Hibernate+Spring
@@ -49,6 +50,32 @@ public class DriversRepository implements DriversRepositoryInterface {
         return driver;
     }
 
+    @Override
+    public int getAllFreeDriversCount() {
+        List<Driver> list = getAllDrivers();
+        int count = 0;
+        for(Driver driver : list){
+            if(driver.getOrder() != null){
+
+            } else{
+                count++;
+            }
+        }
+        return count;
+    }
+
+    @Override
+    public int getAllBusyDriversCount() {
+        List<Driver> list = getAllDrivers();
+        int count = 0;
+        for(Driver driver : list){
+            if(driver.getOrder() != null){
+                count++;
+            }
+        }
+        return count;
+    }
+
     // remove driver
 
     public Driver removeDriver(int id) {
@@ -56,5 +83,6 @@ public class DriversRepository implements DriversRepositoryInterface {
         factory.getCurrentSession().delete(driver);
         return driver;
     }
+
 
 }
