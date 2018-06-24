@@ -2,12 +2,14 @@ package com.app.repository.impl;
 
 import com.app.model.Waggon;
 import com.app.repository.WaggonRepositoryInterface;
+import lombok.extern.slf4j.Slf4j;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Slf4j
 @Repository
 public class WaggonRepository implements WaggonRepositoryInterface {
     @Autowired
@@ -60,7 +62,7 @@ public class WaggonRepository implements WaggonRepositoryInterface {
 
     @Override
     public List<Waggon> getAllWorkingWaggon() {
-        List<Waggon> waggons = factory.getCurrentSession().createQuery("from waggon where status = :WORKING").list();
+        List<Waggon> waggons = factory.getCurrentSession().createQuery("from Waggon where status = :WORKING").list();
         return waggons;
     }
 

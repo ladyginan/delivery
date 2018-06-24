@@ -14,16 +14,23 @@ import java.util.List;
 public class Producer {
     @Autowired
     private final RabbitTemplate rabbitTemplate;
-    @Autowired
-    private OrderJsonServiceInterface ordersJson;
+
 
     public Producer(final RabbitTemplate rabbitTemplate) {
         this.rabbitTemplate = rabbitTemplate;
     }
 
     @Scheduled(fixedDelay = 1000, initialDelay = 500)
-    public void sendMessage(OrderJson message) {
-        rabbitTemplate.convertAndSend("ordersQueue", message.toJson());
+    public void sendMessage(OrderJson messageOrder) {
+        rabbitTemplate.convertAndSend("ordersQueue", messageOrder.toJson());
+    }
+    @Scheduled(fixedDelay = 1000, initialDelay = 500)
+    public void sendMessageDrivers(DriverJson messageDriver){
+        rabbitTemplate.convertAndSend("drivers", messageDriver.toJson());
+    }
+    @Scheduled(fixedDelay = 1000, initialDelay = 500)
+    public void sendMessageWaggons(WaggonJson messageWaggon){
+        rabbitTemplate.convertAndSend("waggons", messageWaggon.toJson());
     }
 }
 
