@@ -64,6 +64,8 @@ public class DriversController {
                                BindingResult bindingResult,
                                Model model) {
         if (bindingResult.hasErrors()) {
+            model.addAttribute("waggons", waggonService.getAllWaggons());
+            model.addAttribute("maps", mapService.getAllMap());
             return "driverForm";
         }
         driverService.addDriver(driver);

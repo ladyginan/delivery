@@ -32,7 +32,7 @@ public class WaggonCountRepository implements WaggonCountRepositoryInterface {
     @Override
     public int getAllWaggonsCount() {
         List<Waggon> list = waggonRepository.getAllWaggons();
-        int count = list.size();
+        int count = list.size() + 1;
         return count;
     }
 

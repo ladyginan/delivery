@@ -29,7 +29,7 @@
             </div>
             <div>
                 <label for="formNumb">Personal number: </label>
-                <form:input  path="personalNumber" class="form-control" id ="formNumb"/></td>
+                <form:input  path="personalNumber" class="form-control" id ="formNumb"/>
                 <form:errors path="personalNumber" cssClass="error" />
             </div>
             <div>

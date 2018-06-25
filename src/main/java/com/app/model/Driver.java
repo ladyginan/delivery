@@ -8,10 +8,8 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
-import javax.validation.constraints.PositiveOrZero;
-import javax.validation.constraints.Size;
+import javax.validation.Valid;
+import javax.validation.constraints.*;
 
 @Entity
 @Data
@@ -41,6 +39,7 @@ public class Driver {
     @PositiveOrZero(message = "Hour's field must have positive value.")
     @Column(name = "HOURS_WORKED")
     private int hoursWorked;
+
 
     @Enumerated(EnumType.STRING)
     @Column(name = "STATUS")
