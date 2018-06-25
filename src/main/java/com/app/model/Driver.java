@@ -8,7 +8,6 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 @Entity
@@ -16,7 +15,7 @@ import javax.validation.constraints.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
-@Table(name = "DRIVERS")
+@Table(name = "DRIVERS", uniqueConstraints = {@UniqueConstraint(columnNames = "PERSONAL_NUMBER")})
 
 public class Driver {
     @Id

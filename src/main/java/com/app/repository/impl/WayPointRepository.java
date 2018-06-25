@@ -2,12 +2,13 @@ package com.app.repository.impl;
 
 import com.app.model.WayPoint;
 import com.app.repository.WayPointRepositoryInterface;
+import lombok.extern.slf4j.Slf4j;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Slf4j
 @Repository
 public class WayPointRepository implements WayPointRepositoryInterface {
     @Autowired

@@ -4,12 +4,13 @@ import com.app.model.Driver;
 import com.app.model.Order;
 import com.app.model.WayPoint;
 import com.app.repository.OrderRepositoryInterface;
+import lombok.extern.slf4j.Slf4j;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Slf4j
 @Repository
 public class OrderRepository implements OrderRepositoryInterface {
     @Autowired
