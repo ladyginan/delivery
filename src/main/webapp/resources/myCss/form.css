@@ -30,6 +30,12 @@ body{
     font-size: 15px;
     background-color: #f0f0f0;
 }
+.message{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 20px;
+    color: #667292;
+}
 /*.rainbow{*/
     /*background-color: #f0f0f0;*/
 /*}*/

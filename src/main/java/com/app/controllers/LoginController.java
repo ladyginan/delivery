@@ -10,6 +10,7 @@ import com.app.service.DriverServiceInterface;
 import com.app.service.UserDriverServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -60,7 +61,7 @@ public class LoginController {
         return points;
     }
 
-    @RequestMapping(value = "/driverInfo/success", method = RequestMethod.GET)
+    @RequestMapping(value = "/driverInfo/success", method = RequestMethod.POST)
     public ModelAndView driverInfoSuccessMessage() {
         ModelAndView modelAndView = new ModelAndView("driverInfo");
         String message = "You was successfully login in.";
@@ -68,11 +69,14 @@ public class LoginController {
         return modelAndView;
     }
 
+
     @RequestMapping(path = "/driverInfo/{id}", method = RequestMethod.POST)
     public @ResponseBody
-    UserDriver createSaveChangeDriverDTO(@RequestBody SaveChangeDriverDTO saveChangeDriverDTO, @PathVariable int id) {
+    UserDriver createSaveChangeDriverDTO(@RequestBody SaveChangeDriverDTO saveChangeDriverDTO, @PathVariable int id, Model model) {
         System.out.println(saveChangeDriverDTO);
         userDriverService.saveChangeDriver(saveChangeDriverDTO);
+        String message = "You was successfully change your info";
+        model.addAttribute("message", message);
         return new UserDriver();
     }
 
@@ -86,9 +90,8 @@ public class LoginController {
 
     @RequestMapping(method = RequestMethod.POST)
     public @ResponseBody
-    UserDriver createUserDriver(@RequestBody UserDriverDTO userDriverDTO) {
-        System.out.println(userDriverDTO);
-        userDriverService.createUserDriver(userDriverDTO);
+    UserDriver createUserDriver(@RequestBody DriverDTO driverDTO) {
+        userDriverService.createUserDriver(driverDTO);
         return new UserDriver();
     }
 }

@@ -22,7 +22,11 @@ function loadDriver(driverId) {
         var somethingToLook1 = $("#personalNumber");
         $("#waggonRegNumber").val(driver.waggon).text(driver.waggon);
         var somethingToLook2 = $("#waggonRegNumber");
-        $("#orderNumber").val(driver.idOrder).text(driver.idOrder);
+        if(driver.idOrder == 0){
+            $("#orderNumber").val("No order").text("No order")
+        }else{
+            $("#orderNumber").val(driver.idOrder).text(driver.idOrder);
+        }
 
         loadCompanions(driverId);
         loadWaypoints(driverId);
