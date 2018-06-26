@@ -15,31 +15,30 @@
 <body>
 <h1>New driver</h1>
 <div class = "d-flex flex-row justify-content-center">
-    <br/>
         <form:form action="${pageContext.request.contextPath}/drivers/add" method="post" modelAttribute="driver">
             <div class="form-group">
                 <label for="formName">Name</label>
-                <form:input  path="name" class="form-control" id = "formName"/>
+                <form:input  path="name" class="form-control-sm" id = "formName"/>
                 <form:errors path="name" cssClass="error" />
            </div>
             <div>
                 <label for="formSecName">Second name:</label>
-                <form:input  path="secondName" class="form-control" id = "formSecName"/>
+                <form:input  path="secondName" class="form-control-sm" id = "formSecName"/>
                 <form:errors path="secondName" cssClass="error" />
             </div>
             <div>
                 <label for="formNumb">Personal number: </label>
-                <form:input  path="personalNumber" class="form-control" id ="formNumb"/></td>
+                <form:input  path="personalNumber" class="form-control-sm" id ="formNumb"/>
                 <form:errors path="personalNumber" cssClass="error" />
             </div>
             <div>
                 <label for="formHours">Hours worked:</label>
-                <form:input path="hoursWorked" class="form-control" id = "formHours"/>
+                <form:input path="hoursWorked" class="form-control-sm" id = "formHours"/>
                 <form:errors path="hoursWorked" cssClass="error" />
             </div>
             <div>
                 <label for="forStatus">Status:</label>
-                <form:select class="form-control" path="status" id ="forStatus">
+                <form:select class="form-control-sm" path="status" id ="forStatus">
                         <form:option value="" label=" Please select"/>
                         <form:options items="${statusDriver}" />
                 </form:select>
@@ -48,7 +47,7 @@
             </div>
             <div>
                 <label for="forCity">Current city:</label>
-                <form:select class="form-control" path="city" id="forCity">
+                <form:select class="form-control-sm" path="city" id="forCity">
                     <form:option value="" label=" Please select"/>
                     <form:options items="${maps}" itemValue="idCity" itemLabel="city" />
                 </form:select>
@@ -57,7 +56,7 @@
             </div>
             <div>
                 <label for="forWaggon">Current waggon:</label>
-                <form:select class="form-control" path="waggon" id = "forWaggon">
+                <form:select class="form-control-sm" path="waggon" id = "forWaggon">
                         <form:option value="" label=" Please select"/>
                         <form:options items="${waggons}" itemValue="IdWaggon" itemLabel="IdWaggon" />
                     </form:select>

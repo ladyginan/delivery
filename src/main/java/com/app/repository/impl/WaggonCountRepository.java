@@ -5,6 +5,7 @@ import com.app.model.Waggon;
 import com.app.repository.DriversRepositoryInterface;
 import com.app.repository.WaggonCountRepositoryInterface;
 import com.app.repository.WaggonRepositoryInterface;
+import lombok.extern.slf4j.Slf4j;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -14,7 +15,7 @@ import java.util.List;
 
 import static com.app.model.Enums.WaggonStatus.BROKEN;
 import static com.app.model.Enums.WaggonStatus.WORKING;
-
+@Slf4j
 @Repository
 public class WaggonCountRepository implements WaggonCountRepositoryInterface {
 

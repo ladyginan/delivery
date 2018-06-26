@@ -5,6 +5,7 @@ import com.app.model.Driver;
 import com.app.service.DriverServiceInterface;
 import com.app.service.MapServiceInterface;
 import com.app.service.WaggonServiceInterface;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,10 +13,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
+import javax.validation.ConstraintViolationException;
 import javax.validation.Valid;
 import java.util.List;
-
+@Slf4j
 @Controller
 @RequestMapping(path = "/drivers")
 public class DriversController {
@@ -64,9 +67,15 @@ public class DriversController {
                                BindingResult bindingResult,
                                Model model) {
         if (bindingResult.hasErrors()) {
+            model.addAttribute("waggons", waggonService.getAllWaggons());
+            model.addAttribute("maps", mapService.getAllMap());
             return "driverForm";
         }
-        driverService.addDriver(driver);
+        try{
+            driverService.addDriver(driver);
+        }catch (ConstraintViolationException e){
+            log.error("Driver isn't adding.");
+        }
         String message = "Driver was successfully added";
         model.addAttribute("message", message);
         return "welcome";
@@ -81,8 +90,13 @@ public class DriversController {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public @ResponseBody
     DriverDTO getDriverById(@PathVariable int id) {
+        try{
         DriverDTO driverDTO = driverService.getDriverDTO(id);
-        return driverDTO;
+            return driverDTO;
+        }catch (EntityNotFoundException e){
+            log.error("Driver not found");
+            return null;
+        }
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
@@ -103,7 +117,13 @@ public class DriversController {
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     public ModelAndView deleteDriver(@PathVariable Integer id) {
         ModelAndView modelAndView = new ModelAndView("welcome");
-        driverService.removeDriver(id);
+        try{
+            driverService.removeDriver(id);
+        } catch (EntityNotFoundException e){
+            log.error("Driver not found.");
+        } catch (ConstraintViolationException e){
+            log.error("Can't delete driver. Please make sure, that he has not have order.");
+        }
         String message = "Driver was successfully deleted.";
         modelAndView.addObject("message", message);
         return modelAndView;

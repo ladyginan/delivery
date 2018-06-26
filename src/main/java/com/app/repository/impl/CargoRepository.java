@@ -2,16 +2,20 @@ package com.app.repository.impl;
 
 import com.app.model.Cargo;
 import com.app.repository.CargoRepositoryInterface;
+import lombok.extern.slf4j.Slf4j;
+import org.hibernate.QueryException;
 import org.hibernate.SessionFactory;
+import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Logger;
 
+@Slf4j
 @Repository
 public class CargoRepository implements CargoRepositoryInterface {
-    private static Logger log = Logger.getLogger(CargoRepository.class.getName());
     @Autowired
     private final SessionFactory factory;
 
@@ -23,10 +27,18 @@ public class CargoRepository implements CargoRepositoryInterface {
 
     @Override
     public List<Cargo> getAllCargoes() {
-        List<Cargo> cargoes = factory.getCurrentSession().createQuery("from Cargo").list();
-        return cargoes;
+       try{
+           List<Cargo> cargoes = factory.getCurrentSession().createQuery("from Cargo").list();
+            log.info("Return list of cargoes");
+            return cargoes;
+       }catch(QueryException e){
+           e.printStackTrace();
+           log.error("get all Cargo error");
+           return null;
+       }
     }
 
+    @Override
     public Cargo updateCargo(Cargo cargo) {
         factory.getCurrentSession().update(cargo);
         return factory.getCurrentSession().get(Cargo.class, cargo.getIdCargo());

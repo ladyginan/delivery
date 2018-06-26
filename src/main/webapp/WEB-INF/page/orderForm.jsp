@@ -17,12 +17,12 @@
     <div>
             <div>
                 <label>Registration number of order:</label>
-                <input id="regNumberOrder" class="form-control">
+                <input id="regNumberOrder" class="form-control-sm">
             </div>
 
             <div>
                 <label>Order status:</label>
-                <select id="orderStatus" class="form-control">
+                <select id="orderStatus" class="form-control-sm">
                     <option value="COMPLETED">COMPLETED</option>
                     <option value="NOTCOMPLETED">NOT COMPLETED</option>
                 </select>
@@ -30,19 +30,19 @@
 
             <div>
                 <label>Way points:</label>
-                <select id="waypoints" multiple="multiple" class="form-control">
+                <select id="waypoints" multiple="multiple" class="form-control-sm">
                 </select>
             </div>
 
             <div>
                 <label>Drivers:</label>
-                <select id="drivers" multiple="multiple" class="form-control">
+                <select id="drivers" multiple="multiple" class="form-control-sm">
                 </select>
             </div>
 
             <div>
                 <label>Waggons:</label>
-                <select id="waggons" class="form-control">
+                <select id="waggons" class="form-control-sm">
                 </select>
             </div>
             <div>
