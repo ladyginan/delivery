@@ -7,7 +7,7 @@ import com.app.model.UserDriver;
 
 public interface UserDriverServiceInterface {
 
-    UserDriver createUserDriver(UserDriverDTO userDriverDTO);
+    UserDriver createUserDriver(DriverDTO driverDTO);
 
     DriverDTO findDriverIdByUsername(String username);
 

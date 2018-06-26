@@ -29,9 +29,9 @@ public class UserDriverService implements UserDriverServiceInterface {
 
     @Transactional
     @Override
-    public UserDriver createUserDriver(UserDriverDTO userDriverDTO) {
+    public UserDriver createUserDriver(DriverDTO driverDTO) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        UserDriver userDriver = new UserDriver(auth.getName(), userDriverDTO.getIdDriver());
+        UserDriver userDriver = new UserDriver(auth.getName(), driverDTO.getIdDriver());
         userDriver = userDriverRepository.createUserDriver(userDriver);
         return userDriver;
     }
