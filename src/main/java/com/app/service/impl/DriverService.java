@@ -8,13 +8,16 @@ import com.app.repository.DriversRepositoryInterface;
 import com.app.repository.MapRepositoryInterface;
 import com.app.repository.WaggonRepositoryInterface;
 import com.app.service.DriverServiceInterface;
+import lombok.AllArgsConstructor;
+import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
-
+@AllArgsConstructor
 @Service
 public class DriverService implements DriverServiceInterface {
     @Autowired
@@ -23,15 +26,6 @@ public class DriverService implements DriverServiceInterface {
     private WaggonRepositoryInterface waggonRepository;
     @Autowired
     private MapRepositoryInterface mapRepository;
-
-    public DriverService(DriversRepositoryInterface driversRepository,
-                         WaggonRepositoryInterface waggonRepository,
-                         MapRepositoryInterface mapRepository) {
-        this.driversRepository = driversRepository;
-        this.waggonRepository = waggonRepository;
-        this.mapRepository = mapRepository;
-    }
-
 
     @Transactional
     @Override
@@ -51,7 +45,8 @@ public class DriverService implements DriverServiceInterface {
     }
 
     @Transactional
-    public Driver addDriver(Driver driver) {
+    public Driver addDriver(Driver driver) throws ConstraintViolationException {
+
         return driversRepository.addDriver(driver);
     }
 
@@ -75,14 +70,14 @@ public class DriverService implements DriverServiceInterface {
 
     @Transactional
     @Override
-    public DriverDTO getDriverDTO(int id) {
+    public DriverDTO getDriverDTO(int id) throws EntityNotFoundException {
         Driver driver = driversRepository.getDriver(id);
         DriverDTO driverDTO = new DriverDTO(driver);
         return driverDTO;
     }
 
     @Transactional
-    public Driver getDriver(int id) {
+    public Driver getDriver(int id) throws EntityNotFoundException{
         Driver driver = driversRepository.getDriver(id);
         return driver;
     }
@@ -95,7 +90,8 @@ public class DriverService implements DriverServiceInterface {
 //    }
 
     @Transactional
-    public Driver removeDriver(int id) {
+    public Driver removeDriver(int id) throws EntityNotFoundException, ConstraintViolationException
+    {
         return driversRepository.removeDriver(id);
     }
 

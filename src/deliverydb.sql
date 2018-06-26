@@ -50,6 +50,7 @@ create table DRIVERS
   PERSONAL_NUMBER int null,
   SECOND_NAME varchar(255) null,
   STATUS varchar(255) null,
+  DRIVER_VARIABLE_TIME int null,
   ID_CITY int null,
   ID_ORDER int null,
   ID_WAGGON int null,

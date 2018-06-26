@@ -42,7 +42,7 @@ public class WaggonJsonService implements WaggonJsonServiceInterface {
     @Override
     public int getAllBrokenWaggonCount() {
         int count = waggonCountRepository.getAllBrokenWaggon();
-        return 0;
+        return count;
     }
     @Transactional
     @Override

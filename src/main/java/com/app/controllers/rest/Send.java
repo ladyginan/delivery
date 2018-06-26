@@ -1,4 +1,4 @@
-package com.app.controllers;
+package com.app.controllers.rest;
 
 
 import com.rabbitmq.client.Channel;

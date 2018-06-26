@@ -15,16 +15,11 @@ import java.security.Principal;
 
 @Controller
 public class UserDriverController {
-
-    @Autowired
-    private SendJsonOrdersInterface sendJsonOrders;
-
     @Autowired
     private UserDriverServiceInterface userDriverService;
     //check Role for redirect
     @GetMapping("/")
     public String index(Model model, Principal principal) {
-        sendJsonOrders.sendJson();
 
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         int id;

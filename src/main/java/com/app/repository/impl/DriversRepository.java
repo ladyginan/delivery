@@ -41,53 +41,28 @@ public class DriversRepository implements DriversRepositoryInterface {
     //add new driver
 
 
-    public Driver addDriver(Driver driver) {
-       try{
-           factory.getCurrentSession().save(driver);
+    public Driver addDriver(Driver driver) throws ConstraintViolationException{
+             factory.getCurrentSession().save(driver);
             Driver driverSave = getDriver(driver.getIdDriver());
             log.info("Driver was saved.");
             return driverSave;
-    }catch(ConstraintViolationException e){
-           e.printStackTrace();
-           log.error("Driver is existing!");
-           return null;
-    }
 }
 
     //updating driver fields
 
     public Driver updateDriver(Driver driver) {
-        try {
             factory.getCurrentSession().update(driver);
             Driver driverCheck = factory.getCurrentSession().get(Driver.class, driver.getIdDriver());
             log.info("Driver was updated.");
             return driverCheck;
-        }catch (QueryException e){
-            log.error("DAO: update driver exception.");
-            return null;
-        }
     }
 
     //get driver by id
 
-    public Driver getDriver(int id) {
-        try{
+    public Driver getDriver(int id) throws EntityNotFoundException{
             Driver driver = (Driver) factory.getCurrentSession().get(Driver.class, id);
             log.info("Driver is founded.");
             return driver;
-        }catch (QueryException e){
-            e.printStackTrace();
-            log.error("DAO: get driver exception.");
-            return null;
-        } catch (ClassCastException e){
-            e.printStackTrace();
-            log.error("DAO: class cast driver exception.");
-            return null;
-        } catch (EntityNotFoundException e){
-            e.printStackTrace();
-            log.error("Driver not found.");
-            return null;
-        }
     }
 
     @Override
@@ -101,6 +76,7 @@ public class DriversRepository implements DriversRepositoryInterface {
                 count++;
             }
         }
+        log.info("Count all free drivers");
         return count;
     }
 
@@ -113,22 +89,17 @@ public class DriversRepository implements DriversRepositoryInterface {
                 count++;
             }
         }
+        log.info("Count all busy drivers");
         return count;
     }
 
     // remove driver
 
-    public Driver removeDriver(int id) {
-        try {
+    public Driver removeDriver(int id) throws EntityNotFoundException, ConstraintViolationException{
             Driver driver = getDriver(id);
             factory.getCurrentSession().delete(driver);
             log.info("Driver was deleted.");
             return driver;
-        } catch (EntityNotFoundException e) {
-            e.printStackTrace();
-            log.error("This driver doesn't exist.");
-            return null;
-        }
     }
 
 

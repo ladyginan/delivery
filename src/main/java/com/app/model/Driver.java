@@ -58,7 +58,7 @@ public class Driver {
     private Order order;
 
     // variable for calculating hours worked
-    @Column(name = "driverVariableTime")
+    @Column(name = "DRIVER_VARIABLE_TIME")
     private int driverVariableTime;
 
     public Driver(int personalNumber, String name, String secondName, int hoursWorked, DriverStatus status, Map city, Waggon waggon) {
