@@ -2,6 +2,7 @@ package com.app.repository.impl;
 
 import com.app.model.Cargo;
 import com.app.repository.CargoRepositoryInterface;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.QueryException;
 import org.hibernate.SessionFactory;
@@ -15,38 +16,29 @@ import java.util.logging.Logger;
 
 @Slf4j
 @Repository
+@AllArgsConstructor
 public class CargoRepository implements CargoRepositoryInterface {
-    @Autowired
     private final SessionFactory factory;
-
-    public CargoRepository(SessionFactory factory) {
-        this.factory = factory;
-    }
-
     //show cargoes list
 
     @Override
     public List<Cargo> getAllCargoes() {
-       try{
-           List<Cargo> cargoes = factory.getCurrentSession().createQuery("from Cargo").list();
-            log.info("Return list of cargoes");
-            return cargoes;
-       }catch(QueryException e){
-           e.printStackTrace();
-           log.error("get all Cargo error");
-           return null;
-       }
+        List<Cargo> cargoes = factory.getCurrentSession().createQuery("from Cargo").list();
+        log.info("Cargoes list was load form DB.");
+        return cargoes;
     }
 
     @Override
     public Cargo updateCargo(Cargo cargo) {
         factory.getCurrentSession().update(cargo);
+        log.info("Cargo was updated.");
         return factory.getCurrentSession().get(Cargo.class, cargo.getIdCargo());
     }
     //get cargo by id
     @Override
     public Cargo getCargo(int id) {
         Cargo cargo = factory.getCurrentSession().get(Cargo.class, id);
+        log.info("Cargo is founded.");
         return cargo;
     }
 
@@ -54,6 +46,7 @@ public class CargoRepository implements CargoRepositoryInterface {
     @Override
     public void addCargo(Cargo cargo) {
         factory.getCurrentSession().save(cargo);
+        log.info("Cargo was saved.");
     }
 
 

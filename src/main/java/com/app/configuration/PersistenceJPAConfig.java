@@ -3,6 +3,7 @@ package com.app.configuration;
 
 import com.app.model.Authorities;
 import com.app.model.User;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -16,7 +17,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 import java.util.Properties;
 
-
+@Slf4j
 @Configuration
 @EnableTransactionManagement
 @ComponentScan("com.app.model")

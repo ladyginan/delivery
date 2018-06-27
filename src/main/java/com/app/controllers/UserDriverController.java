@@ -20,7 +20,6 @@ public class UserDriverController {
     //check Role for redirect
     @GetMapping("/")
     public String index(Model model, Principal principal) {
-
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         int id;
         boolean hasUserRole = auth.getAuthorities().stream()

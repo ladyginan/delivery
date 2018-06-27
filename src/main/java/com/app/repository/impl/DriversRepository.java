@@ -2,6 +2,7 @@ package com.app.repository.impl;
 
 import com.app.model.Driver;
 import com.app.repository.DriversRepositoryInterface;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.QueryException;
 import org.hibernate.SessionFactory;
@@ -17,48 +18,35 @@ import java.util.List;
 
 @Slf4j
 @Repository
+@AllArgsConstructor
 public class DriversRepository implements DriversRepositoryInterface {
     //Hibernate+Spring
-    @Autowired
     private final SessionFactory factory;
-
-    public DriversRepository(SessionFactory factory) {
-        this.factory = factory;
-    }
-
     //show driver list
 
     public List<Driver> getAllDrivers() {
-        try{
             List<Driver> drivers = factory.getCurrentSession().createQuery("from Driver").list();
+            log.info("Driver list is load form DB.");
             return drivers;
-        }catch (QueryException e){
-            log.error("DAO: return list of drivers");
-            return null;
-        }
     }
 
     //add new driver
-
-
     public Driver addDriver(Driver driver) throws ConstraintViolationException{
              factory.getCurrentSession().save(driver);
             Driver driverSave = getDriver(driver.getIdDriver());
-            log.info("Driver was saved.");
+            log.info("Driver is saved.");
             return driverSave;
 }
 
     //updating driver fields
-
     public Driver updateDriver(Driver driver) {
             factory.getCurrentSession().update(driver);
             Driver driverCheck = factory.getCurrentSession().get(Driver.class, driver.getIdDriver());
-            log.info("Driver was updated.");
+            log.info("Driver is updated.");
             return driverCheck;
     }
 
     //get driver by id
-
     public Driver getDriver(int id) throws EntityNotFoundException{
             Driver driver = (Driver) factory.getCurrentSession().get(Driver.class, id);
             log.info("Driver is founded.");
@@ -94,13 +82,10 @@ public class DriversRepository implements DriversRepositoryInterface {
     }
 
     // remove driver
-
     public Driver removeDriver(int id) throws EntityNotFoundException, ConstraintViolationException{
             Driver driver = getDriver(id);
             factory.getCurrentSession().delete(driver);
-            log.info("Driver was deleted.");
+            log.info("Driver is deleted.");
             return driver;
     }
-
-
 }

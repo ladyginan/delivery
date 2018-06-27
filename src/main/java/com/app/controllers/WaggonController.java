@@ -79,7 +79,6 @@ public class WaggonController {
         return savedWaggon;
     }
 
-
     @RequestMapping(path = "/edit/success", method = RequestMethod.GET)
     public ModelAndView editWaggonSuccessMessage() {
         ModelAndView modelAndView = new ModelAndView("welcome");
@@ -87,7 +86,6 @@ public class WaggonController {
         modelAndView.addObject("message", message);
         return modelAndView;
     }
-
 
     @RequestMapping(path = "/delete/{id}", method = RequestMethod.GET)
     public ModelAndView removeWaggon(@PathVariable int id) {

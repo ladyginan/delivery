@@ -80,13 +80,6 @@ public class LoginController {
         return new UserDriver();
     }
 
-//
-//    @RequestMapping(value = "/{id}", method = RequestMethod.POST)
-//    public @ResponseBody
-//    DriverDTO editDriverUser(@RequestBody DriverDTO driverDTO, @PathVariable int id) {
-////        DriverDTO savedWaggon = driverService.saveChange(DriverDTO);
-//        return savedWaggon;
-//    }
 
     @RequestMapping(method = RequestMethod.POST)
     public @ResponseBody
