@@ -31,12 +31,14 @@ public class CargoRepository implements CargoRepositoryInterface {
     @Override
     public Cargo updateCargo(Cargo cargo) {
         factory.getCurrentSession().update(cargo);
+        log.info("Cargo was updated.");
         return factory.getCurrentSession().get(Cargo.class, cargo.getIdCargo());
     }
     //get cargo by id
     @Override
     public Cargo getCargo(int id) {
         Cargo cargo = factory.getCurrentSession().get(Cargo.class, id);
+        log.info("Cargo is founded.");
         return cargo;
     }
 
@@ -44,6 +46,7 @@ public class CargoRepository implements CargoRepositoryInterface {
     @Override
     public void addCargo(Cargo cargo) {
         factory.getCurrentSession().save(cargo);
+        log.info("Cargo was saved.");
     }
 
 

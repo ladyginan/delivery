@@ -32,6 +32,7 @@ public class DriverLoginRepository implements DriverLoginRepositoryInterface {
     @Override
     public int findDriverPersonalNumber(int idDriver) {
         Driver driver = driversRepository.getDriver(idDriver);
+        log.info("Driver is founded from driver login repository.");
         return driver.getPersonalNumber();
     }
 
@@ -42,6 +43,7 @@ public class DriverLoginRepository implements DriverLoginRepositoryInterface {
         Query query = factory.getCurrentSession().createQuery("select D from Driver D where D.order = :order");
         query.setParameter("order", order);
         List<Driver> companions = ((org.hibernate.query.Query) query).list();
+        log.info("All companions are loaded.");
         return companions;
     }
 
@@ -49,6 +51,7 @@ public class DriverLoginRepository implements DriverLoginRepositoryInterface {
     public String findCurrentWaggon(int idDriver) {
         Driver driver = driversRepository.getDriver(idDriver);
         Waggon waggon = waggonRepository.getWaggon(driver.getWaggon().getIdWaggon());
+        log.info("Current waggon is founded.");
         return waggon.getRegNumber();
 
     }
@@ -61,21 +64,12 @@ public class DriverLoginRepository implements DriverLoginRepositoryInterface {
         Query query = factory.getCurrentSession().createQuery("select W from WayPoint W where W.order = :order");
         query.setParameter("order",order );
         List<WayPoint> points = ((org.hibernate.query.Query) query).list();
+        log.info("All waypoints are founded.");
         return points;
     }
 
     @Override
     public int settingDriverTime(int idDriver) {
         return 0;
-    }
-
-    @Override
-    public void changeDriverStatus(int idDriver) {
-
-    }
-
-    @Override
-    public void changeCargoStatus(int idDriver) {
-
     }
 }

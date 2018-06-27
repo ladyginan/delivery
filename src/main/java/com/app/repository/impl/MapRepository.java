@@ -19,12 +19,14 @@ public class MapRepository implements MapRepositoryInterface {
     @Override
     public List<Map> getAllMap() {
         List<Map> map = factory.getCurrentSession().createQuery("from Map").list();
+        log.info("All map are load.");
         return map;
     }
     // find city by id
 
     @Override
     public Map findCityById(int id) {
+        log.info("Map is founded.");
         return factory.getCurrentSession().get(Map.class, id);
     }
 

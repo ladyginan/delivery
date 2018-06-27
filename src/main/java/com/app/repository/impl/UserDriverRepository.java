@@ -22,6 +22,7 @@ public class UserDriverRepository implements UserDriverRepositoryInterface {
 
     public List<Integer> getAllDriversId() {
         List<Integer> list = factory.getCurrentSession().createQuery("Select idDriver from Driver").list();
+        log.info("Driver ID list is load form DB.");
         return list;
     }
 //
@@ -35,6 +36,7 @@ public class UserDriverRepository implements UserDriverRepositoryInterface {
     public UserDriver createUserDriver(UserDriver userDriver) {
         Integer savedUserDriverId = (Integer) factory.getCurrentSession().save(userDriver);
         UserDriver savedUserDriver = (UserDriver) factory.getCurrentSession().get(UserDriver.class, savedUserDriverId);
+        log.info("User-driver is created.");
         return savedUserDriver;
     }
 
@@ -42,9 +44,12 @@ public class UserDriverRepository implements UserDriverRepositoryInterface {
         Query query = factory.getCurrentSession().createQuery("Select D from UserDriver D where D.idUser = :username");
         query.setParameter("username", username);
         if (((org.hibernate.query.Query) query).list().isEmpty()) {
+            log.info("User-driver isn't existed.");
             return false;
         }
+        log.info("User-driver is existed.");
         return true;
+
     }
 
     @Override
@@ -53,6 +58,7 @@ public class UserDriverRepository implements UserDriverRepositoryInterface {
         query.setParameter("username", username);
         List<UserDriver> list = ((org.hibernate.query.Query) query).list();
         Driver driver = driversRepository.getDriver(list.get(0).getIdDriver());
+        log.info("Driver is found by username.");
         return driver;
     }
 }

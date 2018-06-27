@@ -21,6 +21,7 @@ public class OrderRepository implements OrderRepositoryInterface {
     @Override
     public List<Order> getAllOrders() {
         List<Order> orders = factory.getCurrentSession().createQuery("from Order").list();
+        log.info("All orders are load.");
         return orders;
     }
 
@@ -30,6 +31,7 @@ public class OrderRepository implements OrderRepositoryInterface {
     public Order addOrder(Order order) {
         Integer savedOrderId = (Integer) factory.getCurrentSession().save(order);
         Order savedOrder = (Order) factory.getCurrentSession().get(Order.class, savedOrderId);
+        log.info("Order is saved.");
         return savedOrder;
     }
 
@@ -38,6 +40,7 @@ public class OrderRepository implements OrderRepositoryInterface {
             WayPoint point = factory.getCurrentSession().get(WayPoint.class, pointId);
             point.setOrder(order);
             factory.getCurrentSession().update(point);
+
         }
 
         for (Integer driverId : drivers) {
@@ -45,11 +48,14 @@ public class OrderRepository implements OrderRepositoryInterface {
             driver.setOrder(order);
             factory.getCurrentSession().update(driver);
         }
+        log.info("Order waypoints and drivers are set.");
     }
 
     @Override
     public Order getOrderById(int id) {
-        return (Order) factory.getCurrentSession().get(Order.class, id);
+        Order order = (Order) factory.getCurrentSession().get(Order.class, id);
+        log.info("Order is found.");
+        return order;
     }
 
 }

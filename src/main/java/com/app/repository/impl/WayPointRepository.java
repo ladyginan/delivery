@@ -18,13 +18,15 @@ public class WayPointRepository implements WayPointRepositoryInterface {
     //add new way point
     @Override
     public void addWayPoint(WayPoint wayPoint) {
-        factory.getCurrentSession().save(wayPoint);
+      factory.getCurrentSession().save(wayPoint);
+      log.info("Waypoint is saved.");
     }
 
     //return list of way points
     @Override
     public List<WayPoint> getAllWayPoints() {
         List<WayPoint> wayPoints = factory.getCurrentSession().createQuery("from WayPoint").list();
+        log.info("All waypoints are load.");
         return wayPoints;
     }
 
@@ -32,6 +34,7 @@ public class WayPointRepository implements WayPointRepositoryInterface {
     @Override
     public WayPoint findWayPointById(int id) {
         WayPoint wayPoint = (WayPoint) factory.getCurrentSession().get(WayPoint.class, id);
+        log.info("All waypoints are found by ID.");
         return wayPoint;
     }
 }

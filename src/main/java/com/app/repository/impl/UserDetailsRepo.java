@@ -15,6 +15,8 @@ public class UserDetailsRepo implements UserDetailsRepoInterface {
 
     @Override
     public User findUserByUsername(String username) {
-        return factory.getCurrentSession().get(User.class, username);
+        User user = factory.getCurrentSession().get(User.class, username);
+        log.info("User is found.");
+        return user;
     }
 }

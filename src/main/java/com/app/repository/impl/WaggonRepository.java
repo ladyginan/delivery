@@ -20,6 +20,7 @@ public class WaggonRepository implements WaggonRepositoryInterface {
     @Override
     public List<Waggon> getAllWaggons() {
         List<Waggon> waggons = factory.getCurrentSession().createQuery("from Waggon").list();
+        log.info("Waggon list is load form DB.");
         return waggons;
     }
 // add new waggon
@@ -27,6 +28,7 @@ public class WaggonRepository implements WaggonRepositoryInterface {
     @Override
     public void addWaggon(Waggon waggon) {
         factory.getCurrentSession().save(waggon);
+        log.info("Waggon is saved.");
     }
 
     //remove waggon
@@ -34,12 +36,14 @@ public class WaggonRepository implements WaggonRepositoryInterface {
     public void removeWaggon(int id) {
         Waggon waggon = getWaggon(id);
         factory.getCurrentSession().delete(waggon);
+        log.info("Waggon is deleted.");
     }
 
     //update waggon
     @Override
     public Waggon updateWaggon(Waggon waggon) {
         factory.getCurrentSession().update(waggon);
+        log.info("Waggon is updated.");
         return factory.getCurrentSession().get(Waggon.class, waggon.getIdWaggon());
     }
 
@@ -47,6 +51,7 @@ public class WaggonRepository implements WaggonRepositoryInterface {
     @Override
     public Waggon getWaggon(int id) {
         Waggon waggon = (Waggon) factory.getCurrentSession().get(Waggon.class, id);
+        log.info("Waggon is founded.");
         return waggon;
     }
 
@@ -54,12 +59,14 @@ public class WaggonRepository implements WaggonRepositoryInterface {
     @Override
     public Waggon getWaggonByRegNumber(String regNumber) {
         Waggon waggon = (Waggon) factory.getCurrentSession().get(Waggon.class, regNumber);
+        log.info("Waggon is founded by registration number.");
         return waggon;
     }
 
     @Override
     public List<Waggon> getAllWorkingWaggon() {
         List<Waggon> waggons = factory.getCurrentSession().createQuery("from Waggon where status = :WORKING").list();
+        log.info("All working waggons are load.");
         return waggons;
     }
 

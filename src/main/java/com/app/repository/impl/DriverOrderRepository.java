@@ -23,6 +23,7 @@ public class DriverOrderRepository implements DriverOrderRepositoryInterface {
         Query query = factory.getCurrentSession().createQuery("Select D from Driver D where D.order = :order");
         query.setParameter("order", order);
         List<Driver> drivers = ((org.hibernate.query.Query) query).list();
+        log.info("All drivers are founded");
         return drivers;
     }
 

@@ -22,6 +22,7 @@ public class WayPointOrderRepository implements WayPointOrderRepositoryInterface
             Query query = factory.getCurrentSession().createQuery("Select W from WayPoint W where W.order = :order");
             query.setParameter("order", order);
             List<WayPoint> wayPoints = ((org.hibernate.query.Query) query).list();
+            log.info("All waypoints of order are load.");
             return wayPoints;
         }
 }
