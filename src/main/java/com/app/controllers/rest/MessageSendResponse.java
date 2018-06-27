@@ -1,27 +1,15 @@
 package com.app.controllers.rest;
 
-public class MessageSendResponse {
+import com.app.configuration.rabbitMq.JsonParse;
+import lombok.*;
+
+import java.io.Serializable;
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@ToString
+public class MessageSendResponse extends JsonParse implements Serializable {
     private String answer;
 
-    public MessageSendResponse() {
-    }
-
-    public MessageSendResponse(String answer) {
-        this.answer = answer;
-    }
-
-    public String getAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(String answer) {
-        this.answer = answer;
-    }
-
-    @Override
-    public String toString() {
-        return "MessageSendResponse{" +
-                "answer='" + answer + '\'' +
-                '}';
-    }
 }

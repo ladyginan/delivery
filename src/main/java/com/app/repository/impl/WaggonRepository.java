@@ -2,6 +2,7 @@ package com.app.repository.impl;
 
 import com.app.model.Waggon;
 import com.app.repository.WaggonRepositoryInterface;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,13 +12,9 @@ import java.util.List;
 
 @Slf4j
 @Repository
+@AllArgsConstructor
 public class WaggonRepository implements WaggonRepositoryInterface {
-    @Autowired
     private final SessionFactory factory;
-
-    public WaggonRepository(SessionFactory factory) {
-        this.factory = factory;
-    }
 //show list of waggons
 
     @Override

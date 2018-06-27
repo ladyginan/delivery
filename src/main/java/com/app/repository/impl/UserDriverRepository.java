@@ -4,6 +4,7 @@ import com.app.model.Driver;
 import com.app.model.UserDriver;
 import com.app.repository.DriversRepositoryInterface;
 import com.app.repository.UserDriverRepositoryInterface;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,16 +14,11 @@ import javax.persistence.Query;
 import java.util.List;
 @Slf4j
 @Repository
+@AllArgsConstructor
 public class UserDriverRepository implements UserDriverRepositoryInterface {
-    @Autowired
     private final SessionFactory factory;
     @Autowired
     private DriversRepositoryInterface driversRepository;
-
-
-    public UserDriverRepository(SessionFactory factory) {
-        this.factory = factory;
-    }
 
     public List<Integer> getAllDriversId() {
         List<Integer> list = factory.getCurrentSession().createQuery("Select idDriver from Driver").list();

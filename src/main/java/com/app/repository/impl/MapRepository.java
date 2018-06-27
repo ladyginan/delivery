@@ -2,6 +2,7 @@ package com.app.repository.impl;
 
 import com.app.model.Map;
 import com.app.repository.MapRepositoryInterface;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,14 +11,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 @Slf4j
 @Repository
+@AllArgsConstructor
 public class MapRepository implements MapRepositoryInterface {
-    @Autowired
     private final SessionFactory factory;
-
-    public MapRepository(SessionFactory factory) {
-        this.factory = factory;
-    }
-
     //show list of cities
 
     @Override

@@ -5,6 +5,7 @@ import com.app.model.Waggon;
 import com.app.repository.DriversRepositoryInterface;
 import com.app.repository.WaggonCountRepositoryInterface;
 import com.app.repository.WaggonRepositoryInterface;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,18 +18,13 @@ import static com.app.model.Enums.WaggonStatus.BROKEN;
 import static com.app.model.Enums.WaggonStatus.WORKING;
 @Slf4j
 @Repository
+@AllArgsConstructor
 public class WaggonCountRepository implements WaggonCountRepositoryInterface {
-
-    @Autowired
     private final SessionFactory factory;
     @Autowired
     private WaggonRepositoryInterface waggonRepository;
     @Autowired
     private DriversRepositoryInterface driversRepository;
-
-    public WaggonCountRepository(SessionFactory factory) {
-        this.factory = factory;
-    }
 
     @Override
     public int getAllWaggonsCount() {

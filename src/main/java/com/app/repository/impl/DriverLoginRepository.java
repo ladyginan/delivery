@@ -8,6 +8,7 @@ import com.app.repository.DriverLoginRepositoryInterface;
 import com.app.repository.DriversRepositoryInterface;
 import com.app.repository.OrderRepositoryInterface;
 import com.app.repository.WaggonRepositoryInterface;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.Hibernate;
 import org.hibernate.SessionFactory;
@@ -18,8 +19,8 @@ import javax.persistence.Query;
 import java.util.List;
 @Slf4j
 @Repository
+@AllArgsConstructor
 public class DriverLoginRepository implements DriverLoginRepositoryInterface {
-    @Autowired
     private final SessionFactory factory;
     @Autowired
     private DriversRepositoryInterface driversRepository;
@@ -27,10 +28,6 @@ public class DriverLoginRepository implements DriverLoginRepositoryInterface {
     private WaggonRepositoryInterface waggonRepository;
     @Autowired
     private OrderRepositoryInterface orderRepository;
-
-    public DriverLoginRepository(SessionFactory factory) {
-        this.factory = factory;
-    }
 
     @Override
     public int findDriverPersonalNumber(int idDriver) {

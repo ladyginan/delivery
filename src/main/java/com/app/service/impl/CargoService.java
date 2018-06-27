@@ -3,6 +3,7 @@ package com.app.service.impl;
 import com.app.model.Cargo;
 import com.app.repository.CargoRepositoryInterface;
 import com.app.service.CargoServiceInterface;
+import lombok.ToString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

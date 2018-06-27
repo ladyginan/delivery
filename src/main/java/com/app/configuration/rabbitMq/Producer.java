@@ -15,7 +15,6 @@ public class Producer {
     @Autowired
     private final RabbitTemplate rabbitTemplate;
 
-
     public Producer(final RabbitTemplate rabbitTemplate) {
         this.rabbitTemplate = rabbitTemplate;
     }

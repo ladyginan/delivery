@@ -3,6 +3,7 @@ package com.app.repository.impl;
 import com.app.model.Order;
 import com.app.model.WayPoint;
 import com.app.repository.WayPointOrderRepositoryInterface;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,14 +13,9 @@ import javax.persistence.Query;
 import java.util.List;
 @Slf4j
 @Repository
+@AllArgsConstructor
 public class WayPointOrderRepository implements WayPointOrderRepositoryInterface {
-    @Autowired
-    private final SessionFactory factory;
-
-        public WayPointOrderRepository(SessionFactory factory) {
-            this.factory = factory;
-        }
-
+     private final SessionFactory factory;
 
         @Override
         public List<WayPoint> getAllWayPointsOfOrder(Order order) {

@@ -5,42 +5,19 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serializable;
 import java.util.List;
 @Setter
 @Getter
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class OrderJson extends JsonParse implements Serializable {
-
     private Integer regNumberOrder;
     private List<String> wayPoints;
     private String regNumber;
     private List<String> drivers;
     private OrderStatus orderStatus;
-
-    public OrderJson(){
-
-    }
-
-    public OrderJson(Integer regNumberOrder, List<String> wayPoints, String regNumber, List<String> drivers, OrderStatus orderStatus) {
-        this.regNumberOrder = regNumberOrder;
-        this.wayPoints = wayPoints;
-        this.regNumber = regNumber;
-        this.drivers = drivers;
-        this.orderStatus = orderStatus;
-    }
-
-    @Override
-    public String toString() {
-        return "OrderJson{" +
-                "regNumberOrder=" + regNumberOrder +
-                ", wayPoints=" + wayPoints +
-                ", regNumber=" + regNumber +
-                ", drivers=" + drivers +
-                ", orderStatus=" + orderStatus +
-                '}';
-    }
-
 }

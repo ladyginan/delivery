@@ -2,6 +2,7 @@ package com.app.repository.impl;
 
 import com.app.model.WayPoint;
 import com.app.repository.WayPointRepositoryInterface;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,13 +11,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 @Slf4j
 @Repository
+@AllArgsConstructor
 public class WayPointRepository implements WayPointRepositoryInterface {
-    @Autowired
     private final SessionFactory factory;
-
-    public WayPointRepository(SessionFactory factory) {
-        this.factory = factory;
-    }
 
     //add new way point
     @Override
