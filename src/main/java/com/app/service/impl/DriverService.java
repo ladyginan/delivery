@@ -9,6 +9,7 @@ import com.app.repository.MapRepositoryInterface;
 import com.app.repository.WaggonRepositoryInterface;
 import com.app.service.DriverServiceInterface;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,7 @@ import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
+@Slf4j
 @AllArgsConstructor
 @Service
 public class DriverService implements DriverServiceInterface {

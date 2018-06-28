@@ -9,6 +9,7 @@ import com.app.model.UserDriver;
 import com.app.model.WayPoint;
 import com.app.repository.*;
 import com.app.service.UserDriverServiceInterface;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,7 +18,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.List;
 
-
+@Slf4j
 @Service
 public class UserDriverService implements UserDriverServiceInterface {
     @Autowired

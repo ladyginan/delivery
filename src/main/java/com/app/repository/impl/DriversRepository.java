@@ -32,10 +32,11 @@ public class DriversRepository implements DriversRepositoryInterface {
 
     //add new driver
     public Driver addDriver(Driver driver) throws ConstraintViolationException{
-             factory.getCurrentSession().save(driver);
-            Driver driverSave = getDriver(driver.getIdDriver());
-            log.info("Driver is saved.");
-            return driverSave;
+        factory.getCurrentSession().save(driver);
+        Driver driverSave = getDriver(driver.getIdDriver());
+        log.info("Driver is saved.");
+        return driverSave;
+
 }
 
     //updating driver fields

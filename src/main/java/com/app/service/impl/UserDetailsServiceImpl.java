@@ -2,6 +2,7 @@ package com.app.service.impl;
 
 import com.app.model.Authorities;
 import com.app.repository.UserDetailsRepoInterface;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -15,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
     @Autowired

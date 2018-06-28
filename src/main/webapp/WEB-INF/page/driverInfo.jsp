@@ -17,7 +17,7 @@
     <thead>
     <tr>
         <th scope="col">personal number</th>
-        <th scope="col">waggon's registrasion number</th>
+        <th scope="col">waggon's registration number</th>
         <th scope="col">order number</th>
         <th scope="col">companions</th>
         <th scope="col">list of waypoints</th>

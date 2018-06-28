@@ -6,13 +6,14 @@ import com.app.model.Driver;
 import com.app.model.WayPoint;
 import com.app.repository.DriverLoginRepositoryInterface;
 import com.app.service.DriverLoginServiceInterface;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Slf4j
 @Service
 public class DriverLoginService implements DriverLoginServiceInterface {
     @Autowired
@@ -28,17 +29,20 @@ public class DriverLoginService implements DriverLoginServiceInterface {
             DriverDTO driverDTO = new DriverDTO(driver,driver.getOrder().getIdOrder());
             listDriverDTO.add(driverDTO);
         }
+        log.info("List of all companions in service.");
         return listDriverDTO;
     }
 
     @Transactional(readOnly = true)
     @Override
     public String findCurrentWaggon(int idDriver) {
+        log.info("Current waggon is found.");
         return driverLoginRepository.findCurrentWaggon(idDriver);
     }
     @Transactional
     @Override
     public int findOrderNumber(int idDriver) {
+
         return 0;
     }
     @Transactional
@@ -50,6 +54,7 @@ public class DriverLoginService implements DriverLoginServiceInterface {
             WayPointDTO pointDTO = new WayPointDTO(wayPoint,wayPoint.getIdWayPoint());
             wayPointsDTO.add(pointDTO);
         }
+        log.info("List of order points in service.");
         return wayPointsDTO;
     }
     @Transactional

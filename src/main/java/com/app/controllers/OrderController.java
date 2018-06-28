@@ -26,13 +26,8 @@ public class OrderController {
     @Autowired
     private OrderServiceInterface orderService;
     @Autowired
-    private Producer producer;
-    @Autowired
-    private OrderJsonServiceInterface orderJsonService;
-    @Autowired
-    private DriverJsonServiceInterface driverJsonService;
-    @Autowired
-    private WaggonJsonServiceInterface waggonJsonService;
+    private UpdateOrderInterface updateOrderInterface;
+
 
 
     @RequestMapping(method = RequestMethod.POST)
@@ -40,9 +35,6 @@ public class OrderController {
     Order createOrder(@RequestBody CreateOrderDTO createOrderDTO) {
         System.out.println(createOrderDTO);
         Order order = orderService.createOrder(createOrderDTO);
-        producer.sendMessage(orderJsonService.getNewOrderJson(order));
-        producer.sendMessageDrivers(driverJsonService.getDriverJson());
-        producer.sendMessageWaggons(waggonJsonService.getWaggonJson());
         return new Order();
     }
 

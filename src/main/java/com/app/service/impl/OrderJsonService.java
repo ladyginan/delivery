@@ -1,12 +1,10 @@
 package com.app.service.impl;
 
 import com.app.configuration.rabbitMq.OrderJson;
-import com.app.model.Cargo;
-import com.app.model.Driver;
-import com.app.model.Order;
-import com.app.model.WayPoint;
+import com.app.model.*;
 import com.app.repository.*;
 import com.app.service.OrderJsonServiceInterface;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +12,7 @@ import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @Service
 public class OrderJsonService implements OrderJsonServiceInterface {
 
@@ -29,13 +28,16 @@ public class OrderJsonService implements OrderJsonServiceInterface {
     WayPointRepositoryInterface wayPointRepository;
     @Autowired
     CargoRepositoryInterface cargoRepository;
+    @Autowired
+    WaggonRepositoryInterface waggonRepository;
 
     @Override
     public OrderJson getNewOrderJson(Order order) {
         OrderJson orderJson = new OrderJson();
         orderJson.setRegNumberOrder(order.getRegNumberOrder());
         orderJson.setOrderStatus(order.getStatus());
-        orderJson.setRegNumber(order.getCurrentWaggon().getRegNumber());
+        Waggon waggon = waggonRepository.getWaggon(order.getCurrentWaggon().getIdWaggon());
+        orderJson.setRegNumber(waggon.getRegNumber());
 
         List<String> drivers = getAllDriversOrder(driverOrderRepository.getAllDriversOfOrder(order));
         orderJson.setDrivers(drivers);

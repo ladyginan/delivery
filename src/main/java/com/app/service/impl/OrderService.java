@@ -9,6 +9,7 @@ import com.app.repository.OrderRepositoryInterface;
 import com.app.repository.WaggonRepositoryInterface;
 import com.app.repository.WayPointRepositoryInterface;
 import com.app.service.OrderServiceInterface;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,7 @@ import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @Service
 public class OrderService implements OrderServiceInterface {
     @Autowired

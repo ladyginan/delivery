@@ -69,7 +69,6 @@ public class LoginController {
         return modelAndView;
     }
 
-
     @RequestMapping(path = "/driverInfo/{id}", method = RequestMethod.POST)
     public @ResponseBody
     UserDriver createSaveChangeDriverDTO(@RequestBody SaveChangeDriverDTO saveChangeDriverDTO, @PathVariable int id, Model model) {

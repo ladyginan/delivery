@@ -8,11 +8,13 @@ import com.app.service.DriverJsonServiceInterface;
 import com.app.service.OrderJsonServiceInterface;
 import com.app.service.SendJsonOrdersInterface;
 import com.app.service.WaggonJsonServiceInterface;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Slf4j
 @Service
 public class SendJsonOrders implements SendJsonOrdersInterface {
 
