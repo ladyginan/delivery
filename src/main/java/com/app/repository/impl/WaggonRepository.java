@@ -5,6 +5,7 @@ import com.app.repository.WaggonRepositoryInterface;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.SessionFactory;
+import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -33,7 +34,7 @@ public class WaggonRepository implements WaggonRepositoryInterface {
 
     //remove waggon
     @Override
-    public void removeWaggon(int id) {
+    public void removeWaggon(int id) throws ConstraintViolationException {
         Waggon waggon = getWaggon(id);
         factory.getCurrentSession().delete(waggon);
         log.info("Waggon is deleted.");

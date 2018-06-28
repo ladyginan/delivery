@@ -26,6 +26,8 @@ public class OrderService implements OrderServiceInterface {
     private WaggonRepositoryInterface waggonRepository;
     @Autowired
     private WayPointRepositoryInterface wayPointRepository;
+    @Autowired
+    private SendJsonOrders sendJson;
 
     @Transactional
     @Override
@@ -64,6 +66,5 @@ public class OrderService implements OrderServiceInterface {
         orderRepository.settingOrderIdInWayPointsAndDrivers(wayPoints, drivers, order);
         return order;
     }
-
 
 }

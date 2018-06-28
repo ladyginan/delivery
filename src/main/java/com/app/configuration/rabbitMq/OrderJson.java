@@ -20,4 +20,5 @@ public class OrderJson extends JsonParse implements Serializable {
     private String regNumber;
     private List<String> drivers;
     private OrderStatus orderStatus;
+
 }

@@ -30,6 +30,20 @@ public class OrderJsonService implements OrderJsonServiceInterface {
     @Autowired
     CargoRepositoryInterface cargoRepository;
 
+    @Override
+    public OrderJson getNewOrderJson(Order order) {
+        OrderJson orderJson = new OrderJson();
+        orderJson.setRegNumberOrder(order.getRegNumberOrder());
+        orderJson.setOrderStatus(order.getStatus());
+        orderJson.setRegNumber(order.getCurrentWaggon().getRegNumber());
+
+        List<String> drivers = getAllDriversOrder(driverOrderRepository.getAllDriversOfOrder(order));
+        orderJson.setDrivers(drivers);
+        List<String> wayPoints = getAllWayPointsOrder(wayPointOrderRepository.getAllWayPointsOfOrder(order));
+        orderJson.setWayPoints(wayPoints);
+        return orderJson ;
+    }
+
     @Transactional
     @Override
     public List<OrderJson> getAllOrdersJson() {

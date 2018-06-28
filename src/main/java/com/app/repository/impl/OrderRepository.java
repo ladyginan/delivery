@@ -1,5 +1,6 @@
 package com.app.repository.impl;
 
+import com.app.configuration.rabbitMq.Producer;
 import com.app.model.Driver;
 import com.app.model.Order;
 import com.app.model.WayPoint;
@@ -16,8 +17,8 @@ import java.util.List;
 @AllArgsConstructor
 public class OrderRepository implements OrderRepositoryInterface {
     private final SessionFactory factory;
-    //show list of orders
 
+      //show list of orders
     @Override
     public List<Order> getAllOrders() {
         List<Order> orders = factory.getCurrentSession().createQuery("from Order").list();
@@ -26,7 +27,6 @@ public class OrderRepository implements OrderRepositoryInterface {
     }
 
     //add new order
-
     @Override
     public Order addOrder(Order order) {
         Integer savedOrderId = (Integer) factory.getCurrentSession().save(order);

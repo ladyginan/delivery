@@ -22,9 +22,11 @@ public class Map {
 
     @Column(name = "CITY")
     private String city;
+
     @JsonIgnore
     @Column(name = "LATITUDE")
     private Double latitude;
+
     @JsonIgnore
     @Column(name = "LONGITUDE")
     private Double longitude;

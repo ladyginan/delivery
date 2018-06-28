@@ -1,10 +1,13 @@
 package com.app.controllers;
 
 import com.app.DTO.DriverDTO;
+import com.app.configuration.rabbitMq.Producer;
 import com.app.model.Driver;
+import com.app.service.DriverJsonServiceInterface;
 import com.app.service.DriverServiceInterface;
 import com.app.service.MapServiceInterface;
 import com.app.service.WaggonServiceInterface;
+import com.app.service.impl.DriverJsonService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,6 +31,10 @@ public class DriversController {
     private WaggonServiceInterface waggonService;
     @Autowired
     private MapServiceInterface mapService;
+    @Autowired
+    private Producer producer;
+    @Autowired
+    private DriverJsonServiceInterface driverJsonService;
 
     @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody
@@ -73,6 +80,7 @@ public class DriversController {
         }
         try{
             driverService.addDriver(driver);
+            producer.sendMessageDrivers(driverJsonService.getDriverJson());
         }catch (ConstraintViolationException e){
             log.error("Driver isn't adding.");
         }
@@ -103,6 +111,7 @@ public class DriversController {
     public @ResponseBody
     DriverDTO editDriver(@RequestBody DriverDTO driverDTO, @PathVariable int id) {
         DriverDTO savedDriver = driverService.updateDriver(driverDTO);
+        producer.sendMessageDrivers(driverJsonService.getDriverJson());
         return savedDriver;
     }
 
@@ -119,10 +128,17 @@ public class DriversController {
         ModelAndView modelAndView = new ModelAndView("welcome");
         try{
             driverService.removeDriver(id);
+            producer.sendMessageDrivers(driverJsonService.getDriverJson());
         } catch (EntityNotFoundException e){
             log.error("Driver not found.");
+            String message = "Driver not found.";
+            modelAndView.addObject("message", message);
+            return modelAndView;
         } catch (ConstraintViolationException e){
             log.error("Can't delete driver. Please make sure, that he has not have order.");
+            String message = "Can't delete this driver.";
+            modelAndView.addObject("message", message);
+            return modelAndView;
         }
         String message = "Driver was successfully deleted.";
         modelAndView.addObject("message", message);

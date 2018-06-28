@@ -8,6 +8,8 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 import java.util.List;
 
 @Entity
@@ -21,9 +23,11 @@ public class Order {
     @Column(name = "ID_ORDER", unique = true)
     private int idOrder;
 
+    @Positive(message = "Registration number must have positive value.")
     @Column(name = "REGISTRATION_NUMBER_ORDER")
     private int regNumberOrder;
 
+    @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name = "ORDER_STATUS")
     private OrderStatus status;
@@ -32,10 +36,12 @@ public class Order {
     @Fetch(value = FetchMode.SUBSELECT)
     private List<WayPoint> pointList;
 
+    @NotNull
     @OneToOne
 //            (cascade = {CascadeType.ALL})
     @JoinColumn(name = "WAGGONS", referencedColumnName = "ID_WAGGON")
     private Waggon currentWaggon;
+
 
     @OneToMany(mappedBy = "order", fetch = FetchType.EAGER)
     private List<Driver> drivers;

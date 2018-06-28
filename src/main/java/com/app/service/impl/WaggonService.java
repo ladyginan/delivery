@@ -6,13 +6,15 @@ import com.app.model.Waggon;
 import com.app.repository.MapRepositoryInterface;
 import com.app.repository.WaggonRepositoryInterface;
 import com.app.service.WaggonServiceInterface;
+import lombok.extern.slf4j.Slf4j;
+import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
-
+@Slf4j
 @Service
 public class WaggonService implements WaggonServiceInterface {
     @Autowired
@@ -40,8 +42,9 @@ public class WaggonService implements WaggonServiceInterface {
 
     @Transactional
     @Override
-    public void removeWaggon(int id) {
+    public void removeWaggon(int id) throws ConstraintViolationException {
         waggonRepository.removeWaggon(id);
+        log.info("Waggon is removed.");
     }
 
     @Transactional

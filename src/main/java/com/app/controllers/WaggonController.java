@@ -4,6 +4,7 @@ import com.app.DTO.WaggonDTO;
 import com.app.model.Waggon;
 import com.app.service.MapServiceInterface;
 import com.app.service.WaggonServiceInterface;
+import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -90,7 +91,13 @@ public class WaggonController {
     @RequestMapping(path = "/delete/{id}", method = RequestMethod.GET)
     public ModelAndView removeWaggon(@PathVariable int id) {
         ModelAndView modelAndView = new ModelAndView("welcome");
-        waggonService.removeWaggon(id);
+        try{
+            waggonService.removeWaggon(id);
+        }catch (ConstraintViolationException e){
+            String message = "Waggon can't be deleted. This waggon is used by driver.";
+            modelAndView.addObject("message",message);
+            return modelAndView;
+        }
         String message = "Waggon was successfully deleted.";
         modelAndView.addObject("message", message);
         return modelAndView;

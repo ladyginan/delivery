@@ -17,15 +17,24 @@ import java.security.Principal;
 public class UserDriverController {
     @Autowired
     private UserDriverServiceInterface userDriverService;
+    @Autowired
+    private SendJsonOrdersInterface sendJsonOrders;
+    int i = 0;
     //check Role for redirect
     @GetMapping("/")
     public String index(Model model, Principal principal) {
+        if(i == 0){
+            sendJsonOrders.sendJson();
+            i++;
+        }
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         int id;
+
         boolean hasUserRole = auth.getAuthorities().stream()
                 .anyMatch(r -> r.getAuthority().equals("ROLE_DRIVER"));
         // This is method for checking userDriver existence.
         if (hasUserRole) {
+
             DriverDTO driverDTO = userDriverService.findDriverIdByUsername(principal.getName());
             id = driverDTO.getIdDriver();
             if (id == -1) {

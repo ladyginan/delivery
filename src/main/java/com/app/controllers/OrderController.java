@@ -2,11 +2,9 @@ package com.app.controllers;
 
 import com.app.DTO.CreateOrderDTO;
 import com.app.DTO.OrderDTO;
+import com.app.configuration.rabbitMq.Producer;
 import com.app.model.Order;
-import com.app.service.DriverServiceInterface;
-import com.app.service.OrderServiceInterface;
-import com.app.service.WaggonServiceInterface;
-import com.app.service.WayPointServiceInterface;
+import com.app.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,12 +25,24 @@ public class OrderController {
     private DriverServiceInterface driverService;
     @Autowired
     private OrderServiceInterface orderService;
+    @Autowired
+    private Producer producer;
+    @Autowired
+    private OrderJsonServiceInterface orderJsonService;
+    @Autowired
+    private DriverJsonServiceInterface driverJsonService;
+    @Autowired
+    private WaggonJsonServiceInterface waggonJsonService;
+
 
     @RequestMapping(method = RequestMethod.POST)
     public @ResponseBody
     Order createOrder(@RequestBody CreateOrderDTO createOrderDTO) {
         System.out.println(createOrderDTO);
-        orderService.createOrder(createOrderDTO);
+        Order order = orderService.createOrder(createOrderDTO);
+        producer.sendMessage(orderJsonService.getNewOrderJson(order));
+        producer.sendMessageDrivers(driverJsonService.getDriverJson());
+        producer.sendMessageWaggons(waggonJsonService.getWaggonJson());
         return new Order();
     }
 

@@ -16,7 +16,6 @@ import javax.validation.constraints.*;
 @AllArgsConstructor
 @EqualsAndHashCode
 @Table(name = "DRIVERS", uniqueConstraints = {@UniqueConstraint(columnNames = "PERSONAL_NUMBER")})
-
 public class Driver {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,16 +38,18 @@ public class Driver {
     @Column(name = "HOURS_WORKED")
     private int hoursWorked;
 
-
+    @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name = "STATUS")
     private DriverStatus status;
 
+    @NotNull
     @ManyToOne
 //            (cascade = CascadeType.ALL)
     @JoinColumn(name = "ID_CITY")
     private Map city;
 
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "ID_WAGGON")
     private Waggon waggon;

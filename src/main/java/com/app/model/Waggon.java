@@ -5,6 +5,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
@@ -20,19 +23,24 @@ public class Waggon {
     @Column(name = "ID_WAGGON", unique = true)
     private int idWaggon;
 
+    @Size(min = 2, max = 7, message = "Registration number must have 7 characters.")
     @Column(name = "REGISTRATION_NUMBER")
     private String regNumber;
 
+    @Positive(message = "Shift size must have positive value.")
     @Column(name = "SHIFT_SIZE")
     private int shiftSize;
 
+    @Positive(message = "Capacity must have positive value.")
     @Column(name = "CAPACITY")
     private int capacity;
 
+    @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name = "STATUS")
     private WaggonStatus status;
 
+    @NotNull
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "ID_CITY")
